@@ -4,12 +4,17 @@
 
 <head>
 	 <title>Da Hub</title>
+   <link rel="shortcut icon" href="https://butterdogco.com/img/favicon.ico">
    <style>
 
     body {
-      background-color: rgb(40,40,70);
+      background-image: url('https://4kwallpapers.com/images/wallpapers/windows-11-abstract-background-blue-background-5k-2732x2732-8625.jpeg');
       color: white;
       font-family: 'Roboto', sans-serif;
+    }
+
+    #main {
+      backdrop-filter: blur(8px) brightness(60%);
     }
 
     .main {
@@ -27,11 +32,19 @@
       text-decoration: none;
       text-align: center;
       margin: 12px;
-      transition: 0.2s ease;
+      transition: 0.3s ease;
     }
 
     .main a:hover {
       background-color: rgb(60,60,90);
+    }
+
+    .main a:active {
+      background-color: rgb(55,55,85);
+    }
+
+    footer {
+      display: inline-flex;
     }
 
     footer a {
@@ -44,7 +57,7 @@
 
   <body>
      <!-- Div content -->
-<div style="margin:0 auto;text-align:center">
+<div style="margin:0 auto;text-align:center" id="main">
 	
     <h1>Welcome to Da Hub!</h1>
     <b>Everything <i>should</i> work. If something goes wrong please report an error at the <a href="https://github.com/butterdogco/da-hub/" style="color: rgb(147, 147, 255);">Github.</a> Thanks and Enjoy!!</b>
