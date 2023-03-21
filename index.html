@@ -11,10 +11,17 @@
       background-image: url('https://4kwallpapers.com/images/wallpapers/windows-11-abstract-background-blue-background-5k-2732x2732-8625.jpeg');
       color: white;
       font-family: 'Roboto', sans-serif;
+      margin: 0;
     }
 
     #main {
-      backdrop-filter: blur(8px) brightness(60%);
+      backdrop-filter: blur(8px) brightness(80%);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 120%;
+      margin: 0;
     }
 
     .main {
@@ -28,19 +35,16 @@
       color: white;
       font-weight: bold;
       border-radius: 12px;
-      background-color: rgb(50,50,80);
+      background-color: rgba(230,230,255,0.3);
       text-decoration: none;
       text-align: center;
       margin: 12px;
       transition: 0.3s ease;
+      backdrop-filter: blur(3px);
     }
 
     .main a:hover {
-      background-color: rgb(60,60,90);
-    }
-
-    .main a:active {
-      background-color: rgb(55,55,85);
+      background-color: rgba(190,190,220,0.5);
     }
 
     footer {
@@ -56,8 +60,9 @@
 </head>
 
   <body>
+<div id="main">
      <!-- Div content -->
-<div style="margin:0 auto;text-align:center" id="main">
+<div style="margin:0 auto;text-align:center">
 	
     <h1>Welcome to Da Hub!</h1>
     <b>Everything <i>should</i> work. If something goes wrong please report an error at the <a href="https://github.com/butterdogco/da-hub/" style="color: rgb(147, 147, 255);">Github.</a> Thanks and Enjoy!!</b>
@@ -296,5 +301,6 @@
          
       </div>
 	
-	  </div>	  
+	  </div>	 
+</div> 
 </html>
