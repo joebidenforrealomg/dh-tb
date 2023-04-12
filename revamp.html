@@ -1,45 +1,93 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 
 <head>
+    <title>Da Hub | Revamp Beta</title>
+    <link rel="shortcut icon" href="https://butterdogco.com/img/favicon.ico">
     <style>
-
         body {
             color: white;
             font-family: 'Roboto', sans-serif;
+            background: lightgray;
         }
 
         button {
-            width: 100px;
-            height: 100px;
+            width: 140px;
+            height: 140px;
             padding: 12px;
             border-radius: 12px;
             font-family: inherit;
-            color: black;
             font-weight: bold;
-            font-size: 30px;
+            text-align: center;
+            color: gray;
+            font-size: 25px;
             border: 3px solid rgb(155, 155, 155);
-            background-color: rgb(158, 158, 158);
+            background-color: rgb(230, 230, 230);
+            cursor: pointer;
+            transition: 0.2s ease;
+            margin: 8px;
+        }
+
+        button:hover {
+            color: white;
+            background-color: rgb(155, 155, 155);
         }
     </style>
 </head>
 
 <body>
-
-    <button onclick="rblx()">Roblox</button>
+    <div class='apps'>
+        <button onclick='rblx()' title='Play Roblox in your browser.'>Roblox</button>
+        <button onclick='mc()' title='Choose from 3 full versions of Minecraft Java edition for free.'>Minecraft</button>
+        <button onclick='chat()' title='Chat with other people on ButterDog Chat'>Chat</button>
+        <button onclick='motoX3M()' title='Play MotoX3M'>MotoX3M</button>
+    </div>
 
     <script>
         function rblx() {
-            let win = window.open()
-            win.document.body.style.margin = '0'
-            win.document.body.style.height = '100vh'
-            var iframe = win.document.createElement('iframe')
+            var blank = window.open()
+            blank.document.body.style.margin = '0'
+            blank.document.body.style.height = '100vh'
+            blank.document.title = 'New Tab'
+            var iframe = blank.document.createElement('iframe')
             iframe.style.border = 'none'
             iframe.style.width = '100%'
             iframe.style.height = '100%'
             iframe.style.margin = '0'
-            iframe.src = "https://topvazr0bl0c.geometrytip.site/school/hvtrs8%2F-cjoklkelg%2Ccmm-rmbnoz"
+            iframe.src = 'https://topvazr0bl0c.geometrytip.site/school/hvtrs8%2F-cjoklkelg%2Ccmm-rmbnoz'
+            blank.document.body.appendChild(iframe);
+        }
+
+        function mc() {
+            window.open("https://mcserver.butterdogco.com")
+        }
+
+        function chat() {
+            var blank = window.open()
+            blank.document.body.style.margin = '0'
+            blank.document.body.style.height = '100vh'
+            blank.document.title = 'New Tab'
+            var iframe = blank.document.createElement('iframe')
+            iframe.style.border = 'none'
+            iframe.style.width = '100%'
+            iframe.style.height = '100%'
+            iframe.style.margin = '0'
+            iframe.src = 'https://chat.butterdogco.com'
+            blank.document.body.appendChild(iframe);
+        }
+        
+        function motoX3M() {
+            var blank = window.open()
+            blank.document.body.style.margin = '0'
+            blank.document.body.style.height = '100vh'
+            blank.document.title = 'New Tab'
+            var iframe = blank.document.createElement('iframe')
+            iframe.style.border = 'none'
+            iframe.style.width = '100%'
+            iframe.style.height = '100%'
+            iframe.style.margin = '0'
+            iframe.src = 'https://butterdogco.com/da-hub/motox3m/index.html'
+            blank.document.body.appendChild(iframe);
         }
     </script>
 
