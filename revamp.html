@@ -2,47 +2,102 @@
 <html>
 
 <head>
-    <title>Da Hub | Revamp Beta</title>
+    <title>Da Hub | Beta</title>
     <link rel="shortcut icon" href="https://butterdogco.com/img/favicon.ico">
     <style>
+        @keyframes blink {
+          0% {
+            color: black;
+          }
+          50% {
+            color: lime;
+          }
+          100% {
+            color: black;
+          }
+        }
+        
+        *::selection {
+          background: none;
+        }
+        
+        .apps {
+          display: inline-flex;
+          flex-wrap: wrap;
+        }
+        
         body {
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            background: lightgray;
+            color: lime;
+            font-family: monospace;
+            background: black;
         }
 
         button {
-            width: 140px;
-            height: 140px;
-            padding: 12px;
-            border-radius: 12px;
+            width: 160px;
+            height: 160px;
+            padding: 8px;
             font-family: inherit;
             font-weight: bold;
             text-align: center;
-            color: gray;
+            color: lime;
             font-size: 25px;
-            border: 3px solid rgb(155, 155, 155);
-            background-color: rgb(230, 230, 230);
+            border: 3px dotted lime;
+            background-color: black;
             cursor: pointer;
             transition: 0.2s ease;
             margin: 8px;
         }
 
         button:hover {
-            color: white;
-            background-color: rgb(155, 155, 155);
+            border: lime 3px solid;
         }
+        
+        .name {
+          color: lime;
+          text-shadow: 0 0 20px lime, 0 0 30px lime;
+          font-size: 40px;
+          display: inline-flex;
+          }
+        
+        h1 {
+          color: lime;
+          font-size: 40px;
+          text-align: center;
+          cursor: default;
+        }
+        
+        .thing {
+          display: inline-flex;
+          margin-left: 5px;
+          color: lime;
+          animation: blink 1s ease-in-out infinite;
+        }
+        
+        .disclaimer {
+          width: 100%;
+          position: fixed;
+          bottom: 0px;
+          cursor: default;
+        }
+        
+        .disclaimer a {
+          color: lime;
+        }
+        
     </style>
 </head>
 
 <body>
-    <div class='apps'>
-        <button onclick='rblx()' title='Play Roblox in your browser.'>Roblox</button>
-        <button onclick='mc()' title='Choose from 3 full versions of Minecraft Java edition for free.'>Minecraft</button>
-        <button onclick='chat()' title='Chat with other people on ButterDog Chat'>Chat</button>
-        <button onclick='motoX3M()' title='Play MotoX3M'>MotoX3M</button>
-    </div>
-
+     <h1>Welcome to <p class="name">Da Hub</p><p class="thing">█</p></h1>
+     <div class='apps'>
+      <button onclick='rblx()' title='Play Roblox in your browser.'>Roblox</button>
+      <button onclick='mc()' title='Choose from 3 full versions of Minecraft Java edition for free.'>Minecraft</button>
+      <button onclick='chat()' title='Chat with other people on ButterDog Chat'>Chat</button>
+      <button onclick='motoX3M()' title='Play MotoX3M'>MotoX3M</button>
+      <button onclick='googsnake()' title="Play Google's Snake">Google Snake</button>
+      <button onclick='fnaf1()' title="Play FNAF 1">FNAF 1</button>
+     </div>
+    <p class="disclaimer">Da Hub by ButterDogCo is not responsible for how/when you use this website. By using this site, you must agree to our <a href="https://search.butterdogco.com/tos">Terms of Service.</a></p>
     <script>
         function rblx() {
             var blank = window.open()
@@ -87,6 +142,34 @@
             iframe.style.height = '100%'
             iframe.style.margin = '0'
             iframe.src = 'https://butterdogco.com/da-hub/motox3m/index.html'
+            blank.document.body.appendChild(iframe);
+        }
+        
+        function googsnake() {
+            var blank = window.open()
+            blank.document.body.style.margin = '0'
+            blank.document.body.style.height = '100vh'
+            blank.document.title = 'New Tab'
+            var iframe = blank.document.createElement('iframe')
+            iframe.style.border = 'none'
+            iframe.style.width = '100%'
+            iframe.style.height = '100%'
+            iframe.style.margin = '0'
+            iframe.src = 'https://butterdogco.com/da-hub/googsnake/index.html'
+            blank.document.body.appendChild(iframe);
+        }
+        
+        function fnaf1() {
+            var blank = window.open()
+            blank.document.body.style.margin = '0'
+            blank.document.body.style.height = '100vh'
+            blank.document.title = 'New Tab'
+            var iframe = blank.document.createElement('iframe')
+            iframe.style.border = 'none'
+            iframe.style.width = '100%'
+            iframe.style.height = '100%'
+            iframe.style.margin = '0'
+            iframe.src = 'https://butterdogco.com/da-hub/FNAF/1/index.html'
             blank.document.body.appendChild(iframe);
         }
     </script>
