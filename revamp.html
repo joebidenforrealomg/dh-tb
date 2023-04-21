@@ -24,6 +24,8 @@
         .apps {
           display: inline-flex;
           flex-wrap: wrap;
+          justify-content: center;
+          width: 100%;
         }
         
         body {
@@ -34,7 +36,7 @@
         }
 
         button {
-            width: 160px;
+            width: 230px;
             height: 160px;
             padding: 8px;
             font-family: inherit;
@@ -96,6 +98,7 @@
 
 <body>
   <h1>Welcome to <p class="name">Da Hub</p><p class="thing">█</p></h1>
+  <h1>Recommended Games</h1>
   <div class='apps'>
     <button onclick='rblx()' title='Play Roblox in your browser'>Roblox</button>
     <button onclick='mc()' title='Choose from 3 full versions of Minecraft Java edition for free'>Minecraft</button>
@@ -108,18 +111,30 @@
     <button onclick='fnaf3()' title="Play FNAF 3">FNAF 3</button>
     <button onclick='slope()' title="Play Slope">Slope</button>
     <button onclick='run3()' title="Play Run 3">Run 3</button>
-    <!-- <button onclick='cookie()' title="Play Cookie Clicker">Cookie Clicker</button> -->
+    <button onclick='cookieclick()' title="Play Cookie Clicker">Cookie Clicker</button>
     <button onclick='papapizza()' title="Play Papa's Pizzeria">Papa's Pizzeria</button>
     <button onclick='eee()' title="Play 2048">2048</button>
+    <button onclick='retrobowl()' title="Play Retro Bowl">Retro Bowl</button>
+    <button onclick='cuttherope()' title="Play Cut the Rope">Cut the Rope</button>
+    <button onclick='impquiz()' title="Play the Impossible Quiz">Impossible Quiz</button>
+    <button onclick='ducklife()' title="Play Duck Life">Duck Life</button>
+    <button onclick='ducklife2()' title="Play Duck Life 2">Duck Life 2</button>
+    <button onclick='ducklife3()' title="Play Duck Life 3">Duck Life 3</button>
   </div>
   <h1>Classic Games</h1>
   <div class='apps'>
     <button onclick='sm64()' title="Play Super Mario 64">SM64</button>
     <button onclick='pacman()' title="Play Pacman">Pacman</button>
+    <button onclick='tetris()' title="Play Tetris">Tetris</button>
+    <button onclick='donkeykong()' title="Play Donkey Kong">Donkey Kong</button>
   </div>
   <h1>Emulators</h1>
   <div class='apps'>
     <button onclick='gba()' title="Play games using the GBA emulator">GBA Emulator</button>
+  </div>
+  <h1>Proxies</h1>
+  <div class='apps'>
+    <button onclick='proxy()' title="Open Proxy" style="filter: brightness(30%); cursor: default;">Coming Soon</button>
   </div>
   <p class="disclaimer">Da Hub by ButterDogCo is not responsible for how/when you use this website. By using this site, you must agree to our <a href="https://search.butterdogco.com/tos">Terms of Service</a>.</p>
   <script>
@@ -338,6 +353,132 @@
         iframe.style.height = '100%'
         iframe.style.margin = '0'
         iframe.src = 'https://butterdogco.com/da-hub/papapizza.html'
+        blank.document.body.appendChild(iframe);
+    }
+    
+    function retrobowl() {
+        var blank = window.open()
+        blank.document.body.style.margin = '0'
+        blank.document.body.style.height = '100vh'
+        blank.document.title = 'New Tab'
+        var iframe = blank.document.createElement('iframe')
+        iframe.style.border = 'none'
+        iframe.style.width = '100%'
+        iframe.style.height = '100%'
+        iframe.style.margin = '0'
+        iframe.src = 'https://butterdogco.com/da-hub/retrobowl/index.html'
+        blank.document.body.appendChild(iframe);
+    }
+    
+    function cuttherope() {
+        var blank = window.open()
+        blank.document.body.style.margin = '0'
+        blank.document.body.style.height = '100vh'
+        blank.document.title = 'New Tab'
+        var iframe = blank.document.createElement('iframe')
+        iframe.style.border = 'none'
+        iframe.style.width = '100%'
+        iframe.style.height = '100%'
+        iframe.style.margin = '0'
+        iframe.src = 'https://butterdogco.com/da-hub/ctr/index.html'
+        blank.document.body.appendChild(iframe);
+    }
+    
+    function cookieclick() {
+        var blank = window.open()
+        blank.document.body.style.margin = '0'
+        blank.document.body.style.height = '100vh'
+        blank.document.title = 'New Tab'
+        var iframe = blank.document.createElement('iframe')
+        iframe.style.border = 'none'
+        iframe.style.width = '100%'
+        iframe.style.height = '100%'
+        iframe.style.margin = '0'
+        iframe.src = 'https://butterdogco.com/da-hub/cookie/index.html'
+        blank.document.body.appendChild(iframe);
+    }
+    
+    function tetris() {
+        var blank = window.open()
+        blank.document.body.style.margin = '0'
+        blank.document.body.style.height = '100vh'
+        blank.document.title = 'New Tab'
+        var iframe = blank.document.createElement('iframe')
+        iframe.style.border = 'none'
+        iframe.style.width = '100%'
+        iframe.style.height = '100%'
+        iframe.style.margin = '0'
+        iframe.src = 'https://butterdogco.com/da-hub/tetris.html'
+        blank.document.body.appendChild(iframe);
+    }
+    
+    function impquiz() {
+        var blank = window.open()
+        blank.document.body.style.margin = '0'
+        blank.document.body.style.height = '100vh'
+        blank.document.title = 'New Tab'
+        var iframe = blank.document.createElement('iframe')
+        iframe.style.border = 'none'
+        iframe.style.width = '100%'
+        iframe.style.height = '100%'
+        iframe.style.margin = '0'
+        iframe.src = 'https://butterdogco.com/da-hub/quiz.html'
+        blank.document.body.appendChild(iframe);
+    }
+    
+    function donkeykong() {
+        var blank = window.open()
+        blank.document.body.style.margin = '0'
+        blank.document.body.style.height = '100vh'
+        blank.document.title = 'New Tab'
+        var iframe = blank.document.createElement('iframe')
+        iframe.style.border = 'none'
+        iframe.style.width = '100%'
+        iframe.style.height = '100%'
+        iframe.style.margin = '0'
+        iframe.src = 'https://butterdogco.com/da-hub/kong.html'
+        blank.document.body.appendChild(iframe);
+    }
+    
+    function ducklife() {
+        var blank = window.open()
+        blank.document.body.style.margin = '0'
+        blank.document.body.style.height = '100vh'
+        blank.document.title = 'New Tab'
+        var iframe = blank.document.createElement('iframe')
+        iframe.style.border = 'none'
+        iframe.style.width = '100%'
+        iframe.style.height = '100%'
+        iframe.style.margin = '0'
+        iframe.src = 'https://butterdogco.com/da-hub/ducklife.html'
+        blank.document.body.appendChild(iframe);
+    }
+    
+    function ducklife2() {
+        var blank = window.open()
+        blank.document.body.style.margin = '0'
+        blank.document.body.style.height = '100vh'
+        blank.document.title = 'New Tab'
+        var iframe = blank.document.createElement('iframe')
+        iframe.style.border = 'none'
+        iframe.style.width = '100%'
+        iframe.style.height = '100%'
+        iframe.style.margin = '0'
+        iframe.src = 'https://butterdogco.com/da-hub/ducklife2.html'
+        blank.document.body.appendChild(iframe);
+    }
+    
+    function ducklife3() {
+        var blank = window.open()
+        blank.document.body.style.margin = '0'
+        blank.document.body.style.height = '100vh'
+        blank.document.title = 'New Tab'
+        var iframe = blank.document.createElement('iframe')
+        iframe.style.border = 'none'
+        iframe.style.width = '100%'
+        iframe.style.height = '100%'
+        iframe.style.margin = '0'
+        iframe.src = 'https://butterdogco.com/da-hub/ducklife3.html'
         blank.document.body.appendChild(iframe);
     }
   </script>
