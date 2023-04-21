@@ -101,6 +101,7 @@
     <button onclick='mc()' title='Choose from 3 full versions of Minecraft Java edition for free'>Minecraft</button>
     <button onclick='chat()' title='Chat with other people on ButterDog Chat'>Chat</button>
     <button onclick='motoX3M()' title='Play MotoX3M'>MotoX3M</button>
+    <button onclick='motoX3M2()' title='Play MotoX3M 2'>MotoX3M 2</button>
     <button onclick='googsnake()' title="Play Google's Snake">Google Snake</button>
     <button onclick='fnaf1()' title="Play FNAF 1">FNAF 1</button>
     <button onclick='fnaf2()' title="Play FNAF 2">FNAF 2</button>
@@ -165,6 +166,20 @@
         iframe.style.height = '100%'
         iframe.style.margin = '0'
         iframe.src = 'https://butterdogco.com/da-hub/motox3m/index.html'
+        blank.document.body.appendChild(iframe);
+    }
+    
+    function motoX3M2() {
+        var blank = window.open()
+        blank.document.body.style.margin = '0'
+        blank.document.body.style.height = '100vh'
+        blank.document.title = 'New Tab'
+        var iframe = blank.document.createElement('iframe')
+        iframe.style.border = 'none'
+        iframe.style.width = '100%'
+        iframe.style.height = '100%'
+        iframe.style.margin = '0'
+        iframe.src = 'https://butterdogco.com/da-hub/motox3m2/index.html'
         blank.document.body.appendChild(iframe);
     }
     
@@ -281,17 +296,7 @@
     }
     
     function sm64() {
-        var blank = window.open()
-        blank.document.body.style.margin = '0'
-        blank.document.body.style.height = '100vh'
-        blank.document.title = 'New Tab'
-        var iframe = blank.document.createElement('iframe')
-        iframe.style.border = 'none'
-        iframe.style.width = '100%'
-        iframe.style.height = '100%'
-        iframe.style.margin = '0'
-        iframe.src = 'https://butterdogco.com/da-hub/sm64/index.html'
-        blank.document.body.appendChild(iframe);
+        window.open('https://butterdogco.com/da-hub/sm64/index.html');
     }
     
     function mario() {
