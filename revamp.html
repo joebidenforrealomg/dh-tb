@@ -125,6 +125,7 @@
   <div class='apps'>
     <button onclick='sm64()' title="Play Super Mario 64">SM64</button>
     <button onclick='pacman()' title="Play Pacman">Pacman</button>
+    <button onclick='doom()' title="Play DOOM">DOOM</button>
     <button onclick='tetris()' title="Play Tetris">Tetris</button>
     <button onclick='donkeykong()' title="Play Donkey Kong">Donkey Kong</button>
   </div>
@@ -479,6 +480,20 @@
         iframe.style.height = '100%'
         iframe.style.margin = '0'
         iframe.src = 'https://butterdogco.com/da-hub/ducklife3.html'
+        blank.document.body.appendChild(iframe);
+    }
+
+    function doom() {
+        var blank = window.open()
+        blank.document.body.style.margin = '0'
+        blank.document.body.style.height = '100vh'
+        blank.document.title = 'New Tab'
+        var iframe = blank.document.createElement('iframe')
+        iframe.style.border = 'none'
+        iframe.style.width = '100%'
+        iframe.style.height = '100%'
+        iframe.style.margin = '0'
+        iframe.src = 'https://butterdogco.com/da-hub/DOOM/index.html'
         blank.document.body.appendChild(iframe);
     }
   </script>
