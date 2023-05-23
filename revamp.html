@@ -130,6 +130,8 @@
     <button onclick='crossy()' title="Play Crossy Road">Crossy Road</button>
     <button onclick='ONEvONE()' title="Play 1v1.LOL">1v1.LOL</button>
     <button onclick='stickman()' title="Play Stickman Hook">Stickman Hook</button>
+    <button onclick='among()' title="Play Among Us">Among Us</button>
+    <button onclick='aquapark()' title="Play Aquapark">Aquapark</button>
   </div>
   <h1>Classic Games</h1>
   <div class='apps'>
@@ -631,6 +633,34 @@
         iframe.style.height = '100%'
         iframe.style.margin = '0'
         iframe.src = 'https://butterdogco.com/da-hub/StickmanHook/index.html'
+        blank.document.body.appendChild(iframe);
+    }
+    
+    function among() {
+        var blank = window.open()
+        blank.document.body.style.margin = '0'
+        blank.document.body.style.height = '100vh'
+        blank.document.title = 'New Tab'
+        var iframe = blank.document.createElement('iframe')
+        iframe.style.border = 'none'
+        iframe.style.width = '100%'
+        iframe.style.height = '100%'
+        iframe.style.margin = '0'
+        iframe.src = 'https://butterdogco.com/da-hub/AU.html'
+        blank.document.body.appendChild(iframe);
+    }
+    
+    function aquapark() {
+        var blank = window.open()
+        blank.document.body.style.margin = '0'
+        blank.document.body.style.height = '100vh'
+        blank.document.title = 'New Tab'
+        var iframe = blank.document.createElement('iframe')
+        iframe.style.border = 'none'
+        iframe.style.width = '100%'
+        iframe.style.height = '100%'
+        iframe.style.margin = '0'
+        iframe.src = 'https://butterdogco.com/da-hub/Aquapark/index.html'
         blank.document.body.appendChild(iframe);
     }
     
