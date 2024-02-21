@@ -32,7 +32,7 @@
       padding-bottom: 30px;
   }
 
-  #apps button {
+  .apps button {
       width: 230px;
       height: 160px;
       padding: 8px;
@@ -48,7 +48,7 @@
       margin: 8px;
   }
 
-  #apps button:hover {
+  .apps button:hover {
       border: lime 3px solid;
   }
 
