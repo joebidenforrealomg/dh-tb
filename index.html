@@ -8,16 +8,16 @@
 </head>
 
 <body>
+    <h1>Welcome to <p class="name">Da Hub</p>
+        <p class="thing">█</p>
+    </h1>
+    <h1>Our Games</h1>
     <form id="searchForm">
         <label>Search</label>
         <input type="text" placeholder="" id="searchInput">
         <button id="clear">X</button>
         <p id="results"></p>
     </form>
-    <h1>Welcome to <p class="name">Da Hub</p>
-        <p class="thing">█</p>
-    </h1>
-    <h1>Recommended Games</h1>
     <div class='apps' id='apps'>
         <!-- <button onclick='RBLX()' title='Play Roblox in your browser' style="filter: brightness(30%); cursor: default;">Roblox</button>
         <button onclick='MC()' title='Choose from 3 full versions of Minecraft Java edition for free'>Minecraft</button>
@@ -90,12 +90,12 @@
         const searchInput = document.getElementById("searchInput");
         const resultsText = document.getElementById("results");
         const clear = document.getElementById("clear");
-        const apps = ["1v1.LOL", "2048", "AmongUs", "Backrooms", "Baldi",
+        const apps = ["1v1.LOL", "2048", "Among Us", "Backrooms", "Baldi",
             "Bitlife", "Blackjack", "BloonsTD", "Bloxorz", "CookieClicker", "CrossyRoad",
             "Cubefield", "DOOM", "Ducklife_1", "Ducklife_2", "Ducklife_3", "FNAF_1", "FNAF_2",
-            "FNAF_3", "FNAW", "ImpossibleQuiz_1", "ImpossibleQuiz_2", "Learn2Fly", "MC_1.8.8",
+            "FNAF_3", "FNAW", "Impossible Quiz", "Learn 2 Fly", "MC_1.8.8",
             "MotoX3M", "MotoX3M 2", "Pacman", "PappaPizza", "Pong", "RiddleSchool",
-            "Slope", "SM64", "SubwaySurfers", "Tetris", "WorldsHardestGame_1", "WorldsHardestGame_2"];
+            "Slope", "SM64", "SubwaySurfers", "Tetris", "Worlds Hardest Game_1", "Worlds Hardest Game_2"];
         apps.sort();
 
         function openSite(url) {
