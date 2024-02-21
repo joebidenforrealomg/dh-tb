@@ -12,6 +12,8 @@
 
   *::selection {
     background: none;
+    font-family: monospace;
+    color: lime;
   }
 
   .apps {
@@ -22,8 +24,6 @@
   }
 
   body {
-      color: lime;
-      font-family: monospace;
       background: black;
       padding-bottom: 30px;
   }
@@ -86,6 +86,16 @@
     color: lime;
   }
 
-  #searchForm {
-    display: none;
+  #searchForm input {
+    border: lime 1px solid;
+    outline: 0;
+    color: lime;
+    background: black;
+  }
+
+  #searchForm #clear {
+    border: none;
+    outline: none;
+    color: lime;
+    background: black;
   }
