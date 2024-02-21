@@ -85,3 +85,7 @@
   .disclaimer a {
     color: lime;
   }
+
+  #searchForm {
+    display: none;
+  }
