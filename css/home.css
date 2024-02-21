@@ -10,10 +10,13 @@
     }
   }
 
-  *::selection {
-    background: none;
+  * {
     font-family: monospace;
     color: lime;
+  }
+
+  *::selection {
+    background: none;
   }
 
   .apps {
@@ -28,7 +31,7 @@
       padding-bottom: 30px;
   }
 
-  button {
+  #apps button {
       width: 230px;
       height: 160px;
       padding: 8px;
@@ -44,7 +47,7 @@
       margin: 8px;
   }
 
-  button:hover {
+  #apps button:hover {
       border: lime 3px solid;
   }
 
@@ -86,6 +89,12 @@
     color: lime;
   }
 
+  #searchForm {
+    transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+  }
+
   #searchForm input {
     border: lime 1px solid;
     outline: 0;
@@ -98,4 +107,13 @@
     outline: none;
     color: lime;
     background: black;
+    outline: black 1px solid;
+  }
+
+  #searchForm #clear:hover {
+    outline: lime 1px solid;
+  }
+
+  #searchForm #results {
+    color: lime;
   }
