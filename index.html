@@ -84,9 +84,9 @@
                 foundApps.sort();
                 foundApps.forEach(createApps);
                 if (results == 1) {
-                    resultsText.innerHTML = `${results} results for '${name}'`;
-                } else {
                     resultsText.innerHTML = `${results} result for '${name}'`;
+                } else {
+                    resultsText.innerHTML = `${results} results for '${name}'`;
                 }
             } else {
                 apps.forEach(createApps);
