@@ -11,7 +11,7 @@
     <h1>Welcome to <p class="name">Da Hub</p>
         <p class="thing">█</p>
     </h1>
-    <h1>Our Games</h1>
+    <h1>Recommended Apps</h1>
     <form id="searchForm">
         <label>Search</label>
         <input type="text" placeholder="" id="searchInput">
@@ -19,55 +19,11 @@
         <p id="results"></p>
     </form>
     <div class='apps' id='apps'>
-        <!-- <button onclick='RBLX()' title='Play Roblox in your browser' style="filter: brightness(30%); cursor: default;">Roblox</button>
-        <button onclick='MC()' title='Choose from 3 full versions of Minecraft Java edition for free'>Minecraft</button>
-        <button onclick='Chat()' title='Chat with others on ButterDog Chat'>Chat</button>
-        <button onclick='MotoX3M()' title='Play MotoX3M'>MotoX3M</button>
-        <button onclick='MotoX3M2()' title='Play MotoX3M 2'>MotoX3M 2</button>
-        <button onclick='GoogleSnake()' title="Play Google Snake">Google Snake</button>
-        <button onclick='FNAF1()' title="Play FNAF 1">FNAF 1</button>
-        <button onclick='FNAF2()' title="Play FNAF 2">FNAF 2</button>
-        <button onclick='FNAF3()' title="Play FNAF 3">FNAF 3</button>
-        <button onclick='Slope()' title="Play Slope">Slope</button>
-        <button onclick='Run3()' title="Play Run 3">Run 3</button>
-        <button onclick='CookieClicker()' title="Play Cookie Clicker">Cookie Clicker</button>
-        <button onclick='PapaPizza()' title="Play Papa's Pizzeria">Papa's Pizzeria</button>
-        <button onclick='TwentyFortyEight()' title="Play 2048">2048</button>
-        <button onclick='RetroBowl()' title="Play Retro Bowl">Retro Bowl</button>
-        <button onclick='CutTheRope()' title="Play Cut the Rope">Cut the Rope</button>
-        <button onclick='ImpossibleQuiz()' title="Play the Impossible Quiz">Impossible Quiz</button>
-        <button onclick='DuckLife()' title="Play Duck Life">Duck Life</button>
-        <button onclick='DuckLife2()' title="Play Duck Life 2">Duck Life 2</button>
-        <button onclick='DuckLife3()' title="Play Duck Life 3">Duck Life 3</button>
-        <button onclick='Sketchbook()' title="Play Sketchbook 0.4">Sketchbook</button>
-        <button onclick='MSC2()' title="Play Madalin Stunt Cars 2">Madalin Stunt Cars 2</button>
-        <button onclick='FNAW()' title="Play Five Nights at Winstons">Five Nights at Winstons</button>
-        <button onclick='BitLife()' title="Play Bitlife">Bitlife</button>
-        <button onclick='SubwaySurfers()' title="Play Subway Surfers">Subway Surfers</button>
-        <button onclick='BaldisBasics()' title="Play Baldis Basics">Baldis Basics</button>
-        <button onclick='Backrooms()' title="Play Backrooms">Backrooms</button>
-        <button onclick='CrossyRoad()' title="Play Crossy Road">Crossy Road</button>
-        <button onclick='ONEvONE()' title="Play 1v1.LOL">1v1.LOL</button>
-        <button onclick='StickmanHook()' title="Play Stickman Hook">Stickman Hook</button>
-        <button onclick='AmongUs()' title="Play Among Us">Among Us</button>
-        <button onclick='Aquapark()' title="Play Aquapark">Aquapark</button>
-        <button onclick='RiddleSchool()' title="Play Riddle School 1">Riddle School 1</button>
-        <button onclick='RiddleSchool2()' title="Play Riddle School 2">Riddle School 2</button>
-        <button onclick='RiddleSchool3()' title="Play Riddle School 3">Riddle School 3</button>
-        <button onclick='ImpossibleQuiz()' title="Play The Impossible Quiz">The Impossible Quiz</button>
-        <button onclick='Learn2Fly()' title="Play Learn 2 Fly">Learn 2 Fly</button>
-        <button onclick='Cubefield()' title="Play Cubefield">Cubefield</button>
-        <button onclick='WorldsHardestGame()' title="Play The Worlds Hardest Game 1">The Worlds Hardest Game 1</button>
-        <button onclick='WorldsHardestGame2()' title="Play The Worlds Hardest Game 2">The Worlds Hardest Game 2</button> -->
+
     </div>
-    <h1>Classic Games</h1>
+    <h1>Classic Apps</h1>
     <div class='apps'>
-        <!-- <button onclick='SM64()' title="Play Super Mario 64">SM64</button> -->
-        <!-- <button onclick='Pacman()' title="Play Pacman">Pacman</button> -->
-        <!-- <button onclick='DOOM()' title="Play DOOM">DOOM</button> -->
-        <!-- <button onclick='Tetris()' title="Play Tetris">Tetris</button> -->
         <button onclick='DonkeyKong()' title="Play Donkey Kong">Donkey Kong</button>
-        <!-- <button onclick='Pong()' title="Play Pong">Pong</button> -->
     </div>
     <h1>Emulators</h1>
     <div class='apps'>
@@ -92,8 +48,8 @@
         const clear = document.getElementById("clear");
         const apps = ["1v1.LOL", "2048", "Among Us", "Backrooms", "Baldi",
             "Bitlife", "Blackjack", "BloonsTD", "Bloxorz", "CookieClicker", "CrossyRoad",
-            "Cubefield", "DOOM", "Ducklife_1", "Ducklife_2", "Ducklife_3", "FNAF_1", "FNAF_2",
-            "FNAF_3", "FNAW", "Impossible Quiz", "Learn 2 Fly", "Minecraft_1.8.8",
+            "Cubefield", "DonkeyKong", "DOOM", "Ducklife_1", "Ducklife_2", "Ducklife_3", "FNAF_1", "FNAF_2",
+            "FNAF_3", "FNAW", "GoogleDino", "GoogleSnake", "Impossible Quiz", "Learn 2 Fly", "Minecraft_1.8.8",
             "MotoX3M", "MotoX3M 2", "Pacman", "PappaPizza", "Pong", "RiddleSchool",
             "Slope", "SM64", "SubwaySurfers", "Tetris", "Worlds Hardest Game_1", "Worlds Hardest Game_2"];
         apps.sort();
@@ -166,241 +122,6 @@
         searchForm.addEventListener("submit", handleSearch);
         clear.addEventListener("click", function () { searchApp() });
         apps.forEach(createApps);
-
-        function RBLX() {
-            const url = 'https://topvazr0bl0c.geometrytip.site/roblox.html';
-            openSite(url);
-        }
-
-        function MC() {
-            const url = "https://joebidenrealomg.github.io/da-hub/apps/MC/1.8.8/u21.html";
-            openSite(url);
-        }
-
-        function Chat() {
-            const url = 'https://chat.b-dog.co';
-            openSite(url);
-        }
-
-        function MotoX3M() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/MotoX3M/index.html';
-            openSite(url);
-        }
-
-        function MotoX3M2() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/MotoX3M-2/index.html';
-            openSite(url);
-        }
-
-        function GoogleSnake() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/GoogleSnake/index.html';
-            openSite(url);
-        }
-
-        function FNAF1() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/FNAF/1/index.html';
-            openSite(url);
-        }
-
-        function FNAF2() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/FNAF/2/index.html';
-            openSite(url);
-        }
-
-        function FNAF3() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/FNAF/3/index.html';
-            openSite(url);
-        }
-
-        function Slope() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Slope/index.html';
-            openSite(url);
-        }
-
-        function Run3() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Run3/index.html';
-            openSite(url);
-        }
-
-        function GBA() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/GBA-gh-pages/';
-            openSite(url);
-        }
-
-        function CookieClicker() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/CookieClicker/index.html';
-            openSite(url);
-        }
-
-        function SM64() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/SM64/index.html';
-            openSite(url);
-        }
-
-        function Mario() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Mario/index.html';
-            openSite(url);
-        }
-
-        function Pacman() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Pacman/index.html';
-            openSite(url);
-        }
-
-        function PapaPizza() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/PapaPizza/index.html';
-            openSite(url);
-        }
-
-        function RetroBowl() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/RetroBowl/index.html';
-            openSite(url);
-        }
-
-        function CutTheRope() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/CutTheRope/index.html';
-            openSite(url);
-        }
-
-        function Tetris() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Tetris/index.html';
-            openSite(url);
-        }
-
-        function ImpossibleQuiz() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/ImpossibleQuiz/index.html';
-            openSite(url);
-        }
-
-        function DonkeyKong() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/DonkeyKong/index.html';
-            openSite(url);
-        }
-
-        function DuckLife() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Ducklife/1/index.html';
-            openSite(url);
-        }
-
-        function DuckLife2() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Duclife/2/index.html';
-            openSite(url);
-        }
-
-        function DuckLife3() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Ducklife/3/index.html';
-            openSite(url);
-        }
-
-        function Sketchbook() {
-            const url = 'https://b-dog.co/Sketchbook/index.html';
-            openSite(url);
-        }
-
-        function MSC2() {
-            const url = 'https://b-dog.co/stunning-umbrella/';
-            openSite(url);
-        }
-
-        function FNAW() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/FNAW/index.html';
-            openSite(url);
-        }
-
-        function BitLife() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Bitlife/index.html';
-            openSite(url);
-        }
-
-        function SubwaySurfers() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/SubwaySurfers/index.html';
-            openSite(url);
-        }
-
-        function BaldisBasics() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Baldi/index.html';
-            openSite(url);
-        }
-
-        function CrossyRoad() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/CrossyRoad/index.html';
-            openSite(url);
-        }
-
-        function Backrooms() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Backrooms/index.html';
-            openSite(url);
-        }
-
-        function ONEvONE() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/1v1.LOL/index.html';
-            openSite(url);
-        }
-
-        function StickmanHook() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/StickmanHook/index.html';
-            openSite(url);
-        }
-
-        function Among() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/AmongUs/index.html';
-            openSite(url);
-        }
-
-        function Aquapark() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Aquapark/index.html';
-            openSite(url);
-        }
-
-        function DOOM() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/DOOM/index.html';
-            openSite(url);
-        }
-
-        function Pong() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Pong/index.html';
-            openSite(url);
-        }
-
-        function TwentyFortyEight() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/2048/index.html';
-            openSite(url);
-        }
-
-        function Cubefield() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Cubefield/index.html';
-            openSite(url);
-        }
-
-        function Learn2Fly() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/Learn2Fly/index.html';
-            openSite(url);
-        }
-
-        function RiddleSchool() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/RiddleSchool/1/index.html';
-            openSite(url);
-        }
-
-        function RiddleSchool2() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/RiddleSchool/2/index.html';
-            openSite(url);
-        }
-
-        function RiddleSchool3() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/RiddleSchool/3/index.html';
-            openSite(url);
-        }
-
-        function WorldsHardestGame() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/WorldsHardestGame/1/index.html';
-            openSite(url);
-        }
-
-        function WorldsHardestGame2() {
-            const url = 'https://joebidenrealomg.github.io/da-hub/apps/WorldsHardestGame/2/index.html';
-            openSite(url);
-        }
 
         function Browser() {
             var blank = window.open();
