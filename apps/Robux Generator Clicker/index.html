@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>robux generator clicker</title>
+      <style>
+      
+        * {
+          font-family: inherit;
+        }
+        
+        ::selection {
+          background: none;
+          color: red;
+        }
+      
+        body {
+          font-family: 'Dm Sans', sans-serif;
+          cursor: default;
+          margin: 0;
+          height: 100vh;
+          overflow: hidden;
+        }
+        
+        #button {
+          background-color: rgb(255, 70, 70);
+          border-radius: 50%;
+          width: 20vw;
+          height: 20vw;
+          color: white;
+          border: none;
+          border-bottom: rgb(140, 140, 140) 10px solid;
+          border-right: rgb(140, 140, 140) 10px solid;
+          position: fixed;
+          color: white;
+          font-weight: bold;
+          left: 40vw;
+          top: 35%;
+          transition: 0.1s ease;
+          cursor: pointer;
+          font-size: 20px;
+        }
+        
+        #points {
+          font-size: 30px;
+          position: fixed;
+          top: -28px;
+          left: 100px;
+          text-align: center;
+        }
+        
+        #pointsTitle {
+          position: fixed;
+          font-size: 30px;
+          left: 10px;
+          top: -30px;
+        }
+        
+        #autoclickers {
+          font-size: 30px;
+          position: fixed;
+          left: 230px;
+          top: 2px;
+        }
+        
+        #autoTitle {
+          font-size: 30px;
+          position: fixed;
+          left: 10px;
+          top: 0px;
+        }
+        
+        #store {
+          display: inline-flex;
+          margin: auto;
+          margin-top: 40%;
+        }
+        
+        #autoBuy {
+          width: 100px;
+          height: 100px;
+          bottom: 40px;
+          border-radius: 50%;
+          background-color: rgb(150, 150, 255);
+          border: none;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+          text-align: center;
+          font-size: 12px;
+          transition: 0.2s;
+          display: flex;
+          margin: 30px;
+        }
+        
+        #autoBuy p {
+          padding-top: 13px;
+          text-align: center;
+        }
+        
+        #autoBuy:hover {
+          background-color: rgb(130, 130, 250);
+        }
+        
+        #credit {
+          position: fixed;
+          bottom: -15px;
+          left: 3px;
+          color: rgb(200, 200, 200);
+        }
+        
+        #cheat {
+          display: none;
+          position: fixed;
+          width: 100vw;
+          height: 100vh;
+          text-align: center;
+          top: 0px;
+          left: 0px;
+          background: rgb(245, 245, 245);
+        }
+        
+        #yes {
+          padding: 12px;
+          border-radius: 18px;
+          border: none;
+          color: black;
+          background: rgb(255, 255, 255);
+          font-weight: bold;
+          margin: 20px;
+          cursor: pointer;
+          transition: 0.2s ease;
+        }
+        
+        #yes:hover {
+          background: rgb(240, 240, 240);
+        }
+        
+        #username {
+          position: fixed;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          background-color: rgb(240, 240, 240);
+          outline: rgb(210,210,210) 2px;
+          padding: 40px;
+          border-radius: 20px;
+          z-index: 99999999999999;
+        }
+        
+        #username input {
+          padding: 10px;
+          border: rgb(230, 230, 230) 2px solid;
+          border-radius: 12px;
+          outline: none;
+        }
+        
+        #username button {
+          margin-top: 40px;
+          padding: 12px;
+          border: none;
+          border-radius: 12px;
+          background-color: rgb(130, 255, 130);
+          width: 100px;
+          cursor: pointer;
+          transition: 0.2s ease;
+        }
+        
+        #username button:hover {
+          background-color: rgb(130, 240, 130);
+        }
+        
+        #usernameText {
+          position: fixed;
+          right: 5px;
+          bottom: -15px;
+          color: rgb(200, 200, 200);
+          font-weight: bold;
+        }
+        
+      </style>
+  </head>
+  <body>
+    <center>
+      <div id='username'>
+        <h2>enter your roblocks username 🥶</h2>
+        <input id='usernameInput' type='text'>
+        <br>
+        <button onclick='setUsername();'>ok</button>
+      </div>
+      <h1>robux generator clicker</h1>
+      <p style='margin-top:-15px;'>v1.1</p>
+      <button id='button' onclick='addPoint(1);changeButton();'>generate free robuk</button>
+      <p id='pointsTitle'>robux:</p>
+      <p id='points'>0</p>
+      <p id='autoTitle'>autogenerators:</p>
+      <p id='autoclickers'>0</p>
+      <div id='cheat'>
+        <button id='yes' onclick='cheat(999999999);'>add 999,999,999</button>
+        <button id='yes' onclick='cheat(69999999999999);'>add 69,999,999,999,999</button>
+        <button id='yes' onclick='buyAuto(5000000);'>buy 5M autogens</button>
+        <p>not a cheat menu btw</p>
+      </div>
+      <div id='store'>
+        <button id='autoBuy' onclick='buyAuto(1);'><p>Purchase 1 Autogenerator (20 robux)</p></button>
+        <button id='autoBuy' onclick='buyAuto(5);'><p>Purchase 5 Autogenerators (100 robux)</p></button>
+        <button id='autoBuy' onclick='buyAuto(10);'><p>Purchase 10 Autogenerators (200 robux)</p></button>
+        <button id='autoBuy' onclick='buyAuto(100);'><p>Purchase 100 Autogenerators (2,000 robux)</p></button>
+        <button id='autoBuy' onclick='buyAuto(500);'><p>Purchase 500 Autogenerators (10,000 robux)</p></button>
+      </div>
+      <p id='credit'><i>by butterdogco</i></p>
+      <p id='usernameText'>free robux? 🥶</p>
+    </center>
+    <script>
+    
+      var add = 1;
+      var points = 0;
+      var autoclickers = 0;
+      var username;
+
+      function addPoint() {
+        points = points + add;
+        document.getElementById('points').innerHTML = points;
+      }
+      
+      document.body.onkeyup = function(e) {
+        if (e.key == ' ' ||
+            e.code == 'Backslash'
+        ) {
+          if (document.getElementById('cheat').style.display == 'block') {
+            document.getElementById('cheat').style.display = 'none';
+          } else {
+            document.getElementById('cheat').style.display = 'block';
+          }
+        }
+      }
+      
+      function cheat(num) {
+        points = points + num;
+      }
+      
+      function setUsername() {
+        username = document.getElementById('usernameInput').value;
+        document.getElementById('username').style.display = 'none';
+        document.getElementById('usernameText').innerHTML = 'welcome, ' + document.getElementById('usernameInput').value;
+      }
+      
+      function pointLoop() {
+        document.getElementById('autoclickers').innerHTML = autoclickers;
+        document.getElementById('points').innerHTML = points;
+      }
+      
+      function addAuto() {
+        points = points + autoclickers;
+        document.getElementById('autoclickers').innerHTML = autoclickers;
+        document.getElementById('points').innerHTML = points;
+        setTimeout(addAuto, 1000);
+      }
+      
+      function buttonFix() {
+        document.getElementById('button').style.borderBottom = 'rgb(140, 140, 140) 10px solid';
+        document.getElementById('button').style.borderRight = 'rgb(140, 140, 140) 10px solid';
+        document.getElementById('button').innerHTML = 'generate free robuk';
+        document.getElementById('autoclickers').innerHTML = autoclickers;
+      }
+      
+      function changeButton() {
+        document.getElementById('button').style.borderBottom = 'none';
+        document.getElementById('button').style.borderRight = 'none';
+        document.getElementById('button').innerHTML = 'mmm';
+
+        setTimeout(buttonFix, 100);
+      }
+      
+      function change() {
+        document.getElementById('autoclickers').innerHTML = autoclickers;
+        document.getElementById('points').innerHTML = points;
+        setTimeout(change, 200);
+      }
+      
+      function buyAuto(amt) {
+        var x = amt * 20;
+        x = x - 1;
+        if (points > x) {
+          points = points - (x + 1);
+          autoclickers = autoclickers + amt;
+        } else {
+          alert('not enough robux 🥶');
+        }
+      }
+      addAuto();
+      change();
+    </script>
+  </body>
+</html>
