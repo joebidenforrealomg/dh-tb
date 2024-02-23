@@ -4,8 +4,20 @@
     <title>robux generator clicker</title>
       <style>
       
+        @keyframes fallDown {
+          0% {
+            top: -50px;
+            rotate: 0deg;
+          }
+          100% {
+            top: 100%;
+            rotate: 359deg;
+          }
+        }
+      
         * {
           font-family: inherit;
+          color: white;
         }
         
         ::selection {
@@ -19,6 +31,12 @@
           margin: 0;
           height: 100vh;
           overflow: hidden;
+          background: rgb(20, 20, 20);
+          color: white;
+        }
+        
+        #main {
+          filter: brightness(80%) blur(12px);
         }
         
         #button {
@@ -80,7 +98,7 @@
           height: 100px;
           bottom: 40px;
           border-radius: 50%;
-          background-color: rgb(150, 150, 255);
+          background-color: rgb(100, 100, 200);
           border: none;
           color: white;
           font-weight: bold;
@@ -116,7 +134,7 @@
           text-align: center;
           top: 0px;
           left: 0px;
-          background: rgb(245, 245, 245);
+          background: rgb(120, 120, 120);
         }
         
         #yes {
@@ -140,8 +158,8 @@
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
-          background-color: rgb(240, 240, 240);
-          outline: rgb(210,210,210) 2px;
+          background-color: rgb(80,80,80);
+          outline: rgb(120,120,120) 2px;
           padding: 40px;
           border-radius: 20px;
           z-index: 99999999999999;
@@ -149,7 +167,8 @@
         
         #username input {
           padding: 10px;
-          border: rgb(230, 230, 230) 2px solid;
+          border: rgb(120,120,120) 2px solid;
+          background: rgb(100,100,100);
           border-radius: 12px;
           outline: none;
         }
@@ -159,7 +178,7 @@
           padding: 12px;
           border: none;
           border-radius: 12px;
-          background-color: rgb(130, 255, 130);
+          background-color: rgb(100, 220, 100);
           width: 100px;
           cursor: pointer;
           transition: 0.2s ease;
@@ -177,6 +196,18 @@
           font-weight: bold;
         }
         
+        #robuxFall {
+          position: fixed;
+          top: -50px;
+          animation: fallDown 1.5s linear;
+          background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Robux_2019_Logo_gold.svg/1883px-Robux_2019_Logo_gold.svg.png');
+          background-size: contain;
+          width: 50px;
+          height: 50px;
+          background-repeat: no-repeat;
+          z-index: -1;
+        }
+        
       </style>
   </head>
   <body>
@@ -187,28 +218,32 @@
         <br>
         <button onclick='setUsername();'>ok</button>
       </div>
-      <h1>robux generator clicker</h1>
-      <p style='margin-top:-15px;'>v1.1</p>
-      <button id='button' onclick='addPoint(1);changeButton();'>generate free robuk</button>
-      <p id='pointsTitle'>robux:</p>
-      <p id='points'>0</p>
-      <p id='autoTitle'>autogenerators:</p>
-      <p id='autoclickers'>0</p>
-      <div id='cheat'>
-        <button id='yes' onclick='cheat(999999999);'>add 999,999,999</button>
-        <button id='yes' onclick='cheat(69999999999999);'>add 69,999,999,999,999</button>
-        <button id='yes' onclick='buyAuto(5000000);'>buy 5M autogens</button>
-        <p>not a cheat menu btw</p>
-      </div>
-      <div id='store'>
-        <button id='autoBuy' onclick='buyAuto(1);'><p>Purchase 1 Autogenerator (20 robux)</p></button>
-        <button id='autoBuy' onclick='buyAuto(5);'><p>Purchase 5 Autogenerators (100 robux)</p></button>
-        <button id='autoBuy' onclick='buyAuto(10);'><p>Purchase 10 Autogenerators (200 robux)</p></button>
-        <button id='autoBuy' onclick='buyAuto(100);'><p>Purchase 100 Autogenerators (2,000 robux)</p></button>
-        <button id='autoBuy' onclick='buyAuto(500);'><p>Purchase 500 Autogenerators (10,000 robux)</p></button>
-      </div>
-      <p id='credit'><i>by butterdogco</i></p>
-      <p id='usernameText'>free robux? 🥶</p>
+      <main id="main">
+        <h1>robux generator clicker</h1>
+        <p style='margin-top:-15px;'>v1.2</p>
+        <button id='button' onclick='addPoint(1);changeButton();'>generate free robuk</button>
+        <p id='pointsTitle'>robux:</p>
+        <p id='points'>0</p>
+        <p id='autoTitle'>autogenerators:</p>
+        <p id='autoclickers'>0</p>
+        <div id='cheat'>
+          <button id='yes' onclick='cheat(999999999);'>add 999,999,999</button>
+          <button id='yes' onclick='cheat(69999999999999);'>add 69,999,999,999,999</button>
+          <button id='yes' onclick='buyAuto(5000000);'>buy 5M autogens</button>
+          <p>not a cheat menu btw</p>
+        </div>
+        <div id='store'>
+          <button id='autoBuy' onclick='buyAuto(1);'><p>Purchase 1 Autogenerator (20 robux)</p></button>
+          <button id='autoBuy' onclick='buyAuto(5);'><p>Purchase 5 Autogenerators (100 robux)</p></button>
+          <button id='autoBuy' onclick='buyAuto(10);'><p>Purchase 10 Autogenerators (200 robux)</p></button>
+          <button id='autoBuy' onclick='buyAuto(100);'><p>Purchase 100 Autogenerators (2,000 robux)</p></button>
+          <button id='autoBuy' onclick='buyAuto(500);'><p>Purchase 500 Autogenerators (10,000 robux)</p></button>
+          <button id='autoBuy' onclick='buyAuto(1000);'><p>Purchase 1,000 Autogenerators (15,000 robux)</p></button>
+          <button id='autoBuy' onclick='buyAuto(10000);'><p>Purchase 10,000 Autogenerators (90,000 robux)</p></button>
+        </div>
+        <p id='credit'><i>by butterdogco</i></p>
+        <p id='usernameText'>free robux? 🥶</p>
+      </main>
     </center>
     <script>
     
@@ -217,15 +252,26 @@
       var autoclickers = 0;
       var username;
 
+      function repeat(func, times) {
+        func();
+        times && --times && repeat(func, times);
+      }
+
       function addPoint() {
+        const display = document.createElement('div');
+        display.id = "robuxFall";
+        display.style.left = ''.concat(Math.floor(Math.random() * 101), "vw");
+        document.body.appendChild(display);
+        setTimeout(function(){
+          display.remove();
+        }, 1500);
+        
         points = points + add;
         document.getElementById('points').innerHTML = points;
       }
       
       document.body.onkeyup = function(e) {
-        if (e.key == ' ' ||
-            e.code == 'Backslash'
-        ) {
+        if (e.code == 'Backslash') {
           if (document.getElementById('cheat').style.display == 'block') {
             document.getElementById('cheat').style.display = 'none';
           } else {
@@ -242,6 +288,8 @@
         username = document.getElementById('usernameInput').value;
         document.getElementById('username').style.display = 'none';
         document.getElementById('usernameText').innerHTML = 'welcome, ' + document.getElementById('usernameInput').value;
+        document.getElementById('main').style.filter = "none";
+        document.body.style.background = "rgb(60,60,60)";
       }
       
       function pointLoop() {
@@ -250,6 +298,21 @@
       }
       
       function addAuto() {
+        if (autoclickers > 0) {
+          
+          repeat(function () {
+            setTimeout(function(){
+              const display = document.createElement('div');
+            display.id = "robuxFall";
+            display.style.left = ''.concat(Math.floor(Math.random() * 101), "vw");
+            document.body.appendChild(display);
+            setTimeout(function(){
+              display.remove();
+            }, 1500);
+            }, Math.floor(Math.random() * 5000));
+          }, autoclickers < 100 && autoclickers || 100);
+        }
+        
         points = points + autoclickers;
         document.getElementById('autoclickers').innerHTML = autoclickers;
         document.getElementById('points').innerHTML = points;
