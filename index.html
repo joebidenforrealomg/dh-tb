@@ -31,9 +31,11 @@
     </div>
     <h1>Proxies</h1>
     <div class='apps'>
-        <button onclick='Browser()' title="Open Proxy" style="filter: brightness(30%); cursor: default;">Coming soon!</button>
+        <button onclick='Browser()' title="Open Proxy" style="filter: brightness(30%); cursor: default;">Coming
+            soon!</button>
     </div>
-    <p class="disclaimer">Welcome to Da Hub, created by ButterDogCo. By using this site, you agree to ButterDogCo's <a href="https://b-dog.co/tos">Terms of Service</a>.</p>
+    <p class="disclaimer">Welcome to Da Hub, created by ButterDogCo. By using this site, you agree to ButterDogCo's <a
+            href="https://b-dog.co/tos">Terms of Service</a>.</p>
     <script>
         /* 
         NOTE TO ANYONE READING THE CODE:
@@ -46,12 +48,13 @@
         const searchInput = document.getElementById("searchInput");
         const resultsText = document.getElementById("results");
         const clear = document.getElementById("clear");
-        const apps = ["1v1.LOL", "2048", "Among Us", "Backrooms", "Baldi",
+        const apps = ["1v1.LOL", "2048", "Among Us", "Aquapark", "Backrooms", "Baldi",
             "Bitlife", "Blackjack", "BloonsTD", "Bloxorz", "CookieClicker", "CrossyRoad",
-            "Cubefield", "DonkeyKong", "DOOM", "Ducklife_1", "Ducklife_2", "Ducklife_3", "FNAF_1", "FNAF_2",
-            "FNAF_3", "FNAW", "GoogleDino", "GoogleSnake", "Impossible Quiz", "Learn 2 Fly", "Minecraft_1.8.8",
-            "MotoX3M", "MotoX3M 2", "Pacman", "PappaPizza", "Pong", "RiddleSchool",
-            "Slope", "SM64", "SubwaySurfers", "Tetris", "Worlds Hardest Game_1", "Worlds Hardest Game_2"];
+            "Cubefield", "DonkeyKong", "DOOM", "DuckHunt", "Ducklife_1", "Ducklife_2", "Ducklife_3", "ElectricMan 2",
+            "FNAF_1", "FNAF_2", "FNAF_3", "FNAW", "GoogleDino", "GoogleSnake", "Impossible Quiz",
+            "Learn 2 Fly", "Minecraft_1.8.8", "MotoX3M", "MotoX3M 2", "Pacman", "PappaPizza",
+            "Pong", "RetroBowl", "Run_1", "Run_3", "RiddleSchool", "Slope", "StickmanHook", "SuperMario 63",
+            "SuperMario 64", "SubwaySurfers", "Tetris", "Worlds Hardest Game_1", "Worlds Hardest Game_2"];
         apps.sort();
 
         function openSite(url) {
@@ -82,9 +85,9 @@
                 foundApps.sort();
                 foundApps.forEach(createApps);
                 if (results == 1) {
-                    resultsText.innerHTML = `${results} results for '${name}'`;
-                } else {
                     resultsText.innerHTML = `${results} result for '${name}'`;
+                } else {
+                    resultsText.innerHTML = `${results} results for '${name}'`;
                 }
             } else {
                 apps.forEach(createApps);
