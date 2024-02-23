@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>robux generator clicker</title>
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Robux_2019_Logo_gold.svg/1883px-Robux_2019_Logo_gold.svg.png">
       <style>
       
         @keyframes fallDown {
@@ -76,7 +77,7 @@
         #autoclickers {
           font-size: 30px;
           position: fixed;
-          left: 230px;
+          left: 195px;
           top: 2px;
         }
         
@@ -208,6 +209,20 @@
           z-index: -1;
         }
         
+        #clearSave {
+          padding: 12px;
+          border-radius: 18px;
+          border: none;
+          color: white;
+          background: rgb(120,120,120);
+          font-weight: bold;
+          cursor: pointer;
+          transition: 0.2s ease;
+          position: fixed;
+          right: 5px;
+          bottom: 20px;
+        }
+        
       </style>
   </head>
   <body>
@@ -220,37 +235,53 @@
       </div>
       <main id="main">
         <h1>robux generator clicker</h1>
-        <p style='margin-top:-15px;'>v1.2</p>
+        <p style='margin-top:-15px;'>v1.21</p>
         <button id='button' onclick='addPoint(1);changeButton();'>generate free robuk</button>
         <p id='pointsTitle'>robux:</p>
         <p id='points'>0</p>
-        <p id='autoTitle'>autogenerators:</p>
+        <p id='autoTitle'>gamepasses:</p>
         <p id='autoclickers'>0</p>
         <div id='cheat'>
           <button id='yes' onclick='cheat(999999999);'>add 999,999,999</button>
           <button id='yes' onclick='cheat(69999999999999);'>add 69,999,999,999,999</button>
-          <button id='yes' onclick='buyAuto(5000000);'>buy 5M autogens</button>
+          <button id='yes' onclick='buyAuto(5000000);'>buy 5M gamepasses</button>
           <p>not a cheat menu btw</p>
         </div>
         <div id='store'>
-          <button id='autoBuy' onclick='buyAuto(1);'><p>Purchase 1 Autogenerator (20 robux)</p></button>
-          <button id='autoBuy' onclick='buyAuto(5);'><p>Purchase 5 Autogenerators (100 robux)</p></button>
-          <button id='autoBuy' onclick='buyAuto(10);'><p>Purchase 10 Autogenerators (200 robux)</p></button>
-          <button id='autoBuy' onclick='buyAuto(100);'><p>Purchase 100 Autogenerators (2,000 robux)</p></button>
-          <button id='autoBuy' onclick='buyAuto(500);'><p>Purchase 500 Autogenerators (10,000 robux)</p></button>
-          <button id='autoBuy' onclick='buyAuto(1000);'><p>Purchase 1,000 Autogenerators (15,000 robux)</p></button>
-          <button id='autoBuy' onclick='buyAuto(10000);'><p>Purchase 10,000 Autogenerators (90,000 robux)</p></button>
+          <button id='autoBuy' onclick='buyAuto(1);'><p>Purchase 1 Gamepass (20 robux)</p></button>
+          <button id='autoBuy' onclick='buyAuto(5);'><p>Purchase 5 Gamepasses (100 robux)</p></button>
+          <button id='autoBuy' onclick='buyAuto(10);'><p>Purchase 10 Gamepasses (200 robux)</p></button>
+          <button id='autoBuy' onclick='buyAuto(100);'><p>Purchase 100 Gamepasses (2,000 robux)</p></button>
+          <button id='autoBuy' onclick='buyAuto(500);'><p>Purchase 500 Gamepasses (10,000 robux)</p></button>
+          <button id='autoBuy' onclick='buyAuto(1000);'><p>Purchase 1,000 Gamepasses (15,000 robux)</p></button>
+          <button id='autoBuy' onclick='buyAuto(10000);'><p>Purchase 10,000 Gamepasses (90,000 robux)</p></button>
         </div>
         <p id='credit'><i>by butterdogco</i></p>
         <p id='usernameText'>free robux? 🥶</p>
+        <button id='clearSave' onclick="restartGame()">restart game</button>
       </main>
     </center>
     <script>
-    
       var add = 1;
       var points = 0;
       var autoclickers = 0;
       var username;
+      
+      if (localStorage.autoclickers) {
+        autoclickers = Number(localStorage.autoclickers);
+      }
+      
+      if (localStorage.points) {
+        points = Number(localStorage.points);
+      }
+      
+      if (localStorage.username) {
+        username = localStorage.username;
+        document.getElementById('username').style.display = 'none';
+        document.getElementById('usernameText').innerHTML = 'welcome, ' + username;
+        document.getElementById('main').style.filter = "none";
+        document.body.style.background = "rgb(60,60,60)";
+      }
 
       function repeat(func, times) {
         func();
@@ -286,6 +317,7 @@
       
       function setUsername() {
         username = document.getElementById('usernameInput').value;
+        localStorage.setItem("username", document.getElementById('usernameInput').value);
         document.getElementById('username').style.display = 'none';
         document.getElementById('usernameText').innerHTML = 'welcome, ' + document.getElementById('usernameInput').value;
         document.getElementById('main').style.filter = "none";
@@ -298,8 +330,10 @@
       }
       
       function addAuto() {
+        localStorage.setItem("autoclickers", autoclickers);
+        localStorage.setItem("points", points);
+        
         if (autoclickers > 0) {
-          
           repeat(function () {
             setTimeout(function(){
               const display = document.createElement('div');
@@ -350,6 +384,17 @@
           alert('not enough robux 🥶');
         }
       }
+      
+      function restartGame() {
+        var sure = confirm("are you sure you want to restart (U WILL LOSE UR ROBUX!!!! 😱)");
+        if (sure === true) {
+          localStorage.clear();
+          autoclickers = 0;
+          points = 0;
+          window.location.reload();
+        }
+      }
+      
       addAuto();
       change();
     </script>
