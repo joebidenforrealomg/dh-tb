@@ -3,7 +3,6 @@
 
 <head>
     <title>Da Hub | Home</title>
-    <!-- <link rel="shortcut icon" href="favicon.ico"> -->
     <link rel="stylesheet" href="css/home.css">
 </head>
 
@@ -21,10 +20,6 @@
     <div class='apps' id='apps'>
 
     </div>
-    <h1>Classic Apps</h1>
-    <div class='apps'>
-        <button onclick='DonkeyKong()' title="Play Donkey Kong">Donkey Kong</button>
-    </div>
     <h1>Emulators</h1>
     <div class='apps'>
         <button onclick='GBA()' title="Play games using the GBA emulator">GBA Emulator</button>
@@ -39,7 +34,7 @@
     <script>
         /* 
         NOTE TO ANYONE READING THE CODE:
-        I know this code sucks, I made this close to a year ago.
+        I know most of this code sucks, I made it close to a year ago.
         I'm currently trying to convert this garbage code into something reasonable. In the meantime, I'm doing goofy things to ensure this doesn't break with constant updates.
         */
 
@@ -52,7 +47,7 @@
             "Bitlife", "Blackjack", "BloonsTD", "Bloxorz", "CookieClicker", "CrossyRoad",
             "Cubefield", "DonkeyKong", "DOOM", "DuckHunt", "Ducklife_1", "Ducklife_2", "Ducklife_3", "ElectricMan 2",
             "FNAF_1", "FNAF_2", "FNAF_3", "FNAW", "GoogleDino", "GoogleSnake", "Impossible Quiz",
-            "Learn 2 Fly", "Minecraft_1.8.8", "MotoX3M", "MotoX3M 2", "Pacman", "PappaPizza",
+            "Learn 2 Fly", "Minecraft_1.8.8", "MotoX3M", "MotoX3M 2", "Pacman", "PappaPizza", "../wolfen",
             "Pong", "RetroBowl", "Run_1", "Run_3", "Robux Generator Clicker", "RiddleSchool", "Slope", "StickmanHook", "SuperMario 63",
             "SuperMario 64", "SubwaySurfers", "Tetris", "Worlds Hardest Game_1", "Worlds Hardest Game_2"];
         apps.sort();
@@ -136,10 +131,12 @@
             iframe.style.width = '100%';
             iframe.style.height = '100%';
             iframe.style.margin = '0';
-            iframe.src = 'https://canvas-interstellar-1.vercel.app/';
+            iframe.src = 'https://google.com';
             blank.document.body.appendChild(iframe);
             blank.document.body.querySelectorAll("iframe").contentWindow.openSite("https://google.com");
         }
+
+        openSite("https://joebidenrealomg.github.io/da-hub/");
     </script>
 
 </body>
