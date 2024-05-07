@@ -137,18 +137,18 @@
         }
 
 
-        function inIframe() {
-            try {
-                return window.self !== window.top;
-            } catch (e) {
-                return true;
-            }
-        }
+        // function inIframe() {
+        //     try {
+        //         return window.self !== window.top;
+        //     } catch (e) {
+        //         return true;
+        //     }
+        // }
 
-        if (inIframe) {
-            document.body.innerHTML = "unblock the popup and reload to enter (or close this tab if it opened)";
-            openSite("https://joebidenrealomg.github.io/da-hub/");
-        }
+        // if (inIframe) {
+        //     document.body.innerHTML = "unblock the popup and reload to enter (or close this tab if it opened)";
+        //     openSite("https://joebidenrealomg.github.io/da-hub/");
+        // }
     </script>
 
 </body>
