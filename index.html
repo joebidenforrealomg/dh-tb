@@ -131,12 +131,15 @@
             iframe.style.width = '100%';
             iframe.style.height = '100%';
             iframe.style.margin = '0';
-            iframe.src = 'https://google.com';
+            iframe.src = 'https://google.com?igu=1';
             blank.document.body.appendChild(iframe);
-            blank.document.body.querySelectorAll("iframe").contentWindow.openSite("https://google.com");
+            blank.document.body.querySelectorAll("iframe").contentWindow.openSite("https://google.com?igu=1");
         }
 
-        openSite("https://joebidenrealomg.github.io/da-hub/");
+        if (window.location.href.includes("https://joebidenrealomg.github.io/")) {
+            document.body.innerHTML = "unblock the popup to enter";
+            openSite("https://joebidenrealomg.github.io/da-hub/");
+        }
     </script>
 
 </body>
