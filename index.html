@@ -145,8 +145,8 @@
             }
         }
 
-        if (!inIframe) {
-            document.body.innerHTML = "unblock the popup to enter";
+        if (inIframe) {
+            document.body.innerHTML = "unblock the popup and reload to enter (or close this tab if it opened)";
             openSite("https://joebidenrealomg.github.io/da-hub/");
         }
     </script>
