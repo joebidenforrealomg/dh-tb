@@ -119,6 +119,8 @@ function whenNotIframe() {
     let params = new URL(document.location).searchParams;
     let iframe = params.get("iframe");
     if (iframe != "true" || iframe == null || iframe == undefined) {
+        document.body.innerHTML = "";
+
         const apps = document.createElement('div');
         apps.className = "apps";
         apps.id = "apps";
@@ -130,8 +132,7 @@ function whenNotIframe() {
         app.title = "Click to open";
         app.innerText = "Open";
 
-        document.body.innerHTML = "";
-        apps.appendChild(apps);
+        apps.appendChild(app);
         document.body.appendChild(apps);
     }
 }
