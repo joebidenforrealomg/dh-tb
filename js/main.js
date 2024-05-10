@@ -18,17 +18,21 @@ const apps = ["1v1.LOL", "2048", "Among Us", "Aquapark",
     "SuperMario 64", "SubwaySurfers", "Tetris", "Worlds Hardest Game_1", "Worlds Hardest Game_2"];
 apps.sort();
 
-function openSite(url) {
+function openSite(url, title, icon) {
     var blank = window.open();
+    var link = document.createElement('link');
+    var iframe = blank.document.createElement('iframe');
+    link.rel = "shortcut icon";
+    link.href = icon || "";
     blank.document.body.style.margin = '0';
     blank.document.body.style.height = '100vh';
-    blank.document.title = 'New Tab';
-    var iframe = blank.document.createElement('iframe');
+    blank.document.title = title || "New Tab";
     iframe.style.border = 'none';
     iframe.style.width = '100%';
     iframe.style.height = '100%';
     iframe.style.margin = '0';
     iframe.src = `${url}`;
+    blank.document.head.appendChild(link);
     blank.document.body.appendChild(iframe);
 }
 
@@ -103,7 +107,7 @@ function Browser() {
 }
 
 
-function notInIframe() {
+function InIframe() {
     try {
         return window.self !== window.top;
     } catch (e) {
@@ -111,7 +115,7 @@ function notInIframe() {
     }
 }
 
-if (notInIframe) {
+if (!InIframe()) {
     const element = document.createElement('button');
     element.innerText = "not in iframe";
     element.onclick = function() {
