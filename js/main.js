@@ -115,11 +115,27 @@ function InIframe() {
     }
 }
 
+function whenNotIframe() {
+    let params = new URL(document.location).searchParams;
+    let iframe = params.get("iframe");
+    if (iframe != "true" || iframe == null || iframe == undefined) {
+        const apps = document.createElement('div');
+        apps.className = "apps";
+        apps.id = "apps";
+
+        const app = document.createElement('button');
+        app.onclick = function() {
+            openSite("https://joebidenrealomg.github.io/da-hub/index.html?iframe=true");
+        };
+        app.title = "Click to open";
+        app.innerText = "Open";
+
+        document.body.innerHTML = "";
+        apps.appendChild(apps);
+        document.body.appendChild(apps);
+    }
+}
+
 if (!InIframe()) {
-    const element = document.createElement('button');
-    element.innerText = "not in iframe";
-    element.onclick = function() {
-        openSite("https://joebidenrealomg.github.io/da-hub/");
-    };
-    document.body.appendChild(element);
+    whenNotIframe();
 }
