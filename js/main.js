@@ -10,7 +10,7 @@ const searchInput = document.getElementById("searchInput");
 const resultsText = document.getElementById("results");
 const clear = document.getElementById("clear");
 const apps = ["1v1.LOL", "2048", "Among Us", "Aquapark",
-    "Bitlife", "Blackjack", "BloonsTD", "Bloxorz", "CookieClicker", "CrossyRoad",
+    "Bitlife", "Blackjack", "BloonsTD", "Bloxorz", "ButterDog Chat", "CookieClicker", "CrossyRoad",
     "Cubefield", "DonkeyKong", "DOOM", "DuckHunt", "Ducklife_1", "Ducklife_2", "Ducklife_3", "ElectricMan 2",
     "FNAF_1", "FNAF_2", "FNAF_3", "FNAW", "GoogleDino", "GoogleSnake", "Impossible Quiz",
     "Learn 2 Fly", "Minecraft_1.8.8", "MotoX3M", "MotoX3M 2", "Pacman", "PappaPizza", "wolfen",
