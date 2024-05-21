@@ -90,6 +90,23 @@
     color: lime;
   }
 
+  .latestUpdate {
+    width: 100%;
+    position: fixed;
+    top: -15px;
+    cursor: default;
+    background: black;
+    border-bottom: lime 2px dashed;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    left: -5px;
+  }
+
+  .latestUpdate a {
+    color: lime;
+  }
+
   #searchForm {
     transform: translateX(-50%);
     position: absolute;
