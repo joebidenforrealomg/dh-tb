@@ -14471,9 +14471,9 @@ window.onload=function()
 	
 	if (!Game.ready)
 	{
-		if (top!=self) Game.ErrorFrame();
-		else
-		{
+		// if (top!=self) Game.ErrorFrame();
+		// else
+		// {
 			console.log('[=== '+choose([
 				'Oh, hello!',
 				'hey, how\'s it hangin',
@@ -14484,6 +14484,6 @@ window.onload=function()
 			Game.Load();
 			//try {Game.Load();}
 			//catch(err) {console.log('ERROR : '+err.message);}
-		}
+		// }
 	}
 };
