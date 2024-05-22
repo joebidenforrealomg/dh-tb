@@ -13,9 +13,9 @@ const apps = ["1v1.LOL", "2048", "Aquapark",
     "Bitlife", "Blackjack", "BloonsTD", "Bloxorz", "ButterDog Chat", "CookieClicker", "CrossyRoad",
     "Cubefield", "DonkeyKong", "DOOM", "DuckHunt", "Ducklife_1", "Ducklife_2", "Ducklife_3", "ElectricMan 2",
     "FNAF_1", "FNAF_2", "FNAF_3", "FNAW", "GoogleDino", "GoogleSnake", "Impossible Quiz",
-    "Learn 2 Fly", "Minecraft_1.8.8", "MotoX3M", "MotoX3M 2", "Pacman", "PappaPizza", "wolfen",
+    "Learn 2 Fly", "Minecraft_1.8.8", "MotoX3M", "MotoX3M 2", "Minesweeper", "Pacman", "PappaPizza", "wolfen",
     "Pong", "RetroBowl", "Run_1", "Run_3", "Robux Generator Clicker", "RiddleSchool", "Slope", "StickmanHook", "SuperMario 63",
-    "SuperMario 64", "SubwaySurfers", "Tetris", "Worlds Hardest Game_1", "Worlds Hardest Game_2"];
+    "SuperMario 64", "SoobwaySurfers", "Tetris", "Worlds Hardest Game_1", "Worlds Hardest Game_2"];
 apps.sort();
 
 function openSite(url, title, icon) {
