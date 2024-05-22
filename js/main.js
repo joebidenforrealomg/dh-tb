@@ -27,15 +27,18 @@ function openSite(url, title, icon) {
     link.rel = "shortcut icon";
     link.href = icon || "";
     blank.document.title = title || "New Tab";
-    closeButton.innerText = "CLOSE";
-    style.innerHTML = `body { width: 100vw;height: 100vh;margin: 0;} iframe {width: 100vw;height: 100vh;border: none;outline: none;margin: 0;} p {position: fixed;z-index: 2;padding: 8px;left: 0;transform: translateX(-50%);transition: 0.2s ease;opacity: 0.5;background: black;border: 2px solid lime;color: lime;} p:hover {left: 2px;transform: translateX(0);opacity: 1;}`;
-    closeButton.onclick = function() {
+    closeButton.innerText = "BACK";
+    style.innerHTML = `body { width: 100vw;height: 100vh;margin: 0;} iframe { width: 100vw;height: 100vh;border: none;outline: none;margin: 0;} p { cursor: pointer;font-family: monospace;position: fixed;z-index: 2;padding: 8px;left: 0;transform: translateX(-50%);transition: 0.2s ease;opacity: 0.5;background: black;border: 2px solid lime;color: lime;} p:hover { left: 8px;transform: translateX(0);opacity: 1;}`;
+    closeButton.addEventListener('click', function() {
+        iframe.src = "https://joebidenrealomg.github.io/da-hub/index.html?iframe=true";
+    });
+    iframe.src = `${url}`;
+    if (!url.includes("/da-hub/")) {
+        blank.document.body.appendChild(closeButton);
         window.close();
     }
-    iframe.src = `${url}`;
     blank.document.head.appendChild(style);
     blank.document.head.appendChild(link);
-    blank.document.body.appendChild(closeButton);
     blank.document.body.appendChild(iframe);
 }
 
