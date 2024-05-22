@@ -4,6 +4,8 @@ I know most of this code sucks, I made it close to a year ago.
 I'm currently trying to convert this garbage code into something reasonable. In the meantime, I'm doing goofy things to ensure this doesn't break with constant updates.
 */
 
+var hubWindow = null;
+
 const appsDiv = document.getElementById("apps");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
@@ -28,18 +30,22 @@ function openSite(url, title, icon) {
     link.href = icon || "";
     blank.document.title = title || "New Tab";
     closeButton.innerText = "BACK";
-    style.innerHTML = `body { width: 100vw;height: 100vh;margin: 0;} iframe { width: 100vw;height: 100vh;border: none;outline: none;margin: 0;} p { cursor: pointer;font-family: monospace;position: fixed;z-index: 2;padding: 8px;left: 0;transform: translateX(-50%);transition: 0.2s ease;opacity: 0.5;background: black;border: 2px solid lime;color: lime;} p:hover { left: 8px;transform: translateX(0);opacity: 1;}`;
+    style.innerHTML = `body { width: 100vw;height: 100vh;margin: 0; background: black; } iframe { width: 100vw;height: 100vh;border: none;outline: none;margin: 0;} p { cursor: pointer;font-family: monospace;position: fixed;z-index: 2;padding: 8px;left: 0;transform: translateX(-50%);transition: 0.2s ease;opacity: 0.5;background: black;border: 2px solid lime;color: lime;} p:hover { left: 8px;transform: translateX(0);opacity: 1;}`;
     closeButton.addEventListener('click', function() {
         iframe.src = "https://joebidenrealomg.github.io/da-hub/index.html?iframe=true";
+        if (hubWindow) {
+            hubWindow.close();
+        }
     });
     iframe.src = `${url}`;
-    if (!url.includes("/da-hub/")) {
-        blank.document.body.appendChild(closeButton);
-        window.close();
-    }
     blank.document.head.appendChild(style);
     blank.document.head.appendChild(link);
     blank.document.body.appendChild(iframe);
+    if (!url.includes("/da-hub/")) {
+        blank.document.body.appendChild(closeButton);
+    } else {
+        hubWindow = blank;
+    }
 }
 
 function searchApp(name) {
@@ -96,22 +102,6 @@ function handleSearch(e) {
 searchForm.addEventListener("submit", handleSearch);
 clear.addEventListener("click", function () { searchApp() });
 apps.forEach(createApps);
-
-function Browser() {
-    var blank = window.open();
-    blank.document.body.style.margin = '0';
-    blank.document.body.style.height = '100vh';
-    blank.document.title = 'New Tab';
-    var iframe = blank.document.createElement('iframe');
-    iframe.style.border = 'none';
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.margin = '0';
-    iframe.src = 'https://google.com?igu=1';
-    blank.document.body.appendChild(iframe);
-    blank.document.body.querySelectorAll("iframe").contentWindow.openSite("https://google.com?igu=1");
-}
-
 
 function InIframe() {
     try {
