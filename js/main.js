@@ -21,7 +21,7 @@ apps.sort();
 function openSite(url, title, icon) {
     var blank = window.open();
     var link = blank.document.createElement('link');
-    var style = blank.document.head.createElement('style');
+    var style = blank.document.createElement('style');
     var closeButton = blank.document.createElement('p');
     var iframe = blank.document.createElement('iframe');
     link.rel = "shortcut icon";
