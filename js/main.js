@@ -20,19 +20,52 @@ apps.sort();
 
 function openSite(url, title, icon) {
     var blank = window.open();
-    var link = document.createElement('link');
+    var link = blank.document.createElement('link');
+    var style = blank.document.head.createElement('style');
+    var closeButton = blank.document.createElement('p');
     var iframe = blank.document.createElement('iframe');
     link.rel = "shortcut icon";
     link.href = icon || "";
-    blank.document.body.style.margin = '0';
-    blank.document.body.style.height = '100vh';
     blank.document.title = title || "New Tab";
-    iframe.style.border = 'none';
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.margin = '0';
+    closeButton.innerText = "CLOSE";
+    style.innerHTML = `
+    body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+    }
+    iframe {
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        outline: none;
+        margin: 0;
+    }
+    p {
+        position: fixed;
+        z-index: 2;
+        padding: 8px;
+        left: 0;
+        transform: translateX(-50%);
+        transition: 0.2s ease;
+        opacity: 0.5;
+        background: black;
+        border: 2px solid lime;
+        color: lime;
+    }
+    p:hover {
+        left: 2px;
+        transform: translateX(0);
+        opacity: 1;
+    }
+    `;
+    closeButton.onclick = function() {
+        window.close();
+    }
     iframe.src = `${url}`;
+    blank.document.head.appendChild(style);
     blank.document.head.appendChild(link);
+    blank.document.body.appendChild(closeButton);
     blank.document.body.appendChild(iframe);
 }
 
@@ -128,6 +161,7 @@ function whenNotIframe() {
         const app = document.createElement('button');
         app.onclick = function() {
             openSite("https://joebidenrealomg.github.io/da-hub/index.html?iframe=true");
+            window.location.replace("https://google.com");
         };
         app.title = "Click to open";
         app.innerText = "Open";
