@@ -1,137 +1,214 @@
 @keyframes blink {
-    0% {
-      opacity: 0%;
-    }
-    50% {
-      opacity: 100%;
-    }
-    100% {
-      opacity: 0%;
-    }
+  0% {
+    opacity: 0%;
   }
-
-  * {
-    font-family: monospace;
-    color: lime;
+  50% {
+    opacity: 100%;
   }
-
-  *::selection {
-    background: none;
+  100% {
+    opacity: 0%;
   }
+}
 
-  .apps {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    margin-top: 40px;
-  }
+* {
+  color: inherit;
+  font-family: inherit;
+}
 
-  body {
-      background: black;
-      padding-bottom: 30px;
-  }
+*::selection {
+  background: none;
+}
 
-  .apps button {
-      width: 230px;
-      height: 160px;
-      padding: 8px;
-      font-family: inherit;
-      font-weight: bold;
-      text-align: center;
-      color: lime;
-      font-size: 25px;
-      border: 3px dotted lime;
-      background-color: black;
-      cursor: pointer;
-      transition: 0.2s ease;
-      margin: 8px;
-  }
+a {
+  color: lime;
+}
 
-  .apps button:hover {
-      border: lime 3px solid;
-  }
+body {
+  background: black;
+  padding-bottom: 30px;
+  font-family: Sans-Serif;
+  color: white;
+  margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
 
-  .name {
-    color: lime;
-    text-shadow: 0 0 20px lime, 0 0 30px lime;
-    font-size: 40px;
-    display: inline-flex;
-    }
-
-  h1 {
-    color: lime;
-    font-size: 40px;
+.apps {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+  
+  button {
+    width: 23.5%;
+    min-width: 200px;
+    max-width: 100vw;
+    height: 160px;
+    font-weight: bold;
     text-align: center;
-    cursor: default;
-  }
-
-  .thing {
-    display: inline-flex;
-    margin-left: 5px;
-    color: lime;
-    animation: blink 1s ease-in-out infinite;
-  }
-
-  .disclaimer {
-    width: 100%;
-    position: fixed;
-    bottom: -15px;
-    cursor: default;
-    background: black;
-    border-top: lime 2px dashed;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    left: -5px;
-  }
-
-  .disclaimer a {
-    color: lime;
-  }
-
-  .latestUpdate {
-    width: 100%;
-    position: fixed;
-    top: -15px;
-    cursor: default;
-    background: black;
-    border-bottom: lime 2px dashed;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    left: -5px;
-  }
-
-  .latestUpdate a {
-    color: lime;
-  }
-
-  #searchForm {
-    transform: translateX(-50%);
-    position: absolute;
-    left: 50%;
-  }
-
-  #searchForm input {
-    border: lime 1px solid;
-    outline: 0;
-    color: lime;
-    background: black;
-  }
-
-  #searchForm #clear {
+    font-size: 25px;
+    background-color: black;
+    cursor: pointer;
+    transition: 0.1s ease;
+    overflow: hidden;
     border: none;
+    flex-grow: 1;
+    
+    p {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      top: 50%;
+    }
+    
+    img {
+      margin-top: -100px;
+      margin-left: -10%;
+      object-fit: cover;
+      width: 120%;
+      height: 120%;
+      mask-image: linear-gradient(to top, rgba(0,0,0,0.2) 30%,rgba(0,0,0,1) 100%);
+    }
+  }
+  
+  button:hover {
+    border: gray 3px solid;
+  }
+}
+
+.name {
+  color: lime;
+  text-shadow: 0 0 20px lime, 0 0 30px lime;
+  font-size: 40px;
+  display: inline-flex;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  cursor: default;
+}
+
+.thing {
+  color: lime;
+  text-shadow: 0 0 20px lime, 0 0 30px lime;
+  display: inline-flex;
+  margin-left: 5px;
+  animation: blink 1s ease-in-out infinite;
+}
+
+.disclaimer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  cursor: default;
+  background: black;
+  border-top: white 2px solid;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  margin: 0;
+  z-index: 3;
+}
+
+.disclaimer a {
+  color: lime;
+}
+
+.latestUpdate {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  cursor: default;
+  background: black;
+  border-bottom: white 2px solid;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  z-index: 3;
+  margin: 0;
+}
+
+#searchForm {
+  position: absolute;
+  right: 0;
+}
+
+#searchForm input {
+  border: rgba(255,255,255,0.5) 3px solid;
+  background: black;
+  padding: 8px;
+  border-radius: 2vh;
+  transition: 0.15s ease;
+}
+
+#searchForm input:focus {
+  border-bottom: rgba(140,140,255,0.9) 3px solid;
+  border-radius: 2vh 2vh 0 0;
+  outline: none;
+}
+
+#searchForm #clear {
+  border: none;
+  background: black;
+  outline: black 2px solid;
+  margin-right: 8px;
+  margin-left: 4px;
+  aspect-ratio: 1 / 1;
+  width: 40px;
+  padding: 8px;
+  border-radius: 4vh;
+  transition: 0.15s ease;
+}
+
+#searchForm #clear:hover {
+  outline: white 3px solid;
+}
+
+#searchForm #results {
+  color: white;
+  position: absolute;
+  transform: translateY(-200%);
+}
+
+#appDiv {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background: black;
+  
+  iframe {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
     outline: none;
-    color: lime;
+    border: none;
+  }
+  
+  .appClose {
+    margin: 0;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    transform: translateX(-50%);
+    padding: 8px;
+    border-radius: 4vh;
     background: black;
-    outline: black 1px solid;
-  }
-
-  #searchForm #clear:hover {
-    outline: lime 1px solid;
-  }
-
-  #searchForm #results {
+    border: 3px solid rgba(0, 255, 0, 0.2);
     color: lime;
+    cursor: pointer;
+    transition: 0.15s ease;
+    opacity: 0.5;
   }
+  
+  .appClose:hover {
+    border: 3px solid lime;
+    transform: translateX(0);
+    left: 5px;
+    opacity: 1;
+  }
+}
