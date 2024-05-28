@@ -8,7 +8,7 @@ const apps = ["1v1.LOL", "2048", "Aquapark", "Angry Birds", "Bad Piggies",
     "DonkeyKong", "DOOM", "DuckHunt", "Ducklife_1", "Ducklife_2", "Ducklife_3", "ElectricMan 2",
     "FNAF_1", "FNAF_2", "FNAF_3", "FNAW", "GoogleDino", "GoogleSnake", "Impossible Quiz", "Jacksmith",
     "Learn 2 Fly", "Minecraft_1.8.8", "MotoX3M", "MotoX3M 2", "Minesweeper", "Pacman", "PappaPizza", "wolfen",
-    "Pong", "RetroBowl", "Run_1", "Run_3", "Robux Generator Clicker", "RiddleSchool", "Slope_1", "Slope_2", "StickmanHook", "SuperMario 63",
+    "Pong", "RetroBowl", "Run_1", "Run_3", "Robux Generator Clicker", "RiddleSchool", "Slope_1", "Slope_Ass", "StickmanHook", "SuperMario 63",
     "SuperMario 64", "SoobwaySurfers", "Tetris", "Worlds Hardest Game_1", "Worlds Hardest Game_2", "Wordle", "yohoho.io"];
 apps.sort();
 
@@ -63,7 +63,7 @@ function searchApp(name) {
   appsDiv.innerHTML = "";
   if (name !== undefined) {
     apps.forEach(function (app, i) {
-      if (app.toLowerCase().includes(name.toLowerCase())) {
+      if (app.toLowerCase().replaceAll("_", " ").includes(name.toLowerCase())) {
         foundApps.push(app);
         results++;
       }
