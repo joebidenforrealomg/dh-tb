@@ -10,13 +10,28 @@
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 * {
   color: inherit;
   font-family: inherit;
+  z-index: 2;
 }
 
 *::selection {
   background: none;
+}
+
+h1 {
+  z-index: 2;
+  position: relative;
 }
 
 a {
@@ -25,13 +40,10 @@ a {
 
 html {
   background-image: url("https://img.freepik.com/premium-photo/digital-black-green-squares_161488-652.jpg");
-  /*background-repeat: no-repeat;*/
-  /*background-size: fill;*/
 }
 
 body {
   background: transparent;
-  backdrop-filter: blur(4px) brightness(30%);
   padding-bottom: 30px;
   font-family: Sans-Serif;
   color: white;
@@ -39,8 +51,17 @@ body {
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
-  position: absolute;
+}
+
+#bgFilter {
+  backdrop-filter: blur(4px) brightness(30%);
+  background: transparent;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
   top: 0;
+  left: 0;
+  z-index: 0;
 }
 
 .apps {
@@ -49,7 +70,8 @@ body {
   justify-content: center;
   width: 100%;
   margin-top: 50px;
-  
+  animation: fadeIn 0.5s ease;
+
   button {
     width: 300px;
     /*max-width: 100vw;*/
@@ -65,7 +87,7 @@ body {
     flex-grow: 1;
     margin: 8px;
     border-radius: 8px;
-    
+
     p {
       position: relative;
       z-index: 2;
@@ -79,6 +101,8 @@ body {
       object-fit: cover;
       width: 120%;
       height: 120%;
+      opacity: 0;
+      transition: 0.5s ease;
       mask-image: linear-gradient(to top, rgba(0,0,0,0.2) 30%,rgba(0,0,0,1) 100%);
     }
   }
@@ -114,7 +138,7 @@ h1 {
 }
 
 .disclaimer {
-  width: 100%;
+  width: 100vw;
   position: fixed;
   bottom: 0;
   cursor: default;
@@ -125,6 +149,7 @@ h1 {
   padding-left: 5px;
   margin: 0;
   z-index: 3;
+  backdrop-filter: blur(4px);
 }
 
 .disclaimer a {
@@ -132,7 +157,7 @@ h1 {
 }
 
 .latestUpdate {
-  width: 100%;
+  width: 100vw;
   position: fixed;
   top: 0;
   cursor: default;
@@ -143,6 +168,7 @@ h1 {
   padding-left: 5px;
   z-index: 3;
   margin: 0;
+  backdrop-filter: blur(4px);
 }
 
 #searchForm {
@@ -175,6 +201,8 @@ h1 {
   padding: 8px;
   border-radius: 4vh;
   transition: 0.15s ease;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 #searchForm #clear:hover {
