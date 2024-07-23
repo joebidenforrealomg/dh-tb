@@ -1,0 +1,302 @@
+body {
+    padding: 0;
+    margin: 0
+}
+
+#unity-container {
+    position: absolute
+}
+
+    #unity-container.unity-desktop {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%)
+    }
+
+    #unity-container.unity-mobile {
+        width: 100%;
+        height: 100%
+    }
+
+#unity-canvas {
+    background: #000000
+}
+
+.unity-mobile #unity-canvas {
+    width: 100%;
+    height: 100%
+}
+
+#unity-loading-bar {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none
+}
+
+#unity-logo {
+    width: 154px;
+    height: 130px;
+    background: url('unity-logo-dark.png') no-repeat center;
+    opacity: 0;
+}
+
+#unity-progress-bar-empty {
+    width: 141px;
+    height: 18px;
+    margin-top: 10px;
+    margin-left: 6.5px;
+    background: url('progress-bar-empty-dark.png') no-repeat center
+}
+
+#unity-progress-bar-full {
+    width: 0%;
+    height: 18px;
+    margin-top: 10px;
+    background: url('progress-bar-full-dark.png') no-repeat center
+}
+
+#unity-footer {
+    position: relative
+}
+
+.unity-mobile #unity-footer {
+    display: none
+}
+
+#unity-webgl-logo {
+    float: left;
+    width: 204px;
+    height: 38px;
+    background: url('webgl-logo.png') no-repeat center
+}
+
+#unity-build-title {
+    float: right;
+    margin-right: 10px;
+    line-height: 38px;
+    font-family: arial;
+    font-size: 18px
+}
+
+#unity-fullscreen-button {
+    float: right;
+    width: 38px;
+    height: 38px;
+    background: url('fullscreen-button.png') no-repeat center
+}
+
+#unity-warning {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%);
+    background: white;
+    padding: 10px;
+    display: none
+}
+
+#my-button {
+    position: absolute;
+    top: -70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    //padding: 15px 200px;
+    width: 300px;
+    height: 150px;
+    background-color: rgba(204, 204, 204, 0);
+    border: none;
+    border-radius: 5px;
+    color: #ccc;
+    font-size: fit-content;
+    font-family: 'Fredoka', sans-serif;
+    cursor: pointer;
+}
+
+#my-logo {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 154px;
+    height: 154px;
+    cursor: pointer;
+    background: url('profile-pic.png') no-repeat center;
+    background-size: contain;
+    background-color: rgba(204, 204, 204, 0);
+    border: none;
+    padding: 0;
+    z-index: 10;
+}
+
+#follow-logo {
+    position: absolute;
+    top: 180%;
+    left: -140%;
+    transform: translate(-50%, -50%);
+    width: 364px;
+    height: 28px;
+    cursor: pointer;
+    background: url('follow-updates.png') no-repeat center;
+    background-size: contain;
+    background-color: rgba(204, 204, 204, 0);
+    border: none;
+    padding: 0;
+}
+
+#discord-logo {
+    position: absolute;
+    top: 180%;
+    left: -140%;
+    transform: translate(125%, -50%);
+    width: 364px;
+    height: 28px;
+    cursor: pointer;
+    background: url('join-discord.png') no-repeat center;
+    background-size: contain;
+    background-color: rgba(204, 204, 204, 0);
+    border: none;
+    padding: 0;
+}
+
+#progressTextBox {
+    position: absolute;
+    top: 115%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    width: 150px;
+    height: 50px;
+    background-color: rgba(204, 204, 204, 0);
+    border: none;
+    /* border-radius: 5px;*/
+    color: #ccc;
+    font-size: fit-content;
+    font-family: 'Fredoka', sans-serif;
+    /* Disable text selection */
+    user-select: none;
+    /* Disable outline when clicked */
+    outline: none;
+    cursor: default;
+    text-align: center;
+}
+
+#finalTextBox {
+    position: absolute;
+    top: 115%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    width: 150px;
+    height: 50px;
+    background-color: rgba(204, 204, 204, 0);
+    border: none;
+    /* border-radius: 5px;*/
+    color: #ccc;
+    font-size: fit-content;
+    font-family: 'Fredoka', sans-serif;
+    /* Disable text selection */
+    user-select: none;
+    /* Disable outline when clicked */
+    outline: none;
+    cursor: default;
+    text-align: center;
+}
+
+#longerTextBox {
+    position: absolute;
+    top: 155%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    /* box-sizing: border-box;*/
+    width: 350px;
+    height: 150px;
+    background-color: rgba(204, 204, 204, 0);
+    border: none;
+    /* border-radius: 5px;*/
+    color: #ccc;
+    font-size: 12px;
+    font-family: 'Fredoka', sans-serif;
+    /* Disable text selection */
+    user-select: none;
+    /* Disable outline when clicked */
+    outline: none;
+    cursor: default;
+    text-align: center;
+    resize: none; /* Hide the resize handle */
+    overflow: hidden;
+}
+
+#loading-gif {
+    display: none;
+    position: absolute;
+    right: -50px;
+    transform: translate(-5%, -67%);
+}
+
+#download-vert {
+    position: absolute;
+    top: 180%;
+    left: -140%;
+    transform: translate(240%, -107%);
+    width: 56px;
+    height: 364px;
+    cursor: pointer;
+    background: url('download-vert.png') no-repeat center;
+    background-size: contain;
+    background-color: rgba(204, 204, 204, 0);
+    border: none;
+    padding: 0;
+    display: none;
+}
+
+#discord-vert {
+    position: absolute;
+    top: 180%;
+    left: -140%;
+    transform: translate(700%, -107%);
+    width: 56px;
+    height: 364px;
+    cursor: pointer;
+    background: url('discord-vert.png') no-repeat center;
+    background-size: contain;
+    background-color: rgba(204, 204, 204, 0);
+    border: none;
+    padding: 0;
+    display: none;
+}
+
+#download-hori {
+    position: absolute;
+    top: 180%;
+    left: -140%;
+    transform: translate(7%, -290%);
+    width: 125px;
+    height: 100px;
+    cursor: pointer;
+    background: url('download-hori.png') no-repeat center;
+    background-size: contain;
+    background-color: rgba(204, 204, 204, 0);
+    border: none;
+    padding: 0;
+    display: none;
+}
+
+#discord-hori {
+    position: absolute;
+    top: 180%;
+    left: -140%;
+    transform: translate(360%, -290%);
+    width: 125px;
+    height: 100px;
+    cursor: pointer;
+    background: url('discord-hori.png') no-repeat center;
+    background-size: contain;
+    background-color: rgba(204, 204, 204, 0);
+    border: none;
+    padding: 0;
+    display: none;
+}
+

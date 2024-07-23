@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet">
+
+</head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=540></canvas>
+      <div id="unity-loading-bar">
+          <div id="unity-logo"></div>
+          <div id="unity-progress-bar-empty">
+              <div id="unity-progress-bar-full"></div>
+          </div>
+
+          <button id="my-button">CLICK HERE TO DOWNLOAD THE GAME FOR FREE FOR A BETTER EXPERIENCE<br><br>The Game Has Been Reduced So It Can Run In The Browser, If You Would Like Access To All The Characters, Scenes And Features.<br>Click Here</button>
+          <button id="my-logo"></button>
+          <button id="follow-logo"></button>
+          <button id="discord-logo"></button>
+          <input type="text" id="progressTextBox" readonly>
+          <input type="text" id="finalTextBox" readonly>
+          <textarea id="longerTextBox" readonly></textarea>
+          <img src="spinner.png" alt="Loading..." id="loading-gif">
+
+          <button id="download-vert"></button>
+          <button id="discord-vert"></button>
+
+          <button id="download-hori"></button>
+          <button id="discord-hori"></button>
+
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Gayming v0.1</div>
+      </div>
+    </div>
+
+    <script>
+      function checkPassword() {
+        const question = prompt("what is the super duper secure password123", "robux");
+        if (btoa(question) === "aGV5IGd1eXMgd2VsY29tZSBiYWNrIHRvIGFub3RoZXIgdmlkZW8gdG9kYXkgSSBhbSBtZWV0aW5nIDYgeWVhciBvbGRzIGxpa2UgYW5kIHN1YiB0aGFua3MgZm9yIHdhdGNoaW5n") {
+          superDuperSecretRobuxGeneratorRealOMGHaveKidsInYourRearEnd(question);
+        } else {
+          alert('wrong');
+        }
+      }
+
+      function superDuperSecretRobuxGeneratorRealOMGHaveKidsInYourRearEnd(yea) {
+        if (btoa(yea) === "aGV5IGd1eXMgd2VsY29tZSBiYWNrIHRvIGFub3RoZXIgdmlkZW8gdG9kYXkgSSBhbSBtZWV0aW5nIDYgeWVhciBvbGRzIGxpa2UgYW5kIHN1YiB0aGFua3MgZm9yIHdhdGNoaW5n") {
+          var container = document.querySelector("#unity-container");
+          var canvas = document.querySelector("#unity-canvas");
+          var loadingBar = document.querySelector("#unity-loading-bar");
+          var progressBarFull = document.querySelector("#unity-progress-bar-full");
+          var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+          var warningBanner = document.querySelector("#unity-warning");
+
+          // Shows a temporary message banner/ribbon for a few seconds, or
+          // a permanent error message on top of the canvas if type=='error'.
+          // If type=='warning', a yellow highlight color is used.
+          // Modify or remove this function to customize the visually presented
+          // way that non-critical warnings and error messages are presented to the
+          // user.
+          function unityShowBanner(msg, type) {
+            function updateBannerVisibility() {
+              warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+            }
+            var div = document.createElement('div');
+            div.innerHTML = msg;
+            warningBanner.appendChild(div);
+            if (type == 'error') div.style = 'background: red; padding: 10px;';
+            else {
+              if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+              setTimeout(function() {
+                warningBanner.removeChild(div);
+                updateBannerVisibility();
+              }, 5000);
+            }
+            updateBannerVisibility();
+          }
+
+          var buildUrl = "Build";
+          var loaderUrl = buildUrl + "/(v0.1.58) HoleHouse [Itch].loader.js";
+          var config = {
+            dataUrl: buildUrl + "/(v0.1.58) HoleHouse [Itch].data.unityweb",
+            frameworkUrl: buildUrl + "/(v0.1.58) HoleHouse [Itch].framework.js.unityweb",
+            codeUrl: buildUrl + "/(v0.1.58) HoleHouse [Itch].wasm.unityweb",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "DefaultCompany",
+            productName: "HoleHouse v0.1",
+            productVersion: "1.0",
+            showBanner: unityShowBanner,
+          };
+
+          // By default Unity keeps WebGL canvas render target size matched with
+          // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+          // Set this to false if you want to decouple this synchronization from
+          // happening inside the engine, and you would instead like to size up
+          // the canvas DOM size and WebGL render target sizes yourself.
+          // config.matchWebGLToCanvasSize = false;
+
+          if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            // Mobile device style: fill the whole browser client area with the game canvas:
+
+            var meta = document.createElement('meta');
+            meta.name = 'viewport';
+            meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+            document.getElementsByTagName('head')[0].appendChild(meta);
+            container.className = "unity-mobile";
+
+            // To lower canvas resolution on mobile devices to gain some
+            // performance, uncomment the following line:
+            // config.devicePixelRatio = 1;
+
+            canvas.style.width = window.innerWidth + 'px';
+            canvas.style.height = window.innerHeight + 'px';
+
+              unityShowBanner('Click The Logo To Download As WebGL Are Alot Slower On Mobile');
+
+
+              document.getElementById("follow-logo").style.transform = "translate(29%, -130%)";
+              document.getElementById("discord-logo").style.transform = "translate(32%, -300%)";
+
+
+              checkOrientation();
+
+
+              // Add event listener for window resize
+
+              window.addEventListener("resize", adjustBackgroundSize);
+
+              // Add event listener for device orientation change
+
+              window.addEventListener("orientationchange", adjustBackgroundSize);
+          } else {
+            // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
+            canvas.style.width = "960px";
+            canvas.style.height = "540px";
+          }
+
+            function setVertStuff() {
+                var downloadElement = document.getElementById('download-vert');
+                var discordElement = document.getElementById('discord-vert');
+
+                downloadElement.style.display = 'block';
+                discordElement.style.display = 'block';
+
+                document.getElementById("follow-logo").style.display = 'none';
+                document.getElementById("discord-logo").style.display = 'none';
+
+                var downloadElementHori = document.getElementById('download-hori');
+                var discordElementHori = document.getElementById('discord-hori');
+
+                downloadElementHori.style.display = 'none';
+                discordElementHori.style.display = 'none';
+
+            }
+
+            function setHoriStuff() {
+                var downloadElement = document.getElementById('download-vert');
+                var discordElement = document.getElementById('discord-vert');
+
+                downloadElement.style.display = 'none';
+                discordElement.style.display = 'none';
+
+                document.getElementById("follow-logo").style.display = 'none';
+                document.getElementById("discord-logo").style.display = 'none';
+
+                var downloadElementHori = document.getElementById('download-hori');
+                var discordElementHori = document.getElementById('discord-hori');
+
+                downloadElementHori.style.display = 'block';
+                discordElementHori.style.display = 'block';
+
+            }
+            function checkOrientation() {
+                var orientationAngle = window.orientation;
+
+                if (orientationAngle === 0 || orientationAngle === 180) {
+                    setVertStuff();
+                } else if (orientationAngle === 90 || orientationAngle === -90) {
+                    setHoriStuff();
+                }
+            }
+
+
+
+
+
+            function adjustBackgroundSize() {
+                var meta = document.createElement('meta');
+                meta.name = 'viewport';
+                meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+                document.getElementsByTagName('head')[0].appendChild(meta);
+                container.className = "unity-mobile";
+
+                // To lower canvas resolution on mobile devices to gain some
+                // performance, uncomment the following line:
+                // config.devicePixelRatio = 1;
+
+                canvas.style.width = window.innerWidth + 'px';
+                canvas.style.height = window.innerHeight + 'px';
+
+
+
+
+                document.getElementById("follow-logo").style.transform = "translate(29%, -130%)";
+                document.getElementById("discord-logo").style.transform = "translate(32%, -300%)";
+
+                checkOrientation();
+
+
+            }
+
+
+            canvas.style.background = "url('" + buildUrl + "/(v0.1.56) HoleHouse [WebGL].jpg') center / cover";
+          loadingBar.style.display = "block";
+
+            var script = document.createElement("script");
+
+            var textBox = document.getElementById("progressTextBox");
+            var finalTextBox = document.getElementById("finalTextBox");
+
+            finalTextBox.value = "Finalizing: 90%";
+            finalTextBox.style.display = "none";
+            textBox.value = "Loading: 0%";
+            textBox.style.display = "block";
+            progressBarFull.style.width = 0;
+
+            var progCount = 0;
+            var updateIntervalDuration = 5;
+
+            var continueUpdating = true;
+
+            function update() {
+                if (!continueUpdating || progCount >= 99.99) {
+                    finalTextBox.value = "Finishing Up";
+                    return;
+                }
+
+
+                // Increment the counter
+
+                if (progCount >= 97.50) {
+                    updateIntervalDuration = 120;
+                    // Hide the progressTextBox
+                    textBox.style.display = "none";
+                    // Show the finalTextBox
+                    finalTextBox.style.display = "block";
+                    finalTextBox.value = "Finalizing: " + progCount.toFixed(2) + "%";
+                    progressBarFull.style.width = progCount.toFixed(2) + "%";
+                    progCount += 0.01;
+                } else if (progCount >= 90) {
+
+
+                    updateIntervalDuration = 12;
+                    // Hide the progressTextBox
+                    textBox.style.display = "none";
+                    // Show the finalTextBox
+                    finalTextBox.style.display = "block";
+                    finalTextBox.value = "Finalizing: " + progCount.toFixed(2) + "%";
+                    progressBarFull.style.width = progCount.toFixed(2) + "%";
+                    progCount += 0.01;
+
+
+                } else {
+                    // Show the progressTextBox
+                    updateIntervalDuration = 3;
+                    textBox.value = "Loading: " + progCount.toFixed(2) + "%";
+                    progressBarFull.style.width = progCount.toFixed(2) + "%";
+                    progCount += 0.01;
+                }
+
+
+                // Recursively call setTimeout for the next iteration with the updated duration
+
+                setTimeout(update, updateIntervalDuration);
+
+
+
+
+
+            }
+
+            // Start the first update
+
+            update();
+
+          script.src = loaderUrl;
+          script.onload = () => {
+            createUnityInstance(canvas, config, (progress) => {
+              
+            }).then((unityInstance) => {
+              loadingBar.style.display = "none";
+              fullscreenButton.onclick = () => {
+                unityInstance.SetFullscreen(1);
+              };
+            }).catch((message) => {
+              alert(message);
+            });
+          };
+            document.body.appendChild(script);
+
+            var URLToUse = "https://dotartnsfw.itch.io/hole-house/purchase";
+
+            var discordURL = "https://discord.gg/holehouse";
+
+            var followUrlHold = "https://dotartnsfw.itch.io/hole-house";
+
+            var myButton = document.getElementById("my-button");
+            myButton.addEventListener("click", function () {
+                window.open(URLToUse, "_blank");
+            });
+            var logoButton = document.getElementById("my-logo");
+            logoButton.addEventListener("click", function () {
+                window.open(URLToUse, "_blank");
+            });
+            var followButton = document.getElementById("follow-logo");
+            followButton.addEventListener("click", function () {
+                window.open(followUrlHold, "_blank");
+            });
+
+            var discordButton = document.getElementById("discord-logo");
+            discordButton.addEventListener("click", function () {
+                window.open(discordURL, "_blank");
+            });
+
+            var downloadVert = document.getElementById("download-vert");
+            downloadVert.addEventListener("click", function () {
+                window.open(URLToUse, "_blank");
+            });
+
+            var discordVert = document.getElementById("discord-vert");
+            discordVert.addEventListener("click", function () {
+                window.open(discordURL, "_blank");
+            });
+
+
+            var downloadHori = document.getElementById("download-hori");
+            downloadHori.addEventListener("click", function () {
+                window.open(URLToUse, "_blank");
+            });
+
+            var discordHori = document.getElementById("discord-hori");
+            discordHori.addEventListener("click", function () {
+                window.open(discordURL, "_blank");
+            });
+        }
+      }
+
+      checkPassword();
+    </script>
+  </body>
+</html>
