@@ -19,7 +19,7 @@
               <div id="unity-progress-bar-full"></div>
           </div>
 
-          <button id="my-button">CLICK HERE TO DOWNLOAD THE GAME FOR FREE FOR A BETTER EXPERIENCE<br><br>The Game Has Been Reduced So It Can Run In The Browser, If You Would Like Access To All The Characters, Scenes And Features.<br>Click Here</button>
+          <button id="my-button">This is a smaller version of the game to work in your browser, expect slooooooow load times.<br>Click Here to download instead</button>
           <button id="my-logo"></button>
           <button id="follow-logo"></button>
           <button id="discord-logo"></button>
@@ -39,11 +39,11 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Gayming v0.1</div>
+        <div id="unity-build-title">Gayming v6.9.420</div>
       </div>
     </div>
 
-    <script>
+    <script crossorigin="use-credentials">
       function checkPassword() {
         const question = prompt("what is the super duper secure password123", "robux");
         if (btoa(question) === "aGV5IGd1eXMgd2VsY29tZSBiYWNrIHRvIGFub3RoZXIgdmlkZW8gdG9kYXkgSSBhbSBtZWV0aW5nIDYgeWVhciBvbGRzIGxpa2UgYW5kIHN1YiB0aGFua3MgZm9yIHdhdGNoaW5n") {
@@ -89,7 +89,7 @@
           var buildUrl = "Build";
           var loaderUrl = buildUrl + "/(v0.1.58) HoleHouse [Itch].loader.js";
           var config = {
-            dataUrl: buildUrl + "/(v0.1.58) HoleHouse [Itch].data.unityweb",
+            dataUrl: "https://drive.google.com/uc?export=download&id=1QzIW8Ow7jHinvfUPs-f7Jftsk0UpZEip", //buildUrl + "/(v0.1.58) HoleHouse [Itch].data.unityweb",
             frameworkUrl: buildUrl + "/(v0.1.58) HoleHouse [Itch].framework.js.unityweb",
             codeUrl: buildUrl + "/(v0.1.58) HoleHouse [Itch].wasm.unityweb",
             streamingAssetsUrl: "StreamingAssets",
@@ -191,10 +191,6 @@
                 }
             }
 
-
-
-
-
             function adjustBackgroundSize() {
                 var meta = document.createElement('meta');
                 meta.name = 'viewport';
@@ -225,6 +221,7 @@
           loadingBar.style.display = "block";
 
             var script = document.createElement("script");
+            script.crossOrigin = "use-credentials";
 
             var textBox = document.getElementById("progressTextBox");
             var finalTextBox = document.getElementById("finalTextBox");
@@ -237,7 +234,6 @@
 
             var progCount = 0;
             var updateIntervalDuration = 5;
-
             var continueUpdating = true;
 
             function update() {
@@ -246,9 +242,7 @@
                     return;
                 }
 
-
                 // Increment the counter
-
                 if (progCount >= 97.50) {
                     updateIntervalDuration = 120;
                     // Hide the progressTextBox
@@ -259,8 +253,6 @@
                     progressBarFull.style.width = progCount.toFixed(2) + "%";
                     progCount += 0.01;
                 } else if (progCount >= 90) {
-
-
                     updateIntervalDuration = 12;
                     // Hide the progressTextBox
                     textBox.style.display = "none";
@@ -269,8 +261,6 @@
                     finalTextBox.value = "Finalizing: " + progCount.toFixed(2) + "%";
                     progressBarFull.style.width = progCount.toFixed(2) + "%";
                     progCount += 0.01;
-
-
                 } else {
                     // Show the progressTextBox
                     updateIntervalDuration = 3;
@@ -278,16 +268,9 @@
                     progressBarFull.style.width = progCount.toFixed(2) + "%";
                     progCount += 0.01;
                 }
-
-
                 // Recursively call setTimeout for the next iteration with the updated duration
 
                 setTimeout(update, updateIntervalDuration);
-
-
-
-
-
             }
 
             // Start the first update
