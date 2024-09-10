@@ -62,7 +62,7 @@ function openSite(url) {
 
   appDiv.appendChild(iframe);
   appDiv.appendChild(closeButton);
-  document.getElementById("main").appendChild(appDiv);
+  document.body.appendChild(appDiv);
   document.getElementById("main").style.display = "none";
 }
 
