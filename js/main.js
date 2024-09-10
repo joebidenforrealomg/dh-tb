@@ -55,13 +55,15 @@ function openSite(url) {
   
   closeButton.addEventListener('click', function() {
     if (confirm("Are you sure you want to close this app?") === true) {
+      document.getElementById("main").style.display = "block";
       appDiv.remove();
     }
   });
 
   appDiv.appendChild(iframe);
   appDiv.appendChild(closeButton);
-  document.body.appendChild(appDiv);
+  document.getElementById("main").appendChild(appDiv);
+  document.getElementById("main").style.display = "none";
 }
 
 function searchApp(name) {
@@ -174,6 +176,10 @@ function whenNotIframe() {
   if (iframe !== "true" || iframe === null || iframe === undefined) {
     document.body.innerHTML = "";
 
+    const main = document.createElement("main");
+    main.id = "main";
+    document.body.appendChild(main);
+
     const apps = document.createElement('div');
     apps.className = "apps";
     apps.id = "apps";
@@ -187,7 +193,7 @@ function whenNotIframe() {
     app.innerText = "Open";
 
     apps.appendChild(app);
-    document.body.appendChild(apps);
+    document.getElementById("main").appendChild(apps);
   }
 }
 
