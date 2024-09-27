@@ -123,7 +123,7 @@ function createApp(name, hint, url) {
     img.onerror = function() {
       if (img.src.includes(".jpg")) {
         img.src = `${url}/../thumbnail.png`;
-      } else if (img.src.includes(".jpg")) {
+      } else if (img.src.includes(".png")) {
         img.src = `${url}/../thumbnail.jpeg`;
       } else if (img.src.includes(".jpeg")) {
         img.src = `${url}/../thumbnail.webp`;
