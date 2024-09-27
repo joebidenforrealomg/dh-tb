@@ -5,12 +5,13 @@ const searchInput = document.getElementById("searchInput");
 const resultsText = document.getElementById("results");
 const clear = document.getElementById("clear");
 const apps = ["1v1.LOL", "2048", "Aquapark", "Angry Birds", "Bad Piggies", "Basketball Stars",
-    "Bitlife", "Blackjack", "BloonsTD", "Bloxorz", "ButterDog Chat", "CookieClicker", "CrossyRoad",
+    "Bitlife", "Blackjack", "BloonsTD", "Bloxorz", "CookieClicker", "CrossyRoad",
     "DonkeyKong", "DOOM", "DuckHunt", "Ducklife_1", "Ducklife_2", "Ducklife_3", "ElectricMan 2", "FruitNinja",
     "FNAF_1", "FNAF_2", "FNAF_3", "FNAF_4", "FNAW", "GoogleSnake", "House of Horers Simulator", "Impossible Quiz", "Jacksmith",
-    "Learn 2 Fly", "Minecraft_1.8.8", "MotoX3M", "MotoX3M 2", "Minesweeper", "Pacman", "PappaPizza", "wolfen",
-    "Pong", "RetroBowl", "Run_1", "Run_3", "Robux Generator Clicker", "RiddleSchool", "Slope_1", "Slope_Ass", "StickmanHook", "SuperMario 63",
-    "SuperMario 64", "SoobwaySurfers", "Tetris", "Vex_3" ,"Worlds Hardest Game_1", "Worlds Hardest Game_2", "Wordle", "yohoho.io"];
+    "Learn 2 Fly", "Minecraft_1.8.8", "MotoX3M", "MotoX3M 2", "Minesweeper", "Pacman", "PapaPizza", "wolfen",
+    "Pong", "RetroBowl", "Run_1", "Run_3", "Robux Generator Clicker", "RiddleSchool_1", "RiddleSchool_2", "RiddleSchool_3",
+     "Slope_1", "Slope_Ass", "StickmanHook", "SuperMario 63", "SuperMario 64", "SoobwaySurfers", "Tetris", 
+     "Vex_3" ,"Worlds Hardest Game_1", "Worlds Hardest Game_2", "Wordle", "yohoho.io"];
 apps.sort();
 
 document.head.appendChild(altCSS);
@@ -120,8 +121,8 @@ function createApp(name, hint, url) {
     };
     
     img.onerror = function() {
-      if (img.src.includes(".png")) {
-        img.src = `${url}/../thumbnail.jpg`;
+      if (img.src.includes(".jpg")) {
+        img.src = `${url}/../thumbnail.png`;
       } else if (img.src.includes(".jpg")) {
         img.src = `${url}/../thumbnail.jpeg`;
       } else if (img.src.includes(".jpeg")) {
@@ -130,7 +131,7 @@ function createApp(name, hint, url) {
         img.src = "https://img.freepik.com/premium-photo/digital-black-green-squares_161488-652.jpg";
       }
     };
-    img.src = `${url}/../thumbnail.png`;
+    img.src = `${url}/../thumbnail.jpg`;
   }
 }
 
