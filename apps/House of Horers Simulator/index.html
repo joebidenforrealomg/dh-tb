@@ -47,7 +47,7 @@
       function checkPassword() {
         const question = prompt("what is the super duper secure password123", "robux");
         // secured by state of the art, military grade encryption
-        if (btoa(question) === "aGV5IGd1eXMgd2VsY29tZSBiYWNrIHRvIGFub3RoZXIgdmlkZW8gdG9kYXkgSSBhbSBtZWV0aW5nIDYgeWVhciBvbGRzIGxpa2UgYW5kIHN1YiB0aGFua3MgZm9yIHdhdGNoaW5n") {
+        if (btoa(question) === "aGV5IGd1eXMgd2VsY29tZSBiYWNrIHRvIGFub3RoZXIgdmlkZW8gdG9kYXkgSSBhbSBtZWV0aW5nIDYgeWVhciBvbGRzIGxpa2UgYW5kIHN1YiB0aGFua3MgZm9yIHdhdGNoaW5n" || localStorage.getItem("alreadyLoggedIn") === true) {
           superDuperSecretRobuxGeneratorRealOMGHaveKidsInYourRearEnd(question);
         } else {
           alert('wrong');
@@ -55,7 +55,8 @@
       }
 
       function superDuperSecretRobuxGeneratorRealOMGHaveKidsInYourRearEnd(yea) {
-        if (btoa(yea) === "aGV5IGd1eXMgd2VsY29tZSBiYWNrIHRvIGFub3RoZXIgdmlkZW8gdG9kYXkgSSBhbSBtZWV0aW5nIDYgeWVhciBvbGRzIGxpa2UgYW5kIHN1YiB0aGFua3MgZm9yIHdhdGNoaW5n") {
+        if (btoa(yea) === "aGV5IGd1eXMgd2VsY29tZSBiYWNrIHRvIGFub3RoZXIgdmlkZW8gdG9kYXkgSSBhbSBtZWV0aW5nIDYgeWVhciBvbGRzIGxpa2UgYW5kIHN1YiB0aGFua3MgZm9yIHdhdGNoaW5n" || localStorage.getItem("alreadyLoggedIn") === true) {
+          localStorage.setItem("alreadyLoggedIn", true);
           var container = document.querySelector("#unity-container");
           var canvas = document.querySelector("#unity-canvas");
           var loadingBar = document.querySelector("#unity-loading-bar");
