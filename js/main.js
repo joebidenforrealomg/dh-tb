@@ -4,6 +4,7 @@ const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
 const resultsText = document.getElementById("results");
 const clear = document.getElementById("clear");
+let newApps = 0;
 /* const apps = ["1v1.LOL", "2048", "Aquapark", "Angry Birds", "Bad Piggies", "Basketball Stars",
     "Bitlife", "Blackjack", "BloonsTD", "Bloxorz", "CookieClicker", "CrossyRoad",
     "DonkeyKong", "DOOM", "DuckHunt", "Ducklife_1", "Ducklife_2", "Ducklife_3", "ElectricMan 2", "FruitNinja",
@@ -131,6 +132,7 @@ function createApp(name, hint, url, thumbnail, newlyAdded, broken, fixed) {
       newP.classList.add("new");
       newP.title = "This app was recently added (within the last 5 days)";
       tags.appendChild(newP);
+      newApps++;
     }
 
     if (broken) {
@@ -151,7 +153,11 @@ function createApp(name, hint, url, thumbnail, newlyAdded, broken, fixed) {
 
     b.appendChild(p);
     b.appendChild(img);
-    document.getElementById("apps").appendChild(b);
+    if (newlyAdded) {
+      document.getElementById("newApps").appendChild(b);
+    } else {
+      document.getElementById("apps").appendChild(b);
+    }
     
     img.onload = function() {
       img.style.opacity = 1;
@@ -191,7 +197,7 @@ function createApps(app) {
   }
 
   if (!document.getElementById(`appButton${app}`)) {
-      createApp(app.Name, "Play " + app.Name, "apps/" + app.Folder + "/" + app.Index, app.Thumbnail, newlyAdded, app.Broken, app.Fixed);
+    createApp(app.Name, "Play " + app.Name, "apps/" + app.Folder + "/" + app.Index, app.Thumbnail, newlyAdded, app.Broken, app.Fixed);
   } else {
     document.getElementById(`appButton${app}`).style.animation = "";
     document.getElementById(`appButton${app}`).style.display = "block";
@@ -211,6 +217,10 @@ clear.addEventListener("click", function() {
   searchApp();
 });
 apps.forEach(createApps);
+if (newApps < 1) {
+  document.getElementById("newApps").style.display = "none";
+  document.getElementById("newTitle").style.display = "none";
+}
 
 function InIframe() {
   try {

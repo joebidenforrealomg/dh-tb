@@ -42,6 +42,10 @@ a {
   color: white;
 }
 
+hr {
+  border-color: var(--accent);
+}
+
 html {
   background-image: url("../img/background.png");
   background-repeat: no-repeat;
@@ -76,7 +80,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   animation: fadeIn 0.5s ease;
 
   button {
@@ -117,18 +121,18 @@ body {
 
     div.tags {
       position: absolute;
-      margin-top: -8px;
-      margin-left: 2px;
+      /* margin-top: -8px;
+      margin-left: 2px; */
       display: inline-flex;
       flex-wrap: wrap;
-      flex-grow: 0;
-      width: 350px;
+      justify-content: center;
       transform: translateX(-50%);
 
       p {
         background: rgba(255, 255, 255, 0.8);
         padding: 12px;
         margin-right: 5px;
+        margin-left: 5px;
         border-radius: 12vh;
         color: black;
         text-align: center;
@@ -229,7 +233,6 @@ h1 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  justify-content: center;
 }
 
 #searchForm input {

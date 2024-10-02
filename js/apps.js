@@ -230,6 +230,12 @@ const apps = [
     Thumbnail:"thumbnail.png"
   },
   {
+    Name:"Rooftop Snipers",
+    Folder:"Rooftop Snipers/",
+    Thumbnail:"thumbnail.jpeg",
+    Added:new Date("October 2, 2024")
+  },
+  {
     Name:"Slope",
     Folder:"Slope/1/",
     Thumbnail:"thumbnail.jpg"
@@ -245,12 +251,6 @@ const apps = [
     Thumbnail:"thumbnail.png"
   },
   {
-    Name:"Stickman Hook",
-    Folder:"StickmanHook/",
-    Thumbnail:"thumbnail.png",
-    Fixed:true
-  },
-  {
     Name:"Super Mario 63",
     Folder:"SuperMario 63/",
     Thumbnail:"thumbnail.jpg"
@@ -259,6 +259,18 @@ const apps = [
     Name:"Super Mario 64",
     Folder:"SuperMario 64/",
     Thumbnail:"thumbnail.jpg"
+  },
+  {
+    Name:"Stickman Hook",
+    Folder:"StickmanHook/",
+    Thumbnail:"thumbnail.png",
+    Fixed:true
+  },
+  {
+    Name:"Subway Surfers",
+    Folder:"Subway Surfers/",
+    Thumbnail:"thumbnail.png",
+    Added: new Date("October 2, 2024")
   },
   {
     Name:"Tetris",
