@@ -96,6 +96,12 @@ const apps = [
     Thumbnail:"thumbnail.jpeg"
   },
   {
+    Name:"Ducklife 4",
+    Folder:"Ducklife/4/",
+    Thumbnail:"thumbnail.jpg",
+    Added: new Date("October 10, 2024"),
+  },
+  {
     Name:"Electric Man 2",
     Folder:"ElectricMan 2",
     Thumbnail:"thumbnail.jpg"
@@ -137,12 +143,14 @@ const apps = [
   },
   {
     Name:"Google Dino",
-    Hidden:true,
+    Folder:"GoogleDino",
+    Thumbnail:"thumbnail.jpg"
   },
   {
     Name:"Google Snake",
-    Folder:"Google Snake",
-    Thumbnail:"thumbnail.png"
+    Folder:"GoogleSnake",
+    Thumbnail:"thumbnail.png",
+    Fixed: new Date("October 10, 2024")
   },
   {
     Name:"Impossible Quiz",
@@ -264,7 +272,7 @@ const apps = [
     Name:"Stickman Hook",
     Folder:"StickmanHook/",
     Thumbnail:"thumbnail.png",
-    Fixed:true
+    Fixed: new Date("October 2, 2024")
   },
   {
     Name:"Subway Surfers",

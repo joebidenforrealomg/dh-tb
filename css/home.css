@@ -98,6 +98,7 @@ body {
     flex-grow: 0.5;
     margin: 8px;
     border-radius: 8px;
+    position: relative;
 
     p.appName {
       position: relative;
@@ -108,7 +109,7 @@ body {
       max-width: 100%;
     }
     
-    img {
+    img.thumbnail {
       margin-top: -100px;
       margin-left: -10%;
       object-fit: cover;
@@ -117,6 +118,36 @@ body {
       opacity: 0;
       transition: 0.5s ease;
       mask-image: linear-gradient(to top, rgba(0,0,0,0.2) 30%,rgba(0,0,0,1) 100%);
+    }
+
+    div.overlay::before {
+      width: 100%;
+      height: 20%;
+    }
+
+    div.overlay::after {
+      position: absolute;
+    }
+
+    img.favorite {
+      --width: 50px;
+      position: absolute;
+      float: right;
+      margin-left: calc(50% - var(--width));
+      /* margin-top: -205px; */
+      background-image: url(../img/icons/star_hollow.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: var(--width);
+      height: var(--width);
+      color: white;
+      mask-image: none;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    img.favorite:hover, img.favorite.favorited {
+      background-image: url(../img/icons/star_solid.svg);
     }
 
     div.tags {
@@ -156,8 +187,25 @@ body {
   button:hover {
     border: var(--accent) 3px solid;
     
-    img {
+    img.thumbnail {
       mask-image: linear-gradient(to top, rgba(0,0,0,0.4) 30%,rgba(0,0,0,1) 100%);
+    }
+  }
+}
+
+.appsGroup {
+  display: inline-flex;
+}
+
+.smallApps {
+  width: 50vw;
+
+  button {
+    height: 200px;
+    width: 250px;
+
+    * {
+      size-adjust: 50%;
     }
   }
 }
@@ -230,6 +278,7 @@ h1 {
 }
 
 #searchForm {
+  margin-top: -50px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

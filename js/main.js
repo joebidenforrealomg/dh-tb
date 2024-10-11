@@ -107,35 +107,52 @@ function searchApp(name) {
   }
 }
 
-function createApp(name, hint, url, thumbnail, newlyAdded, broken, fixed) {
-  if (!document.getElementById(`appButton${name}`)) {
+function createApp(info, location, app) {
+  if (!document.getElementById(`appButton${info.name}`)) {
     const b = document.createElement("button");
     const p = document.createElement("p");
     const img = document.createElement("img");
-    b.id = `appButton${name}`;
+    const overlay = document.createElement("div");
+    const tags = document.createElement("div");
+    // const fav = document.createElement("img");
+    b.id = `appButton${info.name}`;
     b.className = "appsButton";
-    b.title = hint;
-    b.onclick = function () {
-      openSite(`${url}`);
+    b.title = info.hint;
+    img.onclick = function () {
+      openSite(`${info.url}`);
     };
 
-    p.innerText = name;
+    p.innerText = info.name;
     p.classList.add("appName");
 
-    const tags = document.createElement("div");
-    tags.classList.add("tags");
-    b.appendChild(tags);
+    overlay.classList.add("overlay");
+    b.appendChild(overlay);
 
-    if (newlyAdded) {
+    tags.classList.add("tags");
+    overlay.appendChild(tags);
+
+    // fav.classList.add("favorite");
+    // fav.src = "img/icons/star_hollow.svg";
+    // overlay.appendChild(fav);
+    // fav.onclick = function() {
+    //   try {
+    //     alert("setting favorite to " + !isFavorite(app));
+    //   setFavorite(app, !isFavorite(app));
+    //   } catch (err) {
+    //     alert(err);
+    //   }
+    // }
+    
+    if (info.added) {
       const newP = document.createElement("p");
       newP.innerText = "NEW";
       newP.classList.add("new");
-      newP.title = "This app was recently added (within the last 5 days)";
+      newP.title = "This app was recently added (within the last 7 days)";
       tags.appendChild(newP);
       newApps++;
     }
 
-    if (broken) {
+    if (info.broken) {
       const newP = document.createElement("p");
       newP.innerText = "!";
       newP.classList.add("broken");
@@ -143,20 +160,22 @@ function createApp(name, hint, url, thumbnail, newlyAdded, broken, fixed) {
       tags.appendChild(newP);
     }
 
-    if (fixed) {
+    if (info.fixed) {
       const newP = document.createElement("p");
       newP.innerText = "FIXED";
       newP.classList.add("fixed");
       newP.title = "This app was recently fixed.";
       tags.appendChild(newP);
+      newApps++;
     }
-
+    
     b.appendChild(p);
     b.appendChild(img);
-    if (newlyAdded) {
+    if (info.newlyUpdated) {
       document.getElementById("newApps").appendChild(b);
     } else {
       document.getElementById("apps").appendChild(b);
+      // location.appendChild(b);
     }
     
     img.onload = function() {
@@ -166,11 +185,26 @@ function createApp(name, hint, url, thumbnail, newlyAdded, broken, fixed) {
     img.onerror = function() {
       img.src = "https://img.freepik.com/premium-photo/digital-black-green-squares_161488-652.jpg";
     };
-    img.src = `${url}/../${thumbnail || "thumbnail.png"}`;
+    img.src = `${info.url}/../${info.thumbnail || "thumbnail.png"}`;
+    img.classList.add("thumbnail");
   }
 }
 
-function createApps(app) {
+function isNew(added, days) {
+  days = days || 7;
+  let newlyAdded = false;
+  let currentDate = new Date();
+  let utc1 = Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+  let utc2 = Date.UTC(added.getFullYear(), added.getMonth(), added.getDate());
+  let timeDiff = Math.abs(utc2 - utc1);
+  let daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+  if (daysDiff <= days) {
+    newlyAdded = true;
+  }
+  return newlyAdded;
+}
+
+function createApps(app, favorite) {
   if (app.Hidden) {
     return;
   } else {
@@ -182,26 +216,70 @@ function createApps(app) {
   app.Index = app.Index || "index.html";
   app.Thumbnail = app.Thumbnail || "";
   app.Broken = app.Broken || false;
-  app.Fixed = app.Fixed || false;
+  app.Fixed = app.Fixed || new Date("January 1, 2020");
   app.Added = app.Added || new Date("January 1, 2020");
-  let newlyAdded = false;
-  let currentDate = new Date();
-  let utc1 = Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-  let utc2 = Date.UTC(app.Added.getFullYear(), app.Added.getMonth(), app.Added.getDate());
-  // Calculate the time difference in milliseconds
-  let timeDiff = Math.abs(utc2 - utc1);
-  // Convert milliseconds to days
-  let daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-  if (daysDiff <= 5) {
-    newlyAdded = true;
+  let newlyUpdated = false;
+  if (isNew(app.Added, 7) === true || isNew(app.Fixed, 7) === true) {
+    newlyUpdated = true;
   }
+  app.Added = isNew(app.Added);
+  app.Fixed = isNew(app.Fixed);
 
   if (!document.getElementById(`appButton${app}`)) {
-    createApp(app.Name, "Play " + app.Name, "apps/" + app.Folder + "/" + app.Index, app.Thumbnail, newlyAdded, app.Broken, app.Fixed);
+    let info = {
+      name:app.Name,
+      hint:"Play " + app.Name,
+      url:"apps/" + app.Folder + "/" + app.Index,
+      thumbnail:app.Thumbnail,
+      newlyUpdated:newlyUpdated,
+      broken:app.Broken,
+      fixed:app.Fixed,
+      added:app.Added
+    }
+
+    if (favorite) {
+      createApp(info, document.getElementById("favorites"), app);
+    } else {
+      createApp(info, document.getElementById("apps"), app);
+    }
   } else {
     document.getElementById(`appButton${app}`).style.animation = "";
     document.getElementById(`appButton${app}`).style.display = "block";
     document.getElementById(`appButton${app}`).style.animation = "fadeIn 0.2s ease";
+  }
+}
+
+function getFavorites() {
+  let favorites;
+  if (localStorage.getItem("favorites")) {
+    favorites = JSON.parse(localStorage.getItem("favorites"));
+  } else {
+    favorites = [];
+  }
+  return favorites;
+}
+
+function isFavorite(app) {
+  let favorites = getFavorites();
+  try {
+    return Boolean(favorites.indexOf(app));
+  } catch (e) {
+    return false;
+  }
+}
+
+function setFavorite(app, makeFavorite) {
+  if (!makeFavorite) {
+    createApps(app, true);
+    let favorites = getFavorites();
+    favorites.push(app);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  } else {
+    const thing = document.querySelector(`#favorite button#appButton${app.Name}`);
+    thing.remove();
+    let favorites = getFavorites();
+    favorites.splice(favorites.indexOf(app), 1);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
   }
 }
 
@@ -220,6 +298,12 @@ apps.forEach(createApps);
 if (newApps < 1) {
   document.getElementById("newApps").style.display = "none";
   document.getElementById("newTitle").style.display = "none";
+}
+if (localStorage.getItem("favorites")) {
+  let favorites = JSON.parse(localStorage.getItem("favorites"));
+  favorites.forEach(function(item) {
+    createApp(item, true);
+  });
 }
 
 function InIframe() {
