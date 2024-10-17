@@ -87,7 +87,7 @@ function searchApp(name) {
         return;
       }
 
-      const button = document.getElementById(`appButton${app.Name}`);
+      const button = document.getElementById(appID(app));
       button.classList.add("foundApp");
     });
 
@@ -107,43 +107,42 @@ function searchApp(name) {
   }
 }
 
-function createApp(info, location, app) {
-  if (!document.getElementById(`appButton${info.name}`)) {
+function createApp(info, app, location) {
+  if ((location && location.querySelector(`#${appID(app)}`) === null) || location == null) {
     const b = document.createElement("button");
     const p = document.createElement("p");
     const img = document.createElement("img");
     const overlay = document.createElement("div");
     const tags = document.createElement("div");
-    // const fav = document.createElement("img");
-    b.id = `appButton${info.name}`;
+    const fav = document.createElement("img");
+    b.id = appID(app);
     b.className = "appsButton";
     b.title = info.hint;
     img.onclick = function () {
       openSite(`${info.url}`);
     };
-
-    p.innerText = info.name;
+  
+    p.innerText = app.Name;
     p.classList.add("appName");
-
+  
     overlay.classList.add("overlay");
     b.appendChild(overlay);
-
+  
     tags.classList.add("tags");
     overlay.appendChild(tags);
-
-    // fav.classList.add("favorite");
-    // fav.src = "img/icons/star_hollow.svg";
-    // overlay.appendChild(fav);
-    // fav.onclick = function() {
-    //   try {
-    //     alert("setting favorite to " + !isFavorite(app));
-    //   setFavorite(app, !isFavorite(app));
-    //   } catch (err) {
-    //     alert(err);
-    //   }
-    // }
+  
+    fav.classList.add("favorite");
+    fav.src = "img/icons/star_hollow.svg";
+    overlay.appendChild(fav);
+    fav.onclick = function() {
+      try {
+        setFavorite(app, !isFavorite(app));
+      } catch (err) {
+        console.error(err);
+      }
+    }
     
-    if (info.added) {
+    if (info.added.Bool) {
       const newP = document.createElement("p");
       newP.innerText = "NEW";
       newP.classList.add("new");
@@ -151,7 +150,7 @@ function createApp(info, location, app) {
       tags.appendChild(newP);
       newApps++;
     }
-
+  
     if (info.broken) {
       const newP = document.createElement("p");
       newP.innerText = "!";
@@ -159,8 +158,8 @@ function createApp(info, location, app) {
       newP.title = "This app may not work at the moment, we'll fix it soon.";
       tags.appendChild(newP);
     }
-
-    if (info.fixed) {
+  
+    if (info.fixed.Bool) {
       const newP = document.createElement("p");
       newP.innerText = "FIXED";
       newP.classList.add("fixed");
@@ -168,14 +167,23 @@ function createApp(info, location, app) {
       tags.appendChild(newP);
       newApps++;
     }
+  
+    if (info.pinned) {
+      fav.classList.add("favorited");
+    }
+  
     
     b.appendChild(p);
     b.appendChild(img);
-    if (info.newlyUpdated) {
+    if (info.newlyUpdated && info.pinned === false) {
       document.getElementById("newApps").appendChild(b);
     } else {
-      document.getElementById("apps").appendChild(b);
-      // location.appendChild(b);
+      if (info.pinned === true) {
+        location = location || document.getElementById("favorite");
+      } else {
+        location = location || document.getElementById("apps");
+      }
+    location.appendChild(b);
     }
     
     img.onload = function() {
@@ -191,6 +199,10 @@ function createApp(info, location, app) {
 }
 
 function isNew(added, days) {
+  if (added.Date !== undefined) {
+    added = added.Date;
+  }
+
   days = days || 7;
   let newlyAdded = false;
   let currentDate = new Date();
@@ -204,7 +216,7 @@ function isNew(added, days) {
   return newlyAdded;
 }
 
-function createApps(app, favorite) {
+function createApps(app) {
   if (app.Hidden) {
     return;
   } else {
@@ -222,31 +234,54 @@ function createApps(app, favorite) {
   if (isNew(app.Added, 7) === true || isNew(app.Fixed, 7) === true) {
     newlyUpdated = true;
   }
-  app.Added = isNew(app.Added);
-  app.Fixed = isNew(app.Fixed);
+  if (app.Added.Bool === undefined) {
+    app.Added = {Bool:isNew(app.Added),Date:app.Added};
+    app.Fixed = {Bool:isNew(app.Fixed),Date:app.Fixed};
+  }
 
-  if (!document.getElementById(`appButton${app}`)) {
-    let info = {
-      name:app.Name,
-      hint:"Play " + app.Name,
-      url:"apps/" + app.Folder + "/" + app.Index,
-      thumbnail:app.Thumbnail,
-      newlyUpdated:newlyUpdated,
-      broken:app.Broken,
-      fixed:app.Fixed,
-      added:app.Added
-    }
+  let info = {
+    hint:"Play " + app.Name,
+    url:"apps/" + app.Folder + "/" + app.Index,
+    thumbnail:app.Thumbnail,
+    newlyUpdated:newlyUpdated,
+    broken:app.Broken,
+    fixed:app.Fixed,
+    added:app.Added,
+    pinned:isFavorite(app)
+  }
 
-    if (favorite) {
-      createApp(info, document.getElementById("favorites"), app);
+  if (info.pinned == true) {
+    createApp(info, app, document.getElementById("favorite"));
+    if (info.newlyUpdated) {
+      createApp(info, app, document.getElementById("newApps"));
     } else {
-      createApp(info, document.getElementById("apps"), app);
+      createApp(info, app, document.getElementById("apps"));
     }
   } else {
-    document.getElementById(`appButton${app}`).style.animation = "";
-    document.getElementById(`appButton${app}`).style.display = "block";
-    document.getElementById(`appButton${app}`).style.animation = "fadeIn 0.2s ease";
+    createApp(info, app);
   }
+}
+
+function sortApps() {
+  try {
+    var main = document.getElementById( 'main' );
+
+    [].map.call( main.children, Object ).sort( function ( a, b ) {
+        return +a.id.match( /\d+/ ) - +b.id.match( /\d+/ );
+    }).forEach( function ( elem ) {
+        main.appendChild( elem );
+    });
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+function appID(app) {
+  return `appButton${appIndex(app)}`;
+}
+
+function appIndex(app) {
+  return apps.indexOf(app);
 }
 
 function getFavorites() {
@@ -261,26 +296,59 @@ function getFavorites() {
 
 function isFavorite(app) {
   let favorites = getFavorites();
-  try {
-    return Boolean(favorites.indexOf(app));
-  } catch (e) {
+  let found = favorites.includes(app.Name);
+  if (found) {
+    return true;
+  } else {
     return false;
   }
 }
 
 function setFavorite(app, makeFavorite) {
-  if (!makeFavorite) {
-    createApps(app, true);
+  if (makeFavorite) {
     let favorites = getFavorites();
-    favorites.push(app);
+    favorites.push(app.Name);
     localStorage.setItem("favorites", JSON.stringify(favorites));
+    document.querySelectorAll(`#${appID(app)}`).forEach(function(thingy) {
+      const e = thingy.querySelector(".favorite");
+      if (e) {
+        e.classList.add("favorited");
+      }
+    });
+    createApps(app);
+    notify({Text:`${app.Name} was added to your favorites`});
   } else {
-    const thing = document.querySelector(`#favorite button#appButton${app.Name}`);
-    thing.remove();
+    const thing = document.querySelector(`#favorite #${appID(app)}`);
+    if (thing) {
+      thing.remove();
+    }
+    document.querySelectorAll(`#${appID(app)}`).forEach(function(thingy) {
+      const e = thingy.querySelector(".favorited");
+      if (e) {
+        e.classList.remove("favorited");
+      }
+    });
     let favorites = getFavorites();
-    favorites.splice(favorites.indexOf(app), 1);
+    favorites.splice(favorites.indexOf(app.Name), 1);
     localStorage.setItem("favorites", JSON.stringify(favorites));
+    notify({Text:`${app.Name} has been removed from your favorites`});
   }
+}
+
+function notify(info) {
+  info.Text = info.Text || "No text for notification.";
+  info.ShowTime = info.ShowTime || 3000;
+
+  const p = document.createElement("p");
+  p.classList.add("notification");
+  p.innerText = info.Text;
+
+  document.getElementById("notifications").appendChild(p);
+
+  setTimeout(function() {
+    p.style.animation = "notificationFadeOut 0.5s ease";
+    setTimeout(function() { p.remove() }, 500);
+  }, info.ShowTime);
 }
 
 function handleSearch(e) {
@@ -295,10 +363,7 @@ clear.addEventListener("click", function() {
   searchApp();
 });
 apps.forEach(createApps);
-if (newApps < 1) {
-  document.getElementById("newApps").style.display = "none";
-  document.getElementById("newTitle").style.display = "none";
-}
+sortApps();
 if (localStorage.getItem("favorites")) {
   let favorites = JSON.parse(localStorage.getItem("favorites"));
   favorites.forEach(function(item) {

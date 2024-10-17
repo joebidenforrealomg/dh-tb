@@ -9,7 +9,7 @@ const apps = [
   },
   {
     Name:"Among Us",
-    Folder:"AmongUs",
+    Folder:"AmongUs/",
     Hidden:true,
   },
   {
@@ -153,6 +153,21 @@ const apps = [
     Fixed: new Date("October 10, 2024")
   },
   {
+    Name:"Slow Roads (Modded)",
+    Folder:"Hell Roads/",
+    Thumbnail:"thumbnail.jpg",
+    Added: new Date("October 15, 2024")
+  },
+  {
+    Name:"House of Horers Simulator",
+    Thumbnail:"thumbnail.png"
+  },
+  {
+    Name:"Idle Breakout",
+    Thumbnail:"thumbnail.png",
+    Added: new Date("October 15, 2024")
+  },
+  {
     Name:"Impossible Quiz",
     Thumbnail:"thumbnail.png"
   },
@@ -188,6 +203,21 @@ const apps = [
   {
     Name:"Pacman",
     Thumbnail:"thumbnail.jpg"
+  },
+  {
+    Name:"Papa's Burgeria",
+    Thumbnail:"thumbnail.jpg",
+    Added: new Date("October 15, 2024")
+  },
+  {
+    Name:"Papa's Freezeria",
+    Thumbnail:"thumbnail.jpeg",
+    Added: new Date("October 15, 2024")
+  },
+  {
+    Name:"Papa's Pancakeria",
+    Thumbnail:"thumbnail.jpeg",
+    Added: new Date("October 15, 2024")
   },
   {
     Name:"Papa's Pizzeria",
@@ -276,7 +306,6 @@ const apps = [
   },
   {
     Name:"Subway Surfers",
-    Folder:"Subway Surfers/",
     Thumbnail:"thumbnail.png",
     Added: new Date("October 2, 2024")
   },
@@ -316,13 +345,7 @@ const apps = [
     Name:"yohoho.io",
     Thumbnail:"thumbnail.jpg"
   },
-];
 
-/* "1v1.LOL", "2048", "Aquapark", "Angry Birds", "Bad Piggies", "Basketball Stars",
-    "Bitlife", "Blackjack", "BloonsTD", "Bloxorz", "CookieClicker", "CrossyRoad",
-    "DonkeyKong", "DOOM", "DuckHunt", "Ducklife_1", "Ducklife_2", "Ducklife_3", "ElectricMan 2", "FruitNinja",
-    "FNAF_1", "FNAF_2", "FNAF_3", "FNAF_4", "FNAW", "GoogleSnake", "House of Horers Simulator", "Impossible Quiz", "Jacksmith",
-    "Learn 2 Fly", "Minecraft_1.8.8", "MotoX3M", "MotoX3M 2", "Minesweeper", "Pacman", "PapaPizza", "wolfen",
-    "Pong", "RetroBowl", "Run_1", "Run_3", "Robux Generator Clicker", "RiddleSchool_1", "RiddleSchool_2", "RiddleSchool_3",
-     "Slope_1", "Slope_Ass", "StickmanHook", "SuperMario 63", "SuperMario 64", "SoobwaySurfers", "Tetris", 
-     "Vex_3" ,"Worlds Hardest Game_1", "Worlds Hardest Game_2", "Wordle", "yohoho.io" */
+
+  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},
+];

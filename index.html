@@ -13,7 +13,7 @@
     <main id="main">
         <div id="bgFilter"></div>
         <p class="latestUpdate">
-            <b>UPDATE | October 10th</b><br>Added 1 new app, fixed 2, and removed the GBA Emulator while I look into it.
+            <b>UPDATE | October 17th</b><br>New favorites system, added 5 new apps, and fixed 1.
             <br><a target="_blank" href="https://forms.gle/wRjANHLeSoAidRvc6">Request a new game</a>
         </p>
         <h1 style="margin-top: 100px;">Welcome to <p class="name">Da Hub</p></h1>
@@ -22,25 +22,23 @@
             <input type="text" placeholder="Search" id="searchInput">
             <button id="clear" title="Clear">X</button>
         </form>
-        <h1  id="newTitle">Newly Updated</h1> <!-- style="left: -25%;" -->
-        <!-- <h1 style="left: 25%;margin-top: -5%;" id="favoritesTitle">Favorites</h1> -->
-        <!-- <div class="appsGroup"> -->
-            <div class="apps" id="newApps"></div>
-            <!-- <div class="apps smallApps" id="favorite"></div> -->
-        <!-- </div> -->
+        <h1 style="left: -25%" id="newTitle">Newly Updated</h1>
+        <h1 id="favoritesTitle">Favorites</h1>
+        <div class="appsGroup">
+            <div class="apps smallApps" id="newApps">
+                <button class="placeholder" id="newPlaceholder">Updated apps appear here</button>
+            </div>
+            <div class="apps smallApps" id="favorite">
+                <button class="placeholder" id="favoritePlaceholder">Favorited apps appear here</button>
+            </div>
+        </div>
         <hr>
         <div class='apps' id='apps'>
     
         </div>
-        <!--<h1>Emulators</h1>
-        <div class='apps'>
-            <button onclick='openSite("https://joebidenrealomg.github.io/da-hub/apps/GBA-gh-pages/index.html")' title="Play games using the GBA emulator">GBA Emulator</button>
-        </div>-->
-        <!-- <h1>Proxies</h1>
-        <div class='apps'>
-            <button onclick='Browser()' title="Open Proxy" style="filter: brightness(30%); cursor: default;">Coming
-                soon!</button>
-        </div> -->
+
+        <div class="notifications" id="notifications"></div>
+
         <p class="disclaimer">Welcome to Da Hub, created by ButterDogCo. By using this site, you agree to our <a href="https://butterdogceo.github.io/bdogco/tos">Terms of Service</a>.</p>
     </main>
     <script src="js/apps.js"></script>
