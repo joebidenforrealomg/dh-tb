@@ -186,7 +186,8 @@ const apps = [
   {
     Name:"Minecraft 1.8",
     Folder:"Minecraft/1.8.8/",
-    Thumbnail:"thumbnail.jpg"
+    Thumbnail:"thumbnail.jpg",
+    Broken: true,
   },
   {
     Name:"Minesweeper",
@@ -345,7 +346,4 @@ const apps = [
     Name:"yohoho.io",
     Thumbnail:"thumbnail.jpg"
   },
-
-
-  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},  {Name:"skibidi sigma ohio creampie cum sex gyatt",Hidden:true},
 ];

@@ -2,15 +2,15 @@
   --accent: rgb(88, 159, 217);
 }
 
-@keyframes blink {
+@keyframes logoAnim {
   0% {
-    opacity: 0%;
+    text-shadow: 0 0 20px var(--accent), 0 0 20px var(--accent);
   }
   50% {
-    opacity: 100%;
+    text-shadow: 0 0 40px var(--accent), 0 0 40px var(--accent);
   }
   100% {
-    opacity: 0%;
+    text-shadow: 0 0 20px var(--accent), 0 0 20px var(--accent);
   }
 }
 
@@ -262,6 +262,8 @@ body {
   text-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent);
   font-size: 40px;
   display: inline-flex;
+  animation: logoAnim 2s ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 h1 {
