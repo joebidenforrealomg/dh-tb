@@ -171,19 +171,18 @@ function createApp(info, app, location) {
     if (info.pinned) {
       fav.classList.add("favorited");
     }
-  
     
     b.appendChild(p);
     b.appendChild(img);
     if (info.newlyUpdated && info.pinned === false) {
       document.getElementById("newApps").appendChild(b);
     } else {
-      if (info.pinned === true) {
-        location = location || document.getElementById("favorite");
-      } else {
-        location = location || document.getElementById("apps");
-      }
-    location.appendChild(b);
+      // if (info.pinned === true) {
+      //   location = location || document.getElementById("favorite");
+      // } else {
+      //   location = location || document.getElementById("apps");
+      // }
+      location.appendChild(b);
     }
     
     img.onload = function() {
@@ -195,6 +194,8 @@ function createApp(info, app, location) {
     };
     img.src = `${info.url}/../${info.thumbnail || "thumbnail.png"}`;
     img.classList.add("thumbnail");
+  } else if (location && location.querySelector(`#${appID(app)}`)) {
+    let thing = location.querySelector(`#${appID(app)}`);
   }
 }
 
@@ -257,8 +258,10 @@ function createApps(app) {
     } else {
       createApp(info, app, document.getElementById("apps"));
     }
+  } else if (info.newlyUpdated) {
+    createApp(info, app, document.getElementById("newApps"));
   } else {
-    createApp(info, app);
+    createApp(info, app, document.getElementById("apps"));
   }
 }
 
