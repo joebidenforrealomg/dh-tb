@@ -117,6 +117,13 @@ function createApp(info, app, location) {
     b.title = info.hint;
     img.onclick = function () {
       openSite(`${info.url}`);
+
+      // honestly really curious what you guys are playing so i'm adding this
+      try {
+        gtag("event", "openApp", {
+          'app_name':app.Name
+        });
+      } catch (err) {}
       if (app.Notice) {
         notify({Text:app.Notice,ShowTime:5000})
       }
