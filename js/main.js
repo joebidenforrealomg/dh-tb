@@ -5,38 +5,27 @@ const searchInput = document.getElementById("searchInput");
 const resultsText = document.getElementById("results");
 const clear = document.getElementById("clear");
 let newApps = 0;
-/* const apps = ["1v1.LOL", "2048", "Aquapark", "Angry Birds", "Bad Piggies", "Basketball Stars",
-    "Bitlife", "Blackjack", "BloonsTD", "Bloxorz", "CookieClicker", "CrossyRoad",
-    "DonkeyKong", "DOOM", "DuckHunt", "Ducklife_1", "Ducklife_2", "Ducklife_3", "ElectricMan 2", "FruitNinja",
-    "FNAF_1", "FNAF_2", "FNAF_3", "FNAF_4", "FNAW", "GoogleSnake", "House of Horers Simulator", "Impossible Quiz", "Jacksmith",
-    "Learn 2 Fly", "Minecraft_1.8.8", "MotoX3M", "MotoX3M 2", "Minesweeper", "Pacman", "PapaPizza", "wolfen",
-    "Pong", "RetroBowl", "Run_1", "Run_3", "Robux Generator Clicker", "RiddleSchool_1", "RiddleSchool_2", "RiddleSchool_3",
-     "Slope_1", "Slope_Ass", "StickmanHook", "SuperMario 63", "SuperMario 64", "SoobwaySurfers", "Tetris", 
-     "Vex_3" ,"Worlds Hardest Game_1", "Worlds Hardest Game_2", "Wordle", "yohoho.io"]; 
-apps.sort(); */
+let sections = [];
+let sectionCount = {};
 
 document.head.appendChild(altCSS);
-
-function elementVisible(elem) {
-  return !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
-}
 
 function openWindow(url, title, icon) {
   var blank = window.open();
   var link = blank.document.createElement('link');
   var style = blank.document.createElement('style');
   var iframe = blank.document.createElement('iframe');
-  
+
   link.rel = "shortcut icon";
   link.href = icon || "";
   style.innerHTML = `body { width: 100vw;height: 100vh;margin: 0; background: black; } iframe { width: 100vw;height: 100vh;border: none;outline: none;margin: 0;} p { cursor: pointer;font-family: monospace;position: fixed;z-index: 2;padding: 8px;left: 0;transform: translateX(-50%);transition: 0.2s ease;opacity: 0.5;background: black;border: 2px solid lime;color: lime;} p:hover { left: 8px;transform: translateX(0);opacity: 1;}`;
   iframe.src = `${url}`;
   blank.document.title = title || "New Tab";
-  
+
   blank.document.head.appendChild(style);
   blank.document.head.appendChild(link);
   blank.document.body.appendChild(iframe);
-  
+
   window.location.replace("https://google.com");
 }
 
@@ -44,18 +33,18 @@ function openSite(url) {
   if (document.getElementById("appDiv")) {
     document.getElementById("appDiv").remove();
   }
-  
+
   var appDiv = document.createElement('div');
   var closeButton = document.createElement('p');
   var iframe = document.createElement('iframe');
-  
+
   appDiv.id = "appDiv";
   closeButton.innerText = "BACK";
   closeButton.className = "appClose";
   iframe.src = url;
   iframe.className = "appIframe";
-  
-  closeButton.addEventListener('click', function() {
+
+  closeButton.addEventListener('click', function () {
     if (confirm("Are you sure you want to close this app?") === true) {
       document.getElementById("main").style.display = "block";
       appDiv.remove();
@@ -66,6 +55,10 @@ function openSite(url) {
   appDiv.appendChild(closeButton);
   document.body.appendChild(appDiv);
   document.getElementById("main").style.display = "none";
+
+  // setTimeout(function () {
+  //   unlockAchievement("wow you opened a game");
+  // }, 1500);
 }
 
 function searchApp(name) {
@@ -77,7 +70,11 @@ function searchApp(name) {
       app.classList.remove("foundApp");
     });
     apps.forEach(function (app) {
-      if (app.Name.toLowerCase().includes(name.toLowerCase())) {
+      if (app.Hidden === true) { return; }
+      if (app.Genres) { app.Genres.forEach(function(e){ e.toLowerCase() }); }
+      if (app.Name.toLowerCase().includes(name.toLowerCase()) 
+        || (app.Genres && app.Genres.includes(name.toLowerCase()))
+      ) {
         foundApps.push(app);
       }
     });
@@ -120,28 +117,31 @@ function createApp(info, app, location) {
     b.title = info.hint;
     img.onclick = function () {
       openSite(`${info.url}`);
+      if (app.Notice) {
+        notify({Text:app.Notice,ShowTime:5000})
+      }
     };
-  
+
     p.innerText = app.Name;
     p.classList.add("appName");
-  
+
     overlay.classList.add("overlay");
     b.appendChild(overlay);
-  
+
     tags.classList.add("tags");
     overlay.appendChild(tags);
-  
+
     fav.classList.add("favorite");
     fav.src = "img/icons/star_hollow.svg";
     overlay.appendChild(fav);
-    fav.onclick = function() {
+    fav.onclick = function () {
       try {
         setFavorite(app, !isFavorite(app));
       } catch (err) {
         console.error(err);
       }
     }
-    
+
     if (info.added.Bool) {
       const newP = document.createElement("p");
       newP.innerText = "NEW";
@@ -150,15 +150,15 @@ function createApp(info, app, location) {
       tags.appendChild(newP);
       newApps++;
     }
-  
+
     if (info.broken) {
       const newP = document.createElement("p");
-      newP.innerText = "!";
       newP.classList.add("broken");
+      newP.innerText = "!";
       newP.title = "This app may not work at the moment, we'll fix it soon.";
       tags.appendChild(newP);
     }
-  
+
     if (info.fixed.Bool) {
       const newP = document.createElement("p");
       newP.innerText = "FIXED";
@@ -167,29 +167,38 @@ function createApp(info, app, location) {
       tags.appendChild(newP);
       newApps++;
     }
-  
+
+    if (info.updated.Bool) {
+      const newP = document.createElement("p");
+      newP.innerText = "UPDATED";
+      newP.classList.add("updated");
+      newP.title = "This app was recently updated to a newer version.";
+      tags.appendChild(newP);
+      newApps++;
+    }
+
     if (info.pinned) {
       fav.classList.add("favorited");
     }
-    
+
     b.appendChild(p);
     b.appendChild(img);
-    if (info.newlyUpdated && info.pinned === false) {
-      document.getElementById("newApps").appendChild(b);
-    } else {
-      // if (info.pinned === true) {
-      //   location = location || document.getElementById("favorite");
-      // } else {
-      //   location = location || document.getElementById("apps");
-      // }
-      location.appendChild(b);
-    }
-    
-    img.onload = function() {
+    // if (info.newlyUpdated && info.pinned === false) {
+    //   document.getElementById("newApps").appendChild(b);
+    // } else {
+    // if (info.pinned === true) {
+    //   location = location || document.getElementById("favorite");
+    // } else {
+    //   location = location || document.getElementById("apps");
+    // }
+    location.appendChild(b);
+    // }
+
+    img.onload = function () {
       img.style.opacity = 1;
     };
-    
-    img.onerror = function() {
+
+    img.onerror = function () {
       img.src = "https://img.freepik.com/premium-photo/digital-black-green-squares_161488-652.jpg";
     };
     img.src = `${info.url}/../${info.thumbnail || "thumbnail.png"}`;
@@ -231,48 +240,58 @@ function createApps(app) {
   app.Broken = app.Broken || false;
   app.Fixed = app.Fixed || new Date("January 1, 2020");
   app.Added = app.Added || new Date("January 1, 2020");
+  app.Updated = app.Updated || new Date("January 1, 2020");
+  app.Section = app.Section || "apps";
   let newlyUpdated = false;
-  if (isNew(app.Added, 7) === true || isNew(app.Fixed, 7) === true) {
+  if (isNew(app.Added, 7) === true || isNew(app.Fixed, 7) === true || isNew(app.Updated, 7) === true) {
     newlyUpdated = true;
   }
   if (app.Added.Bool === undefined) {
-    app.Added = {Bool:isNew(app.Added),Date:app.Added};
-    app.Fixed = {Bool:isNew(app.Fixed),Date:app.Fixed};
+    app.Added = { Bool: isNew(app.Added), Date: app.Added };
+    app.Fixed = { Bool: isNew(app.Fixed), Date: app.Fixed };
+    app.Updated = { Bool: isNew(app.Updated), Date: app.Updated };
   }
 
   let info = {
-    hint:"Play " + app.Name,
-    url:"apps/" + app.Folder + "/" + app.Index,
-    thumbnail:app.Thumbnail,
-    newlyUpdated:newlyUpdated,
-    broken:app.Broken,
-    fixed:app.Fixed,
-    added:app.Added,
-    pinned:isFavorite(app)
+    hint: "Play " + app.Name,
+    url: "apps/" + app.Folder + "/" + app.Index,
+    thumbnail: app.Thumbnail,
+    newlyUpdated: newlyUpdated,
+    broken: app.Broken,
+    fixed: app.Fixed,
+    added: app.Added,
+    updated: app.Updated,
+    pinned: isFavorite(app)
   }
+
+  if (!sections.indexOf(app.Section)) {
+    sections.push(app.Section);
+  }
+  sectionCount[app.Section] = sectionCount[app.Section] + 1;
 
   if (info.pinned == true) {
     createApp(info, app, document.getElementById("favorite"));
     if (info.newlyUpdated) {
       createApp(info, app, document.getElementById("newApps"));
     } else {
-      createApp(info, app, document.getElementById("apps"));
+      createApp(info, app, document.getElementById(app.Section));
     }
   } else if (info.newlyUpdated) {
     createApp(info, app, document.getElementById("newApps"));
+    createApp(info, app, document.getElementById(app.Section));
   } else {
-    createApp(info, app, document.getElementById("apps"));
+    createApp(info, app, document.getElementById(app.Section));
   }
 }
 
 function sortApps() {
   try {
-    var main = document.getElementById( 'main' );
+    var main = document.getElementById('main');
 
-    [].map.call( main.children, Object ).sort( function ( a, b ) {
-        return +a.id.match( /\d+/ ) - +b.id.match( /\d+/ );
-    }).forEach( function ( elem ) {
-        main.appendChild( elem );
+    [].map.call(main.children, Object).sort(function (a, b) {
+      return +a.id.match(/\d+/) - +b.id.match(/\d+/);
+    }).forEach(function (elem) {
+      main.appendChild(elem);
     });
   } catch (err) {
     console.error(err)
@@ -312,20 +331,20 @@ function setFavorite(app, makeFavorite) {
     let favorites = getFavorites();
     favorites.push(app.Name);
     localStorage.setItem("favorites", JSON.stringify(favorites));
-    document.querySelectorAll(`#${appID(app)}`).forEach(function(thingy) {
+    document.querySelectorAll(`#${appID(app)}`).forEach(function (thingy) {
       const e = thingy.querySelector(".favorite");
       if (e) {
         e.classList.add("favorited");
       }
     });
     createApps(app);
-    notify({Text:`${app.Name} was added to your favorites`});
+    notify({ Text: `${app.Name} was added to your favorites` });
   } else {
     const thing = document.querySelector(`#favorite #${appID(app)}`);
     if (thing) {
       thing.remove();
     }
-    document.querySelectorAll(`#${appID(app)}`).forEach(function(thingy) {
+    document.querySelectorAll(`#${appID(app)}`).forEach(function (thingy) {
       const e = thingy.querySelector(".favorited");
       if (e) {
         e.classList.remove("favorited");
@@ -334,7 +353,7 @@ function setFavorite(app, makeFavorite) {
     let favorites = getFavorites();
     favorites.splice(favorites.indexOf(app.Name), 1);
     localStorage.setItem("favorites", JSON.stringify(favorites));
-    notify({Text:`${app.Name} has been removed from your favorites`});
+    notify({ Text: `${app.Name} has been removed from your favorites` });
   }
 }
 
@@ -344,14 +363,21 @@ function notify(info) {
 
   const p = document.createElement("p");
   p.classList.add("notification");
-  p.innerText = info.Text;
+  p.innerHTML = info.Text;
 
   document.getElementById("notifications").appendChild(p);
 
-  setTimeout(function() {
+  setTimeout(function () {
     p.style.animation = "notificationFadeOut 0.5s ease";
-    setTimeout(function() { p.remove() }, 500);
+    setTimeout(function () { p.remove() }, 500);
   }, info.ShowTime);
+}
+
+function unlockAchievement(text) {
+  notify({
+    Text: `Achievement Unlock<br>${text}`,
+    ShowTime: 5000,
+  });
 }
 
 function handleSearch(e) {
@@ -361,7 +387,7 @@ function handleSearch(e) {
 
 searchForm.addEventListener("submit", handleSearch);
 searchForm.addEventListener("input", handleSearch);
-clear.addEventListener("click", function() {
+clear.addEventListener("click", function () {
   searchInput.value = "";
   searchApp();
 });
@@ -369,10 +395,18 @@ apps.forEach(createApps);
 sortApps();
 if (localStorage.getItem("favorites")) {
   let favorites = JSON.parse(localStorage.getItem("favorites"));
-  favorites.forEach(function(item) {
+  favorites.forEach(function (item) {
     createApp(item, true);
   });
 }
+
+sections.forEach(function(section) {
+  if (sectionCount[section] && sectionCount[section] < 1) {
+    document.querySelectorAll(`.${section}Section`).forEach(function(obj) {
+      obj.style.display = "none";
+    });
+  }
+});
 
 function InIframe() {
   try {
@@ -397,7 +431,7 @@ function whenNotIframe() {
     apps.id = "apps";
 
     const app = document.createElement('button');
-    app.onclick = function() {
+    app.onclick = function () {
       openWindow("https://joebidenrealomg.github.io/da-hub/index.html?iframe=true");
       window.location.replace("https://google.com");
     };
@@ -410,5 +444,9 @@ function whenNotIframe() {
 }
 
 if (!InIframe()) {
-    whenNotIframe();
+  whenNotIframe();
+} else {
+  window.addEventListener('beforeunload', (event) => {
+    event.returnValue = "Are you sure you want to leave?";
+  });
 }

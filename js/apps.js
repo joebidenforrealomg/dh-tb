@@ -2,6 +2,8 @@ const apps = [
   {
     Name:"1v1.LOL",
     Thumbnail:"thumbnail.jpg",
+    Genres:["fps","shooter"],
+    Related:["guns","guns"]
   },
   {
     Name:"2048",
@@ -14,7 +16,8 @@ const apps = [
   },
   {
     Name:"Angry Birds",
-    Thumbnail:"thumbnail.png"
+    Thumbnail:"thumbnail.png",
+    Related:["rovio","Bad Piggies"]
   },
   {
     Name:"Aquapark",
@@ -22,8 +25,14 @@ const apps = [
   },
   {
     Name:"Bad Piggies",
-    Thumbnail:"thumbnail.jpg"
+    Thumbnail:"thumbnail.jpg",
+    Related:["Angry Birds","rovio"]
   },
+  // {
+  //   Name:"Bad Time Simlator",
+  //   Index:"",
+  //   Added: new Date("October 17, 2024")
+  // },
   {
     Name:"Basketball Stars",
     Thumbnail:"thumbnail.jpg",
@@ -54,7 +63,8 @@ const apps = [
   {
     Name:"Cookie Clicker",
     Folder:"CookieClicker",
-    Thumbnail:"thumbnail.png"
+    Thumbnail:"thumbnail.png",
+    Updated: new Date("November 5, 2024")
   },
   {
     Name:"Crossy Road",
@@ -116,12 +126,14 @@ const apps = [
     Folder:"FNAF/2/",
     Thumbnail:"thumbnail.jpeg",
     Broken:true,
+    Notice: "This app may not load, we're currently searching for a new game file.",
   },
   {
     Name:"FNAF 3",
     Folder:"FNAF/3/",
     Thumbnail:"thumbnail.webp",
     Broken:true,
+    Notice: "This app may not load, we're currently searching for a new game file.",
   },
   {
     Name:"FNAF 4",
@@ -160,7 +172,8 @@ const apps = [
   },
   {
     Name:"House of Horers Simulator",
-    Thumbnail:"thumbnail.png"
+    Thumbnail:"thumbnail.png",
+    Related:["locked","unavailable"]
   },
   {
     Name:"Idle Breakout",
@@ -180,14 +193,40 @@ const apps = [
     Thumbnail:"thumbnail.jpg"
   },
   {
+    Name:"Madalin Stunt Cars 2",
+    Folder:"Madalin Stunt Cars/2/",
+    Thumbnail:"thumbnail.jpeg",
+    Added: new Date("November 1, 2024"),
+    Hidden: true,
+    Genres:["driving","car","open world"]
+  },
+  {
+    Name:"Madalin Stunt Cars 3",
+    Folder:"Madalin Stunt Cars/3/",
+    Thumbnail:"thumbnail.jpeg",
+    Added: new Date("November 1, 2024"),
+    Hidden: true,
+    Genres:["driving","car","open world"]
+  },
+  {
+    Name:"Madalin Stunt Cars Multiplayer",
+    Folder:"Madalin Stunt Cars/Multiplayer/",
+    Thumbnail:"thumbnail.jpeg",
+    Added: new Date("November 1, 2024"),
+    Genres:["driving","car","open world"]
+  },
+  {
     Name:"Mario Kart DS",
     Hidden:true,
+    Genres:["driving","car","racing","race"]
   },
   {
     Name:"Minecraft 1.8",
     Folder:"Minecraft/1.8.8/",
     Thumbnail:"thumbnail.jpg",
     Broken: true,
+    Notice: "This app is known to occasionally not allow keyboard input, we're working on a fix for this. Also, the site may be frozen for a few seconds when loading this.",
+    Genres:["open world"]
   },
   {
     Name:"Minesweeper",
@@ -195,15 +234,18 @@ const apps = [
   },
   {
     Name:"MotoX3M",
-    Thumbnail:"thumbnail.jpg"
+    Thumbnail:"thumbnail.jpg",
+    Genres:["driving","bike","racing","race"]
   },
   {
     Name:"MotoX3M 2",
-    Thumbnail:"thumbnail.jpg"
+    Thumbnail:"thumbnail.jpg",
+    Genres:["driving","bike","racing","race"]
   },
   {
     Name:"Pacman",
-    Thumbnail:"thumbnail.jpg"
+    Thumbnail:"thumbnail.jpg",
+    Genres:["classic"]
   },
   {
     Name:"Papa's Burgeria",
@@ -228,6 +270,14 @@ const apps = [
   {
     Name:"Pong",
     Thumbnail:"thumbnail.png"
+  },
+  {
+    Name:"Portal (Flash)",
+    Folder:"Portal%20WCS2/",
+    Thumbnail:"thumbnail.png",
+    Added: new Date("November 1, 2024"),
+    Genres:["remake"],
+    Related:["valve", "half life"]
   },
   {
     Name:"Retro Bowl",
@@ -287,7 +337,9 @@ const apps = [
   {
     Name:"Soobway Surfers",
     Folder:"SoobwaySurfers",
-    Thumbnail:"thumbnail.png"
+    Thumbnail:"thumbnail.png",
+    Genres:["remake"],
+    Related:["subway surfers"]
   },
   {
     Name:"Super Mario 63",
@@ -316,7 +368,8 @@ const apps = [
   },
   {
     Name:"Ultimate Flash Sonic",
-    Thumbnail:"thumbnail.jpg"
+    Thumbnail:"thumbnail.jpg",
+    Genres:["remake"]
   },
   {
     Name:"Vex 3",
@@ -345,5 +398,14 @@ const apps = [
   {
     Name:"yohoho.io",
     Thumbnail:"thumbnail.jpg"
+  },
+
+  // Begin Emulators
+  {
+    Name:"GBA Emulator",
+    Folder: "GBA-gh-pages/",
+    Thumbnail: "Binaries/gb.ico",
+    Section: "emulators",
+    Notice: "This app has issues with lag, we currently don't have a fix for this."
   },
 ];
