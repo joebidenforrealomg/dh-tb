@@ -61,6 +61,16 @@ const apps = [
     Added: new Date("September 30, 2024"),
   },
   {
+    Name:"Cluster Rush",
+    Thumbnail:"thumbnail.jpeg",
+    Added: new Date("November 18, 2024"),
+  },
+  {
+    Name:"Color Tunnel",
+    Thumbnail:"thumbnail.jpeg",
+    Added: new Date("November 18, 2024"),
+  },
+  {
     Name:"Cookie Clicker",
     Folder:"CookieClicker",
     Thumbnail:"thumbnail.png",
@@ -84,6 +94,11 @@ const apps = [
   {
     Name:"DOOM",
     Thumbnail:"thumbnail.jpeg"
+  },
+  {
+    Name:"Drift Boss",
+    Thumbnail:"thumbnail.jpg",
+    Added:new Date("November 18, 2024")
   },
   {
     Name:"Duck Hunt",
@@ -115,6 +130,12 @@ const apps = [
     Name:"Electric Man 2",
     Folder:"ElectricMan 2",
     Thumbnail:"thumbnail.jpg"
+  },
+  {
+    Name:"Fancy Pants 1",
+    Folder:"Fancy Pants/1/",
+    Added:new Date("November 12, 2024"),
+    Hidden: true,
   },
   {
     Name:"FNAF 1",
@@ -196,7 +217,7 @@ const apps = [
     Name:"Madalin Stunt Cars 2",
     Folder:"Madalin Stunt Cars/2/",
     Thumbnail:"thumbnail.jpeg",
-    Added: new Date("November 1, 2024"),
+    Added: new Date("November 5, 2024"),
     Hidden: true,
     Genres:["driving","car","open world"]
   },
@@ -204,7 +225,7 @@ const apps = [
     Name:"Madalin Stunt Cars 3",
     Folder:"Madalin Stunt Cars/3/",
     Thumbnail:"thumbnail.jpeg",
-    Added: new Date("November 1, 2024"),
+    Added: new Date("November 5, 2024"),
     Hidden: true,
     Genres:["driving","car","open world"]
   },
@@ -212,7 +233,8 @@ const apps = [
     Name:"Madalin Stunt Cars Multiplayer",
     Folder:"Madalin Stunt Cars/Multiplayer/",
     Thumbnail:"thumbnail.jpeg",
-    Added: new Date("November 1, 2024"),
+    Added: new Date("November 5, 2024"),
+    Notice:"Despite multiplayer being in this app's name, multiplayer doesn't currently function. Sorry bro.",
     Genres:["driving","car","open world"]
   },
   {
@@ -224,9 +246,10 @@ const apps = [
     Name:"Minecraft 1.8",
     Folder:"Minecraft/1.8.8/",
     Thumbnail:"thumbnail.jpg",
-    Broken: true,
     Notice: "This app is known to occasionally not allow keyboard input, we're working on a fix for this. Also, the site may be frozen for a few seconds when loading this.",
-    Genres:["open world"]
+    Genres:["open world"],
+    // Fixed: new Date("November 15, 2024"),
+    // OpenWithCode: true
   },
   {
     Name:"Minesweeper",
@@ -285,6 +308,12 @@ const apps = [
     Thumbnail:"thumbnail.png"
   },
   {
+    Name:"Retro Bowl College",
+    Folder:"RetroBowl/College/",
+    Thumbnail:"thumbnail.png",
+    Added: new Date("November 18, 2024")
+  },
+  {
     Name:"Riddle School 1",
     Folder:"RiddleSchool/1/",
     Thumbnail:"thumbnail.jpg"
@@ -298,6 +327,12 @@ const apps = [
     Name:"Riddle School 3",
     Folder:"RiddleSchool/3/",
     Thumbnail:"thumbnail.jpg"
+  },
+  {
+    Name:"Roblox Remake",
+    Folder:"RobloxRemake/",
+    Thumbnail:"thumbnail.png",
+    Hidden:true
   },
   {
     Name:"Robux Generator Clicker",
@@ -333,6 +368,11 @@ const apps = [
     Name:"Slope Ass",
     Folder:"Slope/Ass/",
     Thumbnail:"thumbnail.png"
+  },
+  {
+    Name:"Solitare",
+    Thumbnail: "thumbnail.avif",
+    Added: new Date("November 18, 2024")
   },
   {
     Name:"Soobway Surfers",

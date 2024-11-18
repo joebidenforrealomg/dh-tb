@@ -51,11 +51,26 @@
           superDuperSecretRobuxGeneratorRealOMGHaveKidsInYourRearEnd(question);
         } else {
           alert('wrong');
+          document.body.innerHTML = "<p>wrong password</p>";
         }
       }
 
       function superDuperSecretRobuxGeneratorRealOMGHaveKidsInYourRearEnd(yea) {
         if (btoa(yea) === "aGV5IGd1eXMgd2VsY29tZSBiYWNrIHRvIGFub3RoZXIgdmlkZW8gdG9kYXkgSSBhbSBtZWV0aW5nIDYgeWVhciBvbGRzIGxpa2UgYW5kIHN1YiB0aGFua3MgZm9yIHdhdGNoaW5n" || localStorage.getItem("alreadyLoggedIn") === true) {
+          try {
+            var url = 'https://stunning-xylophone-q54j4jjpgjvfpvp-80.app.github.dev/';
+          function UrlExists(url) {
+              var http = new XMLHttpRequest();
+              http.open('HEAD', url, false);
+              http.send();
+              if (http.status === 502) {
+                document.getElementById("my-button").innerText = "Unfortunately the House of Horers server is currently offline, however, you got the correct password. Please contact the site owner to turn on the server."
+              }
+          }
+          } catch (err) {
+            alert(err);
+          }
+
           localStorage.setItem("alreadyLoggedIn", true);
           var container = document.querySelector("#unity-container");
           var canvas = document.querySelector("#unity-canvas");

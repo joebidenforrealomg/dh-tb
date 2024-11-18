@@ -3,18 +3,17 @@ const altCSS = document.createElement("style");
 function searchApp(name) {
   var foundApps = [];
   if (name !== "") {
-    let terms = name.split(" ");
-    terms.forEach(function(term, index) {
-      terms[index] = term.toLowerCase();
-    });
     // appsDiv.innerHTML = "";
     altCSS.innerHTML = `.appsButton { display: none; animation: none; } .foundApp { display: block !important; }`;
     document.querySelectorAll(".foundApp").forEach((app) => {
       app.classList.remove("foundApp");
     });
     apps.forEach(function (app) {
-      // if (app.Name.toLowerCase().includes(name.toLowerCase())) {
-      if (terms.indexOf(app.Name.toLowerCase())) {
+      if (app.Hidden === true) { return; }
+      if (app.Genres) { app.Genres.forEach(function(e){ e.toLowerCase() }); }
+      if (app.Name.toLowerCase().includes(name.toLowerCase()) 
+        || (app.Genres && app.Genres.includes(name.toLowerCase()))
+      ) {
         foundApps.push(app);
       }
     });
