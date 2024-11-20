@@ -49,13 +49,15 @@ function createApp(info, app, location) {
       }
     }
 
-    if (info.added.Bool) {
-      const newP = document.createElement("p");
-      newP.innerText = "NEW";
-      newP.classList.add("new");
-      newP.title = "This app was recently added (within the last 7 days)";
-      tags.appendChild(newP);
-      newApps++;
+    if (info.added != undefined) {
+      if (info.added.Bool) {
+        const newP = document.createElement("p");
+        newP.innerText = "NEW";
+        newP.classList.add("new");
+        newP.title = "This app was recently added (within the last 7 days)";
+        tags.appendChild(newP);
+        newApps++;
+      }
     }
 
     if (info.broken) {
@@ -75,13 +77,15 @@ function createApp(info, app, location) {
       newApps++;
     }
 
-    if (info.updated.Bool) {
-      const newP = document.createElement("p");
-      newP.innerText = "UPDATED";
-      newP.classList.add("updated");
-      newP.title = "This app was recently updated to a newer version.";
-      tags.appendChild(newP);
-      newApps++;
+    if (info.updated != undefined) {
+      if (info.updated.Bool) {
+        const newP = document.createElement("p");
+        newP.innerText = "UPDATED";
+        newP.classList.add("updated");
+        newP.title = "This app was recently updated to a newer version.";
+        tags.appendChild(newP);
+        newApps++;
+      }
     }
 
     if (info.pinned) {
@@ -98,6 +102,7 @@ function createApp(info, app, location) {
     // } else {
     //   location = location || document.getElementById("apps");
     // }
+    location = location || document.getElementById("apps");
     location.appendChild(b);
     // }
 
@@ -156,7 +161,11 @@ function createApps(app) {
   }
   if (app.Added.Bool === undefined) {
     app.Added = { Bool: isNew(app.Added), Date: app.Added };
+  }
+  if (app.Fixed.Bool === undefined) {
     app.Fixed = { Bool: isNew(app.Fixed), Date: app.Fixed };
+  }
+  if (app.Updated.Bool === undefined) {
     app.Updated = { Bool: isNew(app.Updated), Date: app.Updated };
   }
 

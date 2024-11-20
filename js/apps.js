@@ -10,6 +10,11 @@ const apps = [
     Thumbnail:"thumbnail.png",
   },
   {
+    Name:"A Dark Room",
+    Thumbnail:"thumbnail.jpg",
+    Added: new Date("November 20, 2024")
+  },
+  {
     Name:"Among Us",
     Folder:"AmongUs/",
     Hidden:true,
@@ -18,6 +23,10 @@ const apps = [
     Name:"Angry Birds",
     Thumbnail:"thumbnail.png",
     Related:["rovio","Bad Piggies"]
+  },
+  {
+    Name:"Anxiety",
+    Added:new Date("November 20, 2024")
   },
   {
     Name:"Aquapark",
@@ -85,6 +94,12 @@ const apps = [
     Name:"Cubefield",
     Thumbnail:"thumbnail.png",
     Hidden:true
+  },
+  {
+    Name:"Cut the Rope",
+    Thumbnail:"thumbnail.jpeg",
+    Added:new Date("November 20, 2024"),
+    Notice:"This app may take a moment or two to load. (it gets stuck at a percent for a little while)"
   },
   {
     Name:"Donkey Kong",
