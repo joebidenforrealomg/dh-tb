@@ -186,6 +186,11 @@ const apps = [
     Thumbnail:"thumbnail.jpg"
   },
   {
+    Name:"Getaway Shootout",
+    Thumbnail:"thumbnail.jpg",
+    Added: new Date("November 22, 2024")
+  },
+  {
     Name:"Google Baseball",
     Hidden:true,
   },

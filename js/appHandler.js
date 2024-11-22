@@ -12,7 +12,6 @@ function createApp(info, app, location) {
     img.onclick = function () {
       if (info.openWithCode == true) {
         const url = `${window.location.origin}/${info.url}`;
-        alert(url);
         openWindow(url, "New Tab", "", true, false);
       } else {
         openSite(`${info.url}`);
