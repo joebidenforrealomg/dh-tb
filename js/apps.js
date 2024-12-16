@@ -276,6 +276,12 @@ const apps = [
     Thumbnail:"thumbnail.jpg"
   },
   {
+    Name:"Monkey Mart",
+    Thumbnail:"thumbnai.jpg",
+    Hidden:true,
+    Added:new Date("December 16, 2024")
+  },
+  {
     Name:"MotoX3M",
     Thumbnail:"thumbnail.jpg",
     Genres:["driving","bike","racing","race"]
@@ -286,6 +292,11 @@ const apps = [
     Genres:["driving","bike","racing","race"]
   },
   {
+    Name:"n-gon",
+    Thumbnail:"thumbnail.png",
+    Added:new Date("December 16, 2024")
+  },
+  {
     Name:"Pacman",
     Thumbnail:"thumbnail.jpg",
     Genres:["classic"]
@@ -293,39 +304,44 @@ const apps = [
   {
     Name:"Papa's Burgeria",
     Thumbnail:"thumbnail.jpg",
+    Genres:["flash"],
     Added: new Date("October 15, 2024")
   },
   {
     Name:"Papa's Freezeria",
     Thumbnail:"thumbnail.jpeg",
+    Genres:["flash"],
     Added: new Date("October 15, 2024")
   },
   {
     Name:"Papa's Pancakeria",
     Thumbnail:"thumbnail.jpeg",
+    Genres:["flash"],
     Added: new Date("October 15, 2024")
   },
   {
     Name:"Papa's Pizzeria",
     Folder:"PapaPizza",
-    Thumbnail:"thumbnail.jpg"
+    Thumbnail:"thumbnail.jpg",
+    Genres:["flash"],
   },
   {
     Name:"Pong",
-    Thumbnail:"thumbnail.png"
+    Thumbnail:"thumbnail.png",
+    Genres:["classic"],
   },
   {
     Name:"Portal (Flash)",
     Folder:"Portal%20WCS2/",
     Thumbnail:"thumbnail.png",
     Added: new Date("November 1, 2024"),
-    Genres:["remake"],
+    Genres:["remake","flash"],
     Related:["valve", "half life"]
   },
   {
     Name:"Retro Bowl",
     Folder:"RetroBowl",
-    Thumbnail:"thumbnail.png"
+    Thumbnail:"thumbnail.png",
   },
   {
     Name:"Retro Bowl College",
@@ -336,17 +352,20 @@ const apps = [
   {
     Name:"Riddle School 1",
     Folder:"RiddleSchool/1/",
-    Thumbnail:"thumbnail.jpg"
+    Thumbnail:"thumbnail.jpg",
+    Genres:["flash"],
   },
   {
     Name:"Riddle School 2",
     Folder:"RiddleSchool/2/",
-    Thumbnail:"thumbnail.jpg"
+    Thumbnail:"thumbnail.jpg",
+    Genres:["flash"],
   },
   {
     Name:"Riddle School 3",
     Folder:"RiddleSchool/3/",
-    Thumbnail:"thumbnail.jpg"
+    Thumbnail:"thumbnail.jpg",
+    Genres:["flash"],
   },
   {
     Name:"Roblox Remake",
@@ -361,17 +380,20 @@ const apps = [
   {
     Name:"Run 1",
     Folder:"Run/1/",
-    Thumbnail:"thumbnail.png"
+    Thumbnail:"thumbnail.png",
+    Genres:["flash"],
   },
   {
     Name:"Run 2",
     Folder:"Run/2/",
-    Thumbnail:"thumbnail.jpg"
+    Thumbnail:"thumbnail.jpg",
+    Genres:["flash"],
   },
   {
     Name:"Run 3",
     Folder:"Run/3/",
-    Thumbnail:"thumbnail.png"
+    Thumbnail:"thumbnail.png",
+    Genres:["flash"],
   },
   {
     Name:"Rooftop Snipers",

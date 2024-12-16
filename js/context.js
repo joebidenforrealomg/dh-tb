@@ -8,7 +8,7 @@ function openContextMenu(event) {
     contextMenu.style.left = event.pageX + "px";
 
     if (event.target.tagName == "img") {
-      alert("image");
+      // alert("image");
     }
   }
 }
@@ -22,7 +22,7 @@ function closeContextMenu() {
 function toggleContextMenu(event) {
   contextOpen = !contextOpen;
   if (contextOpen) {
-    openContextMenu(event);
+    // openContextMenu(event);
   } else {
     closeContextMenu();
   }

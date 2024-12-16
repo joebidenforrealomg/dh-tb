@@ -341,7 +341,7 @@ h1 {
 
 .topHeader {
   max-width: 100vw;
-  min-width: 300px;
+  min-width: 400px;
   position: absolute;
   text-align: center;
   top: 0;
@@ -490,6 +490,29 @@ h1 {
     left: 5px;
     opacity: 1;
   }
+
+  .speedrunTimerButton {
+    margin: 0;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    transform: translateX(-50%);
+    padding: 12px;
+    border-radius: 4vh;
+    background: rgba(0,0,0,0.8);
+    border: 3px solid rgba(0, 255, 0, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: 0.15s ease;
+    opacity: 0.5;
+  }
+
+  .speedrunTimerButton:hover {
+    border: 3px solid white;
+    transform: translateX(0);
+    left: 5px;
+    opacity: 1;
+  }
 }
 
 div.notifications {
@@ -573,4 +596,50 @@ div.notifications {
 .contextMenu.hide {
   pointer-events: none;
   opacity: 0;
+}
+
+.speedrunTimer {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.174);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  width: 100px;
+  z-index: 20;
+  transition: 0.5s ease;
+  transition-delay: 1s;
+  transition-property: background;
+
+  .timerText {
+    text-align: center;
+    font-size: 24px;
+    height: 20%;
+  }
+
+  button {
+    width: 50%;
+    background: transparent;
+    border: none;
+    transition: 0.15s ease;
+  }
+
+  button:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  button:first-of-type {
+    border-radius: 0 0 0 12px;
+  }
+
+  button:last-of-type {
+    border-radius: 0 0 12px 0;
+  }
+
+}
+
+.speedrunTimer:hover {
+  background: rgba(0, 0, 0, 0.5);
+  transition-delay: 0s;
 }

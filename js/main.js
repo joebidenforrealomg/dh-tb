@@ -59,13 +59,16 @@ function openSite(url) {
     document.getElementById("appDiv").remove();
   }
 
-  var appDiv = document.createElement('div');
-  var closeButton = document.createElement('p');
-  var iframe = document.createElement('iframe');
+  let appDiv = document.createElement('div');
+  let closeButton = document.createElement('button');
+  let timerButton = document.createElement('button');
+  let iframe = document.createElement('iframe');
 
   appDiv.id = "appDiv";
   closeButton.innerText = "BACK";
   closeButton.className = "appClose";
+  timerButton.innerText = "Timer";
+  timerButton.className = "speedrunTimerButton";
   iframe.src = url;
   iframe.className = "appIframe";
 
@@ -73,11 +76,17 @@ function openSite(url) {
     if (confirm("Are you sure you want to close this app?") === true) {
       document.getElementById("main").style.display = "block";
       appDiv.remove();
+      closeSpeedrunTimer();
     }
+  });
+
+  timerButton.addEventListener('click', function() {
+    toggleSpeedrunTimer();
   });
 
   appDiv.appendChild(iframe);
   appDiv.appendChild(closeButton);
+  appDiv.appendChild(timerButton);
   document.body.appendChild(appDiv);
   document.getElementById("main").style.display = "none";
 
