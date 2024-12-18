@@ -1,22 +1,22 @@
-// import { search } from 'search.js';
-
 const appsDiv = document.getElementById("apps");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
 const resultsText = document.getElementById("results");
 const clear = document.getElementById("clear");
+const appSizesSelect = document.getElementById("appSizes");
 let newApps = 0;
 let sections = [];
 let sectionCount = {};
+let currentAppSize = "default";
 
 document.head.appendChild(altCSS);
 
 async function openWindow(url, title, icon, code, removeCurrent) {
-  if (code == false || code == undefined)  {
+  if (code == false || code == undefined) {
     var blank = window.open();
     var link = blank.document.createElement('link');
     var style = blank.document.createElement('style');
-  
+
     link.rel = "shortcut icon";
     link.href = icon || "";
     style.innerHTML = `body { width: 100vw;height: 100vh;margin: 0; background: black; } iframe { width: 100vw;height: 100vh;border: none;outline: none;margin: 0;} p { cursor: pointer;font-family: monospace;position: fixed;z-index: 2;padding: 8px;left: 0;transform: translateX(-50%);transition: 0.2s ease;opacity: 0.5;background: black;border: 2px solid lime;color: lime;} p:hover { left: 8px;transform: translateX(0);opacity: 1;}`;
@@ -43,9 +43,9 @@ async function openWindow(url, title, icon, code, removeCurrent) {
 
     const scripts = doc.querySelectorAll('script');
     scripts.forEach(script => {
-        let newScript = blank.document.createElement('script');
-        newScript.textContent = script.textContent;
-        blank.document.body.appendChild(newScript);
+      let newScript = blank.document.createElement('script');
+      newScript.textContent = script.textContent;
+      blank.document.body.appendChild(newScript);
     });
   }
 
@@ -80,7 +80,7 @@ function openSite(url) {
     }
   });
 
-  timerButton.addEventListener('click', function() {
+  timerButton.addEventListener('click', function () {
     toggleSpeedrunTimer();
   });
 
@@ -94,50 +94,6 @@ function openSite(url) {
   //   unlockAchievement("wow you opened a game");
   // }, 1500);
 }
-
-/* function searchApp(name) {
-  var foundApps = [];
-  if (name !== "") {
-    // appsDiv.innerHTML = "";
-    altCSS.innerHTML = `.appsButton { display: none; animation: none; } .foundApp { display: block !important; }`;
-    document.querySelectorAll(".foundApp").forEach((app) => {
-      app.classList.remove("foundApp");
-    });
-    apps.forEach(function (app) {
-      if (app.Hidden === true) { return; }
-      if (app.Genres) { app.Genres.forEach(function(e){ e.toLowerCase() }); }
-      if (app.Name.toLowerCase().includes(name.toLowerCase()) 
-        || (app.Genres && app.Genres.includes(name.toLowerCase()))
-      ) {
-        foundApps.push(app);
-      }
-    });
-    foundApps.sort();
-    foundApps.forEach(function(app) {
-      if (app.Hidden === true) {
-        return;
-      }
-
-      const button = document.getElementById(appID(app));
-      button.classList.add("foundApp");
-    });
-
-    if (name !== "") {
-      if (results == 1) {
-        resultsText.innerHTML = `${foundApps.length} result for '${name}'`;
-      } else {
-        resultsText.innerHTML = `${foundApps.length} results for '${name}'`;
-      }
-    } else {
-      resultsText.innerHTML = "";
-    }
-  } else {
-    altCSS.innerHTML = `.appsButton { display: block; animation: none; }`;
-    apps.forEach(createApps);
-    resultsText.innerHTML = "";
-  }
-} */
-
 
 function notify(info) {
   info.Text = info.Text || "No text for notification.";
@@ -166,29 +122,6 @@ function handleSearch(e) {
   e.preventDefault();
   searchApp(searchInput.value);
 }
-
-searchForm.addEventListener("submit", handleSearch);
-searchForm.addEventListener("input", handleSearch);
-clear.addEventListener("click", function () {
-  searchInput.value = "";
-  searchApp();
-});
-apps.forEach(createApps);
-sortApps();
-if (localStorage.getItem("favorites")) {
-  let favorites = JSON.parse(localStorage.getItem("favorites"));
-  favorites.forEach(function (item) {
-    createApp(item, true);
-  });
-}
-
-sections.forEach(function(section) {
-  if (sectionCount[section] && sectionCount[section] < 1) {
-    document.querySelectorAll(`.${section}Section`).forEach(function(obj) {
-      obj.style.display = "none";
-    });
-  }
-});
 
 function InIframe() {
   try {
@@ -225,13 +158,48 @@ function notInAFrame() {
     window.addEventListener('beforeunload', (event) => {
       event.returnValue = "Are you sure you want to leave?";
     });
-    document.addEventListener('contextmenu', function(e) {
+    document.addEventListener('contextmenu', function (e) {
       toggleContextMenu(e);
       e.preventDefault();
     }, false);
   }
 }
 
+function changeAppSize() {
+  apps.classList.remove(currentAppSize);
+  apps.classList.add(appSizesSelect.value);
+  currentAppSize = appSizesSelect.value
+}
+
 if (InIframe() == false) {
   notInAFrame();
 }
+
+if (localStorage.getItem("favorites")) {
+  let favorites = JSON.parse(localStorage.getItem("favorites"));
+  favorites.forEach(function (item) {
+    createApp(item, true);
+  });
+}
+
+sections.forEach(function (section) {
+  if (sectionCount[section] && sectionCount[section] < 1) {
+    document.querySelectorAll(`.${section}Section`).forEach(function (obj) {
+      obj.style.display = "none";
+    });
+  }
+});
+
+appSizesSelect.addEventListener("change", function () {
+  if (appSizesSelect.value != currentAppSize) {
+    changeAppSize();
+  }
+});
+clear.addEventListener("click", function () {
+  searchInput.value = "";
+  searchApp();
+});
+searchForm.addEventListener("submit", handleSearch);
+searchForm.addEventListener("input", handleSearch);
+apps.forEach(createApps);
+sortApps();

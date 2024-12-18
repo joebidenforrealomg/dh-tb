@@ -117,6 +117,7 @@ body {
   }
 }
 
+/* Apps div needs a redesign, it may look pretty but it's hard to find games */
 .apps {
   display: inline-flex;
   flex-wrap: wrap;

@@ -1,41 +1,41 @@
 const apps = [
   {
-    Name:"1v1.LOL",
-    Thumbnail:"thumbnail.jpg",
-    Genres:["fps","shooter"],
-    Related:["guns","guns"]
+    Name: "1v1.LOL",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["fps", "shooter"],
+    Related: ["guns", "guns"]
   },
   {
-    Name:"2048",
-    Thumbnail:"thumbnail.png",
+    Name: "2048",
+    Thumbnail: "thumbnail.png",
   },
   {
-    Name:"A Dark Room",
-    Thumbnail:"thumbnail.jpg",
+    Name: "A Dark Room",
+    Thumbnail: "thumbnail.jpg",
     Added: new Date("November 20, 2024")
   },
   {
-    Name:"Among Us",
-    Folder:"AmongUs/",
-    Hidden:true,
+    Name: "Among Us",
+    Folder: "AmongUs/",
+    Hidden: true,
   },
   {
-    Name:"Angry Birds",
-    Thumbnail:"thumbnail.png",
-    Related:["rovio","Bad Piggies"]
+    Name: "Angry Birds",
+    Thumbnail: "thumbnail.png",
+    Related: ["rovio", "Bad Piggies"]
   },
   {
-    Name:"Anxiety",
-    Added:new Date("November 20, 2024")
+    Name: "Anxiety",
+    Added: new Date("November 20, 2024")
   },
   {
-    Name:"Aquapark",
-    Thumbnail:"thumbnail.png"
+    Name: "Aquapark",
+    Thumbnail: "thumbnail.png"
   },
   {
-    Name:"Bad Piggies",
-    Thumbnail:"thumbnail.jpg",
-    Related:["Angry Birds","rovio"]
+    Name: "Bad Piggies",
+    Thumbnail: "thumbnail.jpg",
+    Related: ["Angry Birds", "rovio"]
   },
   // {
   //   Name:"Bad Time Simlator",
@@ -43,451 +43,554 @@ const apps = [
   //   Added: new Date("October 17, 2024")
   // },
   {
-    Name:"Basketball Stars",
-    Thumbnail:"thumbnail.jpg",
+    Name: "Basket Random",
+    Added: new Date("December 18, 2024"),
+  },
+  {
+    Name: "Basketball Stars",
+    Thumbnail: "thumbnail.jpg",
     Added: new Date("September 30, 2024"),
   },
   {
-    Name:"Bitlife",
-    Thumbnail:"thumbnail.png"
+    Name: "Batman (NES)",
+    Folder: "../resources/jsnes/",
+    Index: "nes.html?file=batman",
+    Added: new Date("December 17, 2024"),
+    Genres: ["classic", "nintendo"],
   },
   {
-    Name:"Blackjack",
-    Thumbnail:"thumbnail.png"
+    Name: "Bitlife",
+    Thumbnail: "thumbnail.png"
   },
   {
-    Name:"Bloons TD",
-    Folder:"BloonsTD",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Blackjack",
+    Thumbnail: "thumbnail.png"
   },
   {
-    Name:"Bloxorz",
-    Thumbnail:"thumbnail.jpeg"
+    Name: "Bloons TD",
+    Folder: "BloonsTD",
+    Thumbnail: "thumbnail.jpg"
   },
   {
-    Name:"Chess",
-    Thumbnail:"thumbnail.png",
+    Name: "Bloxorz",
+    Thumbnail: "thumbnail.jpeg"
+  },
+  {
+    Name: "Chess",
+    Thumbnail: "thumbnail.png",
     Added: new Date("September 30, 2024"),
   },
   {
-    Name:"Cluster Rush",
-    Thumbnail:"thumbnail.jpeg",
+    Name: "Cluster Rush",
+    Thumbnail: "thumbnail.jpeg",
     Added: new Date("November 18, 2024"),
   },
   {
-    Name:"Color Tunnel",
-    Thumbnail:"thumbnail.jpeg",
+    Name: "Color Tunnel",
+    Thumbnail: "thumbnail.jpeg",
     Added: new Date("November 18, 2024"),
   },
   {
-    Name:"Cookie Clicker",
-    Folder:"CookieClicker",
-    Thumbnail:"thumbnail.png",
+    Name: "Cookie Clicker",
+    Folder: "CookieClicker",
+    Thumbnail: "thumbnail.png",
     Updated: new Date("November 5, 2024")
   },
   {
-    Name:"Crossy Road",
-    Folder:"CrossyRoad",
-    Thumbnail:"thumbnail.png"
+    Name: "Crossy Road",
+    Folder: "CrossyRoad",
+    Thumbnail: "thumbnail.png"
   },
   {
-    Name:"Cubefield",
-    Thumbnail:"thumbnail.png",
-    Hidden:true
+    Name: "Cubefield",
+    Thumbnail: "thumbnail.png",
+    Hidden: true
   },
   {
-    Name:"Cut the Rope",
-    Thumbnail:"thumbnail.jpeg",
-    Added:new Date("November 20, 2024"),
-    Notice:"This app may take a moment or two to load. (it gets stuck at a percent for a little while)"
+    Name: "Cut the Rope",
+    Thumbnail: "thumbnail.jpeg",
+    Added: new Date("November 20, 2024"),
+    Notice: "This app may take a moment or two to load. (it gets stuck at a percent for a little while)"
   },
   {
-    Name:"Donkey Kong",
-    Folder:"DonkeyKong",
-    Thumbnail:"thumbnail.png"
+    Name: "Donkey Kong",
+    Folder: "DonkeyKong",
+    Thumbnail: "thumbnail.png"
   },
   {
-    Name:"DOOM",
-    Thumbnail:"thumbnail.jpeg"
+    Name: "DOOM",
+    Thumbnail: "thumbnail.jpeg"
   },
   {
-    Name:"Drift Boss",
-    Thumbnail:"thumbnail.jpg",
-    Added:new Date("November 18, 2024")
+    Name: "Double Dragon (NES)",
+    Added: new Date("December 18, 2024"),
   },
   {
-    Name:"Duck Hunt",
-    Folder:"DuckHunt",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Drift Boss",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("November 18, 2024")
   },
   {
-    Name:"Ducklife 1",
-    Folder:"Ducklife/1/",
-    Thumbnail:"thumbnail.jpeg"
+    Name: "Duck Hunt",
+    Folder: "DuckHunt",
+    Thumbnail: "thumbnail.jpg"
   },
   {
-    Name:"Ducklife 2",
-    Folder:"Ducklife/2/",
-    Thumbnail:"thumbnail.jpeg"
+    Name: "Ducklife 1",
+    Folder: "Ducklife/1/",
+    Thumbnail: "thumbnail.jpeg"
   },
   {
-    Name:"Ducklife 3",
-    Folder:"Ducklife/3/",
-    Thumbnail:"thumbnail.jpeg"
+    Name: "Ducklife 2",
+    Folder: "Ducklife/2/",
+    Thumbnail: "thumbnail.jpeg"
   },
   {
-    Name:"Ducklife 4",
-    Folder:"Ducklife/4/",
-    Thumbnail:"thumbnail.jpg",
+    Name: "Ducklife 3",
+    Folder: "Ducklife/3/",
+    Thumbnail: "thumbnail.jpeg"
+  },
+  {
+    Name: "Ducklife 4",
+    Folder: "Ducklife/4/",
+    Thumbnail: "thumbnail.jpg",
     Added: new Date("October 10, 2024"),
   },
   {
-    Name:"Electric Man 2",
-    Folder:"ElectricMan 2",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Duck Tales (NES)",
+    Folder: "../resources/jsnes/",
+    Index: "nes.html?file=ducktales",
+    Added: new Date("December 18, 2024"),
+    Genres: ["classic", "nintendo"],
   },
   {
-    Name:"Fancy Pants 1",
-    Folder:"Fancy Pants/1/",
-    Added:new Date("November 12, 2024"),
+    Name: "Electric Man 2",
+    Folder: "ElectricMan 2",
+    Thumbnail: "thumbnail.jpg"
+  },
+  {
+    Name: "Fancy Pants 1",
+    Folder: "Fancy Pants/1/",
+    Added: new Date("November 12, 2024"),
     Hidden: true,
   },
   {
-    Name:"FNAF 1",
-    Folder:"FNAF/1/",
-    Thumbnail:"thumbnail.jpeg"
+    Name: "FNAF 1",
+    Folder: "FNAF/1/",
+    Thumbnail: "thumbnail.jpeg"
   },
   {
-    Name:"FNAF 2",
-    Folder:"FNAF/2/",
-    Thumbnail:"thumbnail.jpeg",
-    Broken:true,
+    Name: "FNAF 2",
+    Folder: "FNAF/2/",
+    Thumbnail: "thumbnail.jpeg",
+    Broken: true,
     Notice: "This app may not load, we're currently searching for a new game file.",
   },
   {
-    Name:"FNAF 3",
-    Folder:"FNAF/3/",
-    Thumbnail:"thumbnail.webp",
-    Broken:true,
+    Name: "FNAF 3",
+    Folder: "FNAF/3/",
+    Thumbnail: "thumbnail.webp",
+    Broken: true,
     Notice: "This app may not load, we're currently searching for a new game file.",
   },
   {
-    Name:"FNAF 4",
-    Folder:"FNAF/4/",
-    Thumbnail:"thumbnail.png"
+    Name: "FNAF 4",
+    Folder: "FNAF/4/",
+    Thumbnail: "thumbnail.png"
   },
   {
-    Name:"FNAW",
-    Thumbnail:"thumbnail.jpg"
+    Name: "FNAW",
+    Thumbnail: "thumbnail.jpg"
   },
   {
-    Name:"Fruit Ninja",
-    Folder:"FruitNinja",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Friday the 13th (NES)",
+    Folder: "../resources/jsnes/",
+    Index: "nes.html?file=fridaythe13th",
+    Added: new Date("December 18, 2024"),
+    Genres: ["classic", "nintendo"],
   },
   {
-    Name:"Getaway Shootout",
-    Thumbnail:"thumbnail.jpg",
+    Name: "Fruit Ninja",
+    Folder: "FruitNinja",
+    Thumbnail: "thumbnail.jpg"
+  },
+  {
+    Name: "Getaway Shootout",
+    Thumbnail: "thumbnail.jpg",
     Added: new Date("November 22, 2024")
   },
   {
-    Name:"Google Baseball",
-    Hidden:true,
+    Name: "Google Baseball",
+    Hidden: true,
   },
   {
-    Name:"Google Dino",
-    Folder:"GoogleDino",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Google Dino",
+    Folder: "GoogleDino",
+    Thumbnail: "thumbnail.jpg"
   },
   {
-    Name:"Google Snake",
-    Folder:"GoogleSnake",
-    Thumbnail:"thumbnail.png",
+    Name: "Google Snake",
+    Folder: "GoogleSnake",
+    Thumbnail: "thumbnail.png",
     Fixed: new Date("October 10, 2024")
   },
   {
-    Name:"Slow Roads (Modded)",
-    Folder:"Hell Roads/",
-    Thumbnail:"thumbnail.jpg",
+    Name: "Slow Roads (Modded)",
+    Folder: "Hell Roads/",
+    Thumbnail: "thumbnail.jpg",
     Added: new Date("October 15, 2024")
   },
   {
-    Name:"House of Horers Simulator",
-    Thumbnail:"thumbnail.png",
-    Related:["locked","unavailable"]
+    Name: "House of Horers Simulator",
+    Thumbnail: "thumbnail.png",
+    Related: ["locked", "unavailable"]
   },
   {
-    Name:"Idle Breakout",
-    Thumbnail:"thumbnail.png",
+    Name: "Idle Breakout",
+    Thumbnail: "thumbnail.png",
     Added: new Date("October 15, 2024")
   },
   {
-    Name:"Impossible Quiz",
-    Thumbnail:"thumbnail.png"
+    Name: "Impossible Quiz",
+    Thumbnail: "thumbnail.png"
   },
   {
-    Name:"Jacksmith",
-    Thumbnail:"thumbnail.png"
+    Name: "Jacksmith",
+    Thumbnail: "thumbnail.png"
   },
   {
-    Name:"Learn 2 Fly",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Learn 2 Fly",
+    Thumbnail: "thumbnail.jpg"
   },
   {
-    Name:"Madalin Stunt Cars 2",
-    Folder:"Madalin Stunt Cars/2/",
-    Thumbnail:"thumbnail.jpeg",
+    Name: "Madalin Stunt Cars 2",
+    Folder: "Madalin Stunt Cars/2/",
+    Thumbnail: "thumbnail.jpeg",
     Added: new Date("November 5, 2024"),
     Hidden: true,
-    Genres:["driving","car","open world"]
+    Genres: ["driving", "car", "open world"]
   },
   {
-    Name:"Madalin Stunt Cars 3",
-    Folder:"Madalin Stunt Cars/3/",
-    Thumbnail:"thumbnail.jpeg",
+    Name: "Madalin Stunt Cars 3",
+    Folder: "Madalin Stunt Cars/3/",
+    Thumbnail: "thumbnail.jpeg",
     Added: new Date("November 5, 2024"),
     Hidden: true,
-    Genres:["driving","car","open world"]
+    Genres: ["driving", "car", "open world"]
   },
   {
-    Name:"Madalin Stunt Cars Multiplayer",
-    Folder:"Madalin Stunt Cars/Multiplayer/",
-    Thumbnail:"thumbnail.jpeg",
+    Name: "Madalin Stunt Cars Multiplayer",
+    Folder: "Madalin Stunt Cars/Multiplayer/",
+    Thumbnail: "thumbnail.jpeg",
     Added: new Date("November 5, 2024"),
-    Notice:"Despite multiplayer being in this app's name, multiplayer doesn't currently function. Sorry bro.",
-    Genres:["driving","car","open world"]
+    Notice: "Despite multiplayer being in this app's name, multiplayer doesn't currently function. Sorry bro.",
+    Genres: ["driving", "car", "open world"]
   },
   {
-    Name:"Mario Kart DS",
-    Hidden:true,
-    Genres:["driving","car","racing","race"]
+    Name: "Mario Kart DS",
+    Hidden: true,
+    Genres: ["driving", "car", "racing", "race"]
   },
   {
-    Name:"Minecraft 1.8",
-    Folder:"Minecraft/1.8.8/",
-    Thumbnail:"thumbnail.jpg",
+    Name: "Megaman 2 (NES)",
+    Folder: "../resources/jsnes/",
+    Index: "nes.html?file=megaman2",
+    Added: new Date("December 18, 2024"),
+    Genres: ["classic", "nintendo"],
+  },
+  {
+    Name: "Minecraft 1.8",
+    Folder: "Minecraft/1.8.8/",
+    Thumbnail: "thumbnail.jpg",
     Notice: "This app is known to occasionally not allow keyboard input, we're working on a fix for this. Also, the site may be frozen for a few seconds when loading this.",
-    Genres:["open world"],
+    Genres: ["open world"],
     // Fixed: new Date("November 15, 2024"),
     // OpenWithCode: true
   },
   {
-    Name:"Minesweeper",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Minesweeper",
+    Thumbnail: "thumbnail.jpg"
   },
   {
-    Name:"Monkey Mart",
-    Thumbnail:"thumbnai.jpg",
-    Hidden:true,
-    Added:new Date("December 16, 2024")
+    Name: "Monkey Mart",
+    Thumbnail: "thumbnai.jpg",
+    Hidden: true,
+    Added: new Date("December 16, 2024")
   },
   {
-    Name:"MotoX3M",
-    Thumbnail:"thumbnail.jpg",
-    Genres:["driving","bike","racing","race"]
+    Name: "MotoX3M",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["driving", "bike", "racing", "race"]
   },
   {
-    Name:"MotoX3M 2",
-    Thumbnail:"thumbnail.jpg",
-    Genres:["driving","bike","racing","race"]
+    Name: "MotoX3M 2",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["driving", "bike", "racing", "race"]
   },
   {
-    Name:"n-gon",
-    Thumbnail:"thumbnail.png",
-    Added:new Date("December 16, 2024")
+    Name: "n-gon",
+    Thumbnail: "thumbnail.png",
+    Added: new Date("December 16, 2024")
   },
   {
-    Name:"Pacman",
-    Thumbnail:"thumbnail.jpg",
-    Genres:["classic"]
+    Name: "Pacman",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["classic"]
   },
   {
-    Name:"Papa's Burgeria",
-    Thumbnail:"thumbnail.jpg",
-    Genres:["flash"],
+    Name: "Papa's Burgeria",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["flash"],
     Added: new Date("October 15, 2024")
   },
   {
-    Name:"Papa's Freezeria",
-    Thumbnail:"thumbnail.jpeg",
-    Genres:["flash"],
+    Name: "Papa's Freezeria",
+    Thumbnail: "thumbnail.jpeg",
+    Genres: ["flash"],
     Added: new Date("October 15, 2024")
   },
   {
-    Name:"Papa's Pancakeria",
-    Thumbnail:"thumbnail.jpeg",
-    Genres:["flash"],
+    Name: "Papa's Pancakeria",
+    Thumbnail: "thumbnail.jpeg",
+    Genres: ["flash"],
     Added: new Date("October 15, 2024")
   },
   {
-    Name:"Papa's Pizzeria",
-    Folder:"PapaPizza",
-    Thumbnail:"thumbnail.jpg",
-    Genres:["flash"],
+    Name: "Papa's Pizzeria",
+    Folder: "PapaPizza",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["flash"],
   },
   {
-    Name:"Pong",
-    Thumbnail:"thumbnail.png",
-    Genres:["classic"],
+    Name: "Punchout (NES)",
+    Folder: "../resources/jsnes/",
+    Index: "nes.html?file=punchout",
+    Added: new Date("December 18, 2024"),
+    Genres: ["classic", "nintendo"],
   },
   {
-    Name:"Portal (Flash)",
-    Folder:"Portal%20WCS2/",
-    Thumbnail:"thumbnail.png",
+    Name: "Punchout 2 (NES)",
+    Folder: "../resources/jsnes/",
+    Index: "nes.html?file=punchout2",
+    Added: new Date("December 18, 2024"),
+    Genres: ["classic", "nintendo"],
+  },
+  {
+    Name: "Polytrack",
+    Hidden: true
+  },
+  {
+    Name: "Pong",
+    Thumbnail: "thumbnail.png",
+    Genres: ["classic"],
+  },
+  {
+    Name: "Portal (Flash)",
+    Folder: "Portal%20WCS2/",
+    Thumbnail: "thumbnail.png",
     Added: new Date("November 1, 2024"),
-    Genres:["remake","flash"],
-    Related:["valve", "half life"]
+    Genres: ["remake", "flash"],
+    Related: ["valve", "half life"]
   },
   {
-    Name:"Retro Bowl",
-    Folder:"RetroBowl",
-    Thumbnail:"thumbnail.png",
+    Name: "Retro Bowl",
+    Folder: "RetroBowl",
+    Thumbnail: "thumbnail.png",
   },
   {
-    Name:"Retro Bowl College",
-    Folder:"RetroBowl/College/",
-    Thumbnail:"thumbnail.png",
+    Name: "Retro Bowl College",
+    Folder: "RetroBowl/College/",
+    Thumbnail: "thumbnail.png",
     Added: new Date("November 18, 2024")
   },
   {
-    Name:"Riddle School 1",
-    Folder:"RiddleSchool/1/",
-    Thumbnail:"thumbnail.jpg",
-    Genres:["flash"],
+    Name: "Riddle School 1",
+    Folder: "RiddleSchool/1/",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["flash"],
   },
   {
-    Name:"Riddle School 2",
-    Folder:"RiddleSchool/2/",
-    Thumbnail:"thumbnail.jpg",
-    Genres:["flash"],
+    Name: "Riddle School 2",
+    Folder: "RiddleSchool/2/",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["flash"],
   },
   {
-    Name:"Riddle School 3",
-    Folder:"RiddleSchool/3/",
-    Thumbnail:"thumbnail.jpg",
-    Genres:["flash"],
+    Name: "Riddle School 3",
+    Folder: "RiddleSchool/3/",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["flash"],
   },
   {
-    Name:"Roblox Remake",
-    Folder:"RobloxRemake/",
-    Thumbnail:"thumbnail.png",
-    Hidden:true
+    Name: "Roblox Remake",
+    Folder: "RobloxRemake/",
+    Thumbnail: "thumbnail.png",
+    Hidden: true
   },
   {
-    Name:"Robux Generator Clicker",
-    Thumbnail:"thumbnail.png"
+    Name: "Robux Generator Clicker",
+    Thumbnail: "thumbnail.png"
   },
   {
-    Name:"Run 1",
-    Folder:"Run/1/",
-    Thumbnail:"thumbnail.png",
-    Genres:["flash"],
+    Name: "Run 1",
+    Folder: "Run/1/",
+    Thumbnail: "thumbnail.png",
+    Genres: ["flash"],
   },
   {
-    Name:"Run 2",
-    Folder:"Run/2/",
-    Thumbnail:"thumbnail.jpg",
-    Genres:["flash"],
+    Name: "Run 2",
+    Folder: "Run/2/",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["flash"],
   },
   {
-    Name:"Run 3",
-    Folder:"Run/3/",
-    Thumbnail:"thumbnail.png",
-    Genres:["flash"],
+    Name: "Run 3",
+    Folder: "Run/3/",
+    Thumbnail: "thumbnail.png",
+    Genres: ["flash"],
   },
   {
-    Name:"Rooftop Snipers",
-    Folder:"Rooftop Snipers/",
-    Thumbnail:"thumbnail.jpeg",
-    Added:new Date("October 2, 2024")
+    Name: "Sling Drift",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["driving"],
+    Added: new Date("December 18, 2024")
   },
   {
-    Name:"Slope",
-    Folder:"Slope/1/",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Rooftop Snipers",
+    Folder: "Rooftop Snipers/",
+    Thumbnail: "thumbnail.jpeg",
+    Added: new Date("October 2, 2024")
   },
   {
-    Name:"Slope Ass",
-    Folder:"Slope/Ass/",
-    Thumbnail:"thumbnail.png"
+    Name: "Slope",
+    Folder: "Slope/1/",
+    Thumbnail: "thumbnail.jpg"
   },
   {
-    Name:"Solitare",
+    Name: "Slope Ass",
+    Folder: "Slope/Ass/",
+    Thumbnail: "thumbnail.png"
+  },
+  {
+    Name: "Soccer Random",
+    Added: new Date("December 18, 2024"),
+  },
+  {
+    Name: "Solitare",
     Thumbnail: "thumbnail.avif",
     Added: new Date("November 18, 2024")
   },
   {
-    Name:"Soobway Surfers",
-    Folder:"SoobwaySurfers",
-    Thumbnail:"thumbnail.png",
-    Genres:["remake"],
-    Related:["subway surfers"]
+    Name: "Soobway Surfers",
+    Folder: "SoobwaySurfers",
+    Thumbnail: "thumbnail.png",
+    Genres: ["remake"],
+    Related: ["subway surfers"]
   },
   {
-    Name:"Super Mario 63",
-    Folder:"SuperMario 63/",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Super Mario Bros. 1 (NES)",
+    Folder: "../resources/jsnes/",
+    Index: "nes.html?file=supermariobros",
+    Added: new Date("December 17, 2024"),
+    Genres: ["classic", "nintendo"],
   },
   {
-    Name:"Super Mario 64",
-    Folder:"SuperMario 64/",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Super Mario Bros. 2 (NES)",
+    Folder: "../resources/jsnes/",
+    Index: "nes.html?file=supermariobros2",
+    Added: new Date("December 17, 2024"),
+    Genres: ["classic", "nintendo"],
   },
   {
-    Name:"Stickman Hook",
-    Folder:"StickmanHook/",
-    Thumbnail:"thumbnail.png",
+    Name: "Super Mario Bros. 3 (NES)",
+    Folder: "../resources/jsnes/",
+    Index: "nes.html?file=supermariobros3",
+    Added: new Date("December 17, 2024"),
+    Genres: ["classic", "nintendo"],
+  },
+  {
+    Name: "Super Mario 63",
+    Folder: "SuperMario 63/",
+    Thumbnail: "thumbnail.jpg"
+  },
+  {
+    Name: "Super Mario 64",
+    Folder: "SuperMario 64/",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["classic"]
+  },
+  {
+    Name: "Stickman Hook",
+    Folder: "StickmanHook/",
+    Thumbnail: "thumbnail.png",
     Fixed: new Date("October 2, 2024")
   },
   {
-    Name:"Subway Surfers",
-    Thumbnail:"thumbnail.png",
+    Name: "Subway Surfers",
+    Thumbnail: "thumbnail.png",
     Added: new Date("October 2, 2024")
   },
   {
-    Name:"Tetris",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Tetris",
+    Thumbnail: "thumbnail.jpg"
   },
   {
-    Name:"Ultimate Flash Sonic",
-    Thumbnail:"thumbnail.jpg",
-    Genres:["remake"]
+    Name: "The Legend of Zelda (NES)",
+    Folder: "../resources/jsnes/",
+    Index: "nes.html?file=zelda",
+    Added: new Date("December 18, 2024"),
+    Genres: ["classic", "nintendo"],
   },
   {
-    Name:"Vex 3",
-    Folder:"Vex/3/",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Ultimate Flash Sonic",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["remake"]
   },
   {
-    Name:"Wolfenstein 3D",
-    Folder:"wolfen/",
-    Thumbnail:"thumbnail.png"
+    Name: "Vex 3",
+    Folder: "Vex/3/",
+    Thumbnail: "thumbnail.jpg"
   },
   {
-    Name:"Wordle",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Wolfenstein 3D",
+    Folder: "wolfen/",
+    Thumbnail: "thumbnail.png"
   },
   {
-    Name:"World's Hardest Game 1",
-    Folder:"Worlds Hardest Game/1/",
-    Thumbnail:"thumbnail.jpg"
+    Name: "Wordle",
+    Thumbnail: "thumbnail.jpg"
   },
   {
-    Name:"World's Hardest Game 2",
-    Folder:"Worlds Hardest Game/2/",
-    Thumbnail:"thumbnail.jpg"
+    Name: "World's Hardest Game 1",
+    Folder: "Worlds Hardest Game/1/",
+    Thumbnail: "thumbnail.jpg"
   },
   {
-    Name:"yohoho.io",
-    Thumbnail:"thumbnail.jpg"
+    Name: "World's Hardest Game 2",
+    Folder: "Worlds Hardest Game/2/",
+    Thumbnail: "thumbnail.jpg"
+  },
+  {
+    Name: "yohoho.io",
+    Thumbnail: "thumbnail.jpg"
   },
 
   // Begin Emulators
   {
-    Name:"GBA Emulator",
+    Name: "GBA Emulator",
     Folder: "GBA-gh-pages/",
     Thumbnail: "Binaries/gb.ico",
     Section: "emulators",
     Notice: "This app has issues with lag, we currently don't have a fix for this."
   },
 ];
+
+apps.sort(function (a, b) {
+  if (a.Name < b.Name) {
+    return -1;
+  }
+  if (a.Name > b.Name) {
+    return 1;
+  }
+  return 0;
+});

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Oh Ok</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script type="text/javascript" src="jsnes.min.js"></script>
+		<script type="text/javascript" src="nes-embed.js"></script>
+		<style>
+			body {
+				font-family: sans-serif;
+				background-color: #000000;
+				margin: 0;
+				height: 100vh;
+				width: 100vw;
+				overflow: hidden;
+			}
+
+			.infoFrame {
+				font-family: inherit;
+				position: fixed;
+				right: 0;
+				top: 0;
+				width: 15vw;
+				color: white;
+
+				button {
+					padding: 2px;
+					border-radius: 2px;
+					background: black;
+					color: white;
+					border: 3px solid rgba(255,255,255,0.5);
+					cursor: pointer;
+					transition: 0.2s ease;
+				}
+
+				button:hover {
+					background: rgba(123, 123, 123, 0.5)
+				}
+			}
+
+			canvas {
+				height: 145vh;
+				width: 115vw;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="nes-canvas" height="340" width="340"> </canvas>
+		<div class="infoFrame">
+			<h2>Controls</h2>
+			<ul>
+				<li>Up - Up Arrow</li>
+				<li>Down - Down Arrow</li>
+				<li>Left - Left Arrow</li>
+				<li>Right - Right Arrow</li>
+				<li>A - A or Q</li>
+				<li>B - S or O</li>
+				<li>Select - Tab</li>
+				<li>Start - Enter/Return</li>
+			</ul>
+			<button onclick="document.body.requestFullscreen()">Enter Fullscreen (Allows pressing tab)</button>
+		</div>
+
+		<script>
+			let params = new URLSearchParams(document.location.search);
+			let gameFile = params.get("file");
+			if (gameFile) {
+				nes_load_url("nes-canvas", `files/${gameFile}.nes`);
+			}
+		</script>
+	</body>
+
+</html>
