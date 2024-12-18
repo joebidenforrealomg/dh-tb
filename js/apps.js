@@ -44,6 +44,7 @@ const apps = [
   // },
   {
     Name: "Basket Random",
+    Thumbnail: "thumbnail.jpeg",
     Added: new Date("December 18, 2024"),
   },
   {
@@ -55,7 +56,8 @@ const apps = [
     Name: "Batman (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=batman",
-    Added: new Date("December 17, 2024"),
+    Thumbnail: "thumbnails/batman.jpg",
+    Added: new Date("December 18, 2024"),
     Genres: ["classic", "nintendo"],
   },
   {
@@ -104,7 +106,7 @@ const apps = [
   {
     Name: "Cubefield",
     Thumbnail: "thumbnail.png",
-    Hidden: true
+    Hidden: true,
   },
   {
     Name: "Cut the Rope",
@@ -123,12 +125,16 @@ const apps = [
   },
   {
     Name: "Double Dragon (NES)",
-    Added: new Date("December 18, 2024"),
+    Thumbnail: "thumbnails/double dragon.gif",
+    Folder: "../resources/jsnes/",
+    Index: "nes.html?file=Double_dragon",
+    Added: new Date("December 20, 2024"),
+    Genres: ["classic", "nintendo"],  
   },
   {
     Name: "Drift Boss",
     Thumbnail: "thumbnail.jpg",
-    Added: new Date("November 18, 2024")
+    Added: new Date("November 18, 2024"),
   },
   {
     Name: "Duck Hunt",
@@ -160,7 +166,8 @@ const apps = [
     Name: "Duck Tales (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=ducktales",
-    Added: new Date("December 18, 2024"),
+    Thumbnail: "thumbnails/duck tales.jpg",
+    Added: new Date("December 20, 2024"),
     Genres: ["classic", "nintendo"],
   },
   {
@@ -206,6 +213,7 @@ const apps = [
     Name: "Friday the 13th (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=fridaythe13th",
+    Thumbnail: "thumbnails/friday the 13th.webp",
     Added: new Date("December 18, 2024"),
     Genres: ["classic", "nintendo"],
   },
@@ -292,9 +300,10 @@ const apps = [
     Genres: ["driving", "car", "racing", "race"]
   },
   {
-    Name: "Megaman 2 (NES)",
+    Name: "MegaMan 2 (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=megaman2",
+    Thumbnail: "thumbnails/MegaMan 2.jpg",
     Added: new Date("December 18, 2024"),
     Genres: ["classic", "nintendo"],
   },
@@ -365,14 +374,16 @@ const apps = [
     Name: "Punchout (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=punchout",
-    Added: new Date("December 18, 2024"),
+    Thumbnail: "thumbnails/punchout.webp",
+    Added: new Date("January 6, 2025"),
     Genres: ["classic", "nintendo"],
   },
   {
     Name: "Punchout 2 (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=punchout2",
-    Added: new Date("December 18, 2024"),
+    Thumbnail: "thumbnails/punchout 2.jpg",
+    Added: new Date("January 6, 2025"),
     Genres: ["classic", "nintendo"],
   },
   {
@@ -473,6 +484,7 @@ const apps = [
   },
   {
     Name: "Soccer Random",
+    Thumbnail: "thumbnail.webp",
     Added: new Date("December 18, 2024"),
   },
   {
@@ -491,21 +503,24 @@ const apps = [
     Name: "Super Mario Bros. 1 (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=supermariobros",
-    Added: new Date("December 17, 2024"),
+    Thumbnail: "thumbnails/smb1.png",
+    Added: new Date("January 6, 2025"),
     Genres: ["classic", "nintendo"],
   },
   {
     Name: "Super Mario Bros. 2 (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=supermariobros2",
-    Added: new Date("December 17, 2024"),
+    Thumbnail: "thumbnails/smb2.jpg",
+    Added: new Date("January 6, 2025"),
     Genres: ["classic", "nintendo"],
   },
   {
     Name: "Super Mario Bros. 3 (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=supermariobros3",
-    Added: new Date("December 17, 2024"),
+    Thumbnail: "thumbnails/smb3.jpg",
+    Added: new Date("January 6, 2025"),
     Genres: ["classic", "nintendo"],
   },
   {
@@ -538,6 +553,7 @@ const apps = [
     Name: "The Legend of Zelda (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=zelda",
+    Thumbnail: "thumbnails/zelda.jpg",
     Added: new Date("December 18, 2024"),
     Genres: ["classic", "nintendo"],
   },

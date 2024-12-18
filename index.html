@@ -4,7 +4,7 @@
 <head>
     <title>Google Sites</title>
     <link rel="shortcut icon" href="https://ssl.gstatic.com/atari/images/public/sites-favicon-2023q4.ico">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex,none,noimageindex" />
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,7 +30,7 @@
                 <a target="_blank" href="https://forms.gle/wRjANHLeSoAidRvc6">Request a new game</a>
                 <a target="_blank" href="https://butterdogceo.github.io/requests/">View suggestion statuses</a>
             </div>
-            <span><b>UPDATE | December 18th</b><br>Added 14 new apps, and fixed app sorting.</span>
+            <span id="latestUpdate"></span>
         </div>
         <h1 style="margin-top: 100px;">Welcome to <p class="name">Da Hub</p></h1>
         <form id="searchForm">
@@ -49,9 +49,9 @@
             </div>
         </div>
         <hr>
-        <select class="appsSizes" id="appSizes">
+        <select name="App size" class="appsSizes" id="appSizes">
             <option value="default" selected="selected">Default</option>
-            <option value="sqaure">Square</option>
+            <option value="square">Square</option>
             <option value="largeTiles">Large</option>
         </select>
         <div class="apps" id="apps"></div>

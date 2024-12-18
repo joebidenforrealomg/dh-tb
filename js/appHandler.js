@@ -1,122 +1,128 @@
 function createApp(info, app, location) {
   if ((location && location.querySelector(`#${appID(app)}`) === null) || location == null) {
-    const b = document.createElement("button");
-    const p = document.createElement("p");
-    const img = document.createElement("img");
-    const overlay = document.createElement("div");
-    const tags = document.createElement("div");
-    const fav = document.createElement("img");
-    b.id = appID(app);
-    b.className = "appsButton";
-    b.title = info.hint;
-    img.onclick = function () {
-      if (info.openWithCode == true) {
-        const url = `${window.location.origin}/${info.url}`;
-        openWindow(url, "New Tab", "", true, false);
-      } else {
-        openSite(`${info.url}`);
+    if (isReleased(info.added)) {
+      const b = document.createElement("button");
+      const p = document.createElement("p");
+      const img = document.createElement("img");
+      const overlay = document.createElement("div");
+      const tags = document.createElement("div");
+      const fav = document.createElement("img");
+      b.id = appID(app);
+      b.className = "appsButton";
+      b.title = info.hint;
+      img.onclick = function () {
+        if (info.openWithCode == true) {
+          const url = `${window.location.origin}/${info.url}`;
+          openWindow(url, "New Tab", "", true, false);
+        } else {
+          openSite(`${info.url}`);
+        }
+  
+        // honestly really curious what you guys are playing so i'm adding this
+        try {
+          gtag("event", "openApp", {
+            'app_name':app.Name
+          });
+        } catch (err) {}
+        if (app.Notice) {
+          notify({Text:app.Notice,ShowTime:5000})
+        }
+      };
+  
+      p.innerText = app.Name;
+      p.classList.add("appName");
+  
+      overlay.classList.add("overlay");
+      b.appendChild(overlay);
+  
+      tags.classList.add("tags");
+      overlay.appendChild(tags);
+  
+      fav.classList.add("favorite");
+      fav.src = "img/icons/star_hollow.svg";
+      overlay.appendChild(fav);
+      fav.onclick = function () {
+        try {
+          setFavorite(app, !isFavorite(app));
+        } catch (err) {
+          console.error(err);
+        }
       }
-
-      // honestly really curious what you guys are playing so i'm adding this
-      try {
-        gtag("event", "openApp", {
-          'app_name':app.Name
-        });
-      } catch (err) {}
-      if (app.Notice) {
-        notify({Text:app.Notice,ShowTime:5000})
+  
+      if (info.added != undefined) {
+        if (info.added.Bool) {
+          const newP = document.createElement("p");
+          newP.innerText = "NEW";
+          newP.classList.add("new");
+          newP.title = "This app was recently added (within the last 7 days)";
+          tags.appendChild(newP);
+          newApps++;
+        }
       }
-    };
-
-    p.innerText = app.Name;
-    p.classList.add("appName");
-
-    overlay.classList.add("overlay");
-    b.appendChild(overlay);
-
-    tags.classList.add("tags");
-    overlay.appendChild(tags);
-
-    fav.classList.add("favorite");
-    fav.src = "img/icons/star_hollow.svg";
-    overlay.appendChild(fav);
-    fav.onclick = function () {
-      try {
-        setFavorite(app, !isFavorite(app));
-      } catch (err) {
-        console.error(err);
-      }
-    }
-
-    if (info.added != undefined) {
-      if (info.added.Bool) {
+  
+      if (info.broken) {
         const newP = document.createElement("p");
-        newP.innerText = "NEW";
-        newP.classList.add("new");
-        newP.title = "This app was recently added (within the last 7 days)";
+        newP.classList.add("broken");
+        newP.innerText = "!";
+        newP.title = "This app may not work at the moment, we'll fix it soon.";
+        tags.appendChild(newP);
+      }
+  
+      if (info.fixed.Bool) {
+        const newP = document.createElement("p");
+        newP.innerText = "FIXED";
+        newP.classList.add("fixed");
+        newP.title = "This app was recently fixed.";
         tags.appendChild(newP);
         newApps++;
       }
-    }
-
-    if (info.broken) {
-      const newP = document.createElement("p");
-      newP.classList.add("broken");
-      newP.innerText = "!";
-      newP.title = "This app may not work at the moment, we'll fix it soon.";
-      tags.appendChild(newP);
-    }
-
-    if (info.fixed.Bool) {
-      const newP = document.createElement("p");
-      newP.innerText = "FIXED";
-      newP.classList.add("fixed");
-      newP.title = "This app was recently fixed.";
-      tags.appendChild(newP);
-      newApps++;
-    }
-
-    if (info.updated != undefined) {
-      if (info.updated.Bool) {
-        const newP = document.createElement("p");
-        newP.innerText = "UPDATED";
-        newP.classList.add("updated");
-        newP.title = "This app was recently updated to a newer version.";
-        tags.appendChild(newP);
-        newApps++;
+  
+      if (info.updated != undefined) {
+        if (info.updated.Bool) {
+          const newP = document.createElement("p");
+          newP.innerText = "UPDATED";
+          newP.classList.add("updated");
+          newP.title = "This app was recently updated to a newer version.";
+          tags.appendChild(newP);
+          newApps++;
+        }
       }
+  
+      if (info.pinned) {
+        fav.classList.add("favorited");
+      }
+  
+      b.appendChild(p);
+      b.appendChild(img);
+      location = location || document.getElementById("apps");
+      location.appendChild(b);
+  
+      img.onload = function () {
+        img.style.opacity = 1;
+      };
+  
+      img.onerror = function () {
+        img.src = "https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/no%20image.avif";
+      };
+      img.src = `${info.folder || ""}/${info.thumbnail || "thumbnail.png"}`;
+      img.classList.add("thumbnail");
     }
-
-    if (info.pinned) {
-      fav.classList.add("favorited");
-    }
-
-    b.appendChild(p);
-    b.appendChild(img);
-    // if (info.newlyUpdated && info.pinned === false) {
-    //   document.getElementById("newApps").appendChild(b);
-    // } else {
-    // if (info.pinned === true) {
-    //   location = location || document.getElementById("favorite");
-    // } else {
-    //   location = location || document.getElementById("apps");
-    // }
-    location = location || document.getElementById("apps");
-    location.appendChild(b);
-    // }
-
-    img.onload = function () {
-      img.style.opacity = 1;
-    };
-
-    img.onerror = function () {
-      img.src = "https://img.freepik.com/premium-photo/digital-black-green-squares_161488-652.jpg";
-    };
-    img.src = `${info.url}/../${info.thumbnail || "thumbnail.png"}`;
-    img.classList.add("thumbnail");
   } else if (location && location.querySelector(`#${appID(app)}`)) {
     let thing = location.querySelector(`#${appID(app)}`);
   }
+}
+
+function isReleased(added) {
+  if (added.Date !== undefined) {
+    added = added.Date;
+  } else {
+    return;
+  }
+
+  let currentDate = new Date();
+  let utc1 = Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+  let utc2 = Date.UTC(added.getFullYear(), added.getMonth(), added.getDate());
+  return utc1 >= utc2;
 }
 
 function isNew(added, days) {
@@ -171,6 +177,7 @@ function createApps(app) {
   let info = {
     hint: "Play " + app.Name,
     url: "apps/" + app.Folder + "/" + app.Index,
+    folder: "apps/" + (app.Folder || app.Name),
     thumbnail: app.Thumbnail,
     newlyUpdated: newlyUpdated,
     broken: app.Broken,

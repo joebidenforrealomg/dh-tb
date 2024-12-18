@@ -1,3 +1,5 @@
+const latestUpdateText = "<b>MULTI-UPDATE | Winter Apps</b><br>Added 8 new apps, 2 more releasing Friday (Dec 20), and 5 more releasing when school starts again (Jan. 6)";
+
 const appsDiv = document.getElementById("apps");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
@@ -8,7 +10,9 @@ let newApps = 0;
 let sections = [];
 let sectionCount = {};
 let currentAppSize = "default";
+let particlesEnabled = true;
 
+document.getElementById("latestUpdate").innerHTML = latestUpdateText;
 document.head.appendChild(altCSS);
 
 async function openWindow(url, title, icon, code, removeCurrent) {
@@ -55,6 +59,7 @@ async function openWindow(url, title, icon, code, removeCurrent) {
 }
 
 function openSite(url) {
+  particlesEnabled = false;
   if (document.getElementById("appDiv")) {
     document.getElementById("appDiv").remove();
   }
@@ -77,6 +82,8 @@ function openSite(url) {
       document.getElementById("main").style.display = "block";
       appDiv.remove();
       closeSpeedrunTimer();
+      particlesEnabled = true;
+      createParticles();
     }
   });
 
@@ -171,8 +178,35 @@ function changeAppSize() {
   currentAppSize = appSizesSelect.value
 }
 
-if (InIframe() == false) {
-  notInAFrame();
+let particlesOnScreen = 0;
+let maxParticles = 15;
+function createParticles() {
+  for (let i = 0; i < Math.round(Math.random() * 5); i++) {
+    if (particlesOnScreen + 1 <= maxParticles) {
+      particlesEnabled += 1;
+      const img = document.createElement("img");
+      const randomSize = Math.random() * (50 - 20) + 20;
+      let animTime = Math.random() * 10;
+      if (animTime < 3) {
+        animTime = 3
+      }
+      
+      img.style.width = `${randomSize}px`;
+      img.style.height = `${randomSize}px`;
+      img.src = "img/snow 2.png";
+      img.classList.add("particle");
+      img.style.animation = `particleAnimation ${animTime}s linear`;
+      img.style.left = `${Math.floor(Math.random() * (screen.availWidth + 100))}px`;
+      document.body.appendChild(img);
+      setTimeout(function() {
+        img.remove();
+        particlesEnabled -= 1;
+      }, animTime * 1000);
+    }
+  }
+  if (particlesEnabled) {
+    setTimeout(createParticles, 150);
+  }
 }
 
 if (localStorage.getItem("favorites")) {
@@ -195,11 +229,21 @@ appSizesSelect.addEventListener("change", function () {
     changeAppSize();
   }
 });
+
 clear.addEventListener("click", function () {
   searchInput.value = "";
   searchApp();
 });
+
 searchForm.addEventListener("submit", handleSearch);
 searchForm.addEventListener("input", handleSearch);
 apps.forEach(createApps);
 sortApps();
+
+if (particlesEnabled) {
+  createParticles();
+}
+
+if (InIframe() == false) {
+  notInAFrame();
+}
