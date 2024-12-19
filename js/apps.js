@@ -464,6 +464,7 @@ const apps = [
     Name: "Sling Drift",
     Thumbnail: "thumbnail.jpg",
     Genres: ["driving"],
+    Hidden: true,
     Added: new Date("December 18, 2024")
   },
   {

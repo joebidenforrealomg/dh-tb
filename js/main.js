@@ -1,5 +1,4 @@
-const latestUpdateText = "<b>MULTI-UPDATE | Winter Apps</b><br>Added 8 new apps, 2 more releasing Friday (Dec 20), and 5 more releasing when school starts again (Jan. 6)";
-
+const latestUpdateText = "<b>MULTI-UPDATE - PATCH 1 | Winter Apps</b><br>Added 8 new apps, 2 more releasing Friday (Dec 20), and 5 more releasing when school starts again (Jan. 6)";
 const appsDiv = document.getElementById("apps");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
@@ -13,7 +12,6 @@ let currentAppSize = "default";
 let particlesEnabled = true;
 
 document.getElementById("latestUpdate").innerHTML = latestUpdateText;
-document.head.appendChild(altCSS);
 
 async function openWindow(url, title, icon, code, removeCurrent) {
   if (code == false || code == undefined) {
@@ -31,8 +29,14 @@ async function openWindow(url, title, icon, code, removeCurrent) {
     blank.document.head.appendChild(link);
     blank.document.body.appendChild(iframe);
   } else {
-    const html = (await (await fetch(url)).text());
-    let doc = new DOMParser().parseFromString(html, 'text/html');
+    let html;
+    let doc;
+    try {
+      html = await fetch(url).then(res => res.text());
+      doc = new DOMParser().parseFromString(html, 'text/html');
+    } catch (error) {
+      console.error("Error fetching the page:", error);
+    }
 
     const pageTitle = title || doc.title || "Default Title";
     var blank = window.open();
@@ -96,38 +100,12 @@ function openSite(url) {
   appDiv.appendChild(timerButton);
   document.body.appendChild(appDiv);
   document.getElementById("main").style.display = "none";
-
-  // setTimeout(function () {
-  //   unlockAchievement("wow you opened a game");
-  // }, 1500);
 }
 
-function notify(info) {
-  info.Text = info.Text || "No text for notification.";
-  info.ShowTime = info.ShowTime || 3000;
-
-  const p = document.createElement("p");
-  p.classList.add("notification");
-  p.innerHTML = info.Text;
-
-  document.getElementById("notifications").appendChild(p);
-
-  setTimeout(function () {
-    p.style.animation = "notificationFadeOut 0.5s ease";
-    setTimeout(function () { p.remove() }, 500);
-  }, info.ShowTime);
-}
-
-function unlockAchievement(text) {
-  notify({
-    Text: `Achievement Unlock<br>${text}`,
-    ShowTime: 5000,
-  });
-}
-
-function handleSearch(e) {
-  e.preventDefault();
-  searchApp(searchInput.value);
+function changeAppSize() {
+  apps.classList.remove(currentAppSize);
+  apps.classList.add(appSizesSelect.value);
+  currentAppSize = appSizesSelect.value
 }
 
 function InIframe() {
@@ -143,71 +121,26 @@ function notInAFrame() {
   let iframe = params.get("iframe");
   if ((iframe !== "true" || iframe === null || iframe === undefined) && InIframe() == false) {
     document.body.innerHTML = "";
-    const main = document.createElement("main");
-    main.id = "main";
-    document.body.appendChild(main);
-
-    const apps = document.createElement('div');
-    apps.className = "apps";
-    apps.id = "apps";
-
-    const app = document.createElement('button');
-    app.onclick = function () {
-      openWindow(`${window.location.href}?iframe=true`);
-      window.location.replace("https://google.com");
-    };
-    app.title = "Click to open";
-    app.innerText = "Open";
-
-    apps.appendChild(app);
-    document.getElementById("main").appendChild(apps);
+    window.location.href = `home?iframe=true`;
   } else {
     window.addEventListener('beforeunload', (event) => {
       event.returnValue = "Are you sure you want to leave?";
     });
     document.addEventListener('contextmenu', function (e) {
-      toggleContextMenu(e);
+      // toggleContextMenu(e);
       e.preventDefault();
     }, false);
   }
 }
 
-function changeAppSize() {
-  apps.classList.remove(currentAppSize);
-  apps.classList.add(appSizesSelect.value);
-  currentAppSize = appSizesSelect.value
-}
+apps.forEach(createApps);
+sortApps();
 
-let particlesOnScreen = 0;
-let maxParticles = 15;
-function createParticles() {
-  for (let i = 0; i < Math.round(Math.random() * 5); i++) {
-    if (particlesOnScreen + 1 <= maxParticles) {
-      particlesEnabled += 1;
-      const img = document.createElement("img");
-      const randomSize = Math.random() * (50 - 20) + 20;
-      let animTime = Math.random() * 10;
-      if (animTime < 3) {
-        animTime = 3
-      }
-      
-      img.style.width = `${randomSize}px`;
-      img.style.height = `${randomSize}px`;
-      img.src = "img/snow 2.png";
-      img.classList.add("particle");
-      img.style.animation = `particleAnimation ${animTime}s linear`;
-      img.style.left = `${Math.floor(Math.random() * (screen.availWidth + 100))}px`;
-      document.body.appendChild(img);
-      setTimeout(function() {
-        img.remove();
-        particlesEnabled -= 1;
-      }, animTime * 1000);
-    }
+document.addEventListener('DOMContentLoaded', function () {
+  if (InIframe() == false) {
+    notInAFrame();
   }
-  if (particlesEnabled) {
-    setTimeout(createParticles, 150);
-  }
-}
+});
 
 if (localStorage.getItem("favorites")) {
   let favorites = JSON.parse(localStorage.getItem("favorites"));
@@ -237,13 +170,8 @@ clear.addEventListener("click", function () {
 
 searchForm.addEventListener("submit", handleSearch);
 searchForm.addEventListener("input", handleSearch);
-apps.forEach(createApps);
-sortApps();
+
 
 if (particlesEnabled) {
   createParticles();
-}
-
-if (InIframe() == false) {
-  notInAFrame();
 }

@@ -1,4 +1,5 @@
 const altCSS = document.createElement("style");
+altCSS.rel = 'stylesheet';
 
 function searchApp(name) {
   var foundApps = [];
@@ -42,3 +43,10 @@ function searchApp(name) {
     resultsText.innerHTML = "";
   }
 }
+
+function handleSearch(e) {
+  e.preventDefault();
+  searchApp(searchInput.value);
+}
+
+document.head.appendChild(altCSS);

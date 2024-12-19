@@ -22,54 +22,13 @@
 </head>
 
 <body>
-    <div class="notifications" id="notifications"></div>
     <main id="main">
         <div id="bgFilter"></div>
-        <div class="topHeader">
-            <div class="buttons">
-                <a target="_blank" href="https://forms.gle/wRjANHLeSoAidRvc6">Request a new game</a>
-                <a target="_blank" href="https://butterdogceo.github.io/requests/">View suggestion statuses</a>
-            </div>
-            <span id="latestUpdate"></span>
+        <div class="apps" id="apps">
+            <button onclick='openWindow(`${window.location.href}/home?iframe=true`); window.location.replace("https://google.com");'>Open</button>
         </div>
-        <h1 style="margin-top: 100px;">Welcome to <p class="name">Da Hub</p></h1>
-        <form id="searchForm">
-            <p id="results"> </p>
-            <input type="text" placeholder="Search" id="searchInput">
-            <button id="clear" title="Clear">X</button>
-        </form>
-        <h1 style="left: -25%" id="newTitle">Newly Updated</h1>
-        <h1 id="favoritesTitle">Favorites</h1>
-        <div class="appsGroup">
-            <div class="apps smallApps" id="newApps">
-                <button class="placeholder" id="newPlaceholder">No recently updated apps</button>
-            </div>
-            <div class="apps smallApps" id="favorite">
-                <button class="placeholder" id="favoritePlaceholder">Favorited apps appear here</button>
-            </div>
-        </div>
-        <hr>
-        <select name="App size" class="appsSizes" id="appSizes">
-            <option value="default" selected="selected">Default</option>
-            <option value="square">Square</option>
-            <option value="largeTiles">Large</option>
-        </select>
-        <div class="apps" id="apps"></div>
-        <h1 class="emulatorsSection">Emulators</h1>
-        <div class="apps emulatorsSection" id="emulators">
-            <button class="placeholder" id="emulatorPlaceholder">Emulators appear here</button>
-        </div>
-        <p class="disclaimer">Welcome to Da Hub, created by ButterDogCo. By using this site, you agree to our <a href="https://butterdogceo.github.io/bdogco/tos">Terms of Service</a>.</p>
     </main>
 
-    <!-- <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-    <script>eruda.init();</script> -->
-
-    <script src="js/apps.js"></script>
-    <script src="js/search.js"></script>
-    <script src="js/appHandler.js"></script>
-    <script src="js/context.js"></script>
-    <script src="js/speedrun.js"></script>
     <script src="js/main.js"></script>
 </body>
 
