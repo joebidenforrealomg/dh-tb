@@ -25,7 +25,7 @@
     <main id="main">
         <div id="bgFilter"></div>
         <div class="apps" id="apps">
-            <button onclick='openWindow(`${window.location.href}/home?iframe=true`); window.location.replace("https://google.com");'>Open</button>
+            <button onclick='const baseURL = window.location.origin + window.location.pathname.replace(/\/[^\/]+$/, "/"); openWindow(`${baseURL}home?iframe=true`); window.location.replace("https://google.com");'>Open</button>
         </div>
     </main>
 

@@ -137,6 +137,11 @@ const apps = [
     Added: new Date("November 18, 2024"),
   },
   {
+    Name: "Drift Hunters",
+    Thumbnail: "thumbnail.jpeg",
+    Added: new Date("January 8, 2025"),
+  },
+  {
     Name: "Duck Hunt",
     Folder: "DuckHunt",
     Thumbnail: "thumbnail.jpg"
@@ -254,9 +259,19 @@ const apps = [
     Related: ["locked", "unavailable"]
   },
   {
+    Name: "Hunger Games",
+    Thumbnail: "thumbnail.jpeg",
+    Added: new Date("January 8, 2025"),
+  },
+  {
     Name: "Idle Breakout",
     Thumbnail: "thumbnail.png",
     Added: new Date("October 15, 2024")
+  },
+  {
+    Name: "Idle Dice",
+    Thumbnail: "thumbnail.png",
+    Added: new Date("January 8, 2025")
   },
   {
     Name: "Impossible Quiz",
@@ -377,18 +392,23 @@ const apps = [
     Thumbnail: "thumbnails/punchout.webp",
     Added: new Date("January 6, 2025"),
     Genres: ["classic", "nintendo"],
+    Broken: true,
   },
   {
     Name: "Punchout 2 (NES)",
     Folder: "../resources/jsnes/",
-    Index: "nes.html?file=punchout2",
+    Index: "nes.html?file=punchouttwo",
     Thumbnail: "thumbnails/punchout 2.jpg",
     Added: new Date("January 6, 2025"),
     Genres: ["classic", "nintendo"],
+    Broken: true,
   },
   {
     Name: "Polytrack",
-    Hidden: true
+    Thumbnail: "thumbnail.jpeg",
+    Added: new Date("January 8, 2025"),
+    Genres: ["driving", "car", "racing", "race"],
+    Related: ["trackmania"],
   },
   {
     Name: "Pong",
@@ -549,6 +569,11 @@ const apps = [
   {
     Name: "Tetris",
     Thumbnail: "thumbnail.jpg"
+  },
+  {
+    Name: "Tomb of the Mask",
+    Thumbnail: "thumbnail.png",
+    Added: new Date("January 8, 2025"),
   },
   {
     Name: "The Legend of Zelda (NES)",

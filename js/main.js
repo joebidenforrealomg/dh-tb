@@ -1,4 +1,4 @@
-const latestUpdateText = "<b>MULTI-UPDATE - PATCH 1 | Winter Apps</b><br>Added 8 new apps, 2 more releasing Friday (Dec 20), and 5 more releasing when school starts again (Jan. 6)";
+const latestUpdateText = "<b>FIRST UPDATE OF 2025 | New Years Apps</b><br>Added 4 new apps and fixed bugs.";
 const appsDiv = document.getElementById("apps");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
