@@ -100,6 +100,13 @@ function openSite(url) {
   appDiv.appendChild(timerButton);
   document.body.appendChild(appDiv);
   document.getElementById("main").style.display = "none";
+
+  try {
+    var event = new CustomEvent('appOpened', { frame: iframe })
+    window.parent.document.dispatchEvent(event)
+  } catch (err) {
+    // do nothing
+  }
 }
 
 function changeAppSize() {
