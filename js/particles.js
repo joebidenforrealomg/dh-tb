@@ -37,3 +37,4 @@ function createParticles() {
   if (particlesEnabled) {
     setTimeout(createParticles, 150);
   }
+}
