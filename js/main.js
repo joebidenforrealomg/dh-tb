@@ -78,7 +78,7 @@ function openSite(url) {
   closeButton.className = "appClose";
   timerButton.innerText = "Timer";
   timerButton.className = "speedrunTimerButton";
-  iframe.src = `https://joebidenrealomg.github.io/da-hub/apps/${url}`;
+  iframe.src = `${url}`;
   iframe.className = "appIframe";
 
   closeButton.addEventListener('click', function () {
