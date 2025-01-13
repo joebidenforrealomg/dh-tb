@@ -665,13 +665,15 @@ div.notifications {
   transform: translateX(-50%);
 }
 
-.particle {
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  background: transparent;
-  pointer-events: none;
-  z-index: 1;
-  opacity: .5;
-  /* animation: particleAnimation 1s linear; */
+#particlesContainer {
+  .particle {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    pointer-events: none;
+    z-index: 1;
+    opacity: .5;
+    /* animation: particleAnimation 1s linear; */
+  }
 }

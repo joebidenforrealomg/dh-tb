@@ -1,5 +1,15 @@
 let particlesOnScreen = 0;
 let maxParticles = 12;
+let _particlesContainer = null;
+
+function setupParticles() {
+  _particlesContainer = document.createElement("div");
+  _particlesContainer.id = "particlesContainer";
+  document.body.appendChild(_particlesContainer);
+}
+
+setupParticles();
+
 function createParticles() {
   for (let i = 0; i < Math.round(Math.random() * 5); i++) {
     if (particlesOnScreen + 1 <= maxParticles) {
@@ -17,7 +27,7 @@ function createParticles() {
       img.classList.add("particle");
       img.style.animation = `particleAnimation ${animTime}s linear`;
       img.style.left = `${Math.floor(Math.random() * (screen.availWidth + 100))}px`;
-      document.body.appendChild(img);
+      _particlesContainer.appendChild(img);
       setTimeout(function() {
         img.remove();
         particlesEnabled -= 1;
@@ -27,4 +37,3 @@ function createParticles() {
   if (particlesEnabled) {
     setTimeout(createParticles, 150);
   }
-}
