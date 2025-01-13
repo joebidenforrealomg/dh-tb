@@ -13,7 +13,7 @@ function createParticles() {
       
       img.style.width = `${randomSize}px`;
       img.style.height = `${randomSize}px`;
-      img.src = "img/snow 2.png";
+      img.src = "https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/snow 2.png";
       img.classList.add("particle");
       img.style.animation = `particleAnimation ${animTime}s linear`;
       img.style.left = `${Math.floor(Math.random() * (screen.availWidth + 100))}px`;
