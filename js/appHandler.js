@@ -18,7 +18,6 @@ function createApp(info, app, location) {
           openSite(`${info.url}`);
         }
   
-        // honestly really curious what you guys are playing so i'm adding this
         try {
           gtag("event", "openApp", {
             'app_name':app.Name
@@ -39,7 +38,7 @@ function createApp(info, app, location) {
       overlay.appendChild(tags);
   
       fav.classList.add("favorite");
-      fav.src = "img/icons/star_hollow.svg";
+      fav.src = "https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_hollow.svg";
       overlay.appendChild(fav);
       fav.onclick = function () {
         try {
@@ -104,7 +103,7 @@ function createApp(info, app, location) {
       img.onerror = function () {
         img.src = "https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/no%20image.avif";
       };
-      img.src = `${info.folder || ""}/${info.thumbnail || "thumbnail.png"}`;
+      img.src = `https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/${info.folder || ""}/${info.thumbnail || "thumbnail.png"}`;
       img.classList.add("thumbnail");
     }
   } else if (location && location.querySelector(`#${appID(app)}`)) {
