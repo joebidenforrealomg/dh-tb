@@ -1,4 +1,4 @@
-const latestUpdateText = "<b>FIRST UPDATE OF 2025 | New Years Apps</b><br>Added 4 new apps and fixed bugs.";
+const latestUpdateText = "<b>January 23rd Update</b><br>Added 4 new apps, added settings, data importing/exporting, and fixed some bugs.";
 const appsDiv = document.getElementById("apps");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
@@ -9,13 +9,24 @@ let newApps = 0;
 let sections = [];
 let sectionCount = {};
 let currentAppSize = "default";
-let particlesEnabled = true;
 
 document.getElementById("latestUpdate").innerHTML = latestUpdateText;
 
+async function fetchData(url) {
+  return fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      return html;
+    })
+    .catch(error => {
+      console.warn('Error fetching HTML:', error);
+      return null;
+    })
+}
+
 async function openWindow(url, title, icon, code, removeCurrent) {
+  var blank = window.open();
   if (code == false || code == undefined) {
-    var blank = window.open();
     var link = blank.document.createElement('link');
     var style = blank.document.createElement('style');
 
@@ -29,31 +40,26 @@ async function openWindow(url, title, icon, code, removeCurrent) {
     blank.document.head.appendChild(link);
     blank.document.body.appendChild(iframe);
   } else {
-    let html;
-    let doc;
-    try {
-      html = await fetch(url).then(res => res.text());
-      doc = new DOMParser().parseFromString(html, 'text/html');
-    } catch (error) {
-      console.error("Error fetching the page:", error);
-    }
-
-    const pageTitle = title || doc.title || "Default Title";
-    var blank = window.open();
-
-    // Wait for the blank window to load and write the basic HTML structure
-    blank.document.write('<!DOCTYPE html><html><head><title>' + pageTitle + '</title></head><body></body></html>');
-
-    // Now that the document is written, we can safely manipulate its contents
-    blank.document.close();  // Necessary to allow further manipulations
-    blank.document.head.innerHTML = doc.head.innerHTML;
-    blank.document.body.innerHTML = doc.body.innerHTML;
-
-    const scripts = doc.querySelectorAll('script');
-    scripts.forEach(script => {
-      let newScript = blank.document.createElement('script');
-      newScript.textContent = script.textContent;
-      blank.document.body.appendChild(newScript);
+    blank.document.open();
+    blank.document.write("<h1 style='text-align:center;position:fixed;top:5px;font-family:sans-serif;' class='noticeElement'>Please wait...<br><p>Fetching the page...</p></h1>")
+    fetchData(url).then(html => {
+      if (html) {
+        const parser = new DOMParser();
+        const htmlDoc = parser.parseFromString(html, "text/html");
+        
+        blank.document.write(htmlDoc.documentElement.outerHTML);
+        blank.document.writeln(`
+          <script>
+            const elements = document.getElementsByClassName('noticeElement');
+            for (let i = 0; i < elements.length; i++) {
+              elements[i].style.display = "none";
+            }
+          </script>`
+        );
+        blank.document.close();     
+      } else {
+        blank.document.write("<h1 style='text-align:center;position:fixed;top:40px;font-family:sans-serif;'>Failed to read the URL, please try again or report this.</h1>")
+      }
     });
   }
 
@@ -63,6 +69,7 @@ async function openWindow(url, title, icon, code, removeCurrent) {
 }
 
 function openSite(url) {
+  const originalOption = particlesEnabled;
   particlesEnabled = false;
   if (document.getElementById("appDiv")) {
     document.getElementById("appDiv").remove();
@@ -86,8 +93,10 @@ function openSite(url) {
       document.getElementById("main").style.display = "block";
       appDiv.remove();
       closeSpeedrunTimer();
-      particlesEnabled = true;
-      createParticles();
+      particlesEnabled = originalOption;
+      if (particlesEnabled == true) {
+        createParticles();
+      }
     }
   });
 
@@ -100,12 +109,6 @@ function openSite(url) {
   appDiv.appendChild(timerButton);
   document.body.appendChild(appDiv);
   document.getElementById("main").style.display = "none";
-}
-
-function changeAppSize() {
-  apps.classList.remove(currentAppSize);
-  apps.classList.add(appSizesSelect.value);
-  currentAppSize = appSizesSelect.value
 }
 
 function InIframe() {
@@ -157,12 +160,6 @@ sections.forEach(function (section) {
   }
 });
 
-appSizesSelect.addEventListener("change", function () {
-  if (appSizesSelect.value != currentAppSize) {
-    changeAppSize();
-  }
-});
-
 clear.addEventListener("click", function () {
   searchInput.value = "";
   searchApp();
@@ -172,6 +169,6 @@ searchForm.addEventListener("submit", handleSearch);
 searchForm.addEventListener("input", handleSearch);
 
 
-if (particlesEnabled) {
+if (particlesEnabled === true) {
   createParticles();
 }

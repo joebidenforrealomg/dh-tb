@@ -1,9 +1,11 @@
 let particlesOnScreen = 0;
 let maxParticles = 12;
+let particlesEnabled = true;
+
 function createParticles() {
   for (let i = 0; i < Math.round(Math.random() * 5); i++) {
     if (particlesOnScreen + 1 <= maxParticles) {
-      particlesEnabled += 1;
+      particlesOnScreen += 1;
       const img = document.createElement("img");
       const randomSize = Math.random() * (50 - 20) + 20;
       let animTime = Math.random() * 10;
@@ -20,11 +22,11 @@ function createParticles() {
       document.body.appendChild(img);
       setTimeout(function() {
         img.remove();
-        particlesEnabled -= 1;
+        particlesOnScreen -= 1;
       }, animTime * 1000);
     }
   }
-  if (particlesEnabled) {
+  if (particlesEnabled === true) {
     setTimeout(createParticles, 150);
   }
 }

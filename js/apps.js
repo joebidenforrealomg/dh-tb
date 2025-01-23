@@ -3,7 +3,7 @@ const apps = [
     Name: "1v1.LOL",
     Thumbnail: "thumbnail.jpg",
     Genres: ["fps", "shooter"],
-    Related: ["guns", "guns"]
+    Related: ["guns", "guns", "fortnite"]
   },
   {
     Name: "2048",
@@ -37,11 +37,6 @@ const apps = [
     Thumbnail: "thumbnail.jpg",
     Related: ["Angry Birds", "rovio"]
   },
-  // {
-  //   Name:"Bad Time Simlator",
-  //   Index:"",
-  //   Added: new Date("October 17, 2024")
-  // },
   {
     Name: "Basket Random",
     Thumbnail: "thumbnail.jpeg",
@@ -76,6 +71,12 @@ const apps = [
   {
     Name: "Bloxorz",
     Thumbnail: "thumbnail.jpeg"
+  },
+  {
+    Name: "ButterDog Chat",
+    Thumbnail: "thumbnail.png",
+    Added: new Date("January 22, 2025"),
+    Hidden: true,
   },
   {
     Name: "Chess",
@@ -254,6 +255,11 @@ const apps = [
     Added: new Date("October 15, 2024")
   },
   {
+    Name: "Hole.io",
+    Thumbnail: "thumbnail.avif",
+    Added: new Date("January 22, 2025"),
+  },
+  {
     Name: "House of Horers Simulator",
     Thumbnail: "thumbnail.png",
     Related: ["locked", "unavailable"]
@@ -282,8 +288,18 @@ const apps = [
     Thumbnail: "thumbnail.png"
   },
   {
+    Name: "Jetpack Joyride",
+    Thumbnail: "splash.jpg",
+    Added: new Date("January 22, 2025")
+  },
+  {
     Name: "Learn 2 Fly",
     Thumbnail: "thumbnail.jpg"
+  },
+  {
+    Name: "Learn To Fly 3",
+    Thumbnail: "thumbnail.jpeg",
+    Added: new Date("January 22, 2025")
   },
   {
     Name: "Madalin Stunt Cars 2",
@@ -326,14 +342,20 @@ const apps = [
     Name: "Minecraft 1.8",
     Folder: "Minecraft/1.8.8/",
     Thumbnail: "thumbnail.jpg",
-    Notice: "This app is known to occasionally not allow keyboard input, we're working on a fix for this. Also, the site may be frozen for a few seconds when loading this.",
+    Notice: "Opening in another window...",
     Genres: ["open world"],
-    // Fixed: new Date("November 15, 2024"),
-    // OpenWithCode: true
+    Updated: new Date("January 15, 2025"),
+    OpenWithCode: true
   },
   {
     Name: "Minesweeper",
     Thumbnail: "thumbnail.jpg"
+  },
+  {
+    Name: "Moomoo.io Sandbox",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("January 22, 2025"),
+    Hidden: true
   },
   {
     Name: "Monkey Mart",
@@ -384,6 +406,19 @@ const apps = [
     Folder: "PapaPizza",
     Thumbnail: "thumbnail.jpg",
     Genres: ["flash"],
+  },
+  {
+    Name: "Paper.io 2",
+    Folder: "Paper.io/2/",
+    Thumbnail: "thumbnail.avif",
+    Added: new Date("January 22, 2025")
+  },
+  {
+    Name: "Plants vs Zombies",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("January 22, 2025"),
+    Hidden: true,
+    Related: ["pvz"],
   },
   {
     Name: "Punchout (NES)",

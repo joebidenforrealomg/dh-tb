@@ -12,8 +12,10 @@ function searchApp(name) {
     apps.forEach(function (app) {
       if (app.Hidden === true) { return; }
       if (app.Genres) { app.Genres.forEach(function(e){ e.toLowerCase() }); }
+      if (app.Related) { app.Related.forEach(function(e){ e.toLowerCase() }); }
       if (app.Name.toLowerCase().includes(name.toLowerCase()) 
         || (app.Genres && app.Genres.includes(name.toLowerCase()))
+        || (app.Related && app.Related.includes(name.toLowerCase()))
       ) {
         foundApps.push(app);
       }
