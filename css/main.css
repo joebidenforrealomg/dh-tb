@@ -82,7 +82,7 @@ hr {
 
 html {
   background-color: rgb(36, 46, 62);
-  background-image: url("https://joebidenrealomg.github.io/da-hub/img/winter%20bg.png");
+  background-image: url("https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/winter%20bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center right;
@@ -198,7 +198,7 @@ body {
       float: right;
       margin-left: calc(50% - var(--width));
       /* margin-top: -205px; */
-      background-image: url(../img/icons/star_hollow.svg);
+      background-image: url(https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_hollow.svg);
       background-repeat: no-repeat;
       background-size: cover;
       width: var(--width);
@@ -210,11 +210,11 @@ body {
     }
 
     img.favorite:hover, img.favorite.favorited {
-      background-image: url(../img/icons/star_solid.svg);
+      background-image: url(https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_solid.svg);
     }
 
     img.favorited:hover {
-      background-image: url(../img/icons/star_hollow.svg);
+      background-image: url(https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_hollow.svg);
     }
 
     div.tags {
@@ -520,7 +520,9 @@ h1 {
   iframe {
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    left: 0;
+    top: 0;
+    position: fixed;
     outline: none;
     border: none;
   }
@@ -710,13 +712,15 @@ div.notifications {
   transform: translateX(-50%);
 }
 
-.particle {
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  background: transparent;
-  pointer-events: none;
-  z-index: 1;
-  opacity: .5;
-  /* animation: particleAnimation 1s linear; */
+#particlesContainer {
+  .particle {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    pointer-events: none;
+    z-index: 1;
+    opacity: .5;
+    /* animation: particleAnimation 1s linear; */
+  }
 }

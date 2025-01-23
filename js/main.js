@@ -85,7 +85,7 @@ function openSite(url) {
   closeButton.className = "appClose";
   timerButton.innerText = "Timer";
   timerButton.className = "speedrunTimerButton";
-  iframe.src = url;
+  iframe.src = `${url}`;
   iframe.className = "appIframe";
 
   closeButton.addEventListener('click', function () {
@@ -109,6 +109,13 @@ function openSite(url) {
   appDiv.appendChild(timerButton);
   document.body.appendChild(appDiv);
   document.getElementById("main").style.display = "none";
+
+  try {
+    var event = new CustomEvent('appOpened', { frame: iframe })
+    window.parent.document.dispatchEvent(event)
+  } catch (err) {
+    // do nothing
+  }
 }
 
 function InIframe() {
