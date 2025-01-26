@@ -130,7 +130,7 @@ function inIframe () {
 				ldr.style.width = '220px';
 				//var lnks = document.getElementById('links');
 				//lnks.style.right='10px';
-				console.log('resize in iframe');
+				// console.log('resize in iframe');
 			}
 			//ResizeCompleted = 1;
 		}
@@ -140,7 +140,7 @@ function inIframe () {
 		};
 		function PageIsLoaded()
 		{
-			console.log('PageIsLoaded start');
+			// console.log('PageIsLoaded start');
 			var aipW = document.documentElement.clientWidth+20;
 			var aipH = document.documentElement.clientHeight-29;
 			aiptag.cmd.player.push(function() {
@@ -175,10 +175,10 @@ function inIframe () {
 					});
 				} catch(err3)
 				{
-					console.log("Error preroll " + e.name + ":" + e.message);
+					// console.log("Error preroll " + e.name + ":" + e.message);
 				}
 			});
-			console.log('PageIsLoaded end');
+			// console.log('PageIsLoaded end');
 		}
 		var aiptag = aiptag || {};
 		aiptag.cmd = aiptag.cmd || [];
@@ -201,7 +201,7 @@ function inIframe () {
 		window.gameLoaded = function () {
 			window.sendMessageToUnity("{\"eventName\": \"setBundlesPath\",\"data\": {\"path\": \"" + CONFIG.BuildPath +"\"}}");
 			$("#ads").show();
-			console.log("getting ads");
+			// console.log("getting ads");
 			try
 			{
 				aiptag.cmd.display.push(function() { try{ console.log('adinplay push start'); aipDisplayTag.display('hole-io-com_300x250'); console.log('adinplay push end'); } catch(err2) { console.log('adinplay err'); } });
@@ -228,7 +228,7 @@ function inIframe () {
 			$("#banner").hide();
 			$("#rl1").hide();
 			$("#rl2").hide();
-			gtag('event', 'GAplay');
+			// gtag('event', 'GAplay');
 			$("#preroll").show();
             console.log("[html] showPreroll: " + showPreroll);
 			if( typeof adplayer ==='undefined' )
@@ -262,7 +262,7 @@ function inIframe () {
 			$("#rl1").show();
 			$("#rl2").show();
 			GameAdsRenew("banner");
-			gtag('event', 'GAgameOver');
+			// gtag('event', 'GAgameOver');
 			aiptag.cmd.display.push(function() { aipDisplayTag.display('hole-io-com_300x250'); });
 		}
 		

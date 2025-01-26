@@ -30,18 +30,18 @@ function loadGoogleAnalytics(id) {
 
 window.addEventListener("load", (event) => {
   if (botBrowser()) {
-    loadGoogleAnalytics("G-M9CQ16MX4G");
+    // loadGoogleAnalytics("G-M9CQ16MX4G");
     console.log('Bot Browser', event);
   } else {
     console.log('Human Browser', event);
     if (window.location.href.indexOf(".github.io")> -1) {
       if (inFrame()) {
-        loadGoogleAnalytics("G-T445XL67R6");
+        // loadGoogleAnalytics("G-T445XL67R6");
       } else {
-        loadGoogleAnalytics("G-T445XL67R6");
+        // loadGoogleAnalytics("G-T445XL67R6");
       }
     } else {
-        loadGoogleAnalytics("G-T445XL67R6");
+        // loadGoogleAnalytics("G-T445XL67R6");
     }
   }
 });
