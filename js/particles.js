@@ -1,6 +1,9 @@
 let particlesOnScreen = 0;
 let maxParticles = 12;
-let particlesEnabled = true;
+let particlesEnabled = false;
+let _particlesContainer = document.createElement("div");
+_particlesContainer.id = "particlesContainer";
+document.body.appendChild(_particlesContainer);
 
 function createParticles() {
   for (let i = 0; i < Math.round(Math.random() * 5); i++) {

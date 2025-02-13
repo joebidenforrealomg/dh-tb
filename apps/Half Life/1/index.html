@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+        margin: 0;
+      }
+
+      iframe {
+        width: 100vw;
+        height: 100vh;
+        outline: none;
+        border: none;
+      }
+
+      #blockNotice {
+        background: black;
+        color: white;
+        height: 100vh;
+        width: 100vw;
+        text-align: center;
+        padding-top: 12px;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe></iframe>
+    <div id="blockNotice" class="hidden">
+      <h2>Erm according to my calculations, the link for this is not currently available.</h2>
+      <p>Please notify us if you see this message more than once by Emailing k_ws@b-dog.co</p>
+    <script>
+      const url = "https://pixelsuft.github.io/hl/";
+      const iframe = document.querySelector("iframe");
+      const blockNotice = document.querySelector("#blockNotice");
+      const checkSite = (url) => {
+        return fetch(url, { mode: 'no-cors' })
+          .then(() => true)
+          .catch(() => false);
+      };
+
+      if (checkSite(url)) {
+        iframe.src = url;
+      } else {
+        iframe.classList.add("hidden");
+        blockNotice.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>
