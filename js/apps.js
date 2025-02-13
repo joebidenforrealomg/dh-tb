@@ -3,7 +3,8 @@ const apps = [
     Name: "1v1.LOL",
     Thumbnail: "thumbnail.jpg",
     Genres: ["fps", "shooter"],
-    Related: ["guns", "guns", "fortnite"]
+    Related: ["guns", "guns", "fortnite"],
+    Broken: true
   },
   {
     Name: "2048",
@@ -64,9 +65,15 @@ const apps = [
     Thumbnail: "thumbnail.png"
   },
   {
-    Name: "Bloons TD",
-    Folder: "BloonsTD",
+    Name: "Bloons TD 1",
+    Folder: "BloonsTD/1/",
     Thumbnail: "thumbnail.jpg"
+  },
+  {
+    Name: "Bloons TD 4",
+    Folder: "BloonsTD/4/",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("January 31, 2025")
   },
   {
     Name: "Bloxorz",
@@ -247,6 +254,12 @@ const apps = [
     Folder: "GoogleSnake",
     Thumbnail: "thumbnail.png",
     Fixed: new Date("October 10, 2024")
+  },
+  {
+    Name: "Half Life 1",
+    Folder: "Half Life/1/",
+    Added: new Date("Febuary 12, 2025"),
+    Notice: "To launch this app, simply press the first \"Start\" button, then \"Launch Xash3D!\"."
   },
   {
     Name: "Slow Roads (Modded)",
@@ -459,6 +472,16 @@ const apps = [
     Related: ["valve", "half life"]
   },
   {
+    Name: "q1k3",
+    Added: new Date("Febuary 10, 2025"),
+    Genres: ["fps", "shooter"],
+  },
+  {
+    Name: "Ragdoll Archers",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("January 31, 2025")
+  },
+  {
     Name: "Retro Bowl",
     Folder: "RetroBowl",
     Thumbnail: "thumbnail.png",
@@ -514,6 +537,11 @@ const apps = [
     Folder: "Run/3/",
     Thumbnail: "thumbnail.png",
     Genres: ["flash"],
+  },
+  {
+    Name: "Shell Shockers",
+    Added: new Date("Febuary 10, 2025"),
+    Hidden: true
   },
   {
     Name: "Sling Drift",
@@ -602,6 +630,10 @@ const apps = [
     Added: new Date("October 2, 2024")
   },
   {
+    Name: "Tanuki Sunset",
+    Added: new Date("Febuary 10, 2025")
+  },
+  {
     Name: "Tetris",
     Thumbnail: "thumbnail.jpg"
   },
@@ -650,6 +682,12 @@ const apps = [
   {
     Name: "yohoho.io",
     Thumbnail: "thumbnail.jpg"
+  },
+  {
+    Name: "Yorg.io 3",
+    Folder: "Yorg.io/3/",
+    Added: new Date("Febuary 10, 2025"),
+    Hidden: true
   },
 
   // Begin Emulators

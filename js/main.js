@@ -175,7 +175,6 @@ clear.addEventListener("click", function () {
 searchForm.addEventListener("submit", handleSearch);
 searchForm.addEventListener("input", handleSearch);
 
-
 if (particlesEnabled === true) {
   createParticles();
 }
