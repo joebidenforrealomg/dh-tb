@@ -1,4 +1,4 @@
-const latestUpdateText = "<b>January 23rd Update</b><br>Added 4 new apps, added settings, data importing/exporting, and fixed some bugs.";
+const latestUpdateText = "<b>Febuary 13th Update</b><br>Added 6 new apps, and fixed app thumbnails.";
 const appsDiv = document.getElementById("apps");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");

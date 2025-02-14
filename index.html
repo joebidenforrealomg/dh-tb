@@ -22,14 +22,14 @@
 </head>
 
 <body>
+    <script src="js/main.js" defer></script>
+
     <main id="main">
         <div id="bgFilter"></div>
         <div class="apps" id="apps">
-            <button onclick='const baseURL = window.location.origin + window.location.pathname.replace(/\/[^\/]+$/, "/"); openWindow(`${baseURL}home?iframe=true`); window.location.replace("https://google.com");'>Open</button>
+            <button onclick='const baseURL = window.location.origin + window.location.pathname.replace(/\/[^\/]+$/, "/"); openWindow(`${baseURL}home.html?iframe=true`); window.location.replace("https://google.com");'>Open</button>
         </div>
     </main>
-
-    <script src="js/main.js"></script>
 </body>
 
 </html>

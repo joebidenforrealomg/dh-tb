@@ -103,7 +103,7 @@ function createApp(info, app, location) {
       img.onerror = function () {
         img.src = "https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/no%20image.avif";
       };
-      img.src = `https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/${info.folder || ""}/${info.thumbnail || "thumbnail.png"}`;
+      img.src = `${info.folder || ""}/${info.thumbnail || "thumbnail.png"}`;
       img.classList.add("thumbnail");
     }
   } else if (location && location.querySelector(`#${appID(app)}`)) {

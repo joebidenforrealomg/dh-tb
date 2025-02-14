@@ -16,6 +16,11 @@ const apps = [
     Added: new Date("November 20, 2024")
   },
   {
+    Name: "a game inside a game inside a game",
+    Thumbnail: "thumbnail.png",
+    Added: new Date("Febuary 13, 2025")
+  },
+  {
     Name: "Among Us",
     Folder: "AmongUs/",
     Hidden: true,
@@ -72,8 +77,8 @@ const apps = [
   {
     Name: "Bloons TD 4",
     Folder: "BloonsTD/4/",
-    Thumbnail: "thumbnail.jpg",
-    Added: new Date("January 31, 2025")
+    Thumbnail: "thumbnail.png",
+    Added: new Date("Febuary 13, 2025")
   },
   {
     Name: "Bloxorz",
@@ -133,7 +138,7 @@ const apps = [
   },
   {
     Name: "Double Dragon (NES)",
-    Thumbnail: "thumbnails/double dragon.gif",
+    Thumbnail: "thumbnails/doubledragon.png",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=Double_dragon",
     Added: new Date("December 20, 2024"),
@@ -179,7 +184,7 @@ const apps = [
     Name: "Duck Tales (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=ducktales",
-    Thumbnail: "thumbnails/duck tales.jpg",
+    Thumbnail: "thumbnails/ducktales.jpg",
     Added: new Date("December 20, 2024"),
     Genres: ["classic", "nintendo"],
   },
@@ -226,7 +231,7 @@ const apps = [
     Name: "Friday the 13th (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=fridaythe13th",
-    Thumbnail: "thumbnails/friday the 13th.webp",
+    Thumbnail: "thumbnails/fridaythe13th.webp",
     Added: new Date("December 18, 2024"),
     Genres: ["classic", "nintendo"],
   },
@@ -259,6 +264,7 @@ const apps = [
     Name: "Half Life 1",
     Folder: "Half Life/1/",
     Added: new Date("Febuary 12, 2025"),
+    Thumbnail: "thumbnail.jpg",
     Notice: "To launch this app, simply press the first \"Start\" button, then \"Launch Xash3D!\"."
   },
   {
@@ -473,13 +479,14 @@ const apps = [
   },
   {
     Name: "q1k3",
-    Added: new Date("Febuary 10, 2025"),
+    Thumbnail: "thumbnail.png",
+    Added: new Date("Febuary 13, 2025"),
     Genres: ["fps", "shooter"],
   },
   {
     Name: "Ragdoll Archers",
     Thumbnail: "thumbnail.jpg",
-    Added: new Date("January 31, 2025")
+    Added: new Date("Febuary 13, 2025")
   },
   {
     Name: "Retro Bowl",
@@ -540,7 +547,7 @@ const apps = [
   },
   {
     Name: "Shell Shockers",
-    Added: new Date("Febuary 10, 2025"),
+    Added: new Date("Febuary 13, 2025"),
     Hidden: true
   },
   {
@@ -631,7 +638,8 @@ const apps = [
   },
   {
     Name: "Tanuki Sunset",
-    Added: new Date("Febuary 10, 2025")
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("Febuary 13, 2025")
   },
   {
     Name: "Tetris",
@@ -686,7 +694,12 @@ const apps = [
   {
     Name: "Yorg.io 3",
     Folder: "Yorg.io/3/",
-    Added: new Date("Febuary 10, 2025"),
+    Added: new Date("Febuary 13, 2025"),
+    Hidden: true
+  },
+  {
+    Name: "YouTube",
+    Added: new Date("Febuary 13, 2025"),
     Hidden: true
   },
 

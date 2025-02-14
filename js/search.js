@@ -3,7 +3,7 @@ altCSS.rel = 'stylesheet';
 
 function searchApp(name) {
   var foundApps = [];
-  if (name !== "") {
+  if (name !== "" && name !== null) {
     // appsDiv.innerHTML = "";
     altCSS.innerHTML = `.appsButton { display: none; animation: none; } .foundApp { display: block !important; }`;
     document.querySelectorAll(".foundApp").forEach((app) => {

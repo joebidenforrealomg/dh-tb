@@ -46,6 +46,7 @@
       };
 
       if (checkSite(url)) {
+        iframe.allow = "fullscreen";
         iframe.src = url;
       } else {
         iframe.classList.add("hidden");

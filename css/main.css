@@ -285,13 +285,13 @@ body {
   margin-top: 0;
 } */
 
+#favorite {
+  float: right;
+}
+
 #favoritesTitle {
   left: 25%;
   margin-top: -5%;
-}
-
-.appsGroup {
-  display: inline-flex;
 }
 
 apps.smallApps {
@@ -323,6 +323,10 @@ h1 {
   font-size: 40px;
   text-align: center;
   cursor: default;
+}
+
+#newTitle {
+  text-align: center;
 }
 
 .thing {

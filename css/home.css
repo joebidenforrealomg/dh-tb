@@ -123,6 +123,6 @@
   -webkit-backdrop-filter: none;
 }
 
-#appDetails.hidden {
+.hidden {
   display: none;
 }
