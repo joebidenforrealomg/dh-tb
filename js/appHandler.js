@@ -12,7 +12,7 @@ function createApp(info, app, location) {
       b.title = info.hint;
       img.onclick = function () {
         if (info.openWithCode == true) {
-          const url = `${window.location.origin}/${info.url}`;
+          const url = `${window.location.origin}/da-hub/${info.url}`;
           openWindow(url, "New Tab", "", true, false);
         } else {
           openSite(`${info.url}`);

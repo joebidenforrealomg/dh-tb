@@ -359,11 +359,22 @@ const apps = [
   },
   {
     Name: "Minecraft 1.8",
-    Folder: "Minecraft/1.8.8/",
-    Thumbnail: "thumbnail.jpg",
+    Folder: "Minecraft/1.8.8",
+    Thumbnail: "thumbnail.png",
     Notice: "Opening in another window...",
     Genres: ["open world"],
     Updated: new Date("January 15, 2025"),
+    Fixed: new Date("March 10, 2025"),
+    OpenWithCode: true
+  },
+  {
+    Name: "Minecraft 1.12",
+    Folder: "Minecraft/1.12",
+    Thumbnail: "thumbnail.png",
+    Notice: "Opening in another window...",
+    Genres: ["open world"],
+    Added: new Date("March 10, 2025"),
+    Fixed: new Date("March 10, 2025"),
     OpenWithCode: true
   },
   {
