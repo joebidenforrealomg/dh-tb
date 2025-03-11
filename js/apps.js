@@ -374,7 +374,6 @@ const apps = [
     Notice: "Opening in another window...",
     Genres: ["open world"],
     Added: new Date("March 10, 2025"),
-    Fixed: new Date("March 10, 2025"),
     OpenWithCode: true
   },
   {
