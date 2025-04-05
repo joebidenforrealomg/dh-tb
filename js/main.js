@@ -1,10 +1,12 @@
-const latestUpdateText = "<b>March 10th Update</b><br>Added 1 new app, and attempted to fix another.";
+const latestUpdateText = 
+"<b>April 2nd Update</b><br>Added multiple apps, improved performance, improved search, added a weekly apps seciton, and added custom keybinds to the NES emulator.";
 const appsDiv = document.getElementById("apps");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
 const resultsText = document.getElementById("results");
 const clear = document.getElementById("clear");
 const appSizesSelect = document.getElementById("appSizes");
+const daHubSettingsPrefix = "_DH-Setting_";
 let newApps = 0;
 let sections = [];
 let sectionCount = {};
@@ -143,7 +145,16 @@ function notInAFrame() {
   }
 }
 
-apps.forEach(createApps);
+// Apps setup
+const _weeklyEnabled = localStorage.getItem(daHubSettingsPrefix + "WeeklyRecommend");
+
+addAllValidApps();
+addAppsOfTheWeek();
+if (_weeklyEnabled == false) {
+  document.querySelectorAll(".weeklyRecommendations").forEach((element) => {
+    element.style.display = "none";
+  });
+}
 sortApps();
 
 document.addEventListener('DOMContentLoaded', function () {

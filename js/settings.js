@@ -4,8 +4,8 @@ let settingsList = document.getElementById("settingsList");
 let settingsOpen = false;
 
 let settings = {
-  ["Particles"]: {
-    SetTo: "true",
+  /*["Particles"]: {
+    SetTo: "false",
     Options: ["true", "false"], // The default option is expected to be the first
     UpdateFunction: function(val) {
       particlesEnabled = val == "true" && true || false;
@@ -13,7 +13,7 @@ let settings = {
         createParticles();
       }
     }
-  },
+  },*/
   
   ["Grid Mode"]: {
     SetTo: "Default",
@@ -32,6 +32,18 @@ let settings = {
   ["Import Saved Data"]: {
     RunFunction: loadData,
     FileInput: true,
+  },
+
+  ["Weekly Recommendations"]: {
+    SetTo: "true",
+    Options: ["true", "false"],
+    UpdateFunction: function(val) {
+      const enabled = (val == "true" || val == true) && true || false;
+      localStorage.setItem("_DH-Setting_WeeklyRecommend", enabled);
+      document.querySelectorAll(".weeklyRecommendations").forEach((element) => {
+        element.style.display = enabled == true && "block" || "none";
+      });
+    }
   }
 }
 
@@ -48,6 +60,7 @@ function updateSetting(name, newValue, save) {
   const option = settings[name];
   if (option && checkIfOptionIsValid(option.Options, newValue)) {
     option["SetTo"] = newValue;
+    if (save) { alert(newValue + typeof(newValue)); }
     if (save == true) {
       saveSetting(name);
     }
