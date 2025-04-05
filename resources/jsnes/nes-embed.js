@@ -32,7 +32,7 @@ function onAnimationFrame(){
 }
 
 window.addEventListener("keydown", function(e) {
-    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight","Tab"].indexOf(e.code) > -1) {
         e.preventDefault();
     }
 }, false);
@@ -61,24 +61,22 @@ function audio_callback(event){
 
 function keyboard(callback, event){
 	var player = 1;
-	switch(event.keyCode){
-		case 38: // UP
+	switch(event.code){
+		case _keybinds.Up.Key: // UP
 			callback(player, jsnes.Controller.BUTTON_UP); break;
-		case 40: // Down
+		case _keybinds.Down.Key: // Down
 			callback(player, jsnes.Controller.BUTTON_DOWN); break;
-		case 37: // Left
+		case _keybinds.Left.Key: // Left
 			callback(player, jsnes.Controller.BUTTON_LEFT); break;
-		case 39: // Right
+		case _keybinds.Right.Key: // Right
 			callback(player, jsnes.Controller.BUTTON_RIGHT); break;
-		case 65: // 'a' - qwerty, dvorak
-		case 81: // 'q' - azerty
+		case _keybinds.A.Key: // Button A
 			callback(player, jsnes.Controller.BUTTON_A); break;
-		case 83: // 's' - qwerty, azerty
-		case 79: // 'o' - dvorak
+		case _keybinds.B.Key: // Button B
 			callback(player, jsnes.Controller.BUTTON_B); break;
-		case 9: // Tab
+		case _keybinds.Select.Key: // Select
 			callback(player, jsnes.Controller.BUTTON_SELECT); break;
-		case 13: // Return
+		case _keybinds.Start.Key: // Start
 			callback(player, jsnes.Controller.BUTTON_START); break;
 		default: break;
 	}

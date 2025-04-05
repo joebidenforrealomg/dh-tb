@@ -5,8 +5,6 @@
 	<head>
 		<title>Oh Ok</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<script type="text/javascript" src="jsnes.min.js"></script>
-		<script type="text/javascript" src="nes-embed.js"></script>
 		<style>
 			body {
 				font-family: sans-serif;
@@ -23,16 +21,26 @@
 				right: 0;
 				top: 0;
 				width: 15vw;
-				color: white;
+				color: gray;
+
+				li {
+					transition: 0.15s ease;
+					cursor: pointer;
+				}
+
+				li:hover {
+					color: white;
+				}
 
 				button {
-					padding: 2px;
-					border-radius: 2px;
+					padding: 4px;
+					border-radius: 4px;
 					background: black;
 					color: white;
-					border: 3px solid rgba(255,255,255,0.5);
+					border: 3px solid rgba(255, 255, 255, 0.25);
 					cursor: pointer;
 					transition: 0.2s ease;
+					width: 100%;
 				}
 
 				button:hover {
@@ -51,26 +59,106 @@
 		<canvas id="nes-canvas" height="340" width="340"> </canvas>
 		<div class="infoFrame">
 			<h2>Controls</h2>
-			<ul>
-				<li>Up - Up Arrow</li>
-				<li>Down - Down Arrow</li>
-				<li>Left - Left Arrow</li>
-				<li>Right - Right Arrow</li>
-				<li>A - A or Q</li>
-				<li>B - S or O</li>
-				<li>Select - Tab</li>
-				<li>Start - Enter/Return</li>
+			<i>Click a keybind to change it</i>
+			<ul id="_keybinds">
+				<li id="up">Up - Up Arrow</li>
+				<li id="down">Down - Down Arrow</li>
+				<li id="left">Left - Left Arrow</li>
+				<li id="right">Right - Right Arrow</li>
+				<li id="a">A - A or Q</li>
+				<li id="b">B - S or O</li>
+				<li id="select">Select - Tab</li>
+				<li id="start">Start - Enter/Return</li>
 			</ul>
-			<button onclick="document.body.requestFullscreen()">Enter Fullscreen (Allows pressing tab)</button>
+			<button onclick="document.body.requestFullscreen()">Enter Fullscreen</button>
 		</div>
 
-		<script>
-			let params = new URLSearchParams(document.location.search);
-			let gameFile = params.get("file");
-			if (gameFile) {
-				nes_load_url("nes-canvas", `files/${gameFile}.nes`);
+		<!-- Keybind script -->
+		<script defer>
+			let listeningForKey = false;
+			let lastKeyPressed = null;
+			const keybindStoragePrefix = "_jsnes_keybind_";
+			const keybindsList = document.getElementById("keybinds");
+			let _keybinds = {
+				Up: {Element: document.getElementById("up"), Key: "KeyW"},
+				Down: {Element: document.getElementById("down"), Key: "KeyS"},
+				Left: {Element: document.getElementById("left"), Key: "KeyA"},
+				Right: {Element: document.getElementById("right"), Key: "KeyD"},
+				A: {Element: document.getElementById("a"), Key: "KeyQ"},
+				B: {Element: document.getElementById("b"), Key: "KeyE"},
+				Select: {Element: document.getElementById("select"), Key: "KeyZ"},
+				Start: {Element: document.getElementById("start"), Key: "KeyX"}
 			}
-		</script>
+
+			function delay(ms) {
+				return new Promise(resolve => setTimeout(resolve, ms));
+			}
+
+			async function updateKeybindElementText(name, text) {
+				if (name && text && _keybinds.hasOwnProperty(name)) {
+					const element = _keybinds[name]["Element"];
+					element.innerText = `${name} - ${text.startsWith("Key") && text.split("Key")[1] || text}`;
+				}
+			}
+
+			async function updateKeybind(name, newValue, save = false) {
+				if (name && newValue && _keybinds.hasOwnProperty(name)) {
+					const info = _keybinds[name];
+					info["Key"] = newValue;
+					updateKeybindElementText(name, newValue);
+					localStorage.setItem(keybindStoragePrefix + name, newValue);
+				}
+			}
+
+			window.addEventListener("keypress", (event) => {
+				if (event.code && listeningForKey == true) {
+					lastKeyPressed = event.code;
+				}
+			});
+			
+			for (const key in _keybinds) {
+				if (_keybinds.hasOwnProperty(key)) {
+					// Load saved data
+					const savedKeybind = localStorage.getItem(keybindStoragePrefix + key);
+					if (savedKeybind != null) {
+						updateKeybind(key, savedKeybind, false);
+					} else {
+						updateKeybind(key, _keybinds[key]["Key"], false);
+					}
+					
+					// Setup element
+					const element = _keybinds[key]["Element"];
+					element.title = "Click to change keybind";
+					element.addEventListener("click", async () => {
+						if (listeningForKey == false) {
+							listeningForKey = true;
+							lastKeyPressed = null;
+							updateKeybindElementText(key, "press a key...");
+							while (lastKeyPressed == null && listeningForKey == true) {
+								if (lastKeyPressed != null) {
+									break;
+								}
+								await delay(200);
+							}
+							updateKeybind(key, lastKeyPressed, true);
+							listeningForKey = false;
+						}
+					});
+				}
+			}
+			</script>
+
+			<script type="text/javascript" src="jsnes.min.js" defer></script>
+			<script type="text/javascript" src="nes-embed.js" defer></script>
+
+			<!-- Initialization script -->
+			<script defer>
+				let params = new URLSearchParams(document.location.search);
+				let gameFile = params.get("file");
+				if (gameFile) {
+					nes_load_url("nes-canvas", `files/${gameFile}.nes`);
+				}
+			</script>
 	</body>
 
 </html>

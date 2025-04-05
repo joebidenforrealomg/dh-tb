@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no"
+        />
+        <title>Block Break</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" type="image/png" href="img/logo.png" />
+    </head>
+    <body>
+        <div id="refresh">
+            <img
+                id="refresh-icon"
+                src="img/refresh_light.svg"
+                alt="Refresh Icon"
+            />
+            <h2>Reset</h2>
+        </div>
+        <div class="container">
+            <div id="top">
+                <div id="scores">
+                    <div class="item">
+                        <img src="img/crown.svg" alt="Crown Icon" />
+                        <h2 id="high-score">0</h2>
+                    </div>
+                    <h1 id="score">0</h1>
+                    <div class="item">
+                        <h2 id="lives">3</h2>
+                        <img src="img/heart.svg" alt="Heart Icon" />
+                    </div>
+                </div>
+
+                <div id="dark-mode-toggle">
+                    <b>Dark Mode</b>
+                    <input type="checkbox" id="dark-mode" />
+                    <label for="dark-mode"></label>
+                </div>
+            </div>
+
+            <div id="combo-info" class="hidden">
+                <h2>Combo: <span id="combo-count">0</span></h2>
+                <div id="combo-progress">
+                    <div id="combo-progress-bar"></div>
+                </div>
+            </div>
+
+            <div id="game">
+                <div id="squares"></div>
+
+                <div
+                    id="block-select"
+                    ontouchstart="event.preventDefault();"
+                ></div>
+            </div>
+
+            <div id="game-over" class="hidden">
+                <h2>Game Over</h2>
+                <p>No more valid moves!</p>
+                <button id="reshuffle-blocks">Reshuffle (-1 Life)</button>
+                <button id="reset-game-no-lives">Reset Game</button>
+            </div>
+
+            <div id="game-over-no-lives" class="hidden">
+                <h2>Game Over</h2>
+                <h3 id="score-end"></h3>
+                <p>No more lives!</p>
+                <button id="reset-game-no-lives-dialog">Reset Game</button>
+            </div>
+        </div>
+        <script src="script.js"></script>
+        <script src="darkMode.js"></script>
+    </body>
+</html>

@@ -70,6 +70,10 @@ const apps = [
     Thumbnail: "thumbnail.png"
   },
   {
+    Name: "Block Break",
+    Added: new Date("April 2, 2025")
+  },
+  {
     Name: "Bloons TD 1",
     Folder: "BloonsTD/1/",
     Thumbnail: "thumbnail.jpg"
@@ -261,6 +265,12 @@ const apps = [
     Fixed: new Date("October 10, 2024")
   },
   {
+    Name: "Gunblood",
+    Added: new Date("April 4, 2025"),
+    Genres: ["shooter"],
+    Related: ["ragdoll archers"]
+  },
+  {
     Name: "Half Life 1",
     Folder: "Half Life/1/",
     Added: new Date("Febuary 12, 2025"),
@@ -310,6 +320,14 @@ const apps = [
     Name: "Jetpack Joyride",
     Thumbnail: "splash.jpg",
     Added: new Date("January 22, 2025")
+  },
+  {
+    Name: "Johnny Upgrade",
+    Added: new Date("April 2, 2025")
+  },
+  {
+    Name: "jsFallout",
+    Added: new Date("April 2, 2025")
   },
   {
     Name: "Learn 2 Fly",
@@ -650,6 +668,18 @@ const apps = [
     Name: "Tanuki Sunset",
     Thumbnail: "thumbnail.jpg",
     Added: new Date("Febuary 13, 2025")
+  },
+  {
+    Name: "Temple Run 1",
+    Folder: "Temple Run/1/",
+    Added: new Date("April 2, 2025"),
+    Hidden: true
+  },
+  {
+    Name: "Temple Run 2",
+    Folder: "Temple Run/2/",
+    Added: new Date("April 2, 2025"),
+    Hidden: true
   },
   {
     Name: "Tetris",
