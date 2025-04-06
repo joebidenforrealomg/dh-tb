@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
   --accent: rgb(88, 159, 217);
   --accentLight: rgb(115, 186, 245);
@@ -58,6 +60,16 @@
   }
 }
 
+.blackBGGradientTop {
+  background: rgb(2,0,36);
+  background: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,.7) 100%);
+}
+
+.blackBGGradientBottom, .topHeader .buttons a {
+  background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,.7) 100%);
+}
+
 * {
   color: inherit;
   font-family: inherit;
@@ -83,7 +95,7 @@ hr {
 
 html {
   background-color: rgb(36, 46, 62);
-  background-image: url("https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/winter%20bg.png");
+  background-image: url("https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center right;
@@ -94,7 +106,7 @@ html {
 body {
   background: transparent;
   padding-bottom: 30px;
-  font-family: Sans-Serif;
+  font-family: "Inter", sans-serif;
   color: white;
   margin: 0;
   width: 100vw;
@@ -326,7 +338,7 @@ h1 {
   text-align: center;
 }
 
-#newTitle {
+.categoryHeader {
   text-align: center;
   font-weight: normal;
 
@@ -358,7 +370,7 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   cursor: default;
-  background: rgba(0,0,0,0.5);
+  /* background: rgba(0,0,0,0.5); */
   border: rgba(255,255,255,0.5) 2px solid;
   border-bottom: none;
   border-radius: 12px 12px 0 0;
@@ -373,22 +385,13 @@ h1 {
 }
 
 .topHeader {
-  /* max-width: 90vw; */
-  /* min-width: 400px; */
   width: 100vw;
   min-height: 35px;
   position: fixed;
   text-align: center;
   top: 0;
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
   cursor: default;
-  background: rgba(0,0,0,0.5);
   border-bottom: rgba(255,255,255,0.5) 3px solid;
-  /* border-right: rgba(255,255,255,0.5) 3px solid; */
-  /* border-left: rgba(255,255,255,0.5) 3px solid; */
-  /* border-bottom-right-radius: 20px; */
-  /* border-bottom-left-radius: 20px; */
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 5px;

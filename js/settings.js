@@ -221,10 +221,8 @@ for (let key in settings) {
 
     const category = settings[key]["Category"] || "General";
     if (!categories.some(cat => cat.name === category)) {
-      console.log("new category")
       categories.push({name: category, options: [key]});
     } else {
-      console.log("existing category")
       categories[categories.length - 1].options.push(key);
     }
   }
