@@ -14,6 +14,9 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 83.9vh;
 
     h3 {
       text-align: center;
@@ -38,6 +41,8 @@
         margin-top: 20px;
         font-size: 18px;
         transform: translateY(-50%);
+        font-size: 90%;
+        max-width: 80%;
       }
 
       input, select, button {
@@ -130,6 +135,10 @@
 #settingsFrame.open {
   bottom: 0;
   opacity: 1;
+}
+
+#settingsFrame.open + main {
+  pointer-events: none;
 }
 
 #appDetails {
