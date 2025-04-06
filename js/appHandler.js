@@ -1,8 +1,4 @@
-const _weeklyAppsCount = 4;
-const _backupAppImage = "https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/no%20image.avif";
-const _favoriteAppIcon = "https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_hollow.svg";
-
-function createAppTile(info, app, location) {
+function createApp(info, app, location) {
   if ((location && location.querySelector(`#${appID(app)}`) === null) || location == null) {
     if (isReleased(info.added)) {
       const b = document.createElement("button");
@@ -42,8 +38,7 @@ function createAppTile(info, app, location) {
       overlay.appendChild(tags);
   
       fav.classList.add("favorite");
-      fav.src = _favoriteAppIcon;
-      fav.title = "Add to favorites";
+      fav.src = "https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_hollow.svg";
       overlay.appendChild(fav);
       fav.onclick = function () {
         try {
@@ -106,7 +101,7 @@ function createAppTile(info, app, location) {
       };
   
       img.onerror = function () {
-        img.src = _backupAppImage;
+        img.src = "https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/no%20image.avif";
       };
       img.src = `${info.folder || ""}/${info.thumbnail || "thumbnail.png"}`;
       img.classList.add("thumbnail");
@@ -117,63 +112,37 @@ function createAppTile(info, app, location) {
 }
 
 function isReleased(added) {
-  if (typeof(added) === "object" && added["Date"] != null) {
-    added = added["Date"];
+  if (added.Date !== undefined) {
+    added = added.Date;
   } else {
     return;
   }
 
-  const currentDate = new Date();
-  const utc1 = Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-  const utc2 = Date.UTC(added.getFullYear(), added.getMonth(), added.getDate());
+  let currentDate = new Date();
+  let utc1 = Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+  let utc2 = Date.UTC(added.getFullYear(), added.getMonth(), added.getDate());
   return utc1 >= utc2;
 }
 
 function isNew(added, days) {
-  if (typeof(added) === "object" && added["Date"] != null) {
-    added = added["Date"];
-  } /* else if ((added instanceof Date && !isNaN(added)) == false) {
-    added = new Date("January 1, 2020");
-  } */
+  if (added.Date !== undefined) {
+    added = added.Date;
+  }
 
   days = days || 7;
   let newlyAdded = false;
-  const currentDate = new Date();
-  const utc1 = Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-  const utc2 = Date.UTC(added.getFullYear(), added.getMonth(), added.getDate());
-  const timeDiff = Math.abs(utc2 - utc1);
-  const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+  let currentDate = new Date();
+  let utc1 = Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+  let utc2 = Date.UTC(added.getFullYear(), added.getMonth(), added.getDate());
+  let timeDiff = Math.abs(utc2 - utc1);
+  let daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
   if (daysDiff <= days) {
     newlyAdded = true;
   }
   return newlyAdded;
 }
 
-function isAppDatePropertyValid(property) {
-  return (typeof(property) === "object" && property !== null && property.hasOwnProperty("Date"));
-}
-
-function getAppInfo(app) {
-  let info = {
-    hint: "Play " + app.Name,
-    url: "apps/" + app.Folder + "/" + app.Index,
-    folder: "apps/" + (app.Folder || app.Name),
-    thumbnail: app.Thumbnail,
-    broken: app.Broken,
-    newlyUpdated: false,
-    fixed: isAppDatePropertyValid(app.Fixed) && app.Fixed || {Bool:isNew(app.Fixed), Date:app.Fixed},
-    added: isAppDatePropertyValid(app.Added) && app.Added || {Bool:isNew(app.Added), Date:app.Added},
-    updated: isAppDatePropertyValid(app.Updated) && app.Updated || {Bool:isNew(app.Updated), Date:app.Updated},
-    pinned: isFavorite(app),
-    openWithCode: app.OpenWithCode
-  };
-
-  info["newlyUpdated"] = (isNew(info.added, 7) || isNew(info.fixed, 7) || isNew(info.updated, 7)) && true || false;
-
-  return info;
-}
-
-function setupApp(app) {
+function createApps(app) {
   if (app.Hidden) {
     return;
   } else {
@@ -189,10 +158,34 @@ function setupApp(app) {
   app.Added = app.Added || new Date("January 1, 2020");
   app.Updated = app.Updated || new Date("January 1, 2020");
   app.Section = app.Section || "apps";
-  app.NewlyUpdated = app.NewlyUpdated || false;
   app.OpenWithCode = app.OpenWithCode || false;
+  let newlyUpdated = false;
+  if (isNew(app.Added, 7) === true || isNew(app.Fixed, 7) === true || isNew(app.Updated, 7) === true) {
+    newlyUpdated = true;
+  }
+  if (app.Added.Bool === undefined) {
+    app.Added = { Bool: isNew(app.Added), Date: app.Added };
+  }
+  if (app.Fixed.Bool === undefined) {
+    app.Fixed = { Bool: isNew(app.Fixed), Date: app.Fixed };
+  }
+  if (app.Updated.Bool === undefined) {
+    app.Updated = { Bool: isNew(app.Updated), Date: app.Updated };
+  }
 
-  let info = getAppInfo(app);
+  let info = {
+    hint: "Play " + app.Name,
+    url: "apps/" + app.Folder + "/" + app.Index,
+    folder: "apps/" + (app.Folder || app.Name),
+    thumbnail: app.Thumbnail,
+    newlyUpdated: newlyUpdated,
+    broken: app.Broken,
+    fixed: app.Fixed,
+    added: app.Added,
+    updated: app.Updated,
+    pinned: isFavorite(app),
+    openWithCode: app.OpenWithCode
+  }
 
   if (!sections.indexOf(app.Section)) {
     sections.push(app.Section);
@@ -200,17 +193,17 @@ function setupApp(app) {
   sectionCount[app.Section] = sectionCount[app.Section] + 1;
 
   if (info.pinned == true) {
-    createAppTile(info, app, document.getElementById("favorite"));
+    createApp(info, app, document.getElementById("favorite"));
     if (info.newlyUpdated) {
-      createAppTile(info, app, document.getElementById("newApps"));
+      createApp(info, app, document.getElementById("newApps"));
     } else {
-      createAppTile(info, app, document.getElementById(app.Section));
+      createApp(info, app, document.getElementById(app.Section));
     }
   } else if (info.newlyUpdated) {
-    createAppTile(info, app, document.getElementById("newApps"));
-    createAppTile(info, app, document.getElementById(app.Section));
+    createApp(info, app, document.getElementById("newApps"));
+    createApp(info, app, document.getElementById(app.Section));
   } else {
-    createAppTile(info, app, document.getElementById(app.Section));
+    createApp(info, app, document.getElementById(app.Section));
   }
 }
 
@@ -267,7 +260,7 @@ function setFavorite(app, makeFavorite) {
         e.classList.add("favorited");
       }
     });
-    setupApp(app);
+    createApps(app);
     notify({ Text: `${app.Name} was added to your favorites` });
   } else {
     const thing = document.querySelector(`#favorite #${appID(app)}`);
@@ -285,43 +278,4 @@ function setFavorite(app, makeFavorite) {
     localStorage.setItem("favorites", JSON.stringify(favorites));
     notify({ Text: `${app.Name} has been removed from your favorites` });
   }
-}
-
-function getAppsOfTheWeek() {
-  // This function will return a random selection of apps,
-  // the apps selected will stay the same for 1 week.
-
-  const currentDate = new Date();
-  const startDate = new Date(currentDate.getFullYear(), 0, 1); // Start date of the current year (January 1st)
-  const days = Math.floor((currentDate - startDate) / (1000 * 60 * 60 * 24)); // Days since January 1st
-  const week = Math.floor(days / 7); // Week number
-  const seed = (week * 6999) % 10000;
-
-  const selectedApps = [];
-  const seenIndexes = new Set();
-
-  for (let i=0; selectedApps.length < _weeklyAppsCount; i++) {
-    const randomIndex = (seed + i) % apps.length;
-    const app = apps[randomIndex];
-
-    if (!seenIndexes.has(randomIndex)
-        && app["Broken"] == false
-        && app["Hidden"] == false) {
-      selectedApps.push(app);
-      seenIndexes.add(randomIndex);
-    }
-  }
-
-  return selectedApps;
-}
-
-function addAppsOfTheWeek() {
-  const weeklyApps = getAppsOfTheWeek();
-  weeklyApps.forEach((app) => {
-    createAppTile(getAppInfo(app), app, document.getElementById("weeklyApps"));
-  });
-}
-
-function addAllValidApps() {
-  apps.forEach(setupApp);
 }
