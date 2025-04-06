@@ -28,7 +28,7 @@
     <div class="notifications" id="notifications"></div>
     <main id="main">
         <div id="bgFilter"></div>
-        <div class="topHeader blackBGGradientTop">
+        <div class="topHeader">
             <div class="buttons">
                 <a target="_blank" href="https://forms.gle/wRjANHLeSoAidRvc6">Request a new game</a>
                 <a target="_blank" href="https://butterdogceo.github.io/requests/">View suggestion statuses</a>
@@ -43,13 +43,9 @@
             <input type="text" placeholder="Search by name, genre, anything" id="searchInput">
             <button id="clear" title="Clear">X</button>
         </form>
-        <h2 class="categoryHeader weeklyRecommendations hideOnSearch">Weekly Recommendations</h2>
-        <div class="apps weeklyRecommendations hideOnSearch" id="weeklyApps">
-            <button class="placeholder" id="weeklyPlaceholder">Weekly recommendations appear here</button>
-        </div>
-        <hr class="hideOnSearch weeklyRecommendations">
-        <h2 id="newTitle" class="categoryHeader hideOnSearch">Newly Updated and Your Favorites</h2>
-        <div class="appsGroup hideOnSearch">
+        <!-- <h1 style="left: -25%" id="newTitle">Newly Updated</h1> -->
+        <h2 id="newTitle">Newly Updated and Your Favorites</h2>
+        <div class="appsGroup">
             <div class="apps" id="newApps">
                 <button class="placeholder" id="newPlaceholder">Recently updated apps appear here</button>
             </div>
@@ -57,11 +53,11 @@
                 <button class="placeholder" id="favoritePlaceholder">Favorited apps appear here</button>
             </div>
         </div>
-        <hr class="hideOnSearch">
-        <h2 class="categoryHeader hideOnSearch">All Apps<br><i>Sorted from A to Z</i></h2>
+        <hr>
+
         <div class="apps" id="apps"></div>
-        <h1 class="emulatorsSection" class="categoryHeader hideOnSearch">Emulators</h1>
-        <div class="apps emulatorsSection hideOnSearch" id="emulators">
+        <h1 class="emulatorsSection">Emulators</h1>
+        <div class="apps emulatorsSection" id="emulators">
             <button class="placeholder" id="emulatorPlaceholder">Emulators appear here</button>
         </div>
 
@@ -79,7 +75,7 @@
             <p>Added: </p>
         </div>
 
-        <p class="disclaimer blackBGGradientBottom">Welcome to Da Hub, created by ButterDogCo. By using this site, you agree to our <a href="https://butterdogceo.github.io/bdogco/tos">Terms of Service</a>.</p>
+        <p class="disclaimer">Welcome to Da Hub, created by ButterDogCo. By using this site, you agree to our <a href="https://butterdogceo.github.io/bdogco/tos">Terms of Service</a>.</p>
     </main>
 
     <script src="//cdn.jsdelivr.net/npm/eruda"></script>
