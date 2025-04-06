@@ -5,6 +5,7 @@ function notify(info) {
   const p = document.createElement("p");
   p.classList.add("notification");
   p.innerHTML = info.Text;
+  p.classList.add("backdropBlur");
 
   document.getElementById("notifications").appendChild(p);
 

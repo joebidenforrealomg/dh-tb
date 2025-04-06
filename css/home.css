@@ -2,26 +2,29 @@
 
 #settingsFrame {
   position: fixed;
-  height: calc(100vh - 55px);
+  height: 100vh;
   width: 100vw;
   background: rgba(0, 0, 0, 0.5);
   transition: 0.2s ease;
-  z-index: 4;
+  z-index: 6;
   bottom: -100vh;
   opacity: 0;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
 
   ul#settingsList {
     list-style-type: none;
     padding: 0;
     margin: 0;
 
+    h3 {
+      text-align: center;
+      cursor: default;
+    }
+
     li.option {
       margin-left: 50%;
       transform: translateX(-50%);
       max-width: 99vw;;
-      width: 290px;
+      min-width: 290px;
       /* min-width: 180px; */
       height: 40px;
       background: var(--accentTransparent2);
@@ -85,8 +88,8 @@
       /* Button */
       button { 
         background: var(--accentTransparent);
-        height: 20px;
-        width: 20px;
+        height: 25px;
+        width: 25px;
         position: relative;
         top: 50%;
         transform: translate(-50%, -50%);
@@ -94,20 +97,39 @@
         border-radius: 6px;
         cursor: pointer;
         transition: 0.15s ease;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
       }
 
       button:hover {
-        background: var(--accent);
+        background-color: var(--accent);
       }
     }
+  }
+
+  .closeButton {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px;
+    border: 3px solid var(--accentTransparent);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.15s ease;
+  }
+
+  .closeButton:hover {
+    background: var(--accentTransparent);
+    border-color: var(--accent);
   }
 }
 
 #settingsFrame.open {
   bottom: 0;
   opacity: 1;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 
 #appDetails {
@@ -125,4 +147,18 @@
 
 .hidden {
   display: none;
+}
+
+body.blurEnabled {
+  .backdropBlur {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .backdropBlurChildren {
+    * {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+  }
 }

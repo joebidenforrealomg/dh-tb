@@ -1,5 +1,5 @@
 const _weeklyAppsCount = 4;
-const _backupAppImage = "https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/no%20image.avif";
+const _backupAppImage = "img/defaultImage.png";
 const _favoriteAppIcon = "https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_hollow.svg";
 
 function createAppTile(info, app, location) {

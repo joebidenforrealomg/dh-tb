@@ -16,6 +16,8 @@ let settings = {
   },*/
   
   ["Grid Mode"]: {
+    Category: "Visual",
+    DisplayName: "App Grid Mode",
     SetTo: "Default",
     Options: ["Default", "Square", "LargeTiles"],
     UpdateFunction: function (newSize) {
@@ -25,31 +27,87 @@ let settings = {
     },
   },
 
-  ["Export Saved Data"]: {
-    RunFunction: exportData,
-  },
-
-  ["Import Saved Data"]: {
-    RunFunction: loadData,
-    FileInput: true,
-  },
-
   ["Weekly Recommendations"]: {
+    Category: "Features",
     SetTo: "true",
     Options: ["true", "false"],
     UpdateFunction: function(val) {
       const enabled = (val == "true" || val == true) && true || false;
       localStorage.setItem("_DH-Setting_WeeklyRecommend", enabled);
       document.querySelectorAll(".weeklyRecommendations").forEach((element) => {
-        element.style.display = enabled == true && "block" || "none";
+        if (enabled) {
+          element.style = "";
+        } else {
+          element.style.display = "none";
+        }
       });
     }
-  }
+  },
+
+  ["Settings In-Game"]: {
+    DisplayName: "Settings while in-game",
+    Category: "Features",
+    SetTo: "true",
+    Options: ["true", "false"],
+    UpdateFunction: function(val) {
+      const enabled = (val == "true" || val == true) && true || false;
+      updateVisibilityOfSettingsButton(enabled);
+      if (settingsOpen && !enabled && appOpen) {
+        toggleSettings();
+      }
+    }
+  },
+
+  ["Speedrun Timer"]: {
+    Category: "Features",
+    SetTo: "false",
+    Options: ["false", "true"],
+    UpdateFunction: function(val) {
+      const enabled = (val == "true" || val == true) && true || false;
+      timerEnabled = enabled;
+      if (!enabled) {
+        closeSpeedrunTimer();
+      }
+      updateVisibilityOfToggleButton();
+    }
+  },
+
+  ["Transparent background blurring"]: {
+    Category: "Performance",
+    SetTo: "false",
+    Options: ["false", "true"],
+    UpdateFunction: function(val) {
+      const enabled = (val == "true" || val == true) && true || false;
+      document.body.classList.toggle("blurEnabled", enabled);
+    }
+  },
+
+  ["Export Saved Data"]: {
+    DisplayName: "Export Saved Data (Includes ALL data and settings)",
+    Category: "Advanced",
+    Icon: "download.svg",
+    RunFunction: exportData,
+  },
+
+  ["Import Saved Data"]: {
+    DisplayName: "Import Saved Data (Overwrites ALL data and settings)",
+    Category: "Advanced",
+    Icon: "upload.svg",
+    RunFunction: loadData,
+    FileInput: true,
+  },
 }
 
 function toggleSettings() {
   settingsFrame.classList.toggle("open");
   settingsOpen = settingsFrame.classList.contains("open");
+}
+
+function updateVisibilityOfSettingsButton(value) {
+  const toggleButton = document.querySelector(".appSettingsButton");
+  if (toggleButton) {
+    toggleButton.style.display = value ? "block" : "none";
+  }
 }
 
 function checkIfOptionIsValid(options, value) {
@@ -60,7 +118,7 @@ function updateSetting(name, newValue, save) {
   const option = settings[name];
   if (option && checkIfOptionIsValid(option.Options, newValue)) {
     option["SetTo"] = newValue;
-    if (save) { alert(newValue + typeof(newValue)); }
+    // if (save) { alert(newValue + typeof(newValue)); }
     if (save == true) {
       saveSetting(name);
     }
@@ -94,7 +152,7 @@ function createOptionButton(name) {
     const frame = document.createElement("li");
     frame.classList.add("option");
     const label = document.createElement("p");
-    label.innerText = name;
+    label.innerText = option.DisplayName || name;
     label.classList.add("label");
     frame.appendChild(label);
     
@@ -128,6 +186,7 @@ function createOptionButton(name) {
     } else if (option.RunFunction) {
       const buttonElement = document.createElement("button");
       buttonElement.innerText = "";
+      buttonElement.style.backgroundImage = `url(img/icons/${option.Icon})`;
       frame.appendChild(buttonElement);
 
       if (option.FileInput) {
@@ -151,6 +210,8 @@ function createOptionButton(name) {
   }
 }
 
+let categories = [];
+
 for (let key in settings) {
   if (settings.hasOwnProperty(key)) {
     const saved = getSavedSetting(key);
@@ -158,6 +219,22 @@ for (let key in settings) {
       updateSetting(key, saved, false);
     }
 
-    createOptionButton(key);
+    const category = settings[key]["Category"] || "General";
+    if (!categories.some(cat => cat.name === category)) {
+      console.log("new category")
+      categories.push({name: category, options: [key]});
+    } else {
+      console.log("existing category")
+      categories[categories.length - 1].options.push(key);
+    }
   }
 }
+
+categories.forEach((category) => {
+  const categoryElement = document.createElement("h3");
+  categoryElement.innerText = category.name;
+  settingsList.appendChild(categoryElement);
+  category.options.forEach((option) => {
+    createOptionButton(option);
+  });
+});

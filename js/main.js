@@ -1,5 +1,5 @@
 const latestUpdateText = 
-"<b>April 2nd Update</b><br>Added multiple apps, improved performance, improved search, added a weekly apps seciton, and added custom keybinds to the NES emulator.";
+"<b>April 5th Update</b><br><span>Added apps, improved design, improved search, improved mobile support, new weekly apps section, custom keybinds in NES emulator, and more! View full changelog in our Discord.</span>";
 const appsDiv = document.getElementById("apps");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
@@ -7,6 +7,7 @@ const resultsText = document.getElementById("results");
 const clear = document.getElementById("clear");
 const appSizesSelect = document.getElementById("appSizes");
 const daHubSettingsPrefix = "_DH-Setting_";
+let appOpen = false;
 let newApps = 0;
 let sections = [];
 let sectionCount = {};
@@ -71,22 +72,28 @@ async function openWindow(url, title, icon, code, removeCurrent) {
 }
 
 function openSite(url) {
+  appOpen = true;
   const originalOption = particlesEnabled;
   particlesEnabled = false;
   if (document.getElementById("appDiv")) {
     document.getElementById("appDiv").remove();
   }
 
-  let appDiv = document.createElement('div');
-  let closeButton = document.createElement('button');
-  let timerButton = document.createElement('button');
-  let iframe = document.createElement('iframe');
+  const appDiv = document.createElement('div');
+  const buttonDiv = document.createElement('div');
+  const closeButton = document.createElement('button');
+  const timerButton = document.createElement('button');
+  const settingsButton = document.createElement('button');
+  const iframe = document.createElement('iframe');
 
   appDiv.id = "appDiv";
+  buttonDiv.className = "appButtons";
   closeButton.innerText = "BACK";
-  closeButton.className = "appClose";
   timerButton.innerText = "Timer";
   timerButton.className = "speedrunTimerButton";
+  if (!timerEnabled) { timerButton.style.display = "none"; }
+  settingsButton.innerText = "Settings";
+  settingsButton.className = "appSettingsButton";
   iframe.src = `${url}`;
   iframe.className = "appIframe";
 
@@ -94,6 +101,7 @@ function openSite(url) {
     if (confirm("Are you sure you want to close this app?") === true) {
       document.getElementById("main").style.display = "block";
       appDiv.remove();
+      appOpen = false;
       closeSpeedrunTimer();
       particlesEnabled = originalOption;
       if (particlesEnabled == true) {
@@ -106,9 +114,13 @@ function openSite(url) {
     toggleSpeedrunTimer();
   });
 
+  settingsButton.addEventListener('click', toggleSettings);
+
   appDiv.appendChild(iframe);
-  appDiv.appendChild(closeButton);
-  appDiv.appendChild(timerButton);
+  appDiv.appendChild(buttonDiv);
+  buttonDiv.appendChild(closeButton);
+  buttonDiv.appendChild(settingsButton);
+  buttonDiv.appendChild(timerButton);
   document.body.appendChild(appDiv);
   document.getElementById("main").style.display = "none";
 
@@ -183,8 +195,8 @@ clear.addEventListener("click", function () {
   searchApp();
 });
 
-searchForm.addEventListener("submit", handleSearch);
 searchForm.addEventListener("input", handleSearch);
+searchForm.addEventListener("submit", handleSearch);
 
 if (particlesEnabled === true) {
   createParticles();

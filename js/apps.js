@@ -71,7 +71,8 @@ const apps = [
   },
   {
     Name: "Block Break",
-    Added: new Date("April 2, 2025")
+    Added: new Date("April 5, 2025"),
+    Thumbnail: "thumbnail.jpg",
   },
   {
     Name: "Bloons TD 1",
@@ -265,8 +266,9 @@ const apps = [
     Fixed: new Date("October 10, 2024")
   },
   {
-    Name: "Gunblood",
+    Name: "GunBlood",
     Added: new Date("April 4, 2025"),
+    Thumbnail: "thumbnail.jpg",
     Genres: ["shooter"],
     Related: ["ragdoll archers"]
   },
@@ -323,20 +325,20 @@ const apps = [
   },
   {
     Name: "Johnny Upgrade",
-    Added: new Date("April 2, 2025")
-  },
-  {
-    Name: "jsFallout",
-    Added: new Date("April 2, 2025")
+    Added: new Date("April 5, 2025"),
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["platformer"],
   },
   {
     Name: "Learn 2 Fly",
-    Thumbnail: "thumbnail.jpg"
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["flash"],
   },
   {
     Name: "Learn To Fly 3",
     Thumbnail: "thumbnail.jpeg",
-    Added: new Date("January 22, 2025")
+    Added: new Date("January 22, 2025"),
+    Genres: ["flash"],
   },
   {
     Name: "Madalin Stunt Cars 2",
@@ -382,7 +384,6 @@ const apps = [
     Notice: "Opening in another window...",
     Genres: ["open world"],
     Updated: new Date("January 15, 2025"),
-    Fixed: new Date("March 10, 2025"),
     OpenWithCode: true
   },
   {
@@ -672,13 +673,13 @@ const apps = [
   {
     Name: "Temple Run 1",
     Folder: "Temple Run/1/",
-    Added: new Date("April 2, 2025"),
+    Added: new Date("April 5, 2025"),
     Hidden: true
   },
   {
     Name: "Temple Run 2",
     Folder: "Temple Run/2/",
-    Added: new Date("April 2, 2025"),
+    Added: new Date("April 5, 2025"),
     Hidden: true
   },
   {

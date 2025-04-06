@@ -45,9 +45,11 @@ function dragElement(elmnt) {
 }
 
 let currentTimer = null;
+let timerEnabled = false;
 let timerStarted = false;
 let startTime = null;
 function makeTimer() {
+  if (timerEnabled == false) { return; }
   const div = document.createElement("div");
   div.className = "speedrunTimer";
   let timeText = document.createElement("p")
@@ -109,5 +111,12 @@ function toggleSpeedrunTimer() {
     closeSpeedrunTimer();
   } else {
     makeTimer();
+  }
+}
+
+function updateVisibilityOfToggleButton() {
+  const toggleButton = document.querySelector(".speedrunTimerButton");
+  if (toggleButton) {
+    toggleButton.style.display = timerEnabled ? "block" : "none";
   }
 }

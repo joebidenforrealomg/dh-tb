@@ -1,10 +1,9 @@
 const altCSS = document.createElement("style");
 altCSS.rel = 'stylesheet';
 
-// TODO: Hide the other app categories when searching.
 function searchApp(name) {
   var foundApps = [];
-  if (name !== "" && name !== null) {
+  if (name != undefined && name !== "") {
     altCSS.innerHTML = `.appsButton { display: none; animation: none; }
                         .hideOnSearch { display: none; }
                         .foundApp { display: block !important; }`;
@@ -25,7 +24,6 @@ function searchApp(name) {
     foundApps.sort();
     foundApps.forEach(function(app) {
       if (app.Hidden === true) { return; }
-
       const button = document.getElementById(appID(app));
       button.classList.add("foundApp");
     });
@@ -43,8 +41,13 @@ function searchApp(name) {
 }
 
 function handleSearch(e) {
-  e.preventDefault();
-  searchApp(searchInput.value);
+  if (e.type == "submit") {
+    e.preventDefault();
+    e.stopPropagation();
+    searchApp(searchInput.value);
+  } else {
+    searchApp(searchInput.value);
+  }
 }
 
 document.head.appendChild(altCSS);

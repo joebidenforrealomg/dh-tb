@@ -26,52 +26,55 @@
 
 <body>
     <div class="notifications" id="notifications"></div>
+    <div id="settingsFrame" class="backdropBlur">
+        <h1>Settings</h1>
+        <button class="closeButton" id="settingsFSCloseButton" onclick="toggleSettings()">Close</button>
+        <ul id="settingsList"></ul>
+    </div>
     <main id="main">
         <div id="bgFilter"></div>
-        <div class="topHeader blackBGGradientTop">
-            <div class="buttons">
-                <a target="_blank" href="https://forms.gle/wRjANHLeSoAidRvc6">Request a new game</a>
-                <a target="_blank" href="https://butterdogceo.github.io/requests/">View suggestion statuses</a>
+        <div class="topHeader blackBGGradientTop backdropBlur">
+            <div class="buttons backdropBlurChildren">
+                <a target="_blank" href="https://forms.gle/wRjANHLeSoAidRvc6" title="Click to open the Google Form in a new tab">Request a new game</a>
+                <a target="_blank" href="https://butterdogceo.github.io/requests/" title="Click to open the requests website in a new tab">View suggestion statuses</a>
             </div>
             <span id="latestUpdate"></span>
             <span id="logo"><p>Da Hub</p></span>
             <button id="settingsButton" title="Settings" onclick="toggleSettings()"><img src="img/icons/settings.svg"></button>
         </div>
-        <h1 style="margin-top: 80px;">Welcome to <p class="name">Da Hub</p></h1>
-        <form id="searchForm">
-            <p id="results"> </p>
-            <input type="text" placeholder="Search by name, genre, anything" id="searchInput">
-            <button id="clear" title="Clear">X</button>
-        </form>
-        <h2 class="categoryHeader weeklyRecommendations hideOnSearch">Weekly Recommendations</h2>
+        <div class="header">
+            <h1 class="logoText">Welcome to <p class="name">Da Hub</p></h1>
+            <p class="logoSubtext"><i>Created by ButterDogCo</i></p>
+            <form id="searchForm">
+                <p id="results"> </p>
+                <input type="text" placeholder="Search by name, genre, anything" id="searchInput">
+                <button type="button" id="clear" title="Clear">X</button>
+            </form>
+        </div>
+        <h2 class="categoryHeader weeklyRecommendations hideOnSearch"><b>Weekly Recommendations</b></h2>
         <div class="apps weeklyRecommendations hideOnSearch" id="weeklyApps">
             <button class="placeholder" id="weeklyPlaceholder">Weekly recommendations appear here</button>
         </div>
         <hr class="hideOnSearch weeklyRecommendations">
-        <h2 id="newTitle" class="categoryHeader hideOnSearch">Newly Updated and Your Favorites</h2>
+        <h2 id="newTitle" class="categoryHeader hideOnSearch"><b>Newly Updated</b> and <b>Your Favorites</b></h2>
         <div class="appsGroup hideOnSearch">
             <div class="apps" id="newApps">
-                <button class="placeholder" id="newPlaceholder">Recently updated apps appear here</button>
+                <button class="placeholder" id="newPlaceholder">New and updated apps appear here</button>
             </div>
             <div class="apps" id="favorite">
-                <button class="placeholder" id="favoritePlaceholder">Favorited apps appear here</button>
+                <button class="placeholder" id="favoritePlaceholder">Apps you favorite appear here</button>
             </div>
         </div>
         <hr class="hideOnSearch">
-        <h2 class="categoryHeader hideOnSearch">All Apps<br><i>Sorted from A to Z</i></h2>
+        <h2 class="categoryHeader hideOnSearch"><b>All Apps</b><br><i>Sorted from A to Z</i></h2>
         <div class="apps" id="apps"></div>
-        <h1 class="emulatorsSection" class="categoryHeader hideOnSearch">Emulators</h1>
+        <h2 class="emulatorsSection categoryHeader hideOnSearch"><b>Emulators</b></h1>
         <div class="apps emulatorsSection hideOnSearch" id="emulators">
             <button class="placeholder" id="emulatorPlaceholder">Emulators appear here</button>
         </div>
 
-        <div id="settingsFrame">
-            <h1>Settings</h1>
-            <ul id="settingsList"></ul>
-        </div>
-
         <!-- Expanded app view -->
-        <div id="appDetails" class="hidden"> 
+        <div id="appDetails" class="hidden backdropBlur"> 
             <img src="">
             <h1>App Name</h1>
             <p>Related: </p>
@@ -79,7 +82,7 @@
             <p>Added: </p>
         </div>
 
-        <p class="disclaimer blackBGGradientBottom">Welcome to Da Hub, created by ButterDogCo. By using this site, you agree to our <a href="https://butterdogceo.github.io/bdogco/tos">Terms of Service</a>.</p>
+        <p class="disclaimer backdropBlur blackBGGradientBottom">Welcome to Da Hub, created by ButterDogCo. By using this site, you agree to our <a href="https://butterdogceo.github.io/bdogco/tos">Terms of Service</a>.</p>
     </main>
 
     <script src="//cdn.jsdelivr.net/npm/eruda"></script>
