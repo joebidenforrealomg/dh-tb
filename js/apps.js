@@ -266,7 +266,7 @@ const apps = [
     Fixed: new Date("October 10, 2024")
   },
   {
-    Name: "GunBlood",
+    Name: "Gunblood",
     Added: new Date("April 4, 2025"),
     Thumbnail: "thumbnail.jpg",
     Genres: ["shooter"],
