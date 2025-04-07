@@ -260,7 +260,8 @@ sections.forEach(function (section) {
 });
 
 // Check if the user is on mobile
-if (mobileMode == false && isMobile()) {
+if (mobileMode == false && isMobile() && localStorage.getItem(daHubSettingsPrefix + "__MobilePromptIgnore") == null) {
+  localStorage.setItem(daHubSettingsPrefix + "__MobilePromptIgnore", true);
   mobileDetected();
 }
 
