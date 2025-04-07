@@ -6,12 +6,18 @@ const searchInput = document.getElementById("searchInput");
 const resultsText = document.getElementById("results");
 const clear = document.getElementById("clear");
 const appSizesSelect = document.getElementById("appSizes");
-const daHubSettingsPrefix = "_DH-Setting_";
+const daHubSettingsPrefix = "settings-";
+const socialLinks = [
+  {name: "Discord", url: "https://discord.gg/KZzVM4rfg6"},
+  {name: "Alternate Site Hub", url: "https://butterdogceo.github.io/"},
+  {name: "ButterDogCo Site", url: "https://butterdogceo.github.io/bdogco/"},
+];
 let appOpen = false;
 let newApps = 0;
 let sections = [];
 let sectionCount = {};
 let currentAppSize = "default";
+let mobileMode = ["true",true].includes(localStorage.getItem(daHubSettingsPrefix + "MobileMode") || "nope");
 
 document.getElementById("latestUpdate").innerHTML = latestUpdateText;
 
@@ -126,35 +132,83 @@ function openSite(url) {
 
   try {
     var event = new CustomEvent('appOpened', { frame: iframe })
-    window.parent.document.dispatchEvent(event)
+    window.parent.document.dispatchEvent(event);
   } catch (err) {
     // do nothing
   }
 }
 
-function InIframe() {
+function getInIframe() {
   try {
-    return window.self !== window.top;
+    const params = new URL(document.location).searchParams;
+    const iframe = params.get("iframe");
+    return (iframe == "true" && iframe != null);
   } catch (e) {
     return true;
   }
 }
 
-function notInAFrame() {
-  let params = new URL(document.location).searchParams;
-  let iframe = params.get("iframe");
-  if ((iframe !== "true" || iframe === null || iframe === undefined) && InIframe() == false) {
+function checkInFrame() {
+  if (getInIframe() == false) {
     document.body.innerHTML = "";
-    window.location.href = `home?iframe=true`;
+    window.location.href = `home.html?iframe=true`;
   } else {
     window.addEventListener('beforeunload', (event) => {
       event.returnValue = "Are you sure you want to leave?";
     });
     document.addEventListener('contextmenu', function (e) {
-      // toggleContextMenu(e);
       e.preventDefault();
+      // toggleContextMenu(e);
     }, false);
   }
+}
+
+function setupSettingsSocialLinks() {
+  const header = document.createElement("h2");
+  header.innerText = "Extra";
+  header.id = "socialHeader";
+  const container = document.createElement("ul");
+  container.id = "socialLinks";
+  socialLinks.forEach(link => {
+    const li = document.createElement("li");
+    container.appendChild(li);
+    const a = document.createElement("a");
+    a.target = "_blank";
+    a.href = link.url;
+    a.title = link.url;
+    a.innerText = link.name;
+    li.appendChild(a);
+  });
+  settingsList.appendChild(header);
+  settingsList.appendChild(container);
+}
+
+function isMobile() {
+  return (
+    /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || // user agent
+    (window.innerWidth <= 768 && 'ontouchstart' in window)       // screen size + touch
+  );
+}
+
+function mobileDetected() {
+  let onMobile = confirm("Would you like to enable mobile mode? (You can always change this later in settings)");
+  mobileMode = onMobile;
+  localStorage.setItem(daHubSettingsPrefix + "MobileMode", onMobile);
+  try {
+    settings["MobileMode"].SetTo = onMobile;
+    settings["MobileMode"].UpdateFunction(onMobile);
+  } catch (e) {}
+}
+
+function observe(element, callback) {
+  const observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type === 'childList' || mutation.type === 'attributes') {
+        callback(mutation);
+      }
+    }
+  });
+  observer.observe(element, { childList: true, attributes: true });
 }
 
 // Apps setup
@@ -169,12 +223,27 @@ if (_weeklyEnabled == false) {
 }
 sortApps();
 
+// Events
 document.addEventListener('DOMContentLoaded', function () {
-  if (InIframe() == false) {
-    notInAFrame();
-  }
+  checkInFrame();
 });
 
+clear.addEventListener("click", function () {
+  searchInput.value = "";
+  searchApp();
+});
+
+searchForm.addEventListener("input", handleSearch);
+searchForm.addEventListener("submit", handleSearch);
+
+// Final setup
+
+// Mobile mode CSS
+if (mobileMode == true) {
+  document.body.classList.add("mobileMode");
+}
+
+// Load favorites
 if (localStorage.getItem("favorites")) {
   let favorites = JSON.parse(localStorage.getItem("favorites"));
   favorites.forEach(function (item) {
@@ -190,14 +259,12 @@ sections.forEach(function (section) {
   }
 });
 
-clear.addEventListener("click", function () {
-  searchInput.value = "";
-  searchApp();
-});
+// Check if the user is on mobile
+if (mobileMode == false && isMobile()) {
+  mobileDetected();
+}
 
-searchForm.addEventListener("input", handleSearch);
-searchForm.addEventListener("submit", handleSearch);
-
+// Create particles
 if (particlesEnabled === true) {
   createParticles();
 }

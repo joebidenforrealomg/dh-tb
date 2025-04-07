@@ -114,6 +114,10 @@ body {
   overflow-x: hidden;
 }
 
+.showOnMobile {
+  display: none;
+}
+
 #bgFilter {
   backdrop-filter: brightness(80%);
   background: transparent;
@@ -144,7 +148,6 @@ body {
   }
 }
 
-/* Apps div needs a redesign, it may look pretty but it's hard to find games */
 .apps {
   display: inline-flex;
   flex-wrap: wrap;
@@ -153,7 +156,7 @@ body {
   animation: fadeIn 0.5s ease;
 
   button {
-    width: 300px;
+    width: 340px;
     height: 200px;
     font-weight: bold;
     text-align: center;
@@ -165,41 +168,37 @@ body {
     border: transparent 3px solid;
     flex-grow: 0.5;
     margin: 8px;
+    padding: 0;
     border-radius: 8px;
     position: relative;
 
     p.appName {
       position: relative;
+      margin-top: 150px;
       z-index: 2;
       text-align: center;
       font-size: 90%;
-      top: 60%;
       text-overflow: ellipsis;
       max-width: 100%;
       pointer-events: none;
+      overflow: hidden;
     }
     
     img.thumbnail {
-      margin-top: -100px;
-      margin-left: -10%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       object-fit: cover;
-      width: 120%;
-      height: 120%;
+      width: 105%;
+      height: 105%;
       opacity: 0;
       transition: 0.5s ease;
       mask-image: linear-gradient(45deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 75%, rgba(0,0,0,0.19) 100%);
-      /* mask-image: linear-gradient(to top, rgba(0,0,0,0.2) 30%,rgba(0,0,0,1) 100%);
-      background: rgb(255,255,255);
-      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6038457619375875) 75%, rgba(255,255,255,0) 100%); */
     }
 
-    div.overlay::before {
-      width: 100%;
-      height: 20%;
-    }
-
-    div.overlay::after {
-      position: absolute;
+    div.overlay {
+      position: relative;
     }
 
     img.favorite {
@@ -207,30 +206,31 @@ body {
       position: absolute;
       float: right;
       margin-left: calc(50% - var(--width));
-      /* margin-top: -205px; */
       background-image: url(https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_hollow.svg);
       background-repeat: no-repeat;
       background-size: cover;
       width: var(--width);
       height: var(--width);
+      opacity: 0.8;
       color: white;
       mask-image: none;
       cursor: pointer;
       z-index: 2;
     }
 
+    /* When not favorited (show full star) */
     img.favorite:hover, img.favorite.favorited {
+      opacity: 1;
       background-image: url(https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_solid.svg);
     }
 
+    /* When favorited (show empty star) */
     img.favorited:hover {
       background-image: url(https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_hollow.svg);
     }
 
     div.tags {
       position: absolute;
-      /* margin-top: -8px;
-      margin-left: 2px; */
       display: inline-flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -268,10 +268,8 @@ body {
   
   button:hover {
     border: var(--accent) 3px solid;
-    /* transform: rotateX(0deg); */
     
     img.thumbnail {
-      /* mask-image: linear-gradient(to top, rgba(0,0,0,0.4) 30%,rgba(0,0,0,1) 100%); */
       mask-image: linear-gradient(45deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.6) 75%, rgba(255,255,255,0.2) 100%);
     }
   }
@@ -489,6 +487,7 @@ h1 {
 #searchForm {
   margin-top: 5px;
   font-size: 16px;
+  display: inline-flex;
 
   input, #clear {
     font-size: inherit;
@@ -505,7 +504,6 @@ h1 {
     transition: 0.15s ease;
     width: 300px;
     max-width: 77vw;
-    margin-right: -4px;
   }
 
   input:focus {
@@ -514,6 +512,10 @@ h1 {
 
   input:focus, input:focus + #clear {
     border-color: var(--accent);
+    background-color: var(--accentTransparent);
+  }
+
+  input:hover, input:hover + #clear {
     background-color: var(--accentTransparent);
   }
 

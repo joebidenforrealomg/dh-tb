@@ -33,7 +33,6 @@ let settings = {
     Options: ["true", "false"],
     UpdateFunction: function(val) {
       const enabled = (val == "true" || val == true) && true || false;
-      localStorage.setItem("_DH-Setting_WeeklyRecommend", enabled);
       document.querySelectorAll(".weeklyRecommendations").forEach((element) => {
         if (enabled) {
           element.style = "";
@@ -70,6 +69,30 @@ let settings = {
       }
       updateVisibilityOfToggleButton();
     }
+  },
+
+  ["MobileMode"]: {
+    Category: "Features",
+    DisplayName: "Hide non-mobile-supported apps",
+    SetTo: "false",
+    Options: ["false", "true"],
+    UpdateFunction: function(val) {
+      const enabled = (val == "true" || val == true) && true || false;
+      document.body.classList.toggle("mobileMode", enabled);
+      document.querySelectorAll(".apps").forEach(div => {
+        const placeholder = div.querySelector(".placeholder");
+        const allHidden = [...div.querySelectorAll(".appsButton")].every((button) => button.classList.contains("mobileApp") == false);
+        if (placeholder) {
+          if (allHidden == false && enabled == true && div.childElementCount > 1) { // Force hide placeholder since CSS won't handle this due to the child count
+            placeholder.style.display = "none";
+          } else if (allHidden == true && enabled == true && div.childElementCount > 1) { // Force show placeholder since CSS won't handle this due to the child count
+            placeholder.style.display = "block";
+          } else { // Don't override (let CSS handle it)
+            placeholder.style = "";
+          }
+        }
+      });
+    },
   },
 
   ["Transparent background blurring"]: {
@@ -118,7 +141,6 @@ function updateSetting(name, newValue, save) {
   const option = settings[name];
   if (option && checkIfOptionIsValid(option.Options, newValue)) {
     option["SetTo"] = newValue;
-    // if (save) { alert(newValue + typeof(newValue)); }
     if (save == true) {
       saveSetting(name);
     }
@@ -236,3 +258,5 @@ categories.forEach((category) => {
     createOptionButton(option);
   });
 });
+
+setupSettingsSocialLinks(); // Add social links to settings menu

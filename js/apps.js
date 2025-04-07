@@ -4,10 +4,12 @@ const apps = [
     Thumbnail: "thumbnail.jpg",
     Genres: ["fps", "shooter"],
     Related: ["guns", "guns", "fortnite"],
-    Broken: true
+    Broken: true,
+    Hidden: true,
   },
   {
     Name: "2048",
+    Mobile: true,
     Thumbnail: "thumbnail.png",
   },
   {
@@ -27,6 +29,7 @@ const apps = [
   },
   {
     Name: "Angry Birds",
+    Mobile: true,
     Thumbnail: "thumbnail.png",
     Related: ["rovio", "Bad Piggies"]
   },
@@ -36,15 +39,18 @@ const apps = [
   },
   {
     Name: "Aquapark",
+    Mobile: true,
     Thumbnail: "thumbnail.png"
   },
   {
     Name: "Bad Piggies",
+    Mobile: true,
     Thumbnail: "thumbnail.jpg",
     Related: ["Angry Birds", "rovio"]
   },
   {
     Name: "Basket Random",
+    Mobile: true,
     Thumbnail: "thumbnail.jpeg",
     Added: new Date("December 18, 2024"),
   },
@@ -67,21 +73,25 @@ const apps = [
   },
   {
     Name: "Blackjack",
+    Mobile: true,
     Thumbnail: "thumbnail.png"
   },
   {
     Name: "Block Break",
+    Mobile: true,
     Added: new Date("April 5, 2025"),
     Thumbnail: "thumbnail.jpg",
   },
   {
     Name: "Bloons TD 1",
     Folder: "BloonsTD/1/",
+    Mobile: true,
     Thumbnail: "thumbnail.jpg"
   },
   {
     Name: "Bloons TD 4",
     Folder: "BloonsTD/4/",
+    Mobile: true,
     Thumbnail: "thumbnail.png",
     Added: new Date("Febuary 13, 2025")
   },
@@ -91,12 +101,14 @@ const apps = [
   },
   {
     Name: "ButterDog Chat",
+    Mobile: true,
     Thumbnail: "thumbnail.png",
     Added: new Date("January 22, 2025"),
     Hidden: true,
   },
   {
     Name: "Chess",
+    Mobile: true,
     Thumbnail: "thumbnail.png",
     Added: new Date("September 30, 2024"),
   },
@@ -113,12 +125,14 @@ const apps = [
   {
     Name: "Cookie Clicker",
     Folder: "CookieClicker",
+    Mobile: true,
     Thumbnail: "thumbnail.png",
     Updated: new Date("November 5, 2024")
   },
   {
     Name: "Crossy Road",
     Folder: "CrossyRoad",
+    Mobile: true,
     Thumbnail: "thumbnail.png"
   },
   {
@@ -129,6 +143,7 @@ const apps = [
   {
     Name: "Cut the Rope",
     Thumbnail: "thumbnail.jpeg",
+    Mobile: true,
     Added: new Date("November 20, 2024"),
     Notice: "This app may take a moment or two to load. (it gets stuck at a percent for a little while)"
   },
@@ -152,6 +167,7 @@ const apps = [
   {
     Name: "Drift Boss",
     Thumbnail: "thumbnail.jpg",
+    Mobile: true,
     Added: new Date("November 18, 2024"),
   },
   {
@@ -162,6 +178,7 @@ const apps = [
   {
     Name: "Duck Hunt",
     Folder: "DuckHunt",
+    Mobile: true,
     Thumbnail: "thumbnail.jpg"
   },
   {
@@ -207,21 +224,24 @@ const apps = [
   {
     Name: "FNAF 1",
     Folder: "FNAF/1/",
+    Related: ["port"],
+    Mobile: true,
     Thumbnail: "thumbnail.jpeg"
   },
   {
     Name: "FNAF 2",
     Folder: "FNAF/2/",
     Thumbnail: "thumbnail.jpeg",
-    Broken: true,
-    Notice: "This app may not load, we're currently searching for a new game file.",
+    Related: ["scratch", "recreation"],
+    Notice: "This app take a while to load, please be patient.",
   },
   {
     Name: "FNAF 3",
     Folder: "FNAF/3/",
+    Mobile: true,
     Thumbnail: "thumbnail.webp",
-    Broken: true,
-    Notice: "This app may not load, we're currently searching for a new game file.",
+    Related: ["scratch", "recreation"],
+    Notice: "This app take a while to load, please be patient.",
   },
   {
     Name: "FNAF 4",
@@ -230,7 +250,8 @@ const apps = [
   },
   {
     Name: "FNAW",
-    Thumbnail: "thumbnail.jpg"
+    Thumbnail: "thumbnail.jpg",
+    Mobile: true,
   },
   {
     Name: "Friday the 13th (NES)",
@@ -262,6 +283,7 @@ const apps = [
   {
     Name: "Google Snake",
     Folder: "GoogleSnake",
+    Mobile: true,
     Thumbnail: "thumbnail.png",
     Fixed: new Date("October 10, 2024")
   },
@@ -298,6 +320,7 @@ const apps = [
   {
     Name: "Hunger Games",
     Thumbnail: "thumbnail.jpeg",
+    Mobile: true,
     Added: new Date("January 8, 2025"),
   },
   {
@@ -312,15 +335,18 @@ const apps = [
   },
   {
     Name: "Impossible Quiz",
+    Mobile: true,
     Thumbnail: "thumbnail.png"
   },
   {
     Name: "Jacksmith",
+    Mobile: true,
     Thumbnail: "thumbnail.png"
   },
   {
     Name: "Jetpack Joyride",
     Thumbnail: "splash.jpg",
+    Mobile: true,
     Added: new Date("January 22, 2025")
   },
   {

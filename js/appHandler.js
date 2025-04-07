@@ -3,7 +3,7 @@ const _backupAppImage = "img/defaultImage.png";
 const _favoriteAppIcon = "https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_hollow.svg";
 
 function createAppTile(info, app, location) {
-  if ((location && location.querySelector(`#${appID(app)}`) === null) || location == null) {
+  if ((location && location.querySelector(`#${appID(app)}${location && location.id || ""}`) === null) || location == null) {
     if (isReleased(info.added)) {
       const b = document.createElement("button");
       const p = document.createElement("p");
@@ -11,9 +11,13 @@ function createAppTile(info, app, location) {
       const overlay = document.createElement("div");
       const tags = document.createElement("div");
       const fav = document.createElement("img");
-      b.id = appID(app);
-      b.className = "appsButton";
+      b.id = appID(app) + (location && location.id || "");
+      b.classList.add(appID(app));
+      b.classList.add("appsButton");
       b.title = info.hint;
+      if (app.Mobile && app.Mobile == true) {
+        b.classList.add("mobileApp");
+      }
       img.onclick = function () {
         if (info.openWithCode == true) {
           const url = `${window.location.origin}/da-hub/${info.url}`;
@@ -36,14 +40,13 @@ function createAppTile(info, app, location) {
       p.classList.add("appName");
   
       overlay.classList.add("overlay");
-      b.appendChild(overlay);
-  
+      
       tags.classList.add("tags");
       overlay.appendChild(tags);
-  
+      
       fav.classList.add("favorite");
       fav.src = _favoriteAppIcon;
-      fav.title = "Add to favorites";
+      fav.title = "Toggle favorite";
       overlay.appendChild(fav);
       fav.onclick = function () {
         try {
@@ -52,6 +55,10 @@ function createAppTile(info, app, location) {
           console.error(err);
         }
       }
+      
+      b.appendChild(img);
+      b.appendChild(overlay);
+      b.appendChild(p);
   
       if (info.added != undefined) {
         if (info.added.Bool) {
@@ -96,8 +103,6 @@ function createAppTile(info, app, location) {
         fav.classList.add("favorited");
       }
   
-      b.appendChild(p);
-      b.appendChild(img);
       location = location || document.getElementById("apps");
       location.appendChild(b);
   
@@ -261,7 +266,7 @@ function setFavorite(app, makeFavorite) {
     let favorites = getFavorites();
     favorites.push(app.Name);
     localStorage.setItem("favorites", JSON.stringify(favorites));
-    document.querySelectorAll(`#${appID(app)}`).forEach(function (thingy) {
+    document.querySelectorAll(`.${appID(app)}`).forEach(function (thingy) {
       const e = thingy.querySelector(".favorite");
       if (e) {
         e.classList.add("favorited");
@@ -270,11 +275,11 @@ function setFavorite(app, makeFavorite) {
     setupApp(app);
     notify({ Text: `${app.Name} was added to your favorites` });
   } else {
-    const thing = document.querySelector(`#favorite #${appID(app)}`);
+    const thing = document.querySelector(`#favorite #${appID(app)}favorite`);
     if (thing) {
       thing.remove();
     }
-    document.querySelectorAll(`#${appID(app)}`).forEach(function (thingy) {
+    document.querySelectorAll(`.${appID(app)}`).forEach(function (thingy) {
       const e = thingy.querySelector(".favorited");
       if (e) {
         e.classList.remove("favorited");

@@ -6,6 +6,7 @@
   width: 100vw;
   background: rgba(0, 0, 0, 0.5);
   transition: 0.2s ease;
+  transition-property: bottom, opacity;
   z-index: 6;
   bottom: -100vh;
   opacity: 0;
@@ -112,6 +113,36 @@
       }
     }
   }
+  
+  #socialHeader {
+    text-align: center;
+    cursor: default;
+  }
+
+  ul#socialLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      margin: none;
+
+      a {
+        color: var(--accentTransparent);
+        font-size: 20px;
+        transition: 0.15s ease;
+        text-align: center;
+        font-size: 16px;
+      }
+
+      a:hover {
+        color: var(--accentLight);
+      }
+    }
+  }
 
   .closeButton {
     display: block;
@@ -171,3 +202,17 @@ body.blurEnabled {
     }
   }
 }
+
+body.mobileMode {
+  .showOnMobile {
+    display: block;
+  }
+
+  .apps {
+    .appsButton:not(.mobileApp) {
+      display: none;
+    }
+  }
+}
+
+/* Hide a category header if there are no visible children inside */

@@ -24,8 +24,10 @@ function searchApp(name) {
     foundApps.sort();
     foundApps.forEach(function(app) {
       if (app.Hidden === true) { return; }
-      const button = document.getElementById(appID(app));
-      button.classList.add("foundApp");
+      const button = document.getElementById(appID(app) + "apps");
+      if (button) {
+        button.classList.add("foundApp");
+      }
     });
 
     if (name !== "") {
