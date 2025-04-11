@@ -1,5 +1,5 @@
 const latestUpdateText = 
-"<b>April 5th Update</b><br><span>Added apps, improved design, improved search, improved mobile support, new weekly apps section, custom keybinds in NES emulator, and more! View full changelog in our Discord.</span>";
+"<b>April 11th Update</b><br><span>Added a way better version of Block Blast, sorry for the goofy ahh version.</span>";
 const appsDiv = document.getElementById("apps");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
