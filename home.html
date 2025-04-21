@@ -27,81 +27,69 @@
 <body>
     <div class="notifications" id="notifications"></div>
     <div id="settingsFrame" class="backdropBlur">
-        <h1>Settings</h1>
-        <button class="closeButton" id="settingsFSCloseButton" onclick="toggleSettings()">Close</button>
-        <ul id="settingsList">
-            
-        </ul>
-        
+        <h1 data-lang="settingsHeader">Settings</h1>
+        <button class="closeButton" id="settingsFSCloseButton" onclick="toggleSettings()" data-lang="settingsClose">Close</button>
+        <ul id="settingsList"></ul>
     </div>
     <main id="main">
         <div id="bgFilter"></div>
         <div class="topHeader blackBGGradientTop backdropBlur">
             <div class="buttons backdropBlurChildren">
-                <a target="_blank" href="https://forms.gle/wRjANHLeSoAidRvc6" title="Click to open the Google Form in a new tab">Request a new game</a>
-                <a target="_blank" href="https://butterdogceo.github.io/requests/" title="Click to open the requests website in a new tab">View suggestion statuses</a>
+                <a target="_blank" href="https://forms.gle/wRjANHLeSoAidRvc6" title="Click to open the Google Form in a new tab" data-lang="appRequestButton">Request a new game</a>
+                <a target="_blank" href="https://butterdogceo.github.io/requests/" title="Click to open the requests website in a new tab" data-lang="requestStatusesButton">View suggestion statuses</a>
             </div>
-            <span id="latestUpdate"></span>
-            <span id="logo"><p>Da Hub</p></span>
+            <span id="latestUpdate" data-lang="latestUpdate"><b data-lang="latestUpdateVersion"></b><br><span data-lang="latestUpdateContent"></span></span>
+            <span id="logo" onclick="logoClick()"><p>Da Hub</p></span>
             <button id="settingsButton" title="Settings" onclick="toggleSettings()"><img src="img/icons/settings.svg"></button>
         </div>
         <div class="header">
-            <h1 class="logoText">Welcome to <p class="name">Da Hub</p></h1>
-            <p class="logoSubtext"><i>Created by ButterDogCo</i></p>
+            <h1 class="logoText"><span data-lang="logoWelcome">Welcome to</span> <p class="name" onclick="logoClick()">Da Hub</p></h1>
+            <p class="logoSubtext"><i data-lang="logoSubTextSiteCreator">Created by ButterDogCo</i></p>
             <form id="searchForm">
                 <p id="results"> </p>
                 <input type="text" placeholder="Search by name, genre, anything" id="searchInput">
                 <button type="button" id="clear" title="Clear">X</button>
             </form>
         </div>
-        <h2 class="categoryHeader weeklyRecommendations hideOnSearch"><b>Weekly Recommendations</b></h2>
+        <h2 class="categoryHeader weeklyRecommendations hideOnSearch"><b data-lang="weeklyRecommendationsHeader">Weekly Recommendations</b></h2>
         <div class="apps weeklyRecommendations hideOnSearch" id="weeklyApps">
-            <button class="placeholder" id="weeklyPlaceholder">Weekly recommendations appear here</button>
+            <button class="placeholder" id="weeklyPlaceholder" data-lang="weeklyRecommendationsPlaceholder">Weekly recommendations appear here</button>
         </div>
         <hr class="hideOnSearch weeklyRecommendations">
-        <h2 id="newTitle" class="categoryHeader hideOnSearch"><b>Newly Updated</b> and <b>Your Favorites</b></h2>
+        <h2 id="newTitle" class="categoryHeader hideOnSearch"><b data-lang="newlyUpdatedHeader1">Newly Updated</b> <span data-lang="newlyUpdatedHeader2">and</span> <b data-lang="newlyUpdatedHeader3">Your Favorites</b></h2>
         <div class="appsGroup hideOnSearch">
             <div class="apps" id="newApps">
-                <button class="placeholder" id="newPlaceholder">New and updated apps appear here</button>
+                <button class="placeholder" id="newPlaceholder" data-lang="newlyUpdatedPlaceholder">New and updated apps appear here</button>
             </div>
             <div class="apps" id="favorite">
-                <button class="placeholder" id="favoritePlaceholder">Apps you favorite appear here</button>
+                <button class="placeholder" id="favoritePlaceholder" data-lang="favoritesPlaceholder">Apps you favorite appear here</button>
             </div>
         </div>
         <hr class="hideOnSearch">
-        <h2 class="categoryHeader hideOnSearch"><b>All Apps</b><br><i>Sorted from A to Z</i></h2>
-        <h3 class="categoryHeader showOnMobile"><i>Only showing mobile-supported apps - You can disable this in settings</i></h2>
+        <h2 class="categoryHeader hideOnSearch"><b data-lang="allAppsHeader1">All Apps</b><br><i data-lang="allAppsHeader2">Sorted from A to Z</i></h2>
+        <h3 class="categoryHeader showOnMobile"><i data-lang="mobileAppsNotice">Only showing mobile-supported apps - You can disable this in settings</i></h2>
         <div class="apps" id="apps"></div>
-        <h2 class="emulatorsSection categoryHeader hideOnSearch"><b>Emulators</b></h1>
+        <h2 class="emulatorsSection categoryHeader hideOnSearch"><b data-lang="emulatorsHeader">Emulators</b></h1>
         <div class="apps emulatorsSection hideOnSearch" id="emulators">
-            <button class="placeholder" id="emulatorPlaceholder">Emulators appear here</button>
+            <button class="placeholder" id="emulatorPlaceholder" data-lang="emulatorsPlaceholder">Emulators appear here</button>
         </div>
 
-        <!-- Expanded app view -->
-        <div id="appDetails" class="hidden backdropBlur"> 
-            <img src="">
-            <h1>App Name</h1>
-            <p>Related: </p>
-            <p>Genres: </p>
-            <p>Added: </p>
-        </div>
-
-        <p class="disclaimer backdropBlur blackBGGradientBottom">Welcome to Da Hub, created by ButterDogCo. By using this site, you agree to our <a href="https://butterdogceo.github.io/bdogco/tos">Terms of Service</a>.</p>
+        <p class="disclaimer backdropBlur blackBGGradientBottom"><span data-lang="footerDisclaimerText">Welcome to Da Hub, created by ButterDogCo. By using this site, you agree to our</span> <a href="https://butterdogceo.github.io/bdogco/tos" data-lang="footerDisclaimerLink">Terms of Service</a>.</p>
     </main>
 
-    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/eruda"></script>
     <script>
         if (!window.location.href.includes("github.io")) {
             eruda.init(); 
         } 
-    </script>
+    </script> -->
 
+    <script defer src="js/locales.js"></script>
     <script defer src="js/apps.js"></script>
     <script defer src="js/search.js"></script>
     <script defer src="js/messages.js"></script>
     <script defer src="js/particles.js"></script>
     <script defer src="js/appHandler.js"></script>
-    <!-- <script defer src="js/context.js"></script> -->
     <script defer src="js/speedrun.js"></script>
     <script defer src="js/main.js"></script>
     <script defer src="js/dataLoader.js"></script>

@@ -10,14 +10,28 @@ function searchApp(name) {
     document.querySelectorAll(".foundApp").forEach((app) => {
       app.classList.remove("foundApp");
     });
+    const lowerCaseSearch = name.toLowerCase();
     apps.forEach(function (app) {
-      if (app.Hidden === true) { return; }
-      if (app.Genres) { app.Genres.forEach(function(e){ e.toLowerCase() }); }
-      if (app.Related) { app.Related.forEach(function(e){ e.toLowerCase() }); }
-      if (app.Name.toLowerCase().includes(name.toLowerCase()) 
-        || (app.Genres && app.Genres.includes(name.toLowerCase()))
-        || (app.Related && app.Related.includes(name.toLowerCase()))
-      ) {
+      if (app.Hidden == true) return;
+      let match = false;
+      while (match == false) {
+        // Search logic - Look through all properties of the app, and if any of them match the search term, break the loop. Else, keep going until all properties have been searched
+        if (app.hasOwnProperty("Genres")) { 
+          app.Genres = app.Genres.map(e => e.toLowerCase());
+          if (app.Genres.some(genre => genre.includes(lowerCaseSearch))) { match = true; break; }
+        }
+        if (app.hasOwnProperty("Related")) {
+          app.Related = app.Related.map(e => e.toLowerCase());
+          if (app.Related.some(rel => rel.includes(lowerCaseSearch))) { match = true; break;}
+        }
+        if (app.hasOwnProperty("Name")) {
+          app.Name = app.Name.toLowerCase();
+          if (app.Name.includes(lowerCaseSearch)) { match = true; break; }
+        }
+        break;
+      }
+      // Search logic
+      if (match) {
         foundApps.push(app);
       }
     });

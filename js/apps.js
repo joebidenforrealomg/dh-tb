@@ -2,7 +2,7 @@ const apps = [
   {
     Name: "1v1.LOL",
     Thumbnail: "thumbnail.jpg",
-    Genres: ["fps", "shooter"],
+    Genres: ["fps", "shooter", "pvp"],
     Related: ["guns", "guns", "fortnite"],
     Broken: true,
     Hidden: true,
@@ -77,10 +77,16 @@ const apps = [
     Thumbnail: "thumbnail.png"
   },
   {
+    Name: "Block Blast",
+    Added: new Date("April 20, 2025"),
+    Thumbnail: "thumbnail.jpg"
+  },
+  {
     Name: "Block Break",
     Mobile: true,
     Added: new Date("April 5, 2025"),
     Thumbnail: "thumbnail.jpg",
+    Related: ["block blast"]
   },
   {
     Name: "Bloons TD 1",
@@ -291,7 +297,7 @@ const apps = [
     Name: "Gunblood",
     Added: new Date("April 4, 2025"),
     Thumbnail: "thumbnail.jpg",
-    Genres: ["shooter"],
+    Genres: ["shooter", "pvp"],
     Related: ["ragdoll archers"]
   },
   {
@@ -599,6 +605,11 @@ const apps = [
     Folder: "Run/3/",
     Thumbnail: "thumbnail.png",
     Genres: ["flash"],
+  },
+  {
+    Name: "Sand Tetris",
+    Added: new Date("April 20, 2025"),
+    Thumbnail: "thumbnail.jpg",
   },
   {
     Name: "Shell Shockers",

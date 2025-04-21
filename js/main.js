@@ -1,5 +1,3 @@
-const latestUpdateText = 
-"<b>April 11th Update</b><br><span>Added a way better version of Block Blast, sorry for the goofy ahh version.</span>";
 const appsDiv = document.getElementById("apps");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
@@ -7,19 +5,12 @@ const resultsText = document.getElementById("results");
 const clear = document.getElementById("clear");
 const appSizesSelect = document.getElementById("appSizes");
 const daHubSettingsPrefix = "settings-";
-const socialLinks = [
-  {name: "Discord", url: "https://discord.gg/KZzVM4rfg6"},
-  {name: "Alternate Site Hub", url: "https://butterdogceo.github.io/"},
-  {name: "ButterDogCo Site", url: "https://butterdogceo.github.io/bdogco/"},
-];
 let appOpen = false;
 let newApps = 0;
 let sections = [];
 let sectionCount = {};
 let currentAppSize = "default";
-let mobileMode = ["true",true].includes(localStorage.getItem(daHubSettingsPrefix + "MobileMode") || "nope");
-
-document.getElementById("latestUpdate").innerHTML = latestUpdateText;
+let mobileMode = ["true", true].includes(localStorage.getItem(daHubSettingsPrefix + "MobileMode") || "nope");
 
 async function fetchData(url) {
   return fetch(url)
@@ -55,7 +46,7 @@ async function openWindow(url, title, icon, code, removeCurrent) {
       if (html) {
         const parser = new DOMParser();
         const htmlDoc = parser.parseFromString(html, "text/html");
-        
+
         blank.document.write(htmlDoc.documentElement.outerHTML);
         blank.document.writeln(`
           <script>
@@ -65,7 +56,7 @@ async function openWindow(url, title, icon, code, removeCurrent) {
             }
           </script>`
         );
-        blank.document.close();     
+        blank.document.close();
       } else {
         blank.document.write("<h1 style='text-align:center;position:fixed;top:40px;font-family:sans-serif;'>Failed to read the URL, please try again or report this.</h1>")
       }
@@ -77,7 +68,7 @@ async function openWindow(url, title, icon, code, removeCurrent) {
   }
 }
 
-function openSite(url) {
+async function openSite(url) {
   appOpen = true;
   const originalOption = particlesEnabled;
   particlesEnabled = false;
@@ -94,17 +85,17 @@ function openSite(url) {
 
   appDiv.id = "appDiv";
   buttonDiv.className = "appButtons";
-  closeButton.innerText = "BACK";
-  timerButton.innerText = "Timer";
+  closeButton.innerText = await getElementLanguageData("inGameCloseButton");
+  timerButton.innerText = await getElementLanguageData("inGameTimerButton");
   timerButton.className = "speedrunTimerButton";
   if (!timerEnabled) { timerButton.style.display = "none"; }
-  settingsButton.innerText = "Settings";
+  settingsButton.innerText = await getElementLanguageData("inGameSettingsButton");
   settingsButton.className = "appSettingsButton";
   iframe.src = `${url}`;
   iframe.className = "appIframe";
 
-  closeButton.addEventListener('click', function () {
-    if (confirm("Are you sure you want to close this app?") === true) {
+  closeButton.addEventListener('click', async () => {
+    if (confirm(await getElementLanguageData("appCloseConfirm")) === true) {
       document.getElementById("main").style.display = "block";
       appDiv.remove();
       appOpen = false;
@@ -163,26 +154,6 @@ function checkInFrame() {
   }
 }
 
-function setupSettingsSocialLinks() {
-  const header = document.createElement("h2");
-  header.innerText = "Extra";
-  header.id = "socialHeader";
-  const container = document.createElement("ul");
-  container.id = "socialLinks";
-  socialLinks.forEach(link => {
-    const li = document.createElement("li");
-    container.appendChild(li);
-    const a = document.createElement("a");
-    a.target = "_blank";
-    a.href = link.url;
-    a.title = link.url;
-    a.innerText = link.name;
-    li.appendChild(a);
-  });
-  settingsList.appendChild(header);
-  settingsList.appendChild(container);
-}
-
 function isMobile() {
   return (
     /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || // user agent
@@ -190,14 +161,23 @@ function isMobile() {
   );
 }
 
-function mobileDetected() {
-  let onMobile = confirm("Would you like to enable mobile mode? (You can always change this later in settings)");
+async function mobileDetected() {
+  let onMobile = confirm(await getElementLanguageData("mobileDetectPrompt"));
   mobileMode = onMobile;
   localStorage.setItem(daHubSettingsPrefix + "MobileMode", onMobile);
   try {
     settings["MobileMode"].SetTo = onMobile;
     settings["MobileMode"].UpdateFunction(onMobile);
-  } catch (e) {}
+  } catch (e) { }
+}
+
+let __logoClicks = 0;
+function logoClick() {
+  __logoClicks++;
+  if (__logoClicks >= 10) {
+    notify({Text: "<img src='img/butterdog.png' style='width:80px;height:80px;'></img>"});
+    __logoClicks = 0;
+  }
 }
 
 function observe(element, callback) {
