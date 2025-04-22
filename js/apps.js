@@ -319,7 +319,8 @@ const apps = [
     Added: new Date("January 22, 2025"),
   },
   {
-    Name: "House of Horers Simulator",
+    Name: "House of Horers Simulator 🥶",
+    Folder: "House of Horers Simulator",
     Thumbnail: "thumbnail.png",
     Related: ["locked", "unavailable"]
   },

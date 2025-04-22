@@ -1,362 +1,92 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet">
-
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="TemplateData/UnityProgress.js"></script>
+  <script src="Build/UnityLoader.js"></script>
 </head>
-  <body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=540></canvas>
-      <div id="unity-loading-bar">
-          <div id="unity-logo"></div>
-          <div id="unity-progress-bar-empty">
-              <div id="unity-progress-bar-full"></div>
-          </div>
 
-          <button id="my-button">This is a smaller version of the game to work in your browser, expect slooooooow load times.<br>Click Here to download instead</button>
-          <button id="my-logo"></button>
-          <button id="follow-logo"></button>
-          <button id="discord-logo"></button>
-          <input type="text" id="progressTextBox" readonly>
-          <input type="text" id="finalTextBox" readonly>
-          <textarea id="longerTextBox" readonly></textarea>
-          <img src="spinner.png" alt="Loading..." id="loading-gif">
-
-          <button id="download-vert"></button>
-          <button id="discord-vert"></button>
-
-          <button id="download-hori"></button>
-          <button id="discord-hori"></button>
-
-      </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Gayming v6.9.420</div>
-      </div>
+<body>
+  <div class="overlay" id="overlay">
+    <span id="wrongImage"></span>
+    <div class="notice">
+      <section id="passwordSection">
+        <form id="passwordForm">
+          <h1>SUPER SECURE PASSWORD SYSTEM 3000</h1>
+          <input type="text" name="password" placeholder="Enter your password123" id="passwordForm">
+          <button type="submit">Check</button>
+        </form>
+      </section>
+      <section id="helpSection" class="hidden">
+        <h2>hi we made this game trust ong fr fr</h2>
+        <p><b>Use W A S D to move, and space to jump</b></p>
+        <p><i>We highly recommend playing on max volume for the best experience!</i></p>
+        <button id="noticeClose">ok 👍</button>
+      </section>
     </div>
+  </div>
+  <div class="webgl-content">
+    <div id="unityContainer"></div>
+    <div class="footer">
+      <div class="webgl-logo"></div>
+      <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+    </div>
+  </div>
 
-    <script crossorigin="anonymous">
-      function checkPassword() {
-        const question = prompt("what is the super duper secure password123", "robux");
-        // secured by state of the art, military grade encryption
-        if (btoa(question) === "aGV5IGd1eXMgd2VsY29tZSBiYWNrIHRvIGFub3RoZXIgdmlkZW8gdG9kYXkgSSBhbSBtZWV0aW5nIDYgeWVhciBvbGRzIGxpa2UgYW5kIHN1YiB0aGFua3MgZm9yIHdhdGNoaW5n" || localStorage.getItem("alreadyLoggedIn") === true) {
-          superDuperSecretRobuxGeneratorRealOMGHaveKidsInYourRearEnd(question);
-        } else {
-          alert('wrong');
-          document.body.innerHTML = "<p>wrong password</p>";
+  <script>
+    const noticePasswordSection = document.getElementById("passwordSection");
+    const noticePasswordForm = document.getElementById("passwordForm");
+    const noticeHelpSection = document.getElementById("helpSection");
+    const noticeCloseButton = document.getElementById("noticeClose");
+    const noticeWrongPassImage = document.getElementById("wrongImage");
+    const overlay = document.getElementById("overlay");
+    let formDebounce = false;
+
+    function playSound(fileName) {
+      const audio = new Audio(`TemplateData/${fileName}`);
+      audio.play();
+    }
+
+    function closeNotice() {
+      overlay.classList.add("close");
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/no effort.json", { onProgress: UnityProgress });
+      setTimeout(() => {
+        overlay.remove();
+      }, 1500);
+    }
+
+    function onFormSubmit(e) {
+      e.preventDefault();
+      // secure encryption system 3000 (do not continue reading past this point it's impossible to understand anyway obviously)
+      const data = new FormData(noticePasswordForm);
+      if (btoa(data.get("password").trim()) == "eW91ciBwYXNzd29yZDEyMw==") {
+        if (formDebounce) return;
+        formDebounce = true;
+        playSound("correct.mp3");
+        noticeWrongPassImage.classList.add("correct", "show");
+        noticePasswordForm.disabled = true;
+        noticePasswordSection.classList.add("hidden");
+        noticeHelpSection.classList.remove("hidden");
+      } else {
+        playSound("wrong.mp3");
+        if (noticeWrongPassImage.timeoutId) {
+          noticeWrongPassImage.classList.remove("show");
+          clearTimeout(noticeWrongPassImage.timeoutId);
         }
+        setTimeout(() => noticeWrongPassImage.classList.add("show"), 50);
+        noticeWrongPassImage.timeoutId = setTimeout(() => {
+          noticeWrongPassImage.classList.remove("show");
+          noticeWrongPassImage.timeoutId = null;
+        }, 1300);
       }
+    }
 
-      function superDuperSecretRobuxGeneratorRealOMGHaveKidsInYourRearEnd(yea) {
-        if (btoa(yea) === "aGV5IGd1eXMgd2VsY29tZSBiYWNrIHRvIGFub3RoZXIgdmlkZW8gdG9kYXkgSSBhbSBtZWV0aW5nIDYgeWVhciBvbGRzIGxpa2UgYW5kIHN1YiB0aGFua3MgZm9yIHdhdGNoaW5n" || localStorage.getItem("alreadyLoggedIn") === true) {
-          try {
-            var url = 'https://stunning-xylophone-q54j4jjpgjvfpvp-80.app.github.dev/';
-          function UrlExists(url) {
-              var http = new XMLHttpRequest();
-              http.open('HEAD', url, false);
-              http.send();
-              if (http.status === 502) {
-                document.getElementById("my-button").innerText = "Unfortunately the House of Horers server is currently offline, however, you got the correct password. Please contact the site owner to turn on the server."
-              }
-          }
-          } catch (err) {
-            alert(err);
-          }
+    noticeCloseButton.addEventListener("click", closeNotice);
+    noticePasswordForm.addEventListener("submit", onFormSubmit)
+  </script>
+</body>
 
-          localStorage.setItem("alreadyLoggedIn", true);
-          var container = document.querySelector("#unity-container");
-          var canvas = document.querySelector("#unity-canvas");
-          var loadingBar = document.querySelector("#unity-loading-bar");
-          var progressBarFull = document.querySelector("#unity-progress-bar-full");
-          var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-          var warningBanner = document.querySelector("#unity-warning");
-
-          // Shows a temporary message banner/ribbon for a few seconds, or
-          // a permanent error message on top of the canvas if type=='error'.
-          // If type=='warning', a yellow highlight color is used.
-          // Modify or remove this function to customize the visually presented
-          // way that non-critical warnings and error messages are presented to the
-          // user.
-          function unityShowBanner(msg, type) {
-            function updateBannerVisibility() {
-              warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-            }
-            var div = document.createElement('div');
-            div.innerHTML = msg;
-            warningBanner.appendChild(div);
-            if (type == 'error') div.style = 'background: red; padding: 10px;';
-            else {
-              if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-              setTimeout(function() {
-                warningBanner.removeChild(div);
-                updateBannerVisibility();
-              }, 5000);
-            }
-            updateBannerVisibility();
-          }
-
-          var buildUrl = "Build";
-          var loaderUrl = buildUrl + "/House.loader.js";
-          var config = {
-            dataUrl: "https://stunning-xylophone-q54j4jjpgjvfpvp-80.app.github.dev/House.data.unityweb",
-            frameworkUrl: buildUrl + "/House.framework.js.unityweb",
-            codeUrl: buildUrl + "/House.wasm.unityweb",
-            streamingAssetsUrl: "StreamingAssets",
-            companyName: "DefaultCompany",
-            productName: "HoleHouse v0.1",
-            productVersion: "1.0",
-            showBanner: unityShowBanner,
-          };
-
-          // By default Unity keeps WebGL canvas render target size matched with
-          // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-          // Set this to false if you want to decouple this synchronization from
-          // happening inside the engine, and you would instead like to size up
-          // the canvas DOM size and WebGL render target sizes yourself.
-          // config.matchWebGLToCanvasSize = false;
-
-          if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-            // Mobile device style: fill the whole browser client area with the game canvas:
-
-            var meta = document.createElement('meta');
-            meta.name = 'viewport';
-            meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-            document.getElementsByTagName('head')[0].appendChild(meta);
-            container.className = "unity-mobile";
-
-            // To lower canvas resolution on mobile devices to gain some
-            // performance, uncomment the following line:
-            // config.devicePixelRatio = 1;
-
-            canvas.style.width = window.innerWidth + 'px';
-            canvas.style.height = window.innerHeight + 'px';
-
-              unityShowBanner('Click The Logo To Download As WebGL Are Alot Slower On Mobile');
-
-
-              document.getElementById("follow-logo").style.transform = "translate(29%, -130%)";
-              document.getElementById("discord-logo").style.transform = "translate(32%, -300%)";
-
-
-              checkOrientation();
-
-
-              // Add event listener for window resize
-
-              window.addEventListener("resize", adjustBackgroundSize);
-
-              // Add event listener for device orientation change
-
-              window.addEventListener("orientationchange", adjustBackgroundSize);
-          } else {
-            // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
-            canvas.style.width = "960px";
-            canvas.style.height = "540px";
-          }
-
-            function setVertStuff() {
-                var downloadElement = document.getElementById('download-vert');
-                var discordElement = document.getElementById('discord-vert');
-
-                downloadElement.style.display = 'block';
-                discordElement.style.display = 'block';
-
-                document.getElementById("follow-logo").style.display = 'none';
-                document.getElementById("discord-logo").style.display = 'none';
-
-                var downloadElementHori = document.getElementById('download-hori');
-                var discordElementHori = document.getElementById('discord-hori');
-
-                downloadElementHori.style.display = 'none';
-                discordElementHori.style.display = 'none';
-
-            }
-
-            function setHoriStuff() {
-                var downloadElement = document.getElementById('download-vert');
-                var discordElement = document.getElementById('discord-vert');
-
-                downloadElement.style.display = 'none';
-                discordElement.style.display = 'none';
-
-                document.getElementById("follow-logo").style.display = 'none';
-                document.getElementById("discord-logo").style.display = 'none';
-
-                var downloadElementHori = document.getElementById('download-hori');
-                var discordElementHori = document.getElementById('discord-hori');
-
-                downloadElementHori.style.display = 'block';
-                discordElementHori.style.display = 'block';
-
-            }
-            function checkOrientation() {
-                var orientationAngle = window.orientation;
-
-                if (orientationAngle === 0 || orientationAngle === 180) {
-                    setVertStuff();
-                } else if (orientationAngle === 90 || orientationAngle === -90) {
-                    setHoriStuff();
-                }
-            }
-
-            function adjustBackgroundSize() {
-                var meta = document.createElement('meta');
-                meta.name = 'viewport';
-                meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-                document.getElementsByTagName('head')[0].appendChild(meta);
-                container.className = "unity-mobile";
-
-                // To lower canvas resolution on mobile devices to gain some
-                // performance, uncomment the following line:
-                // config.devicePixelRatio = 1;
-
-                canvas.style.width = window.innerWidth + 'px';
-                canvas.style.height = window.innerHeight + 'px';
-
-
-
-
-                document.getElementById("follow-logo").style.transform = "translate(29%, -130%)";
-                document.getElementById("discord-logo").style.transform = "translate(32%, -300%)";
-
-                checkOrientation();
-
-
-            }
-
-
-            canvas.style.background = "url('" + buildUrl + "/(v0.1.56) HoleHouse [WebGL].jpg') center / cover";
-          loadingBar.style.display = "block";
-
-            var script = document.createElement("script");
-            script.crossOrigin = "use-credentials";
-
-            var textBox = document.getElementById("progressTextBox");
-            var finalTextBox = document.getElementById("finalTextBox");
-
-            finalTextBox.value = "Finalizing: 90%";
-            finalTextBox.style.display = "none";
-            textBox.value = "Loading: 0%";
-            textBox.style.display = "block";
-            progressBarFull.style.width = 0;
-
-            var progCount = 0;
-            var updateIntervalDuration = 5;
-            var continueUpdating = true;
-
-            function update() {
-                if (!continueUpdating || progCount >= 99.99) {
-                    finalTextBox.value = "Finishing Up";
-                    return;
-                }
-
-                // Increment the counter
-                if (progCount >= 97.50) {
-                    updateIntervalDuration = 120;
-                    // Hide the progressTextBox
-                    textBox.style.display = "none";
-                    // Show the finalTextBox
-                    finalTextBox.style.display = "block";
-                    finalTextBox.value = "Finalizing: " + progCount.toFixed(2) + "%";
-                    progressBarFull.style.width = progCount.toFixed(2) + "%";
-                    progCount += 0.01;
-                } else if (progCount >= 90) {
-                    updateIntervalDuration = 12;
-                    // Hide the progressTextBox
-                    textBox.style.display = "none";
-                    // Show the finalTextBox
-                    finalTextBox.style.display = "block";
-                    finalTextBox.value = "Finalizing: " + progCount.toFixed(2) + "%";
-                    progressBarFull.style.width = progCount.toFixed(2) + "%";
-                    progCount += 0.01;
-                } else {
-                    // Show the progressTextBox
-                    updateIntervalDuration = 3;
-                    textBox.value = "Loading: " + progCount.toFixed(2) + "%";
-                    progressBarFull.style.width = progCount.toFixed(2) + "%";
-                    progCount += 0.01;
-                }
-                // Recursively call setTimeout for the next iteration with the updated duration
-
-                setTimeout(update, updateIntervalDuration);
-            }
-
-            // Start the first update
-
-            update();
-
-          script.src = loaderUrl;
-          script.onload = () => {
-            createUnityInstance(canvas, config, (progress) => {
-              
-            }).then((unityInstance) => {
-              loadingBar.style.display = "none";
-              fullscreenButton.onclick = () => {
-                unityInstance.SetFullscreen(1);
-              };
-            }).catch((message) => {
-              alert(message);
-            });
-          };
-            document.body.appendChild(script);
-
-            var URLToUse = "https://dotartnsfw.itch.io/hole-house/purchase";
-
-            var discordURL = "https://discord.gg/holehouse";
-
-            var followUrlHold = "https://dotartnsfw.itch.io/hole-house";
-
-            var myButton = document.getElementById("my-button");
-            myButton.addEventListener("click", function () {
-                window.open(URLToUse, "_blank");
-            });
-            var logoButton = document.getElementById("my-logo");
-            logoButton.addEventListener("click", function () {
-                window.open(URLToUse, "_blank");
-            });
-            var followButton = document.getElementById("follow-logo");
-            followButton.addEventListener("click", function () {
-                window.open(followUrlHold, "_blank");
-            });
-
-            var discordButton = document.getElementById("discord-logo");
-            discordButton.addEventListener("click", function () {
-                window.open(discordURL, "_blank");
-            });
-
-            var downloadVert = document.getElementById("download-vert");
-            downloadVert.addEventListener("click", function () {
-                window.open(URLToUse, "_blank");
-            });
-
-            var discordVert = document.getElementById("discord-vert");
-            discordVert.addEventListener("click", function () {
-                window.open(discordURL, "_blank");
-            });
-
-
-            var downloadHori = document.getElementById("download-hori");
-            downloadHori.addEventListener("click", function () {
-                window.open(URLToUse, "_blank");
-            });
-
-            var discordHori = document.getElementById("discord-hori");
-            discordHori.addEventListener("click", function () {
-                window.open(discordURL, "_blank");
-            });
-        }
-      }
-
-      checkPassword();
-    </script>
-  </body>
 </html>

@@ -1,302 +1,275 @@
-body {
-    padding: 0;
-    margin: 0
-}
+@keyframes noticeClose {
+    0% {
+        left: 0;
+        opacity: 1;
+        transform: rotateX(0deg);
+    }
 
-#unity-container {
-    position: absolute
-}
-
-    #unity-container.unity-desktop {
+    25% {
         left: 50%;
+        transform: rotateX(280deg);
+    }
+
+    50% {
+        top: 0;
+        left: 80%;
+        background: red;
+        transform: rotateX(0deg) rotateZ(130deg);
+    }
+
+    75% {
+        top: -30%;
+        transform: rotateX(270deg) rotateY(90deg);
+    }
+
+    100% {
+        top: -300px;
+        left: -150%;
+        background: initial;
+        filter: blur(20px) contrast(10000%);
+        transform: rotateY(0) rotateZ(130deg);
+        opacity: 0;
+    }
+}
+
+@keyframes wrongPassword {
+    0% {
+        opacity: 0;
+    }
+    
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+body {
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+* {
+    font-family: inherit;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    background-color: rgba(0,0,0,0.5);
+
+    #wrongImage {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        width: 300px;
+        height: 200px;
+        max-width: 80vw;
+        max-height: 30vh;
+        opacity: 0;
+        transform: translateX(-50%);
+        background-image: url('wrong.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #wrongImage.show {
+        animation: wrongPassword 1.25s ease-out;
+    }
+
+    #wrongImage.correct {
+        background-image: url('correct.jpg');
+    }
+
+    .notice {
+        position: absolute;
         top: 50%;
-        transform: translate(-50%, -50%)
-    }
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        background-color: rgb(44, 44, 44);
+        border: 2px solid rgba(131, 131, 131, 0.5);
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            row-gap: 8px;
 
-    #unity-container.unity-mobile {
-        width: 100%;
-        height: 100%
-    }
+            * {
+                flex-grow: 1;
+            }
+        }
 
-#unity-canvas {
-    background: #000000
+        input, button {
+            font-size: 16px;
+        }
+
+        input {
+            padding: 8px;
+            background: transparent;
+            border: 2px solid rgba(131,131,131,0.5);
+            transition: 0.2s ease;
+            border-radius: 8px;
+            color: white;
+            text-align: inherit;
+        }
+
+        input:focus {
+            background: rgba(131, 131, 131, 0.5)
+        }
+        
+        button {
+            width: 100%;
+            color: white;
+            border-radius: 8px;
+            padding: 8px;
+            background-color: rgb(121, 121, 255);
+            opacity: 0.7;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+        
+        button:hover, button:focus {
+            opacity: 1;
+        }
+
+        input:not(:placeholder-shown) + button {
+            background-color: rgb(121, 121, 255);
+            outline: none;
+        }
+
+        input:placeholder-shown + button {
+            background-color: transparent;
+            outline: 2px solid gray;
+        }
+    }
 }
 
-.unity-mobile #unity-canvas {
-    width: 100%;
-    height: 100%
+.overlay.close {
+    animation: noticeClose 1.7s ease-in;
 }
 
-#unity-loading-bar {
+.hidden {
+    display: none !important;
+}
+
+.webgl-content * {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.webgl-content {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+}
+
+.webgl-content .logo,
+.progress {
     position: absolute;
     left: 50%;
     top: 50%;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    display: none
 }
 
-#unity-logo {
+.webgl-content .logo {
+    background: url('progressLogo.Light.png') no-repeat center / contain;
     width: 154px;
     height: 130px;
-    background: url('unity-logo-dark.png') no-repeat center;
-    opacity: 0;
 }
 
-#unity-progress-bar-empty {
+.webgl-content .progress {
+    height: 18px;
     width: 141px;
-    height: 18px;
-    margin-top: 10px;
-    margin-left: 6.5px;
-    background: url('progress-bar-empty-dark.png') no-repeat center
+    margin-top: 90px;
 }
 
-#unity-progress-bar-full {
-    width: 0%;
-    height: 18px;
-    margin-top: 10px;
-    background: url('progress-bar-full-dark.png') no-repeat center
+.webgl-content .progress .empty {
+    background: url('progressEmpty.Light.png') no-repeat right / cover;
+    float: right;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
 }
 
-#unity-footer {
-    position: relative
-}
-
-.unity-mobile #unity-footer {
-    display: none
-}
-
-#unity-webgl-logo {
+.webgl-content .progress .full {
+    background: url('progressFull.Light.png') no-repeat left / cover;
     float: left;
-    width: 204px;
-    height: 38px;
-    background: url('webgl-logo.png') no-repeat center
+    width: 0%;
+    height: 100%;
+    display: inline-block;
 }
 
-#unity-build-title {
-    float: right;
-    margin-right: 10px;
+.webgl-content .logo.Dark {
+    background-image: url('progressLogo.Dark.png');
+}
+
+.webgl-content .progress.Dark .empty {
+    background-image: url('progressEmpty.Dark.png');
+}
+
+.webgl-content .progress.Dark .full {
+    background-image: url('progressFull.Dark.png');
+}
+
+.webgl-content .footer {
+    margin-top: 5px;
+    height: 38px;
     line-height: 38px;
-    font-family: arial;
-    font-size: 18px
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    font-size: 18px;
 }
 
-#unity-fullscreen-button {
+.webgl-content .footer .webgl-logo,
+.title,
+.fullscreen {
+    height: 100%;
+    display: inline-block;
+    background: transparent center no-repeat;
+}
+
+.webgl-content .footer .webgl-logo {
+    background-image: url('butterdogco\ wide.png');
+    background-size: contain;
+    background-position: left;
+    width: 230px;
+    float: left;
+}
+
+.webgl-content .footer .title {
+    margin-right: 10px;
     float: right;
+}
+
+.webgl-content .footer .fullscreen {
+    background-image: url('fullscreen.png');
     width: 38px;
-    height: 38px;
-    background: url('fullscreen-button.png') no-repeat center
+    float: right;
 }
 
-#unity-warning {
-    position: absolute;
-    left: 50%;
-    top: 5%;
-    transform: translate(-50%);
-    background: white;
-    padding: 10px;
-    display: none
+#unityContainer {
+    width: 100%;
+    height: 95%;
 }
-
-#my-button {
-    position: absolute;
-    top: -70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    padding: 15px 200px;
-    width: 300px;
-    height: 150px;
-    background-color: rgba(204, 204, 204, 0);
-    border: none;
-    border-radius: 5px;
-    color: #ccc;
-    font-size: fit-content;
-    font-family: 'Fredoka', sans-serif;
-    cursor: pointer;
-}
-
-#my-logo {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 154px;
-    height: 154px;
-    cursor: pointer;
-    background: url('profile-pic.png') no-repeat center;
-    background-size: contain;
-    background-color: rgba(204, 204, 204, 0);
-    border: none;
-    padding: 0;
-    z-index: 10;
-}
-
-#follow-logo {
-    position: absolute;
-    top: 180%;
-    left: -140%;
-    transform: translate(-50%, -50%);
-    width: 364px;
-    height: 28px;
-    cursor: pointer;
-    background: url('follow-updates.png') no-repeat center;
-    background-size: contain;
-    background-color: rgba(204, 204, 204, 0);
-    border: none;
-    padding: 0;
-}
-
-#discord-logo {
-    position: absolute;
-    top: 180%;
-    left: -140%;
-    transform: translate(125%, -50%);
-    width: 364px;
-    height: 28px;
-    cursor: pointer;
-    background: url('join-discord.png') no-repeat center;
-    background-size: contain;
-    background-color: rgba(204, 204, 204, 0);
-    border: none;
-    padding: 0;
-}
-
-#progressTextBox {
-    position: absolute;
-    top: 115%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    width: 150px;
-    height: 50px;
-    background-color: rgba(204, 204, 204, 0);
-    border: none;
-    /* border-radius: 5px;*/
-    color: #ccc;
-    font-size: fit-content;
-    font-family: 'Fredoka', sans-serif;
-    /* Disable text selection */
-    user-select: none;
-    /* Disable outline when clicked */
-    outline: none;
-    cursor: default;
-    text-align: center;
-}
-
-#finalTextBox {
-    position: absolute;
-    top: 115%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    width: 150px;
-    height: 50px;
-    background-color: rgba(204, 204, 204, 0);
-    border: none;
-    /* border-radius: 5px;*/
-    color: #ccc;
-    font-size: fit-content;
-    font-family: 'Fredoka', sans-serif;
-    /* Disable text selection */
-    user-select: none;
-    /* Disable outline when clicked */
-    outline: none;
-    cursor: default;
-    text-align: center;
-}
-
-#longerTextBox {
-    position: absolute;
-    top: 155%;
-    left: 50%;
-    transform: translate(-50%, -10%);
-    /* box-sizing: border-box;*/
-    width: 350px;
-    height: 150px;
-    background-color: rgba(204, 204, 204, 0);
-    border: none;
-    /* border-radius: 5px;*/
-    color: #ccc;
-    font-size: 12px;
-    font-family: 'Fredoka', sans-serif;
-    /* Disable text selection */
-    user-select: none;
-    /* Disable outline when clicked */
-    outline: none;
-    cursor: default;
-    text-align: center;
-    resize: none; /* Hide the resize handle */
-    overflow: hidden;
-}
-
-#loading-gif {
-    display: none;
-    position: absolute;
-    right: -50px;
-    transform: translate(-5%, -67%);
-}
-
-#download-vert {
-    position: absolute;
-    top: 180%;
-    left: -140%;
-    transform: translate(240%, -107%);
-    width: 56px;
-    height: 364px;
-    cursor: pointer;
-    background: url('download-vert.png') no-repeat center;
-    background-size: contain;
-    background-color: rgba(204, 204, 204, 0);
-    border: none;
-    padding: 0;
-    display: none;
-}
-
-#discord-vert {
-    position: absolute;
-    top: 180%;
-    left: -140%;
-    transform: translate(700%, -107%);
-    width: 56px;
-    height: 364px;
-    cursor: pointer;
-    background: url('discord-vert.png') no-repeat center;
-    background-size: contain;
-    background-color: rgba(204, 204, 204, 0);
-    border: none;
-    padding: 0;
-    display: none;
-}
-
-#download-hori {
-    position: absolute;
-    top: 180%;
-    left: -140%;
-    transform: translate(7%, -290%);
-    width: 125px;
-    height: 100px;
-    cursor: pointer;
-    background: url('download-hori.png') no-repeat center;
-    background-size: contain;
-    background-color: rgba(204, 204, 204, 0);
-    border: none;
-    padding: 0;
-    display: none;
-}
-
-#discord-hori {
-    position: absolute;
-    top: 180%;
-    left: -140%;
-    transform: translate(360%, -290%);
-    width: 125px;
-    height: 100px;
-    cursor: pointer;
-    background: url('discord-hori.png') no-repeat center;
-    background-size: contain;
-    background-color: rgba(204, 204, 204, 0);
-    border: none;
-    padding: 0;
-    display: none;
-}
-
