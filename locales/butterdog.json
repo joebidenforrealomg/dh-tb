@@ -1,8 +1,8 @@
 {
     "settingsHeader": "stuf u wanna chainge",
     "settingsClose": "leave",
-    "latestUpdateVersion": "apiril 20 UDPATEE!!!11!",
-    "latestUpdateContent": "add te new SAND TETIRIS gaem + and te beter block blsat 2.0. te serch bar was also fix AGAIAN!..",
+    "latestUpdateVersion": "apiril 24 UDPATEE!!!11!",
+    "latestUpdateContent": "ADD te new 7 app 'n stuf and fix smol isue 👍",
     "appRequestButton": "ask for new gaem",
     "requestStatusesButton": "see te sugest status",
     "logoWelcome": "hi welcom TOO!!!",
@@ -42,5 +42,18 @@
     "settingsItemImportSavedData": "Import saved data (Overwrites ALL data and settings)",
     "settingsExtraHeader": "cool stuf",
     "settingsSocialAlternateSiteHub": "ohter sites & stuf",
-    "settingsSocialButterDogCoSite": "TE BUTTERDOG Site"
+    "settingsSocialButterDogCoSite": "TE BUTTERDOG Site",
+
+    "notifyAddedToFavorites": "was add to ur favorit stuf",
+    "notifyRemovedFromFavorites": "is not in ur favoriet stuf anymor 😭😭😭",
+
+    "appTagNew": "NEW!!1!",
+    "appTagUpdated": "UDPAET!!",
+    "appTagFixed": "fIXED!!!",
+
+    "appRequestButtonTitle": "click here to open te APP REQEUST GOoGLE form",
+    "requestStatusesButtonTitle": "clikc here 2 open teh reqeust websiet",
+    "headerSettingsButtonTitle": "nerd stuf",
+    "searchAppsPlaceholder": "serch 4 stuf or someting idk",
+    "searchAppsClearTitle": "give up an clear ur serch text"
 }

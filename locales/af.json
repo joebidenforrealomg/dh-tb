@@ -1,8 +1,8 @@
 {
     "settingsHeader": "Instellings",
     "settingsClose": "Sluit",
-    "latestUpdateVersion": "20 April Opdatering",
-    "latestUpdateContent": "Sand Tetris en 'n beter weergawe van Block Blast is bygevoeg. Die soekbalk is ook weer reggemaak.",
+    "latestUpdateVersion": "24 April Opdatering",
+    "latestUpdateContent": "7 nuwe apps is bygevoeg, saam met klein foutoplossings.",
     "appRequestButton": "Versoek 'n nuwe speeletjie",
     "requestStatusesButton": "Sien voorstelstatusse",
     "logoWelcome": "Welkom by",
@@ -41,6 +41,20 @@
     "settingsItemExportSavedData": "Voer gestoorde data uit (Sluit ALLE data en instellings in)",
     "settingsItemImportSavedData": "Voer gestoorde data in (Oorskryf ALLE data en instellings)",
     "settingsExtraHeader": "Ekstra",
+    "settingsSocialDiscord": "Disc\fo\frd",
     "settingsSocialAlternateSiteHub": "Alternatiewe Da Hub",
-    "settingsSocialButterDogCoSite": "ButterDogCo Werf"
+    "settingsSocialButterDogCoSite": "ButterDogCo Werf",
+
+    "notifyAddedToFavorites": "is by jou gunstelinge gevoeg",
+    "notifyRemovedFromFavorites": "is uit jou gunstelinge verwyder",
+
+    "appTagNew": "NUUT",
+    "appTagUpdated": "OPGEDATEER",
+    "appTagFixed": "REGGESTEL",
+
+    "appRequestButtonTitle": "Klik om die Google-vorm in 'n nuwe oortjie oop te maak",
+    "requestStatusesButtonTitle": "Klik om die versoekwebwerf in 'n nuwe oortjie oop te maak",
+    "headerSettingsButtonTitle": "Instellings",
+    "searchAppsPlaceholder": "Soek volgens naam, genre, enigiets",
+    "searchAppsClearTitle": "Vee uit"
 }

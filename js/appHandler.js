@@ -63,8 +63,9 @@ function createAppTile(info, app, location) {
       if (info.added != undefined) {
         if (info.added.Bool) {
           const newP = document.createElement("p");
-          newP.innerText = "NEW";
+          newP.innerText = (() => {try { return unsafeGetElementLanguageData("appTagNew");}catch(e){return "NEW"}})() ?? "NEW";
           newP.classList.add("new");
+          newP.setAttribute("data-lang", "appTagNew");
           newP.title = "This app was recently added (within the last 7 days)";
           tags.appendChild(newP);
           newApps++;
@@ -81,8 +82,9 @@ function createAppTile(info, app, location) {
   
       if (info.fixed.Bool) {
         const newP = document.createElement("p");
-        newP.innerText = "FIXED";
+        newP.innerText = (() => {try { return unsafeGetElementLanguageData("appTagFixed");}catch(e){return "FIXED"}})() ?? "FIXED";
         newP.classList.add("fixed");
+        newP.setAttribute("data-lang", "appTagFixed");
         newP.title = "This app was recently fixed.";
         tags.appendChild(newP);
         newApps++;
@@ -91,7 +93,8 @@ function createAppTile(info, app, location) {
       if (info.updated != undefined) {
         if (info.updated.Bool) {
           const newP = document.createElement("p");
-          newP.innerText = "UPDATED";
+          newP.innerText = (() => {try { return unsafeGetElementLanguageData("appTagUpdated");}catch(e){return "UPDATED"}})() ?? "UPDATED";
+          newP.setAttribute("data-lang", "appTagUpdated");
           newP.classList.add("updated");
           newP.title = "This app was recently updated to a newer version.";
           tags.appendChild(newP);
@@ -261,7 +264,7 @@ function isFavorite(app) {
   }
 }
 
-function setFavorite(app, makeFavorite) {
+async function setFavorite(app, makeFavorite) {
   if (makeFavorite) {
     let favorites = getFavorites();
     favorites.push(app.Name);
@@ -273,7 +276,7 @@ function setFavorite(app, makeFavorite) {
       }
     });
     setupApp(app);
-    notify({ Text: `${app.Name} was added to your favorites` });
+    notify({ Text: `${app.Name} ${await getElementLanguageData("notifyAddedToFavorites")}` });
   } else {
     const thing = document.querySelector(`#favorite #${appID(app)}favorite`);
     if (thing) {
@@ -288,7 +291,7 @@ function setFavorite(app, makeFavorite) {
     let favorites = getFavorites();
     favorites.splice(favorites.indexOf(app.Name), 1);
     localStorage.setItem("favorites", JSON.stringify(favorites));
-    notify({ Text: `${app.Name} has been removed from your favorites` });
+    notify({ Text: `${app.Name} ${await getElementLanguageData("notifyRemovedFromFavorites")}` });
   }
 }
 
