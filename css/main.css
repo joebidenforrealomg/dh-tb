@@ -577,6 +577,7 @@ h1 {
     left: 0;
     display: flex;
     flex-direction: column;
+    pointer-events: none;
 
     button {
       transform: translateX(-50%);
@@ -589,6 +590,7 @@ h1 {
       transition: 0.15s ease;
       opacity: 0.5;
       margin-bottom: 8px;
+      pointer-events: all;
     }
 
     button:hover {

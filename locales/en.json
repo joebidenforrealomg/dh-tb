@@ -1,10 +1,13 @@
 {
     "settingsHeader": "Settings",
     "settingsClose": "Close",
-    "latestUpdateVersion": "April 23rd Update",
-    "latestUpdateContent": "---",
+    "latestUpdateVersion": "April 24th Update",
+    "latestUpdateContent": "Added 7 new apps, along with small bug fixes.",
     "appRequestButton": "Request a new game",
+    "appRequestButtonTitle": "Click to open the Google Form in a new tab",
     "requestStatusesButton": "View suggestion statuses",
+    "requestStatusesButtonTitle": "Click to open the requests website in a new tab",
+    "headerSettingsButtonTitle": "Settings",
     "logoWelcome": "Welcome to",
     "logoSubTextSiteCreator": "Created by ButterDogCo",
     "weeklyRecommendationsHeader": "Weekly Recommendations",
@@ -41,6 +44,17 @@
     "settingsItemExportSavedData": "Export saved data (Includes ALL data and settings)",
     "settingsItemImportSavedData": "Import saved data (Overwrites ALL data and settings)",
     "settingsExtraHeader": "Extra",
+    "settingsSocialDiscord": "Disc\fo\frd",
     "settingsSocialAlternateSiteHub": "Alternate Site Hub",
-    "settingsSocialButterDogCoSite": "ButterDogCo Site"
+    "settingsSocialButterDogCoSite": "ButterDogCo Site",
+    
+    "notifyAddedToFavorites": "was added to your favorites",
+    "notifyRemovedFromFavorites": "has been removed from your favorites",
+
+    "appTagNew": "NEW",
+    "appTagUpdated": "UPDATED",
+    "appTagFixed": "FIXED",
+
+    "searchAppsPlaceholder": "Search by name, genre, anything",
+    "searchAppsClearTitle": "Clear"
 }

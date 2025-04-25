@@ -1,8 +1,8 @@
 {
     "settingsHeader": "Configuración",
     "settingsClose": "Cerrar",
-    "latestUpdateVersion": "Actualización del 20 de abril",
-    "latestUpdateContent": "---",
+    "latestUpdateVersion": "Actualización del 24 de abril",
+    "latestUpdateContent": "Se añadieron 7 nuevas apps, junto con pequeñas correcciones de errores.",
     "appRequestButton": "Solicitar un nuevo juego",
     "requestStatusesButton": "Ver el estado de las sugerencias",
     "logoWelcome": "Bienvenido a",
@@ -41,6 +41,20 @@
     "settingsItemExportSavedData": "Exportar datos guardados (Incluye TODOS los datos y configuraciones)",
     "settingsItemImportSavedData": "Importar datos guardados (Sobrescribe TODOS los datos y configuraciones)",
     "settingsExtraHeader": "Extra",
+    "settingsSocialDiscord": "Disc\fo\frd",
     "settingsSocialAlternateSiteHub": "Sitio alternativo de Da Hub",
-    "settingsSocialButterDogCoSite": "Sitio de ButterDogCo"
+    "settingsSocialButterDogCoSite": "Sitio de ButterDogCo",
+
+    "notifyAddedToFavorites": "fue añadida a tus favoritos",
+    "notifyRemovedFromFavorites": "ha sido eliminada de tus favoritos",
+
+    "appTagNew": "NUEVO",
+    "appTagUpdated": "ACTUALIZADO",
+    "appTagFixed": "ARREGLADO",
+
+    "appRequestButtonTitle": "Haz clic para abrir el formulario de Google en una nueva pestaña",
+    "requestStatusesButtonTitle": "Haz clic para abrir el sitio de solicitudes en una nueva pestaña",
+    "headerSettingsButtonTitle": "Configuración",
+    "searchAppsPlaceholder": "Buscar por nombre, género, lo que sea",
+    "searchAppsClearTitle": "Borrar"
 }

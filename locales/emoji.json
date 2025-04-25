@@ -40,5 +40,13 @@
     "settingsItemImportSavedData": "Import saved data (Overwrites ALL data and settings)",
     "settingsExtraHeader": "➕",
     "settingsSocialAlternateSiteHub": "Alternate Site Hub",
-    "settingsSocialButterDogCoSite": "🧈🐶 Site"
+    "settingsSocialButterDogCoSite": "🧈🐶 Site",
+
+    "appTagNew": "🆕",
+    "appTagUpdated": "🆕🗞️",
+    "appTagFixed": "🏗️👍",
+
+    "headerSettingsButtonTitle": "⚙️",
+    "searchAppsPlaceholder": "🔍🤔",
+    "searchAppsClearTitle": "❌"
 }
