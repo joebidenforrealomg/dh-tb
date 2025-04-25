@@ -389,7 +389,7 @@ h1 {
   text-align: center;
   top: 0;
   cursor: default;
-  border-bottom: rgba(255,255,255,0.5) 3px solid;
+  border-bottom: var(--accent) 3px solid;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 5px;
@@ -425,10 +425,11 @@ h1 {
       margin-bottom: 15px;
       margin-right: 5px;
       margin-left: 5px;
+      color: rgba(255,255,255,0.8);
       border-top: rgba(23, 23, 23, 0.5) 3px solid;
-      border-bottom: rgba(255,255,255,0.5) 3px solid;
-      border-right: rgba(255,255,255,0.5) 3px solid;
-      border-left: rgba(255,255,255,0.5) 3px solid;
+      border-bottom: var(--accent) 3px solid;
+      border-right: var(--accent) 3px solid;
+      border-left: var(--accent) 3px solid;
       border-bottom-right-radius: 20px;
       border-bottom-left-radius: 20px;
       padding-top: 10px;
@@ -440,8 +441,9 @@ h1 {
     }
 
     a:hover {
+      color: white;
       background-color: var(--accentTransparent);
-      border-top-color: var(--accent);
+      border-top-color: var(--accentLight);
     }
   }
 
