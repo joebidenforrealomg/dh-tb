@@ -35,10 +35,13 @@ async function openWindow(url, title, icon, code, removeCurrent) {
   if (code == false || code == undefined) {
     var link = blank.document.createElement('link');
     var style = blank.document.createElement('style');
+    var meta = blank.document.createElement('meta');
 
     link.rel = "shortcut icon";
     link.href = icon || "";
     style.innerHTML = `body { width: 100vw;height: 100vh;margin: 0; background: black; } iframe { width: 100vw;height: 100vh;border: none;outline: none;margin: 0;} p { cursor: pointer;font-family: monospace;position: fixed;z-index: 2;padding: 8px;left: 0;transform: translateX(-50%);transition: 0.2s ease;opacity: 0.5;background: black;border: 2px solid lime;color: lime;} p:hover { left: 8px;transform: translateX(0);opacity: 1;}`;
+    meta.setAttribute("name", "viewport");
+    meta.setAttribute("content", "width=device-width, initial-scale=1");
     blank.document.title = title || "New Tab";
     var iframe = blank.document.createElement('iframe');
     iframe.src = `${url}`;
@@ -102,7 +105,6 @@ async function openSite(url) {
   if (!timerEnabled) { timerButton.style.display = "none"; }
   settingsButton.innerText = await getElementLanguageData("inGameSettingsButton");
   settingsButton.className = "appSettingsButton";
-  settingsButton.setAttribute("data-lang", "inGameSettingsButton");
   iframe.src = `${url}`;
   iframe.className = "appIframe";
 
@@ -141,9 +143,6 @@ async function openSite(url) {
   }
 }
 
-/**
- * Returns whether or not the current window has the iframe=true parameter.
- */
 function getInIframe() {
   try {
     const params = new URL(document.location).searchParams;
@@ -154,9 +153,6 @@ function getInIframe() {
   }
 }
 
-/**
- * Checks whether or not the window is in an iframe, and corrects the URL if needed.
- */
 function checkInFrame() {
   if (getInIframe() == false) {
     document.body.innerHTML = "";
@@ -172,9 +168,6 @@ function checkInFrame() {
   }
 }
 
-/**
- * Returns whether or not the user is currently on a mobile device
- */
 function isMobile() {
   return (
     /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || // user agent
@@ -182,9 +175,6 @@ function isMobile() {
   );
 }
 
-/**
- * Handler for detected mobile devices.
- */
 async function mobileDetected() {
   let onMobile = confirm(await getElementLanguageData("mobileDetectPrompt"));
   mobileMode = onMobile;
@@ -240,13 +230,19 @@ clear.addEventListener("click", function () {
 searchForm.addEventListener("input", handleSearch);
 searchForm.addEventListener("submit", handleSearch);
 
-/* 
-  Final setup
-*/
+// Final setup
 
 // Mobile mode CSS
 if (mobileMode == true) {
   document.body.classList.add("mobileMode");
+}
+
+// Load favorites
+if (localStorage.getItem("favorites")) {
+  let favorites = JSON.parse(localStorage.getItem("favorites"));
+  favorites.forEach(function (item) {
+    createApp(item, true);
+  });
 }
 
 sections.forEach(function (section) {

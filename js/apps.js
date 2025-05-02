@@ -331,6 +331,7 @@ const apps = [
   },
   {
     Name: "Happy Wheels",
+    Thumbnail: "thumbnail.jpg",
     Added: new Date("April 24, 2025")
   },
   {
