@@ -105,6 +105,7 @@ async function openSite(url) {
   if (!timerEnabled) { timerButton.style.display = "none"; }
   settingsButton.innerText = await getElementLanguageData("inGameSettingsButton");
   settingsButton.className = "appSettingsButton";
+  settingsButton.setAttribute("data-lang", "inGameSettingsButton");
   iframe.src = `${url}`;
   iframe.className = "appIframe";
 
@@ -143,6 +144,10 @@ async function openSite(url) {
   }
 }
 
+
+/**
+ * Returns whether or not the current window has the iframe=true parameter.
+ */
 function getInIframe() {
   try {
     const params = new URL(document.location).searchParams;
@@ -153,6 +158,9 @@ function getInIframe() {
   }
 }
 
+/**
+ * Checks whether or not the window is in an iframe, and corrects the URL if needed.
+ */
 function checkInFrame() {
   if (getInIframe() == false) {
     document.body.innerHTML = "";
@@ -168,6 +176,9 @@ function checkInFrame() {
   }
 }
 
+/**
+ * Returns whether or not the user is currently on a mobile device
+ */
 function isMobile() {
   return (
     /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || // user agent
@@ -175,6 +186,10 @@ function isMobile() {
   );
 }
 
+
+/**
+ * Handler for detected mobile devices.
+ */
 async function mobileDetected() {
   let onMobile = confirm(await getElementLanguageData("mobileDetectPrompt"));
   mobileMode = onMobile;
@@ -230,19 +245,14 @@ clear.addEventListener("click", function () {
 searchForm.addEventListener("input", handleSearch);
 searchForm.addEventListener("submit", handleSearch);
 
-// Final setup
+
+/* 
+  Final setup
+*/
 
 // Mobile mode CSS
 if (mobileMode == true) {
   document.body.classList.add("mobileMode");
-}
-
-// Load favorites
-if (localStorage.getItem("favorites")) {
-  let favorites = JSON.parse(localStorage.getItem("favorites"));
-  favorites.forEach(function (item) {
-    createApp(item, true);
-  });
 }
 
 sections.forEach(function (section) {
