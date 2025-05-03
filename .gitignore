@@ -2,3 +2,5 @@
 _site/
 .jekyll-cache
 zip_temp
+node_modules/
+resizeThumbnails.js

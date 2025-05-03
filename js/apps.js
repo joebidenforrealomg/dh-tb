@@ -8,6 +8,11 @@ const apps = [
     Hidden: true,
   },
   {
+    Name: "10 Minutes Till Dawn",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("May 2, 2025")
+  },
+  {
     Name: "2048",
     Mobile: true,
     Thumbnail: "thumbnail.png",
@@ -35,6 +40,7 @@ const apps = [
   },
   {
     Name: "Anxiety",
+    Thumbnail: "thumbnail.png",
     Added: new Date("November 20, 2024")
   },
   {
@@ -260,6 +266,11 @@ const apps = [
     Mobile: true,
   },
   {
+    Name: "Friday Night Funkin'",
+    Folder: "Friday Night Funkin",
+    Added: new Date("May 1, 2025")
+  },
+  {
     Name: "Friday the 13th (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=fridaythe13th",
@@ -374,6 +385,11 @@ const apps = [
     Genres: ["flash"],
   },
   {
+    Name: "Little Alchemy 2",
+    Folder: "Little Alchemy/2",
+    Added: new Date("May 1, 2025")
+  },
+  {
     Name: "Madalin Stunt Cars 2",
     Folder: "Madalin Stunt Cars/2/",
     Thumbnail: "thumbnail.jpeg",
@@ -440,7 +456,7 @@ const apps = [
   },
   {
     Name: "Monkey Mart",
-    Thumbnail: "thumbnai.jpg",
+    Thumbnail: "thumbnail.jpg",
     Hidden: true,
     Added: new Date("December 16, 2024")
   },
@@ -533,7 +549,7 @@ const apps = [
   },
   {
     Name: "Portal (Flash)",
-    Folder: "Portal%20WCS2/",
+    Folder: "Portal WCS2/",
     Thumbnail: "thumbnail.png",
     Added: new Date("November 1, 2024"),
     Genres: ["remake", "flash"],
@@ -801,3 +817,5 @@ apps.sort(function (a, b) {
   }
   return 0;
 });
+
+// module.exports = apps;
