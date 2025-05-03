@@ -2,4 +2,5 @@
 _site/
 .jekyll-cache
 zip_temp
-RUN_SERVER.md
+node_modules/
+resizeThumbnails.js
