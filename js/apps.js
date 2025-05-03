@@ -142,6 +142,11 @@ const apps = [
     Updated: new Date("November 5, 2024")
   },
   {
+    Name: "Crazy Cattle 3D",
+    Thumbnail: "thumbnail.png",
+    Added: new Date("April 24, 2025")
+  },
+  {
     Name: "Crossy Road",
     Folder: "CrossyRoad",
     Mobile: true,
@@ -188,6 +193,11 @@ const apps = [
     Added: new Date("January 8, 2025"),
   },
   {
+    Name: "Drive Mad",
+    Thumbnail: "thumbnail.png",
+    Added: new Date("April 24, 2025")
+  },
+  {
     Name: "Duck Hunt",
     Folder: "DuckHunt",
     Mobile: true,
@@ -232,6 +242,18 @@ const apps = [
     Folder: "Fancy Pants/1/",
     Added: new Date("November 12, 2024"),
     Hidden: true,
+  },
+  {
+    Name: "Fire Boy and Water Girl 1",
+    Folder: "Fire Boy and Water Girl/1",
+    Added: new Date("April 24, 2025"),
+    Hidden: true
+  },
+  {
+    Name: "Fire Boy and Water Girl 2",
+    Folder: "Fire Boy and Water Girl/2",
+    Added: new Date("April 24, 2025"),
+    Hidden: true
   },
   {
     Name: "FNAF 1",
@@ -319,7 +341,12 @@ const apps = [
     Notice: "To launch this app, simply press the first \"Start\" button, then \"Launch Xash3D!\"."
   },
   {
-    Name: "Slow Roads (Modded)",
+    Name: "Happy Wheels",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("April 24, 2025")
+  },
+  {
+    Name: "Slow Roads modded (Hell Roads)",
     Folder: "Hell Roads/",
     Thumbnail: "thumbnail.jpg",
     Added: new Date("October 15, 2024")
@@ -471,6 +498,11 @@ const apps = [
     Genres: ["driving", "bike", "racing", "race"]
   },
   {
+    Name: "MotoX3M Pool Party",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("April 24, 2025"),
+  },
+  {
     Name: "n-gon",
     Thumbnail: "thumbnail.png",
     Added: new Date("December 16, 2024")
@@ -511,10 +543,11 @@ const apps = [
     Added: new Date("January 22, 2025")
   },
   {
-    Name: "Plants vs Zombies",
-    Thumbnail: "thumbnail.jpg",
+    Name: "Plants Vs. Zombies",
+    Folder: "Plants vs Zombies",
+    Thumbnail: "thumbnail.jpeg",
     Added: new Date("January 22, 2025"),
-    Hidden: true,
+    Fixed: new Date("April 24, 2025"),
     Related: ["pvz"],
   },
   {
@@ -525,6 +558,7 @@ const apps = [
     Added: new Date("January 6, 2025"),
     Genres: ["classic", "nintendo"],
     Broken: true,
+    Hidden: true,
   },
   {
     Name: "Punchout 2 (NES)",
@@ -534,6 +568,7 @@ const apps = [
     Added: new Date("January 6, 2025"),
     Genres: ["classic", "nintendo"],
     Broken: true,
+    Hidden: true,
   },
   {
     Name: "Polytrack",
@@ -657,6 +692,11 @@ const apps = [
     Thumbnail: "thumbnail.png"
   },
   {
+    Name: "Slow Roads",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("April 24, 2025")
+  },
+  {
     Name: "Soccer Random",
     Thumbnail: "thumbnail.webp",
     Added: new Date("December 18, 2024"),
@@ -739,6 +779,11 @@ const apps = [
   {
     Name: "Tetris",
     Thumbnail: "thumbnail.jpg"
+  },
+  {
+    Name: "There is no game",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("April 24, 2025")
   },
   {
     Name: "Tomb of the Mask",

@@ -21,12 +21,28 @@ function unsafeGetElementLanguageData(name) {
 }
 
 async function updateLanguageElements() {
-    const elements = document.querySelectorAll("[data-lang]");
+    const elements = document.querySelectorAll("[data-lang], [data-lang-title], [data-lang-placeholder]");
     elements.forEach(async (element) => {
         const key = element.getAttribute("data-lang");
-        const text = await getElementLanguageData(key);
-        if (text) {
-            element.innerText = text;
+        const titleKey = element.getAttribute("data-lang-title");
+        const placeholderKey = element.getAttribute("data-lang-placeholder");
+        if (key) {
+            const text = await getElementLanguageData(key);
+            if (text) {
+                element.innerText = text;
+            }
+        }
+        if (titleKey) {
+            const text = await getElementLanguageData(titleKey);
+            if (text) {
+                element.setAttribute("title", text);
+            }
+        }
+        if (placeholderKey) {
+            const text = await getElementLanguageData(placeholderKey);
+            if (text) {
+                element.setAttribute("placeholder", text);
+            }
         }
     });
     console.log("Successfully updated page language");
@@ -46,7 +62,8 @@ async function updateLanguage(lang = "en") {
         .catch(error => {
             console.error('Error loading language file:', error);
             try {
-                notify({Text: "Failed to load language file"});
+                notify({Text: "Failed to load language file, defaulting to English.", ShowTime: 4000});
+                updateLanguage("en");
             } catch (err) {}
         });
 }
