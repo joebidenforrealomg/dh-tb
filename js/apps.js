@@ -10,7 +10,7 @@ const apps = [
   {
     Name: "10 Minutes Till Dawn",
     Thumbnail: "thumbnail.jpg",
-    Added: new Date("May 2, 2025")
+    Added: new Date("May 3, 2025")
   },
   {
     Name: "2048",
@@ -290,7 +290,8 @@ const apps = [
   {
     Name: "Friday Night Funkin'",
     Folder: "Friday Night Funkin",
-    Added: new Date("May 1, 2025")
+    Thumbnail: "thumbnail.png",
+    Added: new Date("May 3, 2025")
   },
   {
     Name: "Friday the 13th (NES)",
@@ -414,7 +415,8 @@ const apps = [
   {
     Name: "Little Alchemy 2",
     Folder: "Little Alchemy/2",
-    Added: new Date("May 1, 2025")
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("May 3, 2025")
   },
   {
     Name: "Madalin Stunt Cars 2",
