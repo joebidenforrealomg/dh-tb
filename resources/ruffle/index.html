@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        body {
+            background-color: #000000;
+            margin: 0;
+        }
+
+        div,
+        embed,
+        ruffle-embed {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // This script gets the "file" parameter, and sets the embed src to use that data.
+        const params = new URLSearchParams(window.location.search);
+        const file = params.get('file');
+        if (file) {
+            const embedElement = document.createElement('embed');
+            embedElement.setAttribute("src", "swf/" + file + ".swf");
+            document.body.appendChild(embedElement);
+            const script = document.createElement("script");
+            script.src = "ruffle.js";
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+
+</html>

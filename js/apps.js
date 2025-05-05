@@ -34,9 +34,27 @@ const apps = [
   },
   {
     Name: "Angry Birds",
-    Mobile: true,
-    Thumbnail: "thumbnail.png",
-    Related: ["rovio", "Bad Piggies"]
+    Folder: "../resources/ruffle/",
+    Index: "index.html?file=angry-birds-chrome",
+    Thumbnail: "thumbnails/angrybirds.png",
+    Related: ["rovio", "bad piggies", "flash"],
+    Updated: new Date("May 4, 2025")
+  },
+  {
+    Name: "Angry Birds Halloween",
+    Folder: "../resources/ruffle/",
+    Index: "index.html?file=angry-birds-halloween",
+    Thumbnail: "thumbnails/angrybirds-halloween.jpg",
+    Related: ["rovio", "bad piggies", "flash"],
+    Added: new Date("May 4, 2025")
+  },
+  {
+    Name: "Angry Birds Rio",
+    Folder: "../resources/ruffle/",
+    Index: "index.html?file=angry-birds-rio",
+    Thumbnail: "thumbnails/angrybirds-rio.png",
+    Related: ["rovio", "bad piggies", "flash"],
+    Added: new Date("May 4, 2025")
   },
   {
     Name: "Anxiety",
@@ -52,7 +70,16 @@ const apps = [
     Name: "Bad Piggies",
     Mobile: true,
     Thumbnail: "thumbnail.jpg",
-    Related: ["Angry Birds", "rovio"]
+    Related: ["rovio", "angry birds", "flash"],
+  },
+  {
+    Name: "Bad Piggies v2.0",
+    Description: "This adds on to the content for the first version, with new levels and more.",
+    Folder: "../resources/ruffle/",
+    Index: "index.html?file=bad-piggies-hd-2",
+    Thumbnail: "thumbnails/badpiggies.jpg",
+    Related: ["rovio", "angry birds", "flash"],
+    Added: new Date("May 4, 2025")
   },
   {
     Name: "Basket Random",
@@ -297,7 +324,7 @@ const apps = [
     Name: "Friday the 13th (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=fridaythe13th",
-    Thumbnail: "thumbnails/fridaythe13th.webp",
+    Thumbnail: "thumbnails/fridaythe13th.jpg",
     Added: new Date("December 18, 2024"),
     Genres: ["classic", "nintendo"],
   },
@@ -354,7 +381,7 @@ const apps = [
   },
   {
     Name: "Hole.io",
-    Thumbnail: "thumbnail.avif",
+    Thumbnail: "thumbnail.jpg",
     Added: new Date("January 22, 2025"),
   },
   {
@@ -541,7 +568,7 @@ const apps = [
   {
     Name: "Paper.io 2",
     Folder: "Paper.io/2/",
-    Thumbnail: "thumbnail.avif",
+    Thumbnail: "thumbnail.jpg",
     Added: new Date("January 22, 2025")
   },
   {
@@ -556,7 +583,7 @@ const apps = [
     Name: "Punchout (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=punchout",
-    Thumbnail: "thumbnails/punchout.webp",
+    Thumbnail: "thumbnails/punchout.jpg",
     Added: new Date("January 6, 2025"),
     Genres: ["classic", "nintendo"],
     Broken: true,
@@ -705,7 +732,7 @@ const apps = [
   },
   {
     Name: "Solitare",
-    Thumbnail: "thumbnail.avif",
+    Thumbnail: "thumbnail.jpg",
     Added: new Date("November 18, 2024")
   },
   {
@@ -839,15 +866,10 @@ const apps = [
     Added: new Date("Febuary 13, 2025"),
     Hidden: true
   },
-  {
-    Name: "YouTube",
-    Added: new Date("Febuary 13, 2025"),
-    Hidden: true
-  },
 
   // Begin Emulators
   {
-    Name: "GBA Emulator",
+    Name: "Game Boy Advance Emulator",
     Folder: "GBA-gh-pages/",
     Thumbnail: "Binaries/gb.ico",
     Section: "emulators",

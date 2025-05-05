@@ -94,7 +94,7 @@ hr {
 }
 
 html {
-  background-color: rgb(36, 46, 62);
+  background-color: rgb(62, 36, 60);
   background-image: url("https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/background.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -155,7 +155,7 @@ body {
   width: 100%;
   animation: fadeIn 0.5s ease;
 
-  button {
+  .appsButton, .placeholder {
     width: 340px;
     height: 200px;
     font-weight: bold;
@@ -171,10 +171,11 @@ body {
     padding: 0;
     border-radius: 8px;
     position: relative;
+    animation: fadeIn 0.2s ease;
 
     p.appName {
       position: relative;
-      margin-top: 150px;
+      margin: 140px 15px 20px 15px;
       z-index: 2;
       text-align: center;
       font-size: 90%;
@@ -182,6 +183,7 @@ body {
       max-width: 100%;
       pointer-events: none;
       overflow: hidden;
+      white-space: nowrap;
     }
     
     img.thumbnail {
@@ -201,14 +203,16 @@ body {
       position: relative;
     }
 
-    img.favorite {
+    button.favorite {
       --width: 50px;
       position: absolute;
       float: right;
-      margin-left: calc(50% - var(--width));
+      background-color: transparent;
       background-image: url(https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_hollow.svg);
       background-repeat: no-repeat;
       background-size: cover;
+      border: none;
+      margin-left: calc(50% - var(--width));
       width: var(--width);
       height: var(--width);
       opacity: 0.8;
@@ -219,13 +223,13 @@ body {
     }
 
     /* When not favorited (show full star) */
-    img.favorite:hover, img.favorite.favorited {
+    button.favorite:hover, button.favorite:focus, button.favorite.favorited {
       opacity: 1;
       background-image: url(https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_solid.svg);
     }
 
     /* When favorited (show empty star) */
-    img.favorited:hover {
+    button.favorited:hover, button.favorited:focus {
       background-image: url(https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_hollow.svg);
     }
 
@@ -266,24 +270,31 @@ body {
     }
   }
   
-  button:hover {
+  .appsButton:hover, .appsButton:focus, .appsButton:focus-within {
     border: var(--accent) 3px solid;
+    transform: scale(1.05);
     
     img.thumbnail {
       mask-image: linear-gradient(45deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.6) 75%, rgba(255,255,255,0.2) 100%);
     }
   }
 
-  button.placeholder {
+  div.placeholder {
     background-color: rgba(0,0,0,0.15);
-    /* border: rgba(0,0,0,0.15) 3px solid; */
     border: 3px transparent;
     flex-grow: 1;
+    line-height: 200px;
     cursor: default;
     display: block;
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: normal;
+    }
   }
 
-  button.placeholder:not(:only-child) {
+  div.placeholder:not(:only-child) {
     display: none;
   }
 }

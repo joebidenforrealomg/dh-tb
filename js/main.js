@@ -11,6 +11,7 @@ let sections = [];
 let sectionCount = {};
 let currentAppSize = "default";
 let mobileMode = ["true", true].includes(localStorage.getItem(daHubSettingsPrefix + "MobileMode") || "nope");
+let currentApp;
 
 /**
  * Sends a get request to the provided URL, and returns the response text.
@@ -67,7 +68,7 @@ async function openWindow(url, title, icon, code, removeCurrent) {
         );
         blank.document.close();
       } else {
-        blank.document.write("<h1 style='text-align:center;position:fixed;top:40px;font-family:sans-serif;'>Failed to read the URL, please try again or report this.</h1>")
+        blank.document.write("<h1 style='text-align:center;position:fixed;top:40px;font-family:sans-serif;'>Failed to read the URL, please try again or report this.</h1>");
       }
     });
   }

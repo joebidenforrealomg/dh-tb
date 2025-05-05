@@ -2,7 +2,7 @@ const _weeklyAppsCount = 4;
 const _backupAppImage = "img/defaultImage.png";
 const _favoriteAppIcon = "https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/icons/star_hollow.svg";
 
-function createAppTile(info, app, location) {
+function createAppTile(info, app, location, lazy=false) {
   if ((location && location.querySelector(`#${appID(app)}${location && location.id || ""}`) === null) || location == null) {
     if (isReleased(info.added)) {
       const b = document.createElement("button");
@@ -10,7 +10,7 @@ function createAppTile(info, app, location) {
       const img = document.createElement("img");
       const overlay = document.createElement("div");
       const tags = document.createElement("div");
-      const fav = document.createElement("img");
+      const fav = document.createElement("button");
       b.id = appID(app) + (location && location.id || "");
       b.classList.add(appID(app));
       b.classList.add("appsButton");
@@ -18,7 +18,8 @@ function createAppTile(info, app, location) {
       if (app.Mobile && app.Mobile == true) {
         b.classList.add("mobileApp");
       }
-      img.onclick = function () {
+      if (lazy == true) img.setAttribute("loading", "lazy");
+      img.onclick = () => {
         if (info.openWithCode == true) {
           const url = `${window.location.origin}/da-hub/${info.url}`;
           openWindow(url, "New Tab", "", true, false);
@@ -31,10 +32,8 @@ function createAppTile(info, app, location) {
             'app_name':app.Name
           });
         } catch (err) {}
-        if (app.Notice) {
-          notify({Text:app.Notice,ShowTime:5000})
-        }
-      };
+        if (app.Notice) notify({Text:app.Notice, ShowTime:5000});
+      }
   
       p.innerText = app.Name;
       p.classList.add("appName");
@@ -45,16 +44,15 @@ function createAppTile(info, app, location) {
       overlay.appendChild(tags);
       
       fav.classList.add("favorite");
-      fav.src = _favoriteAppIcon;
       fav.title = "Toggle favorite";
-      overlay.appendChild(fav);
-      fav.onclick = function () {
+      fav.onclick = () => {
         try {
           setFavorite(app, !isFavorite(app));
         } catch (err) {
           console.error(err);
         }
       }
+      overlay.appendChild(fav);
       
       b.appendChild(img);
       b.appendChild(overlay);
@@ -119,8 +117,6 @@ function createAppTile(info, app, location) {
       img.src = `${info.folder || ""}/${info.thumbnail || "thumbnail.png"}`;
       img.classList.add("thumbnail");
     }
-  } else if (location && location.querySelector(`#${appID(app)}`)) {
-    let thing = location.querySelector(`#${appID(app)}`);
   }
 }
 
@@ -205,21 +201,31 @@ function setupApp(app) {
   if (!sections.indexOf(app.Section)) {
     sections.push(app.Section);
   }
-  sectionCount[app.Section] = sectionCount[app.Section] + 1;
+  sectionCount[app.Section] += 1;
 
-  if (info.pinned == true) {
-    createAppTile(info, app, document.getElementById("favorite"));
-    if (info.newlyUpdated) {
-      createAppTile(info, app, document.getElementById("newApps"));
-    } else {
-      createAppTile(info, app, document.getElementById(app.Section));
-    }
-  } else if (info.newlyUpdated) {
-    createAppTile(info, app, document.getElementById("newApps"));
-    createAppTile(info, app, document.getElementById(app.Section));
-  } else {
-    createAppTile(info, app, document.getElementById(app.Section));
-  }
+  // Setup
+  let sectionsToAddTo = [];
+  if (info.newlyUpdated) sectionsToAddTo.push("newApps");
+  if (info.pinned) sectionsToAddTo.push("favorite");
+  if (info.newlyUpdated) sectionsToAddTo.push("newApps");
+  sectionsToAddTo.push(app.Section);
+
+  sectionsToAddTo.forEach(section => {
+    createAppTile(info, app, document.getElementById(section), section == "apps");
+  });
+  // if (info.pinned == true) {
+  //   createAppTile(info, app, document.getElementById("favorite"));
+  //   if (info.newlyUpdated) {
+  //     createAppTile(info, app, document.getElementById("newApps"));
+  //   } else {
+  //     createAppTile(info, app, document.getElementById(app.Section));
+  //   }
+  // } else if (info.newlyUpdated) {
+  //   createAppTile(info, app, document.getElementById("newApps"));
+  //   createAppTile(info, app, document.getElementById(app.Section));
+  // } else {
+  //   createAppTile(info, app, document.getElementById(app.Section));
+  // }
 }
 
 function sortApps() {
