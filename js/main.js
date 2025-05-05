@@ -48,6 +48,7 @@ async function openWindow(url, title, icon, code, removeCurrent) {
     iframe.src = `${url}`;
     blank.document.head.appendChild(style);
     blank.document.head.appendChild(link);
+    blank.document.head.appendChild(meta);
     blank.document.body.appendChild(iframe);
   } else {
     blank.document.open();
