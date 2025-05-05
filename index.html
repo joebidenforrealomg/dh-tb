@@ -8,16 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex,none,noimageindex" />
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta charset="utf-8"> 
+    <meta charset="utf-8">
 </head>
 
 <body>
     <script src="js/main.js" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/eruda" defer></script>
+    <script>
+        let __erudaOpened = false;
+        document.addEventListener("keydown", (event) => {
+            if (__erudaOpened == true) return;
+            if (event.key == 'i' && event.altKey && event.ctrlKey) {
+                __erudaOpened = true;
+                eruda.init();
+                try {
+                    notify({ Text: "Browser console opened" });
+                } catch (_) { }
+            }
+        });
+    </script>
 
     <main id="main">
         <div id="bgFilter"></div>
         <div class="apps" id="apps">
-            <button class="appsButton" onclick='const baseURL = window.location.origin + window.location.pathname.replace(/\/[^\/]+$/, "/"); openWindow(`${baseURL}home.html?iframe=true`); window.location.replace("https://google.com");'>Open</button>
+            <button class="appsButton"
+                onclick='const baseURL = window.location.origin + window.location.pathname.replace(/\/[^\/]+$/, "/"); openWindow(`${baseURL}home.html?iframe=true`); window.location.replace("https://google.com");'>Open</button>
         </div>
     </main>
 </body>
