@@ -77,12 +77,20 @@
         <p class="disclaimer backdropBlur blackBGGradientBottom"><span data-lang="footerDisclaimerText">Welcome to Da Hub, created by ButterDogCo. By using this site, you agree to our</span> <a href="https://butterdogceo.github.io/bdogco/tos" data-lang="footerDisclaimerLink">Terms of Service</a>.</p>
     </main>
 
-    <!-- <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
     <script>
-        if (!window.location.href.includes("github.io")) {
-            eruda.init(); 
-        } 
-    </script> -->
+        let __erudaOpened = false;
+        document.addEventListener("keydown", (event) => {
+            if (__erudaOpened == true) return;
+            if (event.key == 'i' && event.altKey && event.ctrlKey) {
+                __erudaOpened = true;
+                eruda.init();
+                try {
+                    notify({Text:"Browser console opened"});
+                } catch (_) {}
+            }
+        });
+    </script>
 
     <script defer src="js/locales.js"></script>
     <script defer src="js/apps.js"></script>

@@ -37,6 +37,7 @@ const apps = [
     Folder: "../resources/ruffle/",
     Index: "index.html?file=angry-birds-chrome",
     Thumbnail: "thumbnails/angrybirds.png",
+    Mobile: true,
     Related: ["rovio", "bad piggies", "flash"],
     Updated: new Date("May 4, 2025")
   },
@@ -44,6 +45,7 @@ const apps = [
     Name: "Angry Birds Halloween",
     Folder: "../resources/ruffle/",
     Index: "index.html?file=angry-birds-halloween",
+    Mobile: true,
     Thumbnail: "thumbnails/angrybirds-halloween.jpg",
     Related: ["rovio", "bad piggies", "flash"],
     Added: new Date("May 4, 2025")
@@ -52,6 +54,7 @@ const apps = [
     Name: "Angry Birds Rio",
     Folder: "../resources/ruffle/",
     Index: "index.html?file=angry-birds-rio",
+    Mobile: true,
     Thumbnail: "thumbnails/angrybirds-rio.png",
     Related: ["rovio", "bad piggies", "flash"],
     Added: new Date("May 4, 2025")
@@ -77,6 +80,7 @@ const apps = [
     Description: "This adds on to the content for the first version, with new levels and more.",
     Folder: "../resources/ruffle/",
     Index: "index.html?file=bad-piggies-hd-2",
+    Mobile: true,
     Thumbnail: "thumbnails/badpiggies.jpg",
     Related: ["rovio", "angry birds", "flash"],
     Added: new Date("May 4, 2025")
@@ -568,6 +572,7 @@ const apps = [
   {
     Name: "Paper.io 2",
     Folder: "Paper.io/2/",
+    Mobile: true,
     Thumbnail: "thumbnail.jpg",
     Added: new Date("January 22, 2025")
   },
@@ -575,6 +580,7 @@ const apps = [
     Name: "Plants Vs. Zombies",
     Folder: "Plants vs Zombies",
     Thumbnail: "thumbnail.jpeg",
+    Mobile: true,
     Added: new Date("January 22, 2025"),
     Fixed: new Date("April 24, 2025"),
     Related: ["pvz"],
@@ -658,12 +664,6 @@ const apps = [
     Folder: "RiddleSchool/3/",
     Thumbnail: "thumbnail.jpg",
     Genres: ["flash"],
-  },
-  {
-    Name: "Roblox Remake",
-    Folder: "RobloxRemake/",
-    Thumbnail: "thumbnail.png",
-    Hidden: true
   },
   {
     Name: "Robux Generator Clicker",
@@ -886,5 +886,3 @@ apps.sort(function (a, b) {
   }
   return 0;
 });
-
-// module.exports = apps;
