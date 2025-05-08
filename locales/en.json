@@ -56,5 +56,7 @@
     "appTagFixed": "FIXED",
 
     "searchAppsPlaceholder": "Search by name, genre, anything",
-    "searchAppsClearTitle": "Clear"
+    "searchAppsClearTitle": "Clear",
+
+    "settingsItemflipInAppButtons": "Flip in app buttons (Close, Timer, etc.) to the right"
 }

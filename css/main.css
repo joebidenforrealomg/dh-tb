@@ -581,7 +581,7 @@ h1 {
     outline: none;
     border: none;
   }
-
+  
   .appButtons {
     position: absolute;
     top: 0;
@@ -589,7 +589,7 @@ h1 {
     display: flex;
     flex-direction: column;
     pointer-events: none;
-
+    
     button {
       transform: translateX(-50%);
       padding: 12px;
@@ -603,13 +603,31 @@ h1 {
       margin-bottom: 8px;
       pointer-events: all;
     }
-
+    
     button:hover {
-      transform: translateX(0);
-      margin-left: 5px;
+      transform: translateX(0) !important;
       background: rgba(0,0,0,0.5);
       border: 3px solid var(--accent);
+      margin-left: 5px;
       opacity: 1;
+    }
+  }
+}
+
+body.flipInAppButtons {
+  #appDiv {
+    .appButtons {
+      left: auto;
+      right: 0;
+  
+      button {
+        transform: translateX(50%);
+      }
+      
+      button:hover {
+        margin-left: unset;
+        margin-right: 5px;
+      }
     }
   }
 }

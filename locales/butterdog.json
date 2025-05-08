@@ -55,5 +55,7 @@
     "requestStatusesButtonTitle": "clikc here 2 open teh reqeust websiet",
     "headerSettingsButtonTitle": "nerd stuf",
     "searchAppsPlaceholder": "serch 4 stuf or someting idk",
-    "searchAppsClearTitle": "give up an clear ur serch text"
+    "searchAppsClearTitle": "give up an clear ur serch text",
+
+    "settingsItemflipInAppButtons": "move te app buton (clos, timer, etc.) to te right"
 }

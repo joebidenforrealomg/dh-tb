@@ -140,6 +140,17 @@ async function initSettings() {
       },
     },
 
+    ["FlipInAppButtons"]: {
+      Category: "Features",
+      LanguageKey: "flipInAppButtons",
+      SetTo: "false",
+      Options: ["false", "true"],
+      UpdateFunction: function (val) {
+        const enabled = (val == "true" || val == true) && true || false;
+        document.body.classList.toggle("flipInAppButtons", enabled);
+      }
+    },
+
     ["Transparent background blurring"]: {
       Category: "Performance",
       LanguageKey: "TransparentBackgroundBlurring",

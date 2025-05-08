@@ -56,5 +56,7 @@
     "requestStatusesButtonTitle": "Klik om die versoekwebwerf in 'n nuwe oortjie oop te maak",
     "headerSettingsButtonTitle": "Instellings",
     "searchAppsPlaceholder": "Soek volgens naam, genre, enigiets",
-    "searchAppsClearTitle": "Vee uit"
+    "searchAppsClearTitle": "Vee uit",
+
+    "settingsItemflipInAppButtons": "Skuif in-app knoppies (Sluit, Tydhouer, ens.) na regs"
 }

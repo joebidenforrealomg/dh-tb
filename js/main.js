@@ -98,7 +98,7 @@ async function openSite(url) {
   const iframe = document.createElement('iframe');
 
   appDiv.id = "appDiv";
-  buttonDiv.className = "appButtons";
+  buttonDiv.classList.add("appButtons");
   closeButton.innerText = await getElementLanguageData("inGameCloseButton");
   closeButton.setAttribute("data-lang", "inGameCloseButton");
   timerButton.innerText = await getElementLanguageData("inGameTimerButton");

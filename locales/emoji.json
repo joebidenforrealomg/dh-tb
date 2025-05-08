@@ -48,5 +48,7 @@
 
     "headerSettingsButtonTitle": "⚙️",
     "searchAppsPlaceholder": "🔍🤔",
-    "searchAppsClearTitle": "❌"
+    "searchAppsClearTitle": "❌",
+
+    "settingsItemflipInAppButtons": "Flip in app buttons (Close, Timer, etc.) to the right"
 }

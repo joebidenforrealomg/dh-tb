@@ -56,5 +56,7 @@
     "requestStatusesButtonTitle": "Haz clic para abrir el sitio de solicitudes en una nueva pestaña",
     "headerSettingsButtonTitle": "Configuración",
     "searchAppsPlaceholder": "Buscar por nombre, género, lo que sea",
-    "searchAppsClearTitle": "Borrar"
+    "searchAppsClearTitle": "Borrar",
+
+    "settingsItemflipInAppButtons": "Mover los botones dentro de la app (Cerrar, Temporizador, etc.) a la derecha"
 }
