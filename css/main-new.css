@@ -3,7 +3,7 @@
 :root {
     --accent: rgb(88, 159, 217);
     --accentLight: rgb(115, 186, 245);
-    
+
     --accentTransparent1: rgba(88, 159, 217, 0.5);
     --accentTransparent2: rgba(88, 159, 217, 0.2);
 
@@ -22,7 +22,12 @@
 
     --linkColor1: rgb(88, 159, 217);
 
-    --backdropFilter: blur(10px) brightness(0.8);
+    --backdropBlur: blur(10px);
+
+    --borderRadius1: 16px;
+
+    --starNoFill: url("../img/icons/star_hollow.svg");
+    --starFill: url("../img/icons/star_solid.svg");
 }
 
 * {
@@ -50,6 +55,21 @@ html {
 }
 
 .backdropBlur {
-    backdrop-filter: var(--backdropFilter);
-    -webkit-backdrop-filter: var(--backdropFilter);
+    backdrop-filter: var(--backdropBlur);
+    -webkit-backdrop-filter: var(--backdropBlur);
+}
+
+.boxShadow {
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+.collapsible {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.15s ease;
+}
+
+.collapsible.show {
+    max-height: 300px;
+    overflow-y: auto;
 }

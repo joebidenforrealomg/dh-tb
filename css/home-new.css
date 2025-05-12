@@ -1,20 +1,36 @@
 @import url('main-new.css');
 
+hr {
+    border-color: #97979757;
+}
+
 header.sidebar {
     float: left;
     max-width: 30vw;
     min-width: 250px;
     width: 350px;
-    height: 100%;
+    height: 100vh;
     padding: 12px 28px 12px 28px;
     background-color: var(--accentDarkBackgroundTransparent2);
     color: var(--textColor2Transparent);
     overflow-x: hidden;
     overflow-y: auto;
-    box-shadow: 4px 0 12px rgba(0, 0, 0, .2);
 
-    hr {
-        border-color: #97979757;
+    .collapseHeader {
+        cursor: pointer;
+        display: block;
+        width: 100%;
+
+        span {
+            float: right;
+        }
+    }
+
+    .collapseHeader,
+    h2 {
+        text-decoration: none;
+        font-size: 26px;
+        font-weight: bold;
     }
 
     .sidebarHeader {
@@ -72,6 +88,12 @@ header.sidebar {
         }
     }
 
+    .sidebarChangeLog {
+        ul li {
+            margin-bottom: 4px;
+        }
+    }
+
     .sidebarContent {
         h4 {
             margin-bottom: 2px;
@@ -91,13 +113,20 @@ header.sidebar {
             margin-bottom: 12px;
 
             a {
-                font-size: 16px;
-                vertical-align: top;
+                font-size: 18px;
+                text-decoration: none;
+                transition: color 0.1s ease;
+                display: block;
+                width: 100%;
 
                 .material-symbols-rounded {
-                    vertical-align: inherit;
-                    font-size: 20px;
-                    margin-right: -2px;
+                    vertical-align: top;
+                    font-size: 21px;
+                    margin-right: 4px;
+                }
+
+                &:hover {
+                    color: var(--linkColor1);
                 }
             }
         }
@@ -105,10 +134,163 @@ header.sidebar {
 }
 
 section.mainContent {
-    height: 100%;
+    height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
     padding: 12px;
+
+    hr {
+        margin: 24px 0 24px 0;
+    }
+
+    .mainHeader {
+        .headerLogo {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            .logoName {
+                color: var(--accentLight);
+                text-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent);
+                margin: 0;
+                font-size: 60px;
+            }
+
+            .logoSubtext {
+                color: var(--textColor2Transparent);
+                font-size: 18px;
+                font-weight: normal;
+                margin-bottom: 0;
+            }
+        }
+
+        .searchForm {
+            input {
+                width: 100%;
+                padding: 12px;
+                border-radius: var(--borderRadius1);
+                border: none;
+                background-color: var(--accentDarkBackgroundTransparent2);
+                color: var(--textColor1);
+                font-size: 16px;
+                outline: transparent;
+                transition: 0.15s ease;
+                transition-property: background-color, color, outline;
+
+                &:focus {
+                    outline: var(--accent) 2px solid;
+                    color: var(--textColor2);
+                }
+            }
+        }
+    }
+
+    .apps {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 12px;
+
+        .placeholder {
+            display: none;
+        }
+
+        .appsButton {
+            height: 290px;
+            width: 350px;
+            padding: 12px;
+            overflow: hidden;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: transform 0.15s ease;
+
+            img {
+                transition: 0.15s ease;
+                transition-property: outline, mask-image;
+                outline: var(--accentDarkBackgroundTransparent2) solid 2px;
+                border-radius: var(--borderRadius1);
+                object-fit: cover;
+                width: 100%;
+                height: calc(100% - 40px);
+                background-color: var(--accentDarkBackgroundTransparent2);
+                mask-image: linear-gradient(45deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.8) 75%, rgba(0,0,0,0.2) 100%);
+            }
+
+            .appName {
+                margin-top: 4px;
+                text-align: left;
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            .overlay {
+                transform: translateY(-220px);
+
+                div.tags {
+                    position: absolute;
+                    display: inline-flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    transform: translateX(-50%);
+
+                    p {
+                        background: rgba(255, 255, 255, 0.8);
+                        padding: 12px;
+                        margin-top: 0;
+                        margin-bottom: 0;
+                        margin-right: 5px;
+                        margin-left: 5px;
+                        border-radius: 12vh;
+                        color: black;
+                        text-align: center;
+                        font-size: 16px;
+                        min-width: 20px;
+                        font-weight: bold;
+                    }
+
+                    p.broken {
+                        background: rgba(204, 18, 18, 0.8);
+                        color: white;
+                    }
+
+                    p.fixed {
+                        background: rgba(128, 255, 93, 0.8);
+                        color: rgb(0, 0, 0);
+                    }
+
+                    p.updated {
+                        background: rgba(93, 215, 255, 0.8);
+                        color: rgb(0, 0, 0);
+                    }
+                }
+
+                .favorite {
+                    display: inline-flex;
+                    cursor: pointer;
+                    float: right;
+                    margin-right: 10px;
+                    height: 50px;
+                    width: 50px;
+                    border: none;
+                    background-color: transparent;
+                    background-image: var(--starNoFill);
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+            }
+
+            &:hover, &:focus, &:focus-within {
+                transform: scale(1.05);
+                img {
+                    outline: var(--accent) solid 2px;
+                    mask-image: linear-gradient(45deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.6) 75%, rgba(255,255,255,0.2) 100%);
+                }
+            }
+        }
+    }
 }
 
 #settingsFrame {
@@ -135,4 +317,14 @@ section.mainContent {
     padding: 12px 28px 12px 28px;
     transform: translateX(0);
     opacity: 1;
+}
+
+.disclaimer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 12px;
+    text-align: left;
 }

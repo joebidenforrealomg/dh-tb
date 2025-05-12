@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8"> 
+    <meta charset="utf-8">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRKNHWYBXN"></script>
@@ -31,82 +31,83 @@
         <button class="closeButton" id="settingsFSCloseButton" onclick="toggleSettings()" data-lang="settingsClose">Close</button>
         <ul id="settingsList"></ul>
     </div>
-    <header class="sidebar backdropBlur" id="sidebar">
-        <div class="sidebarHeader">
-            <div class="buttonGroup">
-                <button id="sidebarToggleButton" class="sidebarToggleButton" onclick="//toggleSidebar()" data-lang-title="menuToggleTitle" title="Toggle sidebar"><span class="material-symbols-rounded hoverAppear">sort</span><span class="material-symbols-rounded hoverDisappear">menu</span></button>
+
+    <main id="main">
+        <header class="sidebar backdropBlur boxShadow" id="sidebar">
+            <div class="sidebarHeader">
+                <div class="buttonGroup">
+                    <button id="sidebarToggleButton" class="sidebarToggleButton" onclick="toggleSidebar()" data-lang-title="menuToggleTitle" title="Toggle sidebar"><span class="material-symbols-rounded hoverAppear">sort</span><span class="material-symbols-rounded hoverDisappear">menu</span></button>
+                </div>
+                <div class="buttonGroup">
+                    <button id="sidebarSettingsButton" class="sidebarSettingsButton" onclick="toggleSettings()" data-lang-title="settingsTitle" title="Settings"><span class="material-symbols-rounded">settings</span></button>
+                </div>
             </div>
-            <div class="buttonGroup">
-                <button id="sidebarSettingsButton" class="sidebarSettingsButton" onclick="toggleSettings()" data-lang-title="settingsTitle" title="Settings"><span class="material-symbols-rounded">settings</span></button>
+            <hr>
+            <div class="sidebarContent">
+                <a class="collapseHeader" data-collapse-div="sidebarChangeLog" data-collapse-open-default="true" href="#">Change Logs</a>
+                <div id="sidebarChangeLog" class="sidebarChangeLog collapsible">
+                    <h3>May 11th Update</h4>
+                        <h4>Update content</h4>
+                        <p>Content details</p>
+                        <h4>Apps added</h4>
+                        <ul>
+                            <li>App 1</li>
+                            <li>App 2</li>
+                            <li>App 3</li>
+                        </ul>
+                </div>
+                <hr>
+                <div class="sidebarContent">
+                    <h2>App Categories</h2>
+                    <ul id="sidebarCategories"></ul>
+                </div>
             </div>
-        </div>
-        <hr>
-        <div class="sidebarContent">
-            <h2 class="collapseHeader" data-collapse-div="sidebarChangeLog">Change Logs</h2>
-            <div id="sidebarChangeLog" class="sidebarChangeLog">
-                <h3>May 11th Update</h4>
-                <h4>Update content</h4>
-                <p>Content details</p>
-
-                <h4>Apps added</h4>
-                <ul>
-                    <li>App 1</li>
-                    <li>App 2</li>
-                    <li>App 3</li>
-                </ul>
-            </details>
-        </div>
-        <hr>
-        <div class="sidebarContent">
-            <h2>App Categories</h2>
-            <ul id="sidebarCategories">
-                <li><a><span class="material-symbols-rounded">star</span> Favorites</a></li>
-                
-            </ul>
-        </div>
-    </header>
-
-    <section class="mainContent">
-        <!-- It may be more effecient to instead create the sections via JavaScript, this would allow for much easier updates. -->
-
-        <header class="mainHeader">
-            <h1 class="logoText"><span data-lang="logoWelcome">Welcome to</span> <p class="name" onclick="logoClick()">Da Hub</p></h1>
-            <p class="logoSubtext"><i data-lang="logoSubTextSiteCreator">Created by ButterDogCo</i></p>
-            <form id="searchForm">
-                <p id="results"> </p>
-                <input type="text" placeholder="Search by name, genre, anything" data-lang-placeholder="searchAppsPlaceholder" id="searchInput">
-                <button type="button" id="clear" data-lang-title="searchAppsClearTitle" title="Clear">X</button>
-            </form>
+            <p class="disclaimer backdropBlur blackBGGradientBottom"><span data-lang="footerDisclaimerText">Welcome to Da Hub, created by ButterDogCo. By using this site, you agree to our</span> <a href="https://butterdogceo.github.io/bdogco/tos" data-lang="footerDisclaimerLink">Terms of Service</a>.</p>
         </header>
 
-        <h2 class="categoryHeader weeklyRecommendations hideOnSearch"><b data-lang="weeklyRecommendationsHeader">Recommended</b></h2>
-        <div class="apps weeklyRecommendations hideOnSearch" id="weeklyApps">
-            <div class="placeholder" id="weeklyPlaceholder"><span data-lang="weeklyRecommendationsPlaceholder">Recommendations appear here</span></div>
-        </div>
-        <hr class="hideOnSearch weeklyRecommendations">
+        <section class="mainContent">
+            <!-- It may be more effecient to instead create the sections via JavaScript, this would allow for much easier updates. -->
+            <header class="mainHeader">
+                <div class="headerLogo">
+                    <h1 class="logoName" onclick="logoClick()">Da Hub</h1>
+                    <p class="logoSubtext"><i data-lang="logoSubTextSiteCreator">Created by ButterDogCo</i></p>
+                </div>
+                <form id="searchForm" class="searchForm">
+                    <p id="results"> </p>
+                    <input type="text" placeholder="Search by name, genre, anything" data-lang-placeholder="searchAppsPlaceholder" id="searchInput" class="boxShadow">
+                    <!-- <button type="button" id="clear" data-lang-title="searchAppsClearTitle" title="Clear">X</button> -->
+                </form>
+            </header>
 
-        <h2 id="newTitle" class="categoryHeader hideOnSearch"><b data-lang="newlyUpdatedHeader1">Newly Updated</b> <span data-lang="newlyUpdatedHeader2">and</span> <b data-lang="newlyUpdatedHeader3">Your Favorites</b></h2>
-        <div class="appsGroup hideOnSearch">
-            <div class="apps" id="newApps">
-                <div class="placeholder" id="newPlaceholder"><span data-lang="newlyUpdatedPlaceholder">New and updated apps appear here</span></div>
+            <hr>
+            <p class="categoryHeader showOnMobile"><i data-lang="mobileAppsNotice">Only showing mobile-supported apps - You can disable this in settings</i></p>
+
+            <span class="categoryHeader weeklyRecommendations hideOnSearch"><b data-lang="weeklyRecommendationsHeader">Recommended</b></span>
+            <div class="apps weeklyRecommendations hideOnSearch" id="weeklyApps">
+                <div class="placeholder" id="weeklyPlaceholder"><span data-lang="weeklyRecommendationsPlaceholder">Recommendations appear here</span></div>
             </div>
-            <div class="apps" id="favorite">
-                <div class="placeholder" id="favoritePlaceholder"><span data-lang="favoritesPlaceholder">Apps you favorite appear here</span></div>
+            <hr class="hideOnSearch weeklyRecommendations">
+
+            <span id="newTitle" class="categoryHeader hideOnSearch"><b data-lang="newlyUpdatedHeader1">Newly Updated</b> <span data-lang="newlyUpdatedHeader2">and</span> <b data-lang="newlyUpdatedHeader3">Your Favorites</b></span>
+            <div class="appsGroup hideOnSearch">
+                <div class="apps" id="newApps">
+                    <div class="placeholder" id="newPlaceholder"><span data-lang="newlyUpdatedPlaceholder">New and updated apps appear here</span></div>
+                </div>
+                <div class="apps" id="favorite">
+                    <div class="placeholder" id="favoritePlaceholder"><span data-lang="favoritesPlaceholder">Apps you favorite appear here</span></div>
+                </div>
             </div>
-        </div>
 
-        <hr class="hideOnSearch">
-        <h2 class="categoryHeader hideOnSearch"><b data-lang="allAppsHeader1">All Apps</b><br><i data-lang="allAppsHeader2">Sorted from A to Z</i></h2>
-        <h3 class="categoryHeader showOnMobile"><i data-lang="mobileAppsNotice">Only showing mobile-supported apps - You can disable this in settings</i></h2>
-        <div class="apps" id="apps"></div>
+            <hr class="hideOnSearch">
+            <span class="categoryHeader hideOnSearch"><b data-lang="allAppsHeader1">All Apps</b><br><i data-lang="allAppsHeader2">Sorted from A to Z</i></span>
+            <div class="apps" id="apps"></div>
 
-        <h2 class="emulatorsSection categoryHeader hideOnSearch"><b data-lang="emulatorsHeader">Emulators</b></h1>
-        <div class="apps emulatorsSection hideOnSearch" id="emulators">
-            <div class="placeholder" id="emulatorPlaceholder"><span data-lang="emulatorsPlaceholder">Emulators appear here</span></div>
-        </div>
-
-        <p class="disclaimer backdropBlur blackBGGradientBottom"><span data-lang="footerDisclaimerText">Welcome to Da Hub, created by ButterDogCo. By using this site, you agree to our</span> <a href="https://butterdogceo.github.io/bdogco/tos" data-lang="footerDisclaimerLink">Terms of Service</a>.</p>
-    </section>
+            <h2 class="emulatorsSection categoryHeader hideOnSearch"><b data-lang="emulatorsHeader">Emulators</b></h1>
+            <div class="apps emulatorsSection hideOnSearch" id="emulators">
+                <div class="placeholder" id="emulatorPlaceholder"><span data-lang="emulatorsPlaceholder">Emulators appear here</span></div>
+            </div>
+        </section>
+    </main>
 
     <script src="//cdn.jsdelivr.net/npm/eruda"></script>
     <script>
@@ -117,8 +118,8 @@
                 __erudaOpened = true;
                 eruda.init();
                 try {
-                    notify({Text:"Browser console opened"});
-                } catch (_) {}
+                    notify({ Text: "Browser console opened" });
+                } catch (_) { }
             }
         });
     </script>
@@ -130,6 +131,7 @@
     <script defer src="js/particles.js"></script>
     <script defer src="js/appHandler.js"></script>
     <script defer src="js/speedrun.js"></script>
+    <script defer src="js/sidebar.js"></script>
     <script defer src="js/home.js"></script>
     <script defer src="js/dataLoader.js"></script>
     <script defer src="js/settings.js"></script>

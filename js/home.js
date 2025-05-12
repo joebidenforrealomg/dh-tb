@@ -1,3 +1,5 @@
+// import { addSidebarCategories } from "./sidebar.js";
+
 const appsDiv = document.getElementById("apps");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
@@ -232,6 +234,9 @@ if (_weeklyEnabled == false) {
   });
 }
 sortApps();
+
+// Sidebar setup
+setupSidebar();
 
 // Events
 document.addEventListener('DOMContentLoaded', function () {
