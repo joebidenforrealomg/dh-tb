@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --accent: rgb(88, 159, 217);
+    --accentLight: rgb(115, 186, 245);
+    
+    --accentTransparent1: rgba(88, 159, 217, 0.5);
+    --accentTransparent2: rgba(88, 159, 217, 0.2);
+
+    --accentDarkBackgroundTransparent1: rgba(94, 101, 126, 0.637);
+    --accentDarkBackgroundTransparent2: rgba(31, 35, 48, 0.6);
+
+    --mainBackground: rgb(30, 30, 30);
+    --mainBackgroundImage: url("https://raw.githubusercontent.com/butterdogco/da-hub/refs/heads/main/img/background.png");
+
+    --font: 'Inter', sans-serif;
+
+    --textColor1: white;
+    --textColor2: rgb(230, 230, 230);
+
+    --textColor2Transparent: rgba(230, 230, 230, 0.8);
+
+    --linkColor1: rgb(88, 159, 217);
+
+    --backdropFilter: blur(10px) brightness(0.8);
+}
+
+* {
+    font-family: inherit;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: var(--font);
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color: var(--textColor1);
+}
+
+html {
+    background-color: var(--mainBackground);
+    background-image: var(--mainBackgroundImage);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom right;
+}
+
+.backdropBlur {
+    backdrop-filter: var(--backdropFilter);
+    -webkit-backdrop-filter: var(--backdropFilter);
+}

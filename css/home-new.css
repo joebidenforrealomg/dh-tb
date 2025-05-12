@@ -1,0 +1,138 @@
+@import url('main-new.css');
+
+header.sidebar {
+    float: left;
+    max-width: 30vw;
+    min-width: 250px;
+    width: 350px;
+    height: 100%;
+    padding: 12px 28px 12px 28px;
+    background-color: var(--accentDarkBackgroundTransparent2);
+    color: var(--textColor2Transparent);
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, .2);
+
+    hr {
+        border-color: #97979757;
+    }
+
+    .sidebarHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .buttonGroup {
+            button {
+                background-color: transparent;
+                color: var(--textColor1);
+                border: none;
+                border-radius: 50%;
+                padding: 10px;
+                aspect-ratio: 1;
+                cursor: pointer;
+                font-size: 30px;
+                outline: transparent;
+                transition: 0.15s ease;
+                transition-property: background-color, outline;
+
+                span {
+                    font-size: inherit;
+                    transition: 0.5s ease;
+                    transition-property: rotate, scale, transform, opacity;
+                }
+
+                span.hoverAppear {
+                    position: absolute;
+                    left: auto;
+                    opacity: 0;
+                }
+
+                &:hover {
+                    background-color: var(--accentDarkBackgroundTransparent1);
+                    outline: var(--accentTransparent2) solid 2px;
+
+                    span {
+                        transform: scale(1.2);
+                    }
+
+                    span.hoverAppear {
+                        opacity: 1;
+                    }
+
+                    span.hoverDisappear {
+                        opacity: 0;
+                    }
+                }
+            }
+
+            .sidebarSettingsButton:hover span {
+                rotate: 360deg;
+            }
+        }
+    }
+
+    .sidebarContent {
+        h4 {
+            margin-bottom: 2px;
+        }
+
+        p,
+        ul {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+
+            a {
+                font-size: 16px;
+                vertical-align: top;
+
+                .material-symbols-rounded {
+                    vertical-align: inherit;
+                    font-size: 20px;
+                    margin-right: -2px;
+                }
+            }
+        }
+    }
+}
+
+section.mainContent {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 12px;
+}
+
+#settingsFrame {
+    pointer-events: none;
+    visibility: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: var(--accentDarkBackgroundTransparent2);
+    transition: 0.3s ease;
+    transition-property: opacity, transform;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+#settingsFrame.open {
+    pointer-events: auto;
+    visibility: visible;
+    z-index: 1000;
+    padding: 12px 28px 12px 28px;
+    transform: translateX(0);
+    opacity: 1;
+}
