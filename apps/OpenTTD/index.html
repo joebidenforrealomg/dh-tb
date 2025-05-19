@@ -1,0 +1,106 @@
+<!doctypehtml>
+    <html lang=en-us>
+
+    <head>
+        <meta charset=utf-8>
+        <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+        <meta content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" name=viewport>
+        <title>OpenTTD</title>
+        <link href=openttd.webapp rel=manifest>
+        <link href=openttd.256.png rel=icon>
+        <style>
+            body {
+                font-family: Tahoma, Arial, Helvetica, sans-serif;
+                font-size: 14px;
+                margin: 0;
+                padding: 0
+            }
+
+            div.background {
+                background-image: url("background.png");
+                border: 0 none;
+                display: flex;
+                height: 100%;
+                position: absolute;
+                width: 100%;
+                z-index: 1
+            }
+
+            div.background>div,
+            div.overlay>div {
+                margin: auto
+            }
+
+            #message,
+            #title {
+                background-color: #838383;
+                border: 1px solid #a8a8a8;
+                outline: 1px solid #626262;
+                padding: 0 4px;
+                min-width: 260px
+            }
+
+            #box.error #message,
+            #box.error #title {
+                background-color: #e00000;
+                border: 1px solid #fc6458;
+                outline: #a00000
+            }
+
+            #box.error #message {
+                color: #fcf880
+            }
+
+            #title {
+                color: #fcfcfc;
+                height: 20px;
+                text-shadow: 1px 1px #101010
+            }
+
+            #message {
+                color: #101010;
+                height: 54px;
+                padding: 4px 4px
+            }
+
+            div.textinput {
+                position: absolute;
+                width: 100%;
+                z-index: 4;
+                display: "none"
+            }
+
+            #textinputbox {
+                width: 100%;
+                font-size: xx-large
+            }
+
+            #textinputbutton {
+                width: 100%
+            }
+
+            canvas.emscripten {
+                border: 0 none;
+                height: 100%;
+                position: absolute;
+                width: 100%;
+                z-index: 2;
+                cursor: none !important
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class=background><a href=https://hits.seeyoufarm.com><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fpelya.github.io%2Fopenttd-touch-webapp&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"></a>
+            <div id=box>
+                <div id=title>Loading ...</div>
+                <div id=message></div>
+            </div>
+        </div>
+        <div id=textinput class=textinput><input id=textinputbox type=textinput value="" onfocusout=Module.finishTextInput() tabindex=1><br><input id=textinputbutton type=submit value=OK onclick=Module.finishTextInput()></div><input id=loadfile type=file style=display:none>
+        <div><canvas class=emscripten id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas></div>
+        <script>var statusElement = document.getElementById("status"), progressElement = document.getElementById("progress"), spinnerElement = document.getElementById("spinner"), Module = { preRun: [], postRun: [], arguments: [], totalDependencies: 42, doneDependencies: 0, lastDependencies: 1, print: function (e) { arguments.length > 1 && (e = Array.prototype.slice.call(arguments).join(" ")), console.log(e) }, printErr: function (e) { arguments.length > 1 && (e = Array.prototype.slice.call(arguments).join(" ")), console.error(e) }, canvas: function () { var e = document.getElementById("canvas"); return e.addEventListener("webglcontextlost", (function (e) { alert("WebGL context lost. You will need to reload the page."), e.preventDefault() }), !1), e }(), setStatus: function (e) { var t = e.match(/^([^(]+)\((\d+(\.\d+)?)\/(\d+)\)$/); t && (e = "(" + t[2] + " / " + t[4] + ") " + t[1]), document.getElementById("message").innerHTML = e }, monitorRunDependencies: function (e) { e < Module.lastDependencies && (Module.doneDependencies += 1), Module.lastDependencies = e, total = Module.totalDependencies, doing = Module.doneDependencies + 1, doing > total && (doing = total), document.getElementById("title").innerHTML = "(" + doing + " / " + total + ") Loading ...", document.getElementById("message").innerHTML = "Preparing game ..." }, onExit: function () { document.getElementById("canvas").style.display = "none", document.getElementById("title").innerHTML = "Thank you for playing!", document.getElementById("message").innerHTML = "We hope you enjoyed OpenTTD!<br/><br/>Reload your browser to restart the game.", FS.syncfs(!1, (function (e) { window.close("", "_parent", "") })) }, onAbort: function () { document.getElementById("canvas").style.display = "none", document.getElementById("box").className = "error", document.getElementById("title").innerHTML = "Crash :(", document.getElementById("message").innerHTML = "The game crashed!<br/><br/>Please reload your browser to restart the game." }, textInputValue: null, startTextInput: function (e) { "none" == document.getElementById("textinput").style.display && (Module.textInputValue = null, document.getElementById("textinput").style.display = "block", document.getElementById("textinputbox").value = e, document.getElementById("textinputbox").focus(), document.getElementById("textinputbox").onkeyup = function (e) { "Enter" === e.key && Module.finishTextInput() }) }, getTextInput: function () { if (null !== Module.textInputValue) { var e = Module.textInputValue; return Module.textInputValue = null, e } return null }, finishTextInput: function () { "none" != document.getElementById("textinput").style.display && (Module.textInputValue = document.getElementById("textinputbox").value, Module.print(Module.textInputValue), document.getElementById("textinput").style.display = "none", document.getElementById("canvas").focus()) } }; document.getElementById("textinput").style.display = "none", document.getElementById("canvas").focus(), window.onerror = function () { Module.onAbort() }</script>
+        <script async src=openttd.js></script>
+    </body>
+
+    </html>
