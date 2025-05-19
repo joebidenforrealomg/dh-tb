@@ -1,3 +1,6 @@
+import { languages, updateLanguage, getElementLanguageData, unsafeGetElementLanguageData, currentLanguage, currentLanguageData } from "./locales.js";
+let _currentLanguage = currentLanguage;
+
 // Settings Handler
 let settingsFrame = document.getElementById("settingsFrame");
 let settingsList = document.getElementById("settingsList");
@@ -48,11 +51,11 @@ async function initSettings() {
     ["Language"]: {
       Category: "Visual",
       LanguageKey: "Language",
-      SetTo: currentLanguage || "English",
+      SetTo: _currentLanguage || "English",
       Options: Object.keys(languages),
       UpdateFunction: (newLang) => {
-        if (newLang != currentLanguage) {
-          currentLanguage = newLang;
+        if (newLang != _currentLanguage) {
+          _currentLanguage = newLang;
           updateLanguage(newLang);
         }
       },
@@ -245,7 +248,7 @@ async function buildSettingsUI(settings, socialLinks, categoryNames) {
 }
 
 
-function toggleSettings() {
+export function toggleSettings() {
   settingsFrame.classList.toggle("open");
   settingsOpen = settingsFrame.classList.contains("open");
   document.body.classList.toggle("settingsOpen", settingsOpen);
@@ -358,6 +361,8 @@ async function createOptionButton(name, settings) {
   }
 }
 
-updateLanguage(currentLanguage).then(() => {
+updateLanguage(_currentLanguage).then(() => {
   initSettings(); // Build settings after translations are ready
 });
+
+window.toggleSettings = toggleSettings;

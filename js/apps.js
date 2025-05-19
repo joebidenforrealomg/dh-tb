@@ -150,6 +150,11 @@ const apps = [
     Hidden: true,
   },
   {
+    Name: "Cartoon Mini Racing",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("May 18, 2025")
+  },
+  {
     Name: "Chess",
     Mobile: true,
     Thumbnail: "thumbnail.png",
@@ -479,6 +484,11 @@ const apps = [
     Genres: ["driving", "car", "racing", "race"]
   },
   {
+    Name: "Masked Forces",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("May 18, 2025")
+  },
+  {
     Name: "MegaMan 2 (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=megaman2",
@@ -539,6 +549,11 @@ const apps = [
     Name: "n-gon",
     Thumbnail: "thumbnail.png",
     Added: new Date("December 16, 2024")
+  },
+  {
+    Name: "OpenTTD",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("May 18, 2025")
   },
   {
     Name: "Pacman",
@@ -696,6 +711,11 @@ const apps = [
     Name: "Shell Shockers",
     Added: new Date("Febuary 13, 2025"),
     Hidden: true
+  },
+  {
+    Name: "Skiing Fred",
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("May 18, 2025")
   },
   {
     Name: "Sling Drift",

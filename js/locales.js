@@ -1,14 +1,16 @@
-let currentLanguage = localStorage.getItem("settings-Language") || "English";
-let currentLanguageData;
-let languages = {
-  Afrikaans: "af",
-  ButterDog: "butterdog",
-  English: "en",
-  Español: "es",
-  Emoji: "emoji",
+export let currentLanguage = localStorage.getItem("settings-Language") || "English";
+export let languages = {
+    Afrikaans: "af",
+    ButterDog: "butterdog",
+    English: "en",
+    Español: "es",
+    Emoji: "emoji",
 };
+export let currentLanguageData;
 
-async function getElementLanguageData(name) {
+const defaultLang = "en";
+
+export async function getElementLanguageData(name) {
     while (currentLanguageData == null) {
         await new Promise(resolve => setTimeout(resolve, 50));
     }
@@ -16,11 +18,11 @@ async function getElementLanguageData(name) {
     return currentLanguageData[name] || null;
 }
 
-function unsafeGetElementLanguageData(name) {
+export function unsafeGetElementLanguageData(name) {
     return currentLanguageData[name] || null;
 }
 
-async function updateLanguageElements() {
+export async function updateLanguageElements() {
     const elements = document.querySelectorAll("[data-lang], [data-lang-title], [data-lang-placeholder]");
     elements.forEach(async (element) => {
         const key = element.getAttribute("data-lang");
@@ -48,7 +50,8 @@ async function updateLanguageElements() {
     console.log("Successfully updated page language");
 }
 
-async function updateLanguage(lang = "en") {
+let _defaultLangLoadAttempts = 5;
+export async function updateLanguage(lang = defaultLang) {
     // Fetch the language JSON file
     const langShort = languages[lang] || lang;
     const langJSON = `locales/${langShort}.json`;
@@ -62,8 +65,13 @@ async function updateLanguage(lang = "en") {
         .catch(error => {
             console.error('Error loading language file:', error);
             try {
-                notify({Text: "Failed to load language file, defaulting to English.", ShowTime: 4000});
-                updateLanguage("en");
+                if (_defaultLangLoadAttempts > 0) {
+                    _defaultLangLoadAttempts -= 1;
+                    notify({Text: "Error loading the language file. Retrying with English (Attempt " + (5 - _defaultLangLoadAttempts) + " / 5)", ShowTime: 4000});
+                    setTimeout(updateLanguage, 1000, defaultLang);
+                } else {
+                    notify({Text: "Failed to load language file, max attempts reached. (Check your internet connection?)", ShowTime: 8000});
+                }
             } catch (err) {}
         });
 }
@@ -77,3 +85,5 @@ if (index !== -1) {
         currentLanguage = keyAtIndex;
     }
 }
+
+window.getElementLanguageData = getElementLanguageData;

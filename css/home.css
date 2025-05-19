@@ -45,12 +45,6 @@
         font-size: 90%;
         max-width: 80%;
       }
-
-      input, select, button {
-        float: right;
-        margin-top: 0;
-        right: 10px;
-      }
   
       /* Checkbox */
       input.checkbox { 
@@ -74,9 +68,10 @@
         border: 3px solid var(--accentTransparent);
         border: none;
         border-radius: 12px;
-        padding: 6px;
+        padding: 4px 6px 4px 6px;
         color: inherit;
         height: 26px;
+        outline: transparent;
         position: relative;
         top: 50%;
         transform: translateY(-50%);
@@ -85,11 +80,12 @@
         option {
           background: rgb(26, 32, 48);
         }
+        
+        &:focus, &:hover {
+          background-color: var(--accent);
+        }
       }
 
-      select.dropdown:focus, select.dropdown:hover {
-        background-color: var(--accent);
-      }
 
       /* Button */
       button { 
@@ -106,10 +102,21 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
+        
+        &:hover {
+          background-color: var(--accent);
+        }
       }
 
-      button:hover {
-        background-color: var(--accent);
+
+      input, select, button {
+        float: right;
+        margin-top: 0;
+        right: 10px;
+
+        &:focus, &:focus-within {
+          outline: 2px solid var(--accentTransparent);
+        }
       }
     }
   }
