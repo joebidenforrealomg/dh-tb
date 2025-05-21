@@ -45,7 +45,7 @@ header.sidebar {
                 border: none;
                 border-radius: 50%;
                 padding: 10px;
-                aspect-ratio: 1;
+                aspect-ratio: 1/1;
                 cursor: pointer;
                 font-size: 30px;
                 outline: transparent;
@@ -137,13 +137,15 @@ section.mainContent {
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
-    padding: 12px;
+    padding: 12px 0 12px 12px;
 
     hr {
         margin: 24px 0 24px 0;
     }
 
     .mainHeader {
+        padding-right: 12px;
+
         .headerLogo {
             display: flex;
             justify-content: space-between;
@@ -182,6 +184,11 @@ section.mainContent {
                     color: var(--textColor2);
                 }
             }
+
+            /* Button is just currently here to make the script happy */
+            button {
+                display: none;
+            }
         }
     }
 
@@ -209,13 +216,13 @@ section.mainContent {
             img {
                 transition: 0.15s ease;
                 transition-property: outline, mask-image;
-                outline: var(--accentDarkBackgroundTransparent2) solid 2px;
+                outline: transparent;
                 border-radius: var(--borderRadius1);
                 object-fit: cover;
                 width: 100%;
                 height: calc(100% - 40px);
                 background-color: var(--accentDarkBackgroundTransparent2);
-                mask-image: linear-gradient(45deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.8) 75%, rgba(0,0,0,0.2) 100%);
+                box-shadow: var(--boxShadow1);
             }
 
             .appName {
@@ -223,6 +230,7 @@ section.mainContent {
                 text-align: left;
                 font-weight: bold;
                 font-size: 18px;
+                text-shadow: 0 0 8px rgba(0,0,0,0.5);
             }
 
             .overlay {
@@ -280,16 +288,31 @@ section.mainContent {
                     background-size: contain;
                     background-repeat: no-repeat;
                 }
+
+                .favorite.favorited, .favorite:hover:not(.favorited) {
+                    background-image: var(--starFill);
+                }
+
+                .favorite.favorited:hover {
+                    background-image: var(--starNoFill);
+                }
             }
 
             &:hover, &:focus, &:focus-within {
                 transform: scale(1.05);
+
                 img {
                     outline: var(--accent) solid 2px;
-                    mask-image: linear-gradient(45deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.6) 75%, rgba(255,255,255,0.2) 100%);
                 }
             }
         }
+    }
+
+    .apps.wrapApps {
+        flex-wrap: wrap;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 0 12px 0 12px;
     }
 }
 
@@ -308,16 +331,25 @@ section.mainContent {
     transition-property: opacity, transform;
     transform: translateX(-100%);
     opacity: 0;
+
+    &.open {
+        pointer-events: auto;
+        visibility: visible;
+        z-index: 1000;
+        padding: 12px 28px 12px 28px;
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
-#settingsFrame.open {
+/* #settingsFrame.open {
     pointer-events: auto;
     visibility: visible;
     z-index: 1000;
     padding: 12px 28px 12px 28px;
     transform: translateX(0);
     opacity: 1;
-}
+} */
 
 .disclaimer {
     position: fixed;
