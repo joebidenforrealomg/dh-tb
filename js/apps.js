@@ -28,13 +28,17 @@ const apps = [
     Added: new Date("Febuary 13, 2025")
   },
   {
+    Name: "A Small World Cup",
+    Added: new Date("May 29, 2025")
+  },
+  {
     Name: "Among Us",
     Folder: "AmongUs/",
     Hidden: true,
   },
   {
     Name: "Angry Birds",
-    Folder: "../resources/ruffle/",
+    Folder: "../resources/ruffle",
     Index: "index.html?file=angry-birds-chrome",
     Thumbnail: "thumbnails/angrybirds.png",
     Mobile: true,
@@ -43,7 +47,7 @@ const apps = [
   },
   {
     Name: "Angry Birds Halloween",
-    Folder: "../resources/ruffle/",
+    Folder: "../resources/ruffle",
     Index: "index.html?file=angry-birds-halloween",
     Mobile: true,
     Thumbnail: "thumbnails/angrybirds-halloween.jpg",
@@ -52,7 +56,7 @@ const apps = [
   },
   {
     Name: "Angry Birds Rio",
-    Folder: "../resources/ruffle/",
+    Folder: "../resources/ruffle",
     Index: "index.html?file=angry-birds-rio",
     Mobile: true,
     Thumbnail: "thumbnails/angrybirds-rio.png",
@@ -78,7 +82,7 @@ const apps = [
   {
     Name: "Bad Piggies v2.0",
     Description: "This adds on to the content for the first version, with new levels and more.",
-    Folder: "../resources/ruffle/",
+    Folder: "../resources/ruffle",
     Index: "index.html?file=bad-piggies-hd-2",
     Mobile: true,
     Thumbnail: "thumbnails/badpiggies.jpg",
@@ -98,7 +102,7 @@ const apps = [
   },
   {
     Name: "Batman (NES)",
-    Folder: "../resources/jsnes/",
+    Folder: "../resources/jsnes",
     Index: "nes.html?file=batman",
     Thumbnail: "thumbnails/batman.jpg",
     Added: new Date("December 18, 2024"),
@@ -343,6 +347,10 @@ const apps = [
     Thumbnail: "thumbnail.jpg"
   },
   {
+    Name: "Geometry Dash Lite",
+    Added: new Date("May 29, 2025")
+  },
+  {
     Name: "Getaway Shootout",
     Thumbnail: "thumbnail.jpg",
     Added: new Date("November 22, 2024")
@@ -546,6 +554,10 @@ const apps = [
     Added: new Date("April 24, 2025"),
   },
   {
+    Name: "MotoX3M Winter",
+    Added: new Date("May 29, 2025")
+  },
+  {
     Name: "n-gon",
     Thumbnail: "thumbnail.png",
     Added: new Date("December 16, 2024")
@@ -554,6 +566,10 @@ const apps = [
     Name: "OpenTTD",
     Thumbnail: "thumbnail.jpg",
     Added: new Date("May 18, 2025")
+  },
+  {
+    Name: "Pachinkremental",
+    Added: new Date("May 29, 2025")
   },
   {
     Name: "Pacman",
@@ -599,6 +615,12 @@ const apps = [
     Added: new Date("January 22, 2025"),
     Fixed: new Date("April 24, 2025"),
     Related: ["pvz"],
+  },
+  {
+    Name: "Pokemon Sapphire",
+    Folder: "../resources/emulatorjs",
+    Index: "loader.html?file=pokemonsapphire.gba",
+    Added: new Date("May 30, 2025")
   },
   {
     Name: "Punchout (NES)",
@@ -681,6 +703,24 @@ const apps = [
     Genres: ["flash"],
   },
   {
+    Name: "Riddle School 4",
+    Folder: "../resources/ruffle",
+    Index: "index.html?file=riddleschool4",
+    Thumbnail: "thumbnails/riddleschool3.png",
+    Mobile: true,
+    Related: ["flash"],
+    Updated: new Date("May 29, 2025")
+  },
+    {
+    Name: "Riddle School 5",
+    Folder: "../resources/ruffle",
+    Index: "index.html?file=riddleschool5",
+    Thumbnail: "thumbnails/riddleschool3.png",
+    Mobile: true,
+    Related: ["flash"],
+    Updated: new Date("May 29, 2025")
+  },
+  {
     Name: "Robux Generator Clicker",
     Thumbnail: "thumbnail.png"
   },
@@ -727,8 +767,13 @@ const apps = [
   {
     Name: "Rooftop Snipers",
     Folder: "Rooftop Snipers/",
+    Genres: ["multiplayer", "arcade"],
     Thumbnail: "thumbnail.jpeg",
     Added: new Date("October 2, 2024")
+  },
+  {
+    Name: "Rooftop Snipers 2",
+    Added: new Date("May 29, 2025")
   },
   {
     Name: "Slope",
@@ -856,6 +901,10 @@ const apps = [
     Name: "Vex 3",
     Folder: "Vex/3/",
     Thumbnail: "thumbnail.jpg"
+  },
+  {
+    Name: "We Become What We Behold",
+    Added: new Date("May 29, 2025")
   },
   {
     Name: "Wolfenstein 3D",
