@@ -70,7 +70,7 @@ function createAppTile(info, app, location, lazy=false) {
         }
       }
   
-      if (info.broken) {
+      if (info.broken || app["Hidden"] == true) {
         const newP = document.createElement("p");
         newP.classList.add("broken");
         newP.innerText = "!";
@@ -178,7 +178,7 @@ function getAppInfo(app) {
 }
 
 function setupApp(app) {
-  if (app.Hidden) {
+  if (app["Hidden"] == true) {
     return;
   } else {
     app.Hidden = false;
@@ -213,19 +213,6 @@ function setupApp(app) {
   sectionsToAddTo.forEach(section => {
     createAppTile(info, app, document.getElementById(section), section == "apps");
   });
-  // if (info.pinned == true) {
-  //   createAppTile(info, app, document.getElementById("favorite"));
-  //   if (info.newlyUpdated) {
-  //     createAppTile(info, app, document.getElementById("newApps"));
-  //   } else {
-  //     createAppTile(info, app, document.getElementById(app.Section));
-  //   }
-  // } else if (info.newlyUpdated) {
-  //   createAppTile(info, app, document.getElementById("newApps"));
-  //   createAppTile(info, app, document.getElementById(app.Section));
-  // } else {
-  //   createAppTile(info, app, document.getElementById(app.Section));
-  // }
 }
 
 function sortApps() {

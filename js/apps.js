@@ -9,6 +9,7 @@ const apps = [
   },
   {
     Name: "10 Minutes Till Dawn",
+    Genres: ["fps", "zombie", "shooter"],
     Thumbnail: "thumbnail.jpg",
     Added: new Date("May 3, 2025")
   },
@@ -29,12 +30,8 @@ const apps = [
   },
   {
     Name: "A Small World Cup",
-    Added: new Date("May 29, 2025")
-  },
-  {
-    Name: "Among Us",
-    Folder: "AmongUs/",
-    Hidden: true,
+    Thumbnail: "thumbnail.jpeg",
+    Added: new Date("June 1, 2025")
   },
   {
     Name: "Angry Birds",
@@ -348,7 +345,8 @@ const apps = [
   },
   {
     Name: "Geometry Dash Lite",
-    Added: new Date("May 29, 2025")
+    Thumbnail: "thumbnail.jpeg",
+    Added: new Date("June 1, 2025")
   },
   {
     Name: "Getaway Shootout",
@@ -533,12 +531,6 @@ const apps = [
     Hidden: true
   },
   {
-    Name: "Monkey Mart",
-    Thumbnail: "thumbnail.jpg",
-    Hidden: true,
-    Added: new Date("December 16, 2024")
-  },
-  {
     Name: "MotoX3M",
     Thumbnail: "thumbnail.jpg",
     Genres: ["driving", "bike", "racing", "race"]
@@ -555,7 +547,8 @@ const apps = [
   },
   {
     Name: "MotoX3M Winter",
-    Added: new Date("May 29, 2025")
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("June 1, 2025")
   },
   {
     Name: "n-gon",
@@ -569,7 +562,8 @@ const apps = [
   },
   {
     Name: "Pachinkremental",
-    Added: new Date("May 29, 2025")
+    Thumbnail: "thumbnail.webp",
+    Added: new Date("June 1, 2025")
   },
   {
     Name: "Pacman",
@@ -620,7 +614,8 @@ const apps = [
     Name: "Pokemon Sapphire",
     Folder: "../resources/emulatorjs",
     Index: "loader.html?file=pokemonsapphire.gba",
-    Added: new Date("May 30, 2025")
+    Added: new Date("June 1, 2025"),
+    Hidden: true
   },
   {
     Name: "Punchout (NES)",
@@ -706,19 +701,17 @@ const apps = [
     Name: "Riddle School 4",
     Folder: "../resources/ruffle",
     Index: "index.html?file=riddleschool4",
-    Thumbnail: "thumbnails/riddleschool3.png",
-    Mobile: true,
+    Thumbnail: "thumbnails/riddleschool4.jpg",
     Related: ["flash"],
-    Updated: new Date("May 29, 2025")
+    Added: new Date("June 1, 2025")
   },
     {
     Name: "Riddle School 5",
     Folder: "../resources/ruffle",
     Index: "index.html?file=riddleschool5",
-    Thumbnail: "thumbnails/riddleschool3.png",
-    Mobile: true,
+    Thumbnail: "thumbnails/riddleschool5.jpg",
     Related: ["flash"],
-    Updated: new Date("May 29, 2025")
+    Added: new Date("June 1, 2025")
   },
   {
     Name: "Robux Generator Clicker",
@@ -773,7 +766,8 @@ const apps = [
   },
   {
     Name: "Rooftop Snipers 2",
-    Added: new Date("May 29, 2025")
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("June 1, 2025")
   },
   {
     Name: "Slope",
@@ -904,7 +898,8 @@ const apps = [
   },
   {
     Name: "We Become What We Behold",
-    Added: new Date("May 29, 2025")
+    Thumbnail: "thumbnail.jpg",
+    Added: new Date("June 1, 2025")
   },
   {
     Name: "Wolfenstein 3D",

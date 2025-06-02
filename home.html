@@ -90,7 +90,27 @@
                 __erudaOpened = true;
                 eruda.init();
                 try {
-                    notify({Text:"Browser console opened"});
+                    notify({
+                        ShowTime: 5000,
+                        Text:
+                        `
+                        <b>Debug mode enabled</b><br>
+                        > Browser console enabled<br>
+                        > Hidden/broken apps shown
+                        `
+                    });
+                    
+                    // Show hidden apps
+                    document.querySelectorAll(".apps").forEach((element) => {
+                        element.innerHTML = '';
+                    });
+
+                    for (const app of apps) {
+                        app["Hidden"] = false;
+                    }
+
+                    addAllValidApps();
+                    addAppsOfTheWeek();
                 } catch (_) {}
             }
         });
