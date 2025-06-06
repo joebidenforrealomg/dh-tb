@@ -120,7 +120,7 @@ const file_param = urlParams.get("file");
 if (file_param && file_param.trim() != "") {
   setTimeout(() => {
     load_rom(file_param, () => {
-      alert("Game loaded! To start, click the \"Play\" button in the header.");
+      alert("Game loaded! To start, click the \"Play\" button in the top menu.");
       // For some reason, attempting to load in any way at this point literally does not work.
       // IodineGUI.Iodine.play();
       // playButton.click();

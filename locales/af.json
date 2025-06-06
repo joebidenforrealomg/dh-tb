@@ -2,9 +2,11 @@
     "settingsHeader": "Instellings",
     "settingsClose": "Sluit",
     "latestUpdateVersion": "6 Junie Inhoudopdatering",
-    "latestUpdateContent": "5 nuwe apps is bygevoeg",
+    "latestUpdateContent": "6 nuwe apps is bygevoeg, en 2 apps is reggemaak.",
     "appRequestButton": "Versoek 'n nuwe speeletjie",
     "requestStatusesButton": "Sien voorstelstatusse",
+    "summerUpdateNoticeButton": "Someropdatering-inligting",
+    "summerUpdateNoticeButtonTitle": "Klik om meer inligting oor someropdaterings te sien",
     "logoWelcome": "Welkom by",
     "logoSubTextSiteCreator": "Geskep deur ButterDogCo",
     "weeklyRecommendationsHeader": "Weeklikse Aanbevelings",
@@ -58,5 +60,13 @@
     "searchAppsPlaceholder": "Soek volgens naam, genre, enigiets",
     "searchAppsClearTitle": "Vee uit",
 
-    "settingsItemflipInAppButtons": "Skuif in-app knoppies (Sluit, Tydhouer, ens.) na regs"
+    "settingsItemflipInAppButtons": "Skuif in-app knoppies (Sluit, Tydhouer, ens.) na regs",
+
+    "summerInfoHeader": "Oor Someropdaterings",
+    "summerInfoH1": "Gaan daar opdaterings wees tydens die somervakansie?",
+    "summerInfoP1": "Ja! Maar dit sal baie minder gereeld wees, en meeste sal klein inhoud-opdaterings wees. Nuwe funksies sal nader aan die einde van die vakansie verskyn.",
+    "summerInfoH2": "Gaan die versoekvorm nagegaan word?",
+    "summerInfoP2": "Soos met opdaterings, ja. Maar dit sal beslis baie minder gereeld nagegaan word.",
+    "summerInfoNote1": "Hoe dan ook, geniet jou somer! Sien julle ná die vakansie!",
+    "summerInfoNote2": "As jy ons moet kontak tydens die vakansie, kyk gerus na ons sosiale skakels onder die \"Ekstra\" afdeling in instellings."
 }

@@ -1,4 +1,5 @@
 const appsDiv = document.getElementById("apps");
+const summerInfoDiv = document.getElementById("summerInfo");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
 const resultsText = document.getElementById("results");
@@ -209,6 +210,10 @@ function logoClick() {
     notify({Text: "<img src='img/butterdog.png' style='width:80px;height:80px;'></img>"});
     __logoClicks = 0;
   }
+}
+
+function toggleSummerInfo() {
+  summerInfoDiv.classList.toggle("open");
 }
 
 function observe(element, callback) {

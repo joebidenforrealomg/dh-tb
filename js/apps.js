@@ -271,7 +271,7 @@ const apps = [
   },
   {
     Name: "Ecks vc. Sever (GBA)",
-    Thumbnail: "thumbnails/ecksvssever.jpeg",
+    Thumbnail: "thumbnails/evs.jpg",
     Folder: "GBA-gh-pages/",
     Index: "index.html?file=EcksvsSever.gba",
     Added: new Date("June 6, 2025"),
@@ -284,6 +284,7 @@ const apps = [
   {
     Name: "Fancy Pants 1",
     Folder: "Fancy Pants/1/",
+    Thumbnail: "thumbnail.png",
     Added: new Date("November 12, 2024"),
     Fixed: new Date("June 6, 2025")
   },
@@ -362,9 +363,9 @@ const apps = [
   },
   {
     Name: "Gimme the Airpod",
+    Thumbnail: "thumbnail.jpg",
     Added: new Date("June 6, 2025")
   },
-
   {
     Name: "Google Dino",
     Folder: "GoogleDino",
@@ -816,6 +817,24 @@ const apps = [
     Related: ["subway surfers"]
   },
   {
+    Name: "Super Mario 63",
+    Folder: "SuperMario 63/",
+    Thumbnail: "thumbnail.jpg"
+  },
+  {
+    Name: "Super Mario 64",
+    Folder: "SuperMario 64/",
+    Thumbnail: "thumbnail.jpg",
+    Genres: ["classic"]
+  },
+  {
+    Name: "Super Mario Advance 2 (GBA)",
+    Thumbnail: "thumbnails/sma2.jpg",
+    Folder: "GBA-gh-pages/",
+    Index: "index.html?file=supermarioadvance2.gba",
+    Added: new Date("June 6, 2025"),
+  },
+  {
     Name: "Super Mario Bros. 1 (NES)",
     Folder: "../resources/jsnes/",
     Index: "nes.html?file=supermariobros",
@@ -838,17 +857,6 @@ const apps = [
     Thumbnail: "thumbnails/smb3.jpg",
     Added: new Date("January 6, 2025"),
     Genres: ["classic", "nintendo"],
-  },
-  {
-    Name: "Super Mario 63",
-    Folder: "SuperMario 63/",
-    Thumbnail: "thumbnail.jpg"
-  },
-  {
-    Name: "Super Mario 64",
-    Folder: "SuperMario 64/",
-    Thumbnail: "thumbnail.jpg",
-    Genres: ["classic"]
   },
   {
     Name: "Stickman Hook",

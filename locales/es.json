@@ -2,9 +2,11 @@
     "settingsHeader": "Configuración",
     "settingsClose": "Cerrar",
     "latestUpdateVersion": "Actualización de contenido del 6 de junio",
-    "latestUpdateContent": "Se añadieron 5 nuevas apps",
+    "latestUpdateContent": "Se añadieron 6 nuevas apps y se corrigieron 2 apps.",
     "appRequestButton": "Solicitar un nuevo juego",
     "requestStatusesButton": "Ver el estado de las sugerencias",
+    "summerUpdateNoticeButton": "Información de actualizaciones de verano",
+    "summerUpdateNoticeButtonTitle": "Haz clic para ver más información sobre las actualizaciones de verano",
     "logoWelcome": "Bienvenido a",
     "logoSubTextSiteCreator": "Creado por ButterDogCo",
     "weeklyRecommendationsHeader": "Recomendaciones Semanales",
@@ -58,5 +60,13 @@
     "searchAppsPlaceholder": "Buscar por nombre, género, lo que sea",
     "searchAppsClearTitle": "Borrar",
 
-    "settingsItemflipInAppButtons": "Mover los botones dentro de la app (Cerrar, Temporizador, etc.) a la derecha"
+    "settingsItemflipInAppButtons": "Mover los botones dentro de la app (Cerrar, Temporizador, etc.) a la derecha",
+
+    "summerInfoHeader": "Sobre las actualizaciones de verano",
+    "summerInfoH1": "¿Habrá actualizaciones durante las vacaciones de verano?",
+    "summerInfoP1": "¡Sí! Pero serán mucho menos frecuentes, y la mayoría serán pequeñas actualizaciones de contenido. Las nuevas funciones se lanzarán más cerca del final de las vacaciones.",
+    "summerInfoH2": "¿Se revisará el formulario de solicitudes?",
+    "summerInfoP2": "Al igual que con las actualizaciones, sí. Sin embargo, se revisará con mucha menos frecuencia.",
+    "summerInfoNote1": "¡De todas formas, que tengas un excelente verano! ¡Nos vemos después de las vacaciones!",
+    "summerInfoNote2": "Si necesitas contactarnos durante las vacaciones, consulta nuestros enlaces sociales en la sección \"Extra\" de la configuración."
 }

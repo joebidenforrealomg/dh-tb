@@ -2,11 +2,13 @@
     "settingsHeader": "Settings",
     "settingsClose": "Close",
     "latestUpdateVersion": "June 6th Content Update",
-    "latestUpdateContent": "Added 5 new apps, and fixed 2",
+    "latestUpdateContent": "Added 6 new apps, and fixed 2 apps.",
     "appRequestButton": "Request a new game",
     "appRequestButtonTitle": "Click to open the Google Form in a new tab",
     "requestStatusesButton": "View suggestion statuses",
     "requestStatusesButtonTitle": "Click to open the requests website in a new tab",
+    "summerUpdateNoticeButton": "Summer updates info",
+    "summerUpdateNoticeButtonTitle": "Click to view more information on summer updates",
     "headerSettingsButtonTitle": "Settings",
     "logoWelcome": "Welcome to",
     "logoSubTextSiteCreator": "Created by ButterDogCo",
@@ -58,5 +60,13 @@
     "searchAppsPlaceholder": "Search by name, genre, anything",
     "searchAppsClearTitle": "Clear",
 
-    "settingsItemflipInAppButtons": "Flip in app buttons (Close, Timer, etc.) to the right"
+    "settingsItemflipInAppButtons": "Flip in app buttons (Close, Timer, etc.) to the right",
+
+    "summerInfoHeader": "About Summer Updates",
+    "summerInfoH1": "Will there be updates during summer break?",
+    "summerInfoP1": "Yes! But, they'll be much less frequent, and expect most of them to be small content drops. New features will release closer to the end of the break.",
+    "summerInfoH2": "Will the request form be checked?",
+    "summerInfoP2": "Similar to the updates, yes. However, it'll for sure be checked much less.",
+    "summerInfoNote1": "Anyway, have a great summer! See you guys after break!",
+    "summerInfoNote2": "If you need to get in contact with us during break, please see our social links in the \"Extra\" section in settings."
 }

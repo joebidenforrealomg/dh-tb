@@ -1,10 +1,12 @@
 {
     "settingsHeader": "stuf u wanna chainge",
     "settingsClose": "leave",
-    "latestUpdateVersion": "JUNE 1 app UDPATEE!!!11!",
-    "latestUpdateContent": "ADD te new 5 app 'n stuf 👍 also we r work on te cool 😎 stuf so smol updaet 👍",
+    "latestUpdateVersion": "JUNE 6 app UDPATEE!!!11!",
+    "latestUpdateContent": "ADD te new 6 app 'n fix 2 more 👍 also summer is vary clos 😎 so smol updaet n' hapy sumer 👍",
     "appRequestButton": "ask for new gaem",
     "requestStatusesButton": "see te sugest status",
+    "summerUpdateNoticeButton": "sumer ☀️ info",
+    "summerUpdateNoticeButtonTitle": "click 2 see stuf about summer",
     "logoWelcome": "hi welcom TOO!!!",
     "logoSubTextSiteCreator": "made by TE ButerDOGCO!",
     "weeklyRecommendationsHeader": "gaems of te week",
@@ -57,5 +59,13 @@
     "searchAppsPlaceholder": "serch 4 stuf or someting idk",
     "searchAppsClearTitle": "give up an clear ur serch text",
 
-    "settingsItemflipInAppButtons": "move te app buton (clos, timer, etc.) to te right"
+    "settingsItemflipInAppButtons": "move te app buton (clos, timer, etc.) to te right",
+
+    "summerInfoHeader": "About Summer Updates",
+    "summerInfoH1": "Will there be updates during summer break?",
+    "summerInfoP1": "Yes! But, they'll be much less frequent, and expect most of them to be small content drops. New features will release closer to the end of the break.",
+    "summerInfoH2": "Will the request form be checked?",
+    "summerInfoP2": "Similar to the updates, yes. However, it'll for sure be checked much less.",
+    "summerInfoNote1": "Anyway, have a great summer! See you guys after break!",
+    "summerInfoNote2": "If you need to get in contact with us during break, please see our social links in the \"Extra\" section in settings."
 }
