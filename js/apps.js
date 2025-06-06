@@ -270,7 +270,7 @@ const apps = [
     Genres: ["classic", "nintendo"],
   },
   {
-    Name: "Ecks vc. Sever (GBA)",
+    Name: "Ecks vs. Sever (GBA)",
     Thumbnail: "thumbnails/evs.jpg",
     Folder: "GBA-gh-pages/",
     Index: "index.html?file=EcksvsSever.gba",
