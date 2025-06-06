@@ -3643,7 +3643,7 @@ var UnityLoader = UnityLoader || {
               r.indexOf("could not allocate memory") == -1) ||
             (r =
               "The browser could not allocate enough memory for the WebGL content. If you are the developer of this content, try allocating less memory to your WebGL build in the WebGL player settings."),
-          alert(r),
+          console.log(r),
           (this.didShowErrorMessage = !0);
       }
     },

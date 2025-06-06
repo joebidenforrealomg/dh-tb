@@ -247,7 +247,6 @@ clear.addEventListener("click", function () {
 searchForm.addEventListener("input", handleSearch);
 searchForm.addEventListener("submit", handleSearch);
 
-
 /* 
   Final setup
 */

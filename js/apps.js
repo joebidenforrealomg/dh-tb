@@ -270,6 +270,13 @@ const apps = [
     Genres: ["classic", "nintendo"],
   },
   {
+    Name: "Ecks vc. Sever (GBA)",
+    Thumbnail: "thumbnails/ecksvssever.jpeg",
+    Folder: "GBA-gh-pages/",
+    Index: "index.html?file=EcksvsSever.gba",
+    Added: new Date("June 6, 2025"),
+  },
+  {
     Name: "Electric Man 2",
     Folder: "ElectricMan 2",
     Thumbnail: "thumbnail.jpg"
@@ -278,7 +285,7 @@ const apps = [
     Name: "Fancy Pants 1",
     Folder: "Fancy Pants/1/",
     Added: new Date("November 12, 2024"),
-    Hidden: true,
+    Fixed: new Date("June 6, 2025")
   },
   {
     Name: "Fire Boy and Water Girl 1",
@@ -354,9 +361,10 @@ const apps = [
     Added: new Date("November 22, 2024")
   },
   {
-    Name: "Google Baseball",
-    Hidden: true,
+    Name: "Gimme the Airpod",
+    Added: new Date("June 6, 2025")
   },
+
   {
     Name: "Google Dino",
     Folder: "GoogleDino",
@@ -465,15 +473,7 @@ const apps = [
     Folder: "Madalin Stunt Cars/2/",
     Thumbnail: "thumbnail.jpeg",
     Added: new Date("November 5, 2024"),
-    Hidden: true,
-    Genres: ["driving", "car", "open world"]
-  },
-  {
-    Name: "Madalin Stunt Cars 3",
-    Folder: "Madalin Stunt Cars/3/",
-    Thumbnail: "thumbnail.jpeg",
-    Added: new Date("November 5, 2024"),
-    Hidden: true,
+    Fixed: new Date("June 6, 2025"),
     Genres: ["driving", "car", "open world"]
   },
   {
@@ -611,11 +611,25 @@ const apps = [
     Related: ["pvz"],
   },
   {
-    Name: "Pokemon Sapphire",
-    Folder: "../resources/emulatorjs",
-    Index: "loader.html?file=pokemonsapphire.gba",
-    Added: new Date("June 1, 2025"),
-    Hidden: true
+    Name: "Pokemon Green (GBA)",
+    Thumbnail: "thumbnails/pgreen.jpg",
+    Folder: "GBA-gh-pages/",
+    Index: "index.html?file=pokemongreen.gba",
+    Added: new Date("June 6, 2025"),
+  },
+  {
+    Name: "Pokemon Ruby (GBA)",
+    Thumbnail: "thumbnails/pruby.jpeg",
+    Folder: "GBA-gh-pages/",
+    Index: "index.html?file=pokemonruby.gba",
+    Added: new Date("June 6, 2025"),
+  },
+  {
+    Name: "Pokemon Sapphire (GBA)",
+    Thumbnail: "thumbnails/psapphire.jpeg",
+    Folder: "GBA-gh-pages/",
+    Index: "index.html?file=pokemonsapphire.gba",
+    Added: new Date("June 6, 2025"),
   },
   {
     Name: "Punchout (NES)",
@@ -936,8 +950,7 @@ const apps = [
     Name: "Game Boy Advance Emulator",
     Folder: "GBA-gh-pages/",
     Thumbnail: "Binaries/gb.ico",
-    Section: "emulators",
-    Notice: "This app has issues with lag, we currently don't have a fix for this."
+    Section: "emulators"
   },
 ];
 

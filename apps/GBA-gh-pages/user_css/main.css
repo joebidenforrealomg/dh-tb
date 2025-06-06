@@ -176,6 +176,38 @@ li.hide {
     opacity: 1;
 }
 
+.canvasMessage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    pointer-events: none;
+    z-index: 999;
+}
+
+button.romLoad {
+    margin-right: 8px;
+    padding: 4px 8px 4px 8px;
+    background: rgb(210,210,210);
+    color: black;
+    border: none;
+    outline: transparent;
+    cursor: pointer;
+    transition: 0.15s ease;
+
+    &:hover, &.loading {
+        color: white;
+        background: transparent;
+        outline: 2px solid white;
+    }
+
+    &.loading {
+        opacity: .5;
+    }
+}
+
 /*
 |-----------------------------------------
 | Touch Controls
