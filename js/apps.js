@@ -31,7 +31,8 @@ const apps = [
   {
     Name: "A Small World Cup",
     Thumbnail: "thumbnail.jpeg",
-    Added: new Date("June 1, 2025")
+    Added: new Date("June 1, 2025"),
+    Mobile: true
   },
   {
     Name: "Angry Birds",
@@ -354,7 +355,8 @@ const apps = [
   {
     Name: "Geometry Dash Lite",
     Thumbnail: "thumbnail.jpeg",
-    Added: new Date("June 1, 2025")
+    Added: new Date("June 1, 2025"),
+    Mobile: true
   },
   {
     Name: "Getaway Shootout",
