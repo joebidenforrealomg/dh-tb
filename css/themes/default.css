@@ -19,11 +19,12 @@
     --textColor2Transparent: rgba(230, 230, 230, 0.8);
 
     --linkColor1: rgb(88, 159, 217);
-
-    --backdropBlur: blur(10px);
-
+    
     --borderRadius1: 16px;
-
+    
     --starNoFill: url("../img/icons/star_hollow.svg");
     --starFill: url("../img/icons/star_solid.svg");
+
+    --backdropBlur: blur(10px) brightness(0.9);
+    --noBlurFilter: brightness(0.2);
 }

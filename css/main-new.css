@@ -45,9 +45,18 @@ html {
     background-position: bottom right;
 }
 
-.backdropBlur {
-    backdrop-filter: var(--backdropBlur);
-    -webkit-backdrop-filter: var(--backdropBlur);
+body.blurEnabled {
+    .backdropBlur {
+        backdrop-filter: var(--backdropBlur);
+        -webkit-backdrop-filter: var(--backdropBlur);
+    }
+
+    .backdropBlurChildren {
+        * {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+    }
 }
 
 .boxShadow {
@@ -73,7 +82,7 @@ html {
     z-index: 99999;
     display: flex;
     flex-direction: column;
-    
+
     .notification {
         margin-top: 0;
         animation: notificationFadeIn 0.5s ease;
